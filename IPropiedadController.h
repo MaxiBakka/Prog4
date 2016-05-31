@@ -3,10 +3,12 @@
 
 #include "DataPropiedad.h"
 #include "DataAlquiler.h"
+#include "DataVenta.h"
 #include "DataDepartamento.h"
 #include "DataEdificio.h"
 #include "DataZona.h"
 #include "DataMensaje.h"
+#include "DataInfoPropiedad.h"
 
 #include <string>
 #include <set>
@@ -32,4 +34,7 @@ public:
 	virtual set<DataMensaje*>* listarMensajes() = 0;
 	virtual set<DataInfoPropiedad*>* obtnerConversaciones() = 0;
 	virtual void seleccionarPropiedad(int codigo) = 0; 
+	virtual void seleccionarDepartamento(string letra) = 0;
+	virtual void seleccionarZona(int codigo) = 0;
+	virtual void seleccionarEdificio(string nombre) = 0;
 }
