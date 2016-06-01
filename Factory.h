@@ -1,8 +1,9 @@
 #ifndef Factory.h
 #define Factory.h
 
-#include "IPropiedadController.h"
-#include "IUsuarioController.h"
+class "IPropiedadController.h"
+class "IUsuarioController.h"
+
 
 class Factory {
 	private:
