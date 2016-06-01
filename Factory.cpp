@@ -1,5 +1,6 @@
 #include "Factory.h"
-
+#include "UsuarioController.h"
+#include "PropiedadController.h"
 
 	Factory* Factory::instancia = NULL;
 	
