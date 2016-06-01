@@ -1,3 +1,4 @@
+#include "Edificio.h"
 
 Edificio :: Edificio(){
     this->nombre='';
@@ -11,12 +12,20 @@ Edificio :: Edificio(string n,int cp,float gc){
     this->gastosComunes=gc;
 }
 
+string& Edificio :: getNombre(){
+    return nombre;
 }
 
+int Edificio :: getCantPisos(){
+    return cantPisos;
 }
 
+float Edificio :: getGastosComunes(){
+    return gastosComunes;
 }
 
+void Edificio :: setGastosComunes(float &gc){
+    gastosComunes=gc;
 }
 
 DataEdificio Edificio :: getDataEdificio(){
