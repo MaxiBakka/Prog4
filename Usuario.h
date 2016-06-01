@@ -8,15 +8,14 @@ using namespace std;
 class Usuario {
     private:
         string email;
-        string contraseña;
+        string contraseÃ±a;
     public:
         Usuario();
-        Usuario(string e,string c);
-        virtual string get_email();
-        virtual string get_contrasenia();
-        virtual void set_email(string &e);
+        Usuario(string& e,string& c);
+        virtual string& get_email();
+        virtual string& get_contrasenia();
         virtual void set_contrasenia(string &c);
-        virtual ~Usuario;
+        virtual ~Usuario();
 };
 
 
