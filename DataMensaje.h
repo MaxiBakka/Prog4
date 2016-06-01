@@ -2,6 +2,8 @@
 #define DataMensaje_h
 
 #include <string>
+#include <iostream>
+
 #include "Hora.h"
 #include "Fecha.h"
 
