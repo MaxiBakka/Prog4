@@ -2,9 +2,11 @@
 #define DataApartamento_h
 
 #include <string>
+#include <iostream>
+
 #include "DataPropiedad.h"
-#include "DataInfoVenta.h"
-#include "DataInfoAlquiler.h"
+#include "DataVenta.h"
+#include "DataAlquiler.h"
 
 using namespace std;
 
@@ -15,8 +17,8 @@ private:
 	float m2totales;
 
 public:
-
-		DataApartamento(int cAmbientes, int dormitorios , int banios, string direc, bool gar, DataInfoAlquiler *&infoAlquiler, DataInfoVenta *&infoVenta, float m2Tot);
+		DataApartamento(DataApartamento*da);
+		DataApartamento(int codigo,int cAmbientes, int dormitorios , int banios, string direc, bool garaje, DataAlquiler *&infoAlquiler, DataVenta *&infoVenta, float m2Tot);
 		virtual ~DataApartamento();
 
 		virtual string getDireccion();
@@ -24,13 +26,13 @@ public:
 		virtual int getDormitorios();
 		virtual int getBanios();
 		virtual bool getGaraje();
-		virtual DataInfoAlquiler*& getAlquiler();
-		virtual DataInfoVenta*& getVenta();
+		virtual DataAlquiler*& getAlquiler();
+		virtual DataVenta*& getVenta();
 		float getM2totales();
 
-
-
 };
+
+ostream &operator <<(ostream &output,DataApartamento*da);
 
 
 #endif
