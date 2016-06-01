@@ -1,15 +1,20 @@
 #ifndef Factory.h
 #define Factory.h
 
+#include "IPropiedadController.h"
+#include "IUsuarioController.h"
+
 class Factory {
 	private:
 		static Factory* instancia;
-		Factory(){}
+		Factory();
 
 	public:
-		~Factory(){}
-		static Factory getInstance();
-		IPropiedadController getIPropiedadController();
-		IUsuarioController getIUsuarioController();
+		~Factory();
+		static Factory*getInstance();
+		static IPropiedadController *getIPropiedadController();
+		static IUsuarioController *getIUsuarioController();
 
-}
+};
+
+#endif
