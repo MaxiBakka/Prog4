@@ -18,7 +18,6 @@ class Interesado : public Usuario{
         set<Chat*>*chats;
     public:
         Interesado();
-        Interesado(const DataInteresado*di);
         Interesado(string& e,string& c,string& n,string& a,int age);
         //getters y setters
         string& get_nombre();
@@ -27,15 +26,15 @@ class Interesado : public Usuario{
         void set_nombre(string &n);
         void set_apellido(string &a);
         void set_edad(int &age);
-        
+
         //obtencion datatype
         set<DataMensaje*>* ObtenerDataMensajes();
         //operaciones de chat
         void AgregarChat(Chat *chat);
         void EliminarChat(Chat *chat);
-        bool ExisteChat(const string& email);
-       
-        
+        bool ExisteChat(Chat&* chat);
+
+
         virtual ~Interesado();
 
 };
