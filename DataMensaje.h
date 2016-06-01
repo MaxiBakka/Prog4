@@ -2,29 +2,28 @@
 #define DataMensaje_h
 
 #include <string>
-#include Hora.h
-#include Fecha.h
+#include "Hora.h"
+#include "Fecha.h"
 
 using namespace std;
 
 class DataMensaje{
 private:
-    Fecha *fecha;
-    Hora *hora;
+    Fecha fecha;
+    Hora hora;
     string texto;
 public:
-    DataMensaje();
-    DataMensaje(Fecha f,Hora h,string t);
-    Fecha get_fecha();
-    Hora get_hora();
-    string get_texto();
-    void set_fecha(Fecha *&f);
-    void set_hora(Hora *&h);
-    void set_texto(string &t);
-    ~DataMensaje;
+    //constructor
+    DataMensaje(Fecha& f,Hora& h,string t);
+    //getters
+    Fecha& get_fecha();
+    Hora& get_hora();
+    const string& get_texto();
+    //destructor
+    ~DataMensaje();
 
 };
 
-
+oustream& operator <<(ostream &output,DataMensaje& dm);
 
 #endif // DataMensaje_h
