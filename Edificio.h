@@ -29,15 +29,15 @@ public:
       float getGastosComunes();
       void setNombre(const string& nombre);
       void setCantPisos(int cantPisos);
-      void setGastosComunes(float gcomunes);
+      void setGastosComunes(float &gcomunes);
 
       //datatypes
       DataEdificio*getDataEdificio();
 
       //apartamentos
       void agregarApartamento(Apartamento*apto);
-      void RemoverApartamento(Apartamento*apto);
-      bool ExisteApartamento(int codigo)const;
+      void RemoverApartamento(int& codigo);
+      bool ExisteApartamento(int& codigo);
 
 };
 

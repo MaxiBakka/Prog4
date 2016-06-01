@@ -1,18 +1,14 @@
 #include "Edificio.h"
 
-Edificio :: Edificio(){
-    this->nombre='';
-    this->cantPisos=-1;
-    this->gastosComunes=-1;
-}
 
-Edificio :: Edificio(string n,int cp,float gc){
-    this->nombre=n;
-    this->cantPisos=cp;
-    this->gastosComunes=gc;
+Edificio :: Edificio(const string& nombre,int cantPisos,float gcomunes){
+    nombre=nombre;
+    cantPisos=cantPisos;
+    gastosComunes=gastosComunes;
+    this->apartamentos= new map<int,Apartamento*>();
 }
-
-string& Edificio :: getNombre(){
+//getters
+const string& Edificio :: getNombre(){
     return nombre;
 }
 
@@ -23,14 +19,43 @@ int Edificio :: getCantPisos(){
 float Edificio :: getGastosComunes(){
     return gastosComunes;
 }
-
-void Edificio :: setGastosComunes(float &gc){
+//setters
+void Edificio::setGastosComunes(float &gcomunes){
     gastosComunes=gc;
 }
+void Edificio::setNombre(const string& nombre){
 
-DataEdificio Edificio :: getDataEdificio(){
-    return DataEdificio(this->nombre,this->cantPisos,this->gastosComunes);
+  this->nombre=nombre;
+}
+void Edificio::setCantPisos(int cantPisos){
+
+  this->cantPisos=cantPisos;
 }
 
-Edificio :: ~Edificio(){}
 
+DataEdificio* Edificio :: getDataEdificio(){
+    return new DataEdificio(this->nombre,this->cantPisos,this->gastosComunes);
+}
+
+void Edificio::agregarApartamento(Apartamento*apto){
+apartamentos->insert(pair<int,Apartamento*>(apto->getCodigo,apto));
+
+}
+void Edificio::RemoverApartamento(int& codigo){
+  apartamentos->erase(codigo);
+
+}
+
+bool Edificio::ExisteApartamento(int &codigo){
+    return apartamentos->find(codigo)!=apartamentos->end();
+
+}
+
+Edificio::~Edificio(){
+
+  for (map<int,Apartamento*>::iterator it= apartamentos->begin(); it!=apartamentos->end(); ++it){
+      delete it->second;
+  }
+  delete apartamentos;
+
+}
