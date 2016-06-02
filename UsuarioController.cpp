@@ -1,6 +1,7 @@
 #include "UsuarioController.h"
 #include "Manejador_Usuario.h"
 #include "Inmobiliaria.h"
+#include "Interesado.h"
 
 
 
@@ -43,7 +44,7 @@ void UsuarioController::ConfirmarContrasenia(string& pwd){
 		usuario->set_contrasenia(pwd);
 }
 
-bool UsuarioController::esUsuarioAdmin(string& email){
+bool UsuarioController::esUsuarioAdmin(){
 		Manejador_Usuario* manUs = Manejador_Usuario::getInstance();
 		usuario = manUs->getUsuario(this->email);//suplantamos la operacion Esusuarioadmin por getUsuario
 		return (0 != Administrador*admin= dynamic_cast<Administrador*>(&usuario));
@@ -89,7 +90,7 @@ void UsuarioController::IngresarInmobiliaria(DataInmobiliaria* di){
 
 set<DataInfoInmobiliaria*>* UsuarioController::obtenerReporte(){
 
-	//completamos mas adelante 
+	//completamos mas adelante
 
 }
 
