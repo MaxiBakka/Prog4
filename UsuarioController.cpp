@@ -7,6 +7,7 @@ private:
 	string* email = NULL;
 	string* password = NULL;
 	string* passwordPrimVez = NULL;
+	Usuario * usuario = NULL;
 public:
 	void UsuarioController::activarSesion(){}
 	void UsuarioController::cancelarInicioSesion(){
@@ -25,7 +26,12 @@ public:
 
 	bool UsuarioController::esUsuarioAdmin(){
 		Manejador_Usuario* manUs = Manejador_Usuario::getInstance();
-		Usuario* usr = manUs->find(this->email);
+		bool esAdmin = false;
+		if(usuario==NULL){
+			usuario = manUs->find(this->email)
+		}else{
+			throw invalidUserAdminBinding();
+		}
 		bool esAdmin = manUs->esUsuarioAdministrador(); //no entiendo muy si como funciona esto
 		return esAdmin;
 	}
