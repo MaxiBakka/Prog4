@@ -3,59 +3,113 @@
 #include "Inmobiliaria.h"
 
 
-private:
-	string* email = NULL;
-	string* password = NULL;
-	string* passwordPrimVez = NULL;
-public:
-	void UsuarioController::activarSesion(){}
-	void UsuarioController::cancelarInicioSesion(){
-		delete password;
-		password = NULL;
-	}
 
-	void UsuarioController::confirmarContrasena(string& pwd){
-		if(this->passwordPrimVez==pwd){
-			this->password = pwd;
+
+UsuarioController::UsuarioController(){
+	email=NULL;
+	password=NULL;
+	usuario=NULL;
+
+}
+UsuarioController::~UsuarioController(){
+
+	usuario=NULL; 	//nose si dejar esto asi esta bien
+	delete password;//porque cuando decimos que libera memoria
+	delete email;   //si tmb tenemos que destruir el controlador
+									//entonces asi se pierde la sesion.
+}
+void UsuarioController::activarSesion(){
+		delete password;
+		//Poner delete email o usuario=NULL uno de los dos deberia ser
+		// el dato para recordar la sesion(me parece mejor usuario)
+}
+
+void UsuarioController::cancelarInicioSesion(){
+		if(password!=NULL) delete password;
+
+		delete email;
+		usuario=NULL;
+}
+
+void UsuarioController::ConfirmarContrasenia(string& pwd){
+	/*	if(this->password==pwd){
+		usuario->set_contrasenia(pwd);
 		}else{
 			//falta implementar excepcion
 			throw pwdNotMatched();
-		}
-	}
+		}*/
+		//Para esta operacion siempre se cumple la precondicion
+		//la excepcion se hace por afuera
+		usuario->set_contrasenia(pwd);
+}
 
-	bool UsuarioController::esUsuarioAdmin(){
+bool UsuarioController::esUsuarioAdmin(string& email){
 		Manejador_Usuario* manUs = Manejador_Usuario::getInstance();
-		Usuario* usr = manUs->find(this->email);
-		bool esAdmin = manUs->esUsuarioAdministrador(); //no entiendo muy si como funciona esto
-		return esAdmin;
-	}
-	void UsuarioController::ingresarContrasena(string& pwd){
-		if(password==NULL){
-			password=pwd
+		usuario = manUs->getUsuario(this->email);//suplantamos la operacion Esusuarioadmin por getUsuario
+		return (0 != Administrador*admin= dynamic_cast<Administrador*>(&usuario));
+}
+void UsuarioController::IngresarContrasenia(string& pwd){
+		if(pwd==usuario->get_contrasenia()){
+			password= new string;
+			*password= pwd;
 		}else{
 			//falta implementar
-			throw pwdAlreadyExist(); //habria que ver aca no se como manejamos el tema de como saber si correcta o no la pwd
-			//throw userAlreadyLogged
+			throw WrongPwd();
+
 		}
-	}
-	void UsuarioController::ingresarContrasenaNueva(string& pwd){
-		if (!password==NULL)		{
-			delete password;
-			password = pwd;
-		}else{
-			throw noPwdPreviouslySaved();
-		}
-	}
-	bool UsuarioController::primeraVez(){
-		return password==NULL;
-	}
-	void UsuarioController::ingresarInmobiliaria(DataInmobiliaria* I){
+}
+
+
+void UsuarioController::IngresarContraseniaNueva(string& pwd){
+
+			this->password =new string;
+			*password=pwd;
+}
+
+bool UsuarioController::primeraVez(){
+		return (usuario->get_contrasenia() == " ");
+}
+
+ void UsuarioController::IngresarEmail(string& email){
+
+	 		this->email= new string;
+			*email= email;
+}
+
+void UsuarioController::IngresarInmobiliaria(DataInmobiliaria* di){
 		try{
-			Inmobiliaria* Inmo = Manejador_Usuario::getInstance()->CrearInmobiliaria(I); 
-			Manejador_Usuario::getInstance()->add(Inmo); // esta operacion para agregar la coleccion de inmobiliarias no aparece en el DCD
-														//  asi que capaz que se implementa distinto	
-		}catch(string e){ //puede ser una clase excepcion tmb lo dejo asi por ahora
-			cout<<"Fallo al ingresar inmobiliaria" << e <<'\n';
-		}													
+
+			Manejador_Usuario* mu = Manejador_Usuario::getInstance();//Hacer delete dsp??
+			mu->inmobiliarias->AddInmobiliaria(new mu->Inmobiliaria(di->getNombre(),di->getUbicacion(),di->get_email()," "));
+
+		}catch(string e){ //puede ser una clase excepcion tmb lo dejo asi por ahora.
+			cout<<"Fallo al ingresar inmobiliaria" << e <<'\n';//Maxi:esta excepcion debe saltar si el mail o nombre de la inmobiliaria no es unico
+		}
+}
+
+set<DataInfoInmobiliaria*>* UsuarioController::obtenerReporte(){
+
+	//completamos mas adelante 
+
+}
+
+//CASO DE USO CERRAR SESION
+void UsuarioController::CerrarSesion(string emailUsuario){
+	delete email;		//misma cuestion de arriba (hay que ver si es necesario el parametro de entrada)
+	usuario =NULL;
+}
+
+
+//CASO DE USO ALTA INTERESADO
+void UsuarioController::IngresarInteresado(DtInteresado*di){
+
+	try{
+
+		Manejador_Usuario* mu = Manejador_Usuario::getInstance();//Hacer delete dsp??
+		mu->interesados->AddInteresado(new mu->Interesado(di->get_email()," ",di->get_nombre(),di->get_apellido(),di->get_edad()));
+
+	}catch(string email){
+		cout<<"Interesado ya existente" << email.what() <<'\n';//Maxi:esta excepcion debe saltar si el mail de el interesado no es unico
 	}
-	<DataInfoInmobiliaria*>* UsuarioController::obtenerReporte()
+
+}
