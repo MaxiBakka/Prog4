@@ -4,32 +4,48 @@
 #include "Manejador_Usuario.h"
 #include "Usuario.h"
 #include "IUsuarioController.h"
+#include "DtInteresado.h"
 #include "DataInmobiliaria.h"
 #include "DataInfoInmobiliaria.h"
 
 #include <set>
 #include <string>
- 
+
 class UsuarioController : public IUsuarioController{
 
 private:
 
-	//No se si va pero por las dudas lo dejo por aca
-	string* email;
-	string* password;
-	string* passwordPrimVez;
+
+	 string *email;
+	 string *password;//nose si va como puntero
+   Usuario*usuario;
+
 
 public:
+      UsuarioController();
+      virtual ~UsuarioController();
 
-	virtual void activarSesion();
-	virtual void cancelarInicioSesion();
-	virtual void confirmarContrasena(string& pwd);
-	virtual bool esUsuarioAdmin();
-	virtual void ingresarContrasena(string& pwd);
-	virtual void ingresarContrasenaNueva(string& pwd);
-	virtual bool primeraVez();
-	virtual void ingresarInmobiliaria(DataInmobiliaria* I);
-	virtual <DataInfoInmobiliaria*>* obtenerReporte();
+      virtual void IngresarEmail(string& email);
+    	virtual void activarSesion();
+    	virtual void cancelarInicioSesion();
+    	virtual void ConfirmarContrasenia(string& pwd);
+    	virtual bool esUsuarioAdmin(string& email);
+    	virtual void IngresarContrasenia(string& pwd);
+    	virtual void IngresarContraseniaNueva(string& pwd);
+    	virtual bool primeraVez();
+
+      //ALTA INMOBILIARIA
+    	virtual void IngresarInmobiliaria(DataInmobiliaria* di);
+
+      //Obtener Reporte de Inmobiliarias
+    	virtual set<DataInfoInmobiliaria*>* ObtenerReporte();
+
+      //Cerrar sesion
+      virtual void CerrarSesion(string emailUsuario);
+
+      //Alta Interesado
+      virtual void IngresarInteresado(DtInteresado*di)
 
 
-}
+};
+#endif

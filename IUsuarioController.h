@@ -3,7 +3,7 @@
 
 #include "DataInmobiliaria.h"
 #include "DataInfoInmobiliaria.h"
-#include "DataInteresado.h"
+#include "DtInteresado.h"
 
 #include <string>
 #include <set>
@@ -21,10 +21,10 @@ public:
       virtual void activarSesion() = 0;
       virtual void cancelarInicioSesion() = 0;
       virtual ConfirmarContrasenia(string pwd) = 0;
-      virtual bool esUsuarioAdmin() = 0;
-      virtual void IngresarEmail(string email) = 0;
-      virtual void IngresarContrasenia(string pwd)= 0;
-      virtual void IngresarContraseniaNueva(string pwd) = 0;
+      virtual bool esUsuarioAdmin(string& email) = 0;
+      virtual void IngresarEmail(string& email) = 0;
+      virtual void IngresarContrasenia(string& pwd)= 0;
+      virtual void IngresarContraseniaNueva(string& pwd) = 0;
       virtual bool PrimeraVez() = 0;
       //AltaInmobiliaria
       virtual void IngresarInmobiliaria(DataInmobiliaria*di) = 0;
