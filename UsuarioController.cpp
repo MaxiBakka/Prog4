@@ -6,6 +6,12 @@
 
 
 
+
+
+
+
+
+
 UsuarioController::UsuarioController(){
 	email=NULL;
 	password=NULL;

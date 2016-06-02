@@ -27,12 +27,14 @@ public:
 
       virtual void IngresarEmail(string& email);
     	virtual void activarSesion();
-    	virtual void cancelarInicioSesion();
+    	virtual void CancelarInicioSesion();
     	virtual void ConfirmarContrasenia(string& pwd);
-    	virtual bool esUsuarioAdmin(string& email);
+
+    	virtual bool esUsuarioAdmin();
+
     	virtual void IngresarContrasenia(string& pwd);
     	virtual void IngresarContraseniaNueva(string& pwd);
-    	virtual bool primeraVez();
+    	virtual bool PrimeraVez();
 
       //ALTA INMOBILIARIA
     	virtual void IngresarInmobiliaria(DataInmobiliaria* di);
