@@ -29,7 +29,9 @@ public:
     	virtual void activarSesion();
     	virtual void cancelarInicioSesion();
     	virtual void ConfirmarContrasenia(string& pwd);
-    	virtual bool esUsuarioAdmin(string& email);
+    //	virtual bool esUsuarioAdmin(string& email);
+    	virtual bool esUsuarioAdmin(); // no lleva parametro xq el manejador de usuarios busca email en al col de usuarios
+    					// y el email es una variable que vos llenas cuando haces IngresarEmail(), tal vez email deberia ser estatica
     	virtual void IngresarContrasenia(string& pwd);
     	virtual void IngresarContraseniaNueva(string& pwd);
     	virtual bool primeraVez();
