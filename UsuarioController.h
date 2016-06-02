@@ -17,6 +17,7 @@ private:
 	//No se si va pero por las dudas lo dejo por aca
 	string* email;
 	string* password;
+	string* passwordPrimVez;
 
 public:
 
