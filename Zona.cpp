@@ -32,8 +32,13 @@ void Zona :: RemoverPropiedad(Propiedad* p){
 }
 
 map<int,Propiedad*>* Zona :: getPropiedades(){
-
+    res=new map<int,Propiedad*>();
+    for (map<int,Propiedad*>::iterator it= propiedades->begin(); it!=propiedades->end(); ++it){
+        res[it->first]=it->second;
+    }
+    return res;
 }
+
 ~Zona(){
     map<int,Propiedad*>::iterator it;
     for (it= propiedades->begin(); it!=propiedades->end(); ++it){
