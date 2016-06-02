@@ -23,10 +23,10 @@ public:
 
 	virtual void activarSesion();
 	virtual void cancelarInicioSesion();
-	virtual void confirmarContrasena(string pwd);
-	virtual bool esUsuarioAdmin(const string& email);
-	virtual void ingresarContrasena(string pwd);
-	virtual void ingresarContrasenaNueva(string pwd);
+	virtual void confirmarContrasena(string& pwd);
+	virtual bool esUsuarioAdmin();
+	virtual void ingresarContrasena(string& pwd);
+	virtual void ingresarContrasenaNueva(string& pwd);
 	virtual bool primeraVez();
 	virtual void ingresarInmobiliaria(DataInmobiliaria* I);
 	virtual <DataInfoInmobiliaria*>* obtenerReporte();
