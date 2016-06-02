@@ -10,7 +10,7 @@
 #include <set>
 #include <string>
  
-class UsuarioController {
+class UsuarioController : public IUsuarioController{
 
 private:
 
