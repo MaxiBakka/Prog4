@@ -16,8 +16,14 @@ public:
     Fecha& getFecha();
     Hora& getHora();
     string& getTexto();
+    
+    //setters
+    void setTexto(string& texto);
+    void setHora(Hora& hora);
+    void setFecha(Fecha& fecha);
+    
     DataMensaje* getDataMensaje();
-    ~Mensaje();
+    virtual ~Mensaje();
 };
 
 
