@@ -20,15 +20,18 @@ UsuarioController::UsuarioController(){
 }
 UsuarioController::~UsuarioController(){
 
-	usuario=NULL; 	//nose si dejar esto asi esta bien
-	delete password;//porque cuando decimos que libera memoria
-	delete email;   //si tmb tenemos que destruir el controlador
-									//entonces asi se pierde la sesion.
+	usuario=NULL;
+	delete password;
+	delete email;
+
 }
 void UsuarioController::activarSesion(){
 		delete password;
-		//Poner delete email o usuario=NULL uno de los dos deberia ser
-		// el dato para recordar la sesion(me parece mejor usuario)
+		delete email;
+		Sesion*sesion= Sesion::getInstancia();
+		sesion->ActivarSesion(this->usuario);
+		usuario=NULL;
+
 }
 
 void UsuarioController::cancelarInicioSesion(){
@@ -87,9 +90,9 @@ void UsuarioController::IngresarInmobiliaria(DataInmobiliaria* di){
 		try{
 
 			Manejador_Usuario* mu = Manejador_Usuario::getInstance();//Hacer delete dsp??
-			mu->inmobiliarias->AddInmobiliaria(new mu->Inmobiliaria(di->getNombre(),di->getUbicacion(),di->get_email()," "));
-
-		}catch(string e){ //puede ser una clase excepcion tmb lo dejo asi por ahora.
+			//mu->inmobiliarias->AddInmobiliaria(new mu->Inmobiliaria(di->getNombre(),di->getUbicacion(),di->get_email()," "));
+			mu->CrearInmobiliaria(di); //esto deberia crear una inmobiliaria nueva y dsp llamar a mu->inmobiliarias->insert(inmobiliariaCreado).
+		}catch(string e){
 			cout<<"Fallo al ingresar inmobiliaria" << e <<'\n';//Maxi:esta excepcion debe saltar si el mail o nombre de la inmobiliaria no es unico
 		}
 }
@@ -101,9 +104,10 @@ set<DataInfoInmobiliaria*>* UsuarioController::obtenerReporte(){
 }
 
 //CASO DE USO CERRAR SESION
-void UsuarioController::CerrarSesion(string emailUsuario){
-	delete email;		//misma cuestion de arriba (hay que ver si es necesario el parametro de entrada)
-	usuario =NULL;
+void UsuarioController::CerrarSesion(){
+
+	Sesion*sesion= Sesion::getInstancia();
+	sesion->CerrarSesion(this->usuario);
 }
 
 
@@ -113,8 +117,8 @@ void UsuarioController::IngresarInteresado(DtInteresado*di){
 	try{
 
 		Manejador_Usuario* mu = Manejador_Usuario::getInstance();//Hacer delete dsp??
-		mu->interesados->AddInteresado(new mu->Interesado(di->get_email()," ",di->get_nombre(),di->get_apellido(),di->get_edad()));
-
+		//mu->interesados->AddInteresado(new mu->Interesado(di->get_email()," ",di->get_nombre(),di->get_apellido(),di->get_edad()));
+		mu->CrearInteresado(di); //esto deberia crear un interesado nuevo y dsp llamar a mu->interesados->insert(interesadoCreado).
 	}catch(string email){
 		cout<<"Interesado ya existente" << email.what() <<'\n';//Maxi:esta excepcion debe saltar si el mail de el interesado no es unico
 	}
