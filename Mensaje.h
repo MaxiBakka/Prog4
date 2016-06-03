@@ -3,6 +3,8 @@
 
 #include <string>
 #include "DataMensaje.h"
+#include "Hora.h"
+#include "Fecha.h"
 
 class Mensaje {
 private:
@@ -10,12 +12,12 @@ private:
     Hora hora;
     string texto;
 public:
-    Mensaje(Fecha f,Hora h,string t);
-    Fecha getFecha();
-    Hora getHora();
-    string getTexto();
-    DataMensaje getDataMensaje();
-    ~Mensaje)();
+    Mensaje(Fecha& f,Hora& h,string& t);
+    Fecha& getFecha();
+    Hora& getHora();
+    string& getTexto();
+    DataMensaje* getDataMensaje();
+    ~Mensaje();
 };
 
 
