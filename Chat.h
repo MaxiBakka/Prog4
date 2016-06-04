@@ -4,6 +4,7 @@
 
 #include<string>
 #include<vector>
+#include <set>
 
 #include "Mensaje.h"
 #include "DataMensaje.h"
@@ -16,7 +17,7 @@ class Interesado;
 class Inmobiliaria;
 class Propiedad;
 
-		
+
 class Chat {
 private:
     string emailInteresado;
@@ -25,7 +26,7 @@ private:
     Propiedad*propiedad;
     Interesado*interesado;
     Inmobiliaria * inmobiliaria;
-    
+
 public:
     Chat(string ei,string ni,Propiedad*p,Interesado*i,Inmobiliaria*inm);
     //getters
@@ -37,20 +38,19 @@ public:
     //setters
     void setEmailInteresado(string email);
     void setNombreInmobiliaria(string nombre);
-    
+
     //operaciones de caso de uso EnviarMensaje
     int cantidadMensajes();
     bool esChatPropiedad(int codigo);
     void nuevoMensaje(DataMensaje* mensaje);
-    //obtencion de datatype
-    vector<DataMensaje*>* getDataMensajes();
-    
+    //obtencion de datatype, ultimos 5 mensajes
+    set<DataMensaje*>* getDataMensajes();
+
     //operaciones de sobre mensajes
-    
+
     //destructor
     virtual ~Chat();
 };
 
 
 #endif /* CHAT_H */
-

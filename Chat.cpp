@@ -6,7 +6,7 @@ using namespace std;
 Chat::Chat(string ei,string ni,Propiedad*p,Interesado*i,Inmobiliaria*inm{
     this->emailInteresado=ei;
     this->nombreInmobiliaria=ni;
-    this->mensajes= new stack<Mensaje*>()
+    this->mensajes= new vector<Mensaje*>();
     this->propiedad=p;
     this->interesado=i;
     this->inmobiliaria=inm;
@@ -20,51 +20,62 @@ string Chat::getNombreInmobiliaria() {
     return this->nombreInmobiliaria;
 }
 
-std::stack<Mensaje*>* Chat::getMensajes() {
-    //Despues hay que hacerlo
-}
-
 Propiedad* Chat::getPropiedad(){
-	
+  return this->propiedad;
 }
 
 Interesado* Chat::getInteresado(){
-	
-	
+  return this->interesado;
+
 }
 Inmobiliaria *Chat::getInmobiliaria(){
-	
-	
+  return this->inmobiliaria;
+
 }
 void Chat:: setEmailInteresado(string email){
-	
-	
+    this->emailInteresado=email;
+
 }
 void Chat:: setNombreInmobiliaria(string nombre){
-	
-	
+  this->nombreInmobiliaria=nombre;
+
 }
 
 
 int Chat::cantidadMensajes() {
-    return mensajes->size();
+    return (mensajes->size());
 }
 
 bool Chat::esChatPropiedad(int codigo) {
-    //No se que hace esta operacion , no encontre ni el dss ni nada
+    return (codigo == propiedad->getCodigo());
 }
 
-vector<DataMensaje*>* Chat::getDataMensajes() {     //Devuelve los ultimos 6? Repuesta:5
-    
-}
-
-void Chat::nuevoMensaje(DataMensaje m) {
-    this->mensajes->pushback(new Mensaje(m->get_fecha(),m->get_hora(),m->get_texto()));
-}
-
-Chat::~Chat() {
-    while (!this->mensajes->empty()){
-        this->mensajes->pop();
+set<DataMensaje*>* Chat::getDataMensajes() {     //Devuelve los ultimos 6? Repuesta:5
+    if (mensajes->size()==0) {
+      throw ExNoHayMensajes();
+    }
+    else{
+        set<DataMensaje*>* res = new set<DataMensaje*>();
+        for (int i =0,vector<Mensaje*>::reverse_iterator it=mensajes->rbegin(); (it!=mensajes->rend() && i<5); i++,++it) {
+          res->insert(it->getDataMensaje());
+        }
     }
 }
 
+void Chat::nuevoMensaje(DataMensaje m) {
+    this->mensajes->push_back(new Mensaje(m->get_fecha(),m->get_hora(),m->get_texto()));
+}
+
+Chat::~Chat() {
+
+  for (vector<Mensaje*>::iterator it=mensajes->begin() ; it!=mensajes->end() ;++it) {
+    delete *it;
+  }
+  delete mensajes;
+  interesado->EliminarChat(this);
+  inmobiliaria->EliminarChat(this);
+  //segun el diagrama solo la propiedad llama al destructor de chat cuando una propiedad se Elimina
+  //nose si dejarlo asi porque supongo que no se puede pedir que el sistema elimine un chat porq le pinto no tendria sentido
+
+
+}
