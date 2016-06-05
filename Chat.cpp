@@ -3,7 +3,7 @@
 using namespace std;
 
 
-Chat::Chat(string ei,string ni,Propiedad*p,Interesado*i,Inmobiliaria*inm{
+Chat::Chat(string ei,string ni,Propiedad*p,Interesado*i,Inmobiliaria*inm){
     this->emailInteresado=ei;
     this->nombreInmobiliaria=ni;
     this->mensajes= new vector<Mensaje*>();
@@ -60,6 +60,7 @@ set<DataMensaje*>* Chat::getDataMensajes() {     //Devuelve los ultimos 6? Repue
           res->insert(it->getDataMensaje());
         }
     }
+  return res;  
 }
 
 void Chat::nuevoMensaje(DataMensaje m) {

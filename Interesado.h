@@ -28,7 +28,7 @@ class Interesado : public Usuario{
         void set_edad(int &age);
 
         //obtencion datatype
-        set<DataMensaje*>* ObtenerDataMensajes();
+        set<DataMensaje*>* ObtenerDataMensajes(int codigo);
         //operaciones de chat
         void AgregarChat(Chat *chat);
         void EliminarChat(Chat *chat);

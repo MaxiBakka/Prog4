@@ -56,15 +56,26 @@ bool Interesado::ExisteChat(Chat&* chat){
 
   return chats->find(chat)!=chats->end();
 }
-set<DataMensaje*>* Interesado::ObtenerDataMensajes(){
 
+//caso de uso Enviar Mensaje Interesado
+set<DataMensaje*>* Interesado::ObtenerDataMensajes(int codigo){
 
+bool flag=TRUE;
+  for (set<Chat*>::iterator it=chats->begin();it!=chats->end()&& flag;++it) {
+    if(*it->esChatPropiedad(codigo)){
+      set<DataMensaje*>*res= *it->getDataMensajes();
+      flag=FALSE;
+    }
+  }
+
+  if (flag) throw NoExisteChat;
+
+  return res;
 
 }
 
-
-
 Interesado :: ~Interesado(){
-
+//habria que preguntar que hacer aca y en otras clases q son el mismo caso
+//porque el sistema no tiene ninguna operacion que elimine interesados
 
 }
