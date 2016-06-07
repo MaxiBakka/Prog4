@@ -47,7 +47,7 @@ Departamento* ManejadorDepartamentos::getDepartamento(const string& letra){
 
  //Agregar Departamento
 void ManejadorDepartamentos::AgregarDepartamento(DataDepartamento*dd){
-	departamentos->insert()
+	departamentos->insert(//pairnosecuanto)
 
 }
 void ManejadorDepartamentos::EliminarDepartamento(string &letra){
