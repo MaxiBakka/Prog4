@@ -1,4 +1,4 @@
-#ifndef ManjadorDepartamentos
+#ifndef ManejadorDepartamentos
 #define  ManejadorDepartamentos
 
 #include <map>
@@ -31,6 +31,7 @@ public:
 
       //Agregar Departamento
       void AgregarDepartamento(DataDepartamento*dd);
+      void EliminarDepartamento(string &letra);
 
 };
 
