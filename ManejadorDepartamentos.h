@@ -1,5 +1,5 @@
-#ifndef ManejadorDepartamentos
-#define  ManejadorDepartamentos
+#ifndef ManejadorDepartamentos_h_
+#define  ManejadorDepartamentos_h_
 
 #include <map>
 #include <string>
@@ -29,9 +29,10 @@ public:
       //get Departamento
       Departamento* getDepartamento(const string& letra);
 
-      //Agregar Departamento
+      //Operaciones de  Departamento
       void AgregarDepartamento(DataDepartamento*dd);
-      void EliminarDepartamento(string &letra);
+      bool ExisteDepartamento(string &letra);
+      void RemoverDepartamento(string &letra);
 
 };
 

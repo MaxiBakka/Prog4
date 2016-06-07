@@ -1,5 +1,5 @@
-#ifndef Departamento.h
-#define  Departamento.h
+#ifndef Departamento_h_
+#define  Departamento_h_
 
 #include <string>
 #include <map>
@@ -21,6 +21,7 @@ class Departamento{
   public:
           //constructor
           Departamento(const string&,const string&);
+          Departamento(DataDepartamento*dd);
           //getters
           const string& getNombre() const;
           const string& getLetra() const;
@@ -33,11 +34,11 @@ class Departamento{
           //Operaciones
           void AddZona(Zona*z);
           Zona* ObtenerZona(int codigo);
-          //void borrarZona(int codigo);
+          void borrarZona(int codigo);
 
           //Destructor
           virtual ~Departamento();
 
-}
+};
 
 #endif
