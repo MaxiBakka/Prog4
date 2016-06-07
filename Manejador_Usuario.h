@@ -15,29 +15,36 @@ using namespace std;
 
 class Manejador_Usuario {
 private:
-  static Manejador_Usuario*instancia;
+
+	static Manejador_Usuario*instancia;
     map<string,Administrador*>*administradores;
     map<string,Interesado*>*interesados;
     map<string,Inmobiliaria*>*inmobiliarias;
-  Manejador_Usuario();
+    Manejador_Usuario();
+
 public:
-  static Manejador_Usuario* getInstancia();
 
-  virtual ~Manejador_Usuario ();
+    static Manejador_Usuario* getInstance();
 
-  //getters de usuarios
-  Inmobiliaria* getInmobiliaria(string &email);
-  Interesado* getInteresado(string &email);
-  Usuario* getUsuario(string &email);
+    virtual ~Manejador_Usuario ();
 
-  //operaciones del caso AltaInmobiliaria Y AltaInteresado
-  void CrearInmobiliaria(DataInmobiliaria*di);
-  void CrearInteresado(DataInteresado*di);
+    //getters de usuarios
+    Inmobiliaria* getInmobiliaria(string &email);
+    Interesado* getInteresado(string &email);
+	Usuario* getUsuario(string &email);
 
-  //existencia del usuario
-  bool existeUsuario(string& email);
-  //obtencion Datatypes
-  set<DataInfoInmobiliaria*>*getDataInfoInmobiliaria();
+	//operaciones del caso AltaInmobiliaria Y AltaInteresado
+	void CrearInmobiliaria(DataInmobiliaria*di);
+	void CrearInteresado(DataInteresado*di);
+
+	//existencia del usuario
+	bool existeUsuario(string& email);
+	//obtencion Datatypes
+	set<DataInfoInmobiliaria*>*getDataInfoInmobiliaria();
+
+	/**
+	 * si en algun momento necesito un usuario hago getUsuario desde la clase sesion (singleton)
+	 */
 
 };
 
