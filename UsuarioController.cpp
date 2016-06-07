@@ -2,7 +2,7 @@
 #include "Manejador_Usuario.h"
 #include "Inmobiliaria.h"
 #include "Interesado.h"
-
+#include "../datatypes/DataInmobiliaria.h"
 
 
 
@@ -40,22 +40,14 @@ void UsuarioController::cancelarInicioSesion(){
 		delete email;
 		usuario=NULL;
 }
-
+// se cumple precond que pwd es correcta
 void UsuarioController::ConfirmarContrasenia(string& pwd){
-	/*	if(this->password==pwd){
-		usuario->set_contrasenia(pwd);
-		}else{
-			//falta implementar excepcion
-			throw pwdNotMatched();
-		}*/
-		//Para esta operacion siempre se cumple la precondicion
-		//la excepcion se hace por afuera
-		usuario->set_contrasenia(pwd);
+	usuario->set_contrasenia(pwd);
 }
 
 bool UsuarioController::esUsuarioAdmin(){
 		Manejador_Usuario* manUs = Manejador_Usuario::getInstance();
-		usuario = manUs->getUsuario(this->email);//suplantamos la operacion Esusuarioadmin por getUsuario
+		usuario = manUs->getUsuario(this->email);
 		return (0 != Administrador*admin= dynamic_cast<Administrador*>(&usuario));
 }
 void UsuarioController::IngresarContrasenia(string& pwd){
@@ -89,9 +81,8 @@ bool UsuarioController::primeraVez(){
 void UsuarioController::IngresarInmobiliaria(DataInmobiliaria* di){
 		try{
 
-			Manejador_Usuario* mu = Manejador_Usuario::getInstance();//Hacer delete dsp??
-			//mu->inmobiliarias->AddInmobiliaria(new mu->Inmobiliaria(di->getNombre(),di->getUbicacion(),di->get_email()," "));
-			mu->CrearInmobiliaria(di); //esto deberia crear una inmobiliaria nueva y dsp llamar a mu->inmobiliarias->insert(inmobiliariaCreado).
+			Manejador_Usuario* mu = Manejador_Usuario::getInstance();
+			mu->CrearInmobiliaria(di);
 		}catch(string e){
 			cout<<"Fallo al ingresar inmobiliaria" << e <<'\n';//Maxi:esta excepcion debe saltar si el mail o nombre de la inmobiliaria no es unico
 		}
@@ -99,7 +90,8 @@ void UsuarioController::IngresarInmobiliaria(DataInmobiliaria* di){
 
 set<DataInfoInmobiliaria*>* UsuarioController::obtenerReporte(){
 
-	//completamos mas adelante
+	Manejador_Usuario* mu = Manejador_Usuario::getInstance();
+	return mu->getDataInfoInmobiliaria() ;
 
 }
 
@@ -116,9 +108,9 @@ void UsuarioController::IngresarInteresado(DtInteresado*di){
 
 	try{
 
-		Manejador_Usuario* mu = Manejador_Usuario::getInstance();//Hacer delete dsp??
-		//mu->interesados->AddInteresado(new mu->Interesado(di->get_email()," ",di->get_nombre(),di->get_apellido(),di->get_edad()));
-		mu->CrearInteresado(di); //esto deberia crear un interesado nuevo y dsp llamar a mu->interesados->insert(interesadoCreado).
+		Manejador_Usuario* mu = Manejador_Usuario::getInstance();
+		mu->CrearInteresado(di);
+
 	}catch(string email){
 		cout<<"Interesado ya existente" << email.what() <<'\n';//Maxi:esta excepcion debe saltar si el mail de el interesado no es unico
 	}

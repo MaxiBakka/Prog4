@@ -1,5 +1,5 @@
-#ifndef UsuarioController.h
-#define UsuarioController.h
+#ifndef UsuarioController_h
+#define UsuarioController_h
 
 #include "Manejador_Usuario.h"
 #include "Usuario.h"
@@ -18,7 +18,7 @@ private:
 
 	 string *email;
 	 string *password;//nose si va como puntero
-   Usuario*usuario;
+	 Usuario*usuario;
 
 
 public:
