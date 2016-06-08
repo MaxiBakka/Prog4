@@ -22,6 +22,11 @@ int Venta :: getCodigoPropiedad(){
     return this->propiedad->getCodigo();
 }
 
+DataReportePropiedad Venta::getDataReportePropiedad() {
+    return new DataVenta(this->precio);
+}
+
+
 /*DataReportePropiedad Venta :: getDataReportePropiedad(){
     
 }*/

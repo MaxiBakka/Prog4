@@ -12,6 +12,8 @@
 
 class Zona; //fwd declaration
 
+using namespace std;
+
 class Propiedad {
 private:
     int codigo;
@@ -25,8 +27,20 @@ private:
     Venta* venta;
     Alquiler* alquiler;
 public:
-    Propiedad();
+    Propiedad(int cod,int cda,int dormi,int banios,bool garaje,string dir,float m2t,Zona* z);
+    virtual int getCodigo();
+    virtual int getCantDeAmbientes();
+    virtual int getDormitorios();
+    virtual int getBanios();
+    virtual bool getGaraje();
+    virtual string getDireccion();
+    virtual float getM2Totales();
+    virtual Zona* getZona();
+    virtual Venta* getVenta();
+    virtual Alquiler* getAlquiler();
     virtual ~Propiedad();
+    
+    //Faltan operaciones del DSD
 };
 
 #endif	/* PROPIEDAD_H */

@@ -3,8 +3,9 @@
 
 #include <string>
 #include "DataPropiedad.h"
-#include "DataInfoAlquiler.h"
-#include "DataInfoVenta.h"
+#include "DataAlquiler.h"
+#include "DataVenta.h"
+
 using namespace std;
 
 class DataCasa : public DataPropiedad{
@@ -15,7 +16,7 @@ private:
 
 public:
 
-		DataCasa(int cAmbientes, int Dormitorios , int banos, string direc, bool gar,DataInfoAlquiler *&infoAlquiler, DataInfoVenta *&infoVenta, float m2Tot, float everde);
+		DataCasa(int cod,int cAmbientes, int Dormitorios , int banos, string direc, bool gar,DataAlquiler *&infoAlquiler, DataVenta *&infoVenta, float m2Tot, float everde);
         virtual ~DataCasa();
 
 		virtual string getDireccion();
@@ -23,8 +24,8 @@ public:
 		virtual int getDormitorios();
 		virtual int getBanios();
 		virtual bool getGaraje();
-		virtual DataInfoAlquiler*& getAlquiler();
-		virtual DataInfoVenta*& getVenta();
+		virtual DataAlquiler*& getAlquiler();
+		virtual DataVenta*& getVenta();
 		float getM2edificados();
 		float getEspacioVerde();
 

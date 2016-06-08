@@ -20,7 +20,7 @@ private:
 
 public:
 		DataApartamento(DataApartamento*da);
-		DataApartamento(int cAmbientes, int dormitorios , int banios, string direc, bool garaje, DataAlquiler *&infoAlquiler, DataVenta *&infoVenta, float m2Tot,int codigo,DataEdificio *&de);
+		DataApartamento(int cod,int cAmbientes, int dormitorios , int banios, string direc, bool garaje, DataAlquiler *&infoAlquiler, DataVenta *&infoVenta, float m2Tot,DataEdificio *&de);
 		virtual ~DataApartamento();
 		//getterss
 
@@ -30,10 +30,10 @@ public:
 		virtual int getDormitorios();
 		virtual int getBanios();
 		virtual bool getGaraje();
-		virtual DataAlquiler*& getAlquiler();
-		virtual DataVenta*& getVenta();
+		virtual DataAlquiler* getAlquiler();
+		virtual DataVenta* getVenta();
 		float getM2totales();
-		DataEdificio*& getEdificio();
+		DataEdificio* getEdificio();
 
 };
 

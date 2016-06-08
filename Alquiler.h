@@ -2,6 +2,10 @@
 #ifndef ALQUILER_H
 #define	ALQUILER_H
 
+#include "DataReportePropiedad.h"
+#include "DataAlquiler.h"
+#include "Propiedad.h"
+
 class Alquiler {
 private:
     float precio;
@@ -14,6 +18,7 @@ public:
     Propiedad getPropiedad();
     int getCodigoPropiedad();
     DataReportePropiedad getDataReportePropiedad();
+    DataAlquiler* getDataAlquiler();
     virtual ~Alquiler();
 };
 

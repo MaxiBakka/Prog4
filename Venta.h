@@ -3,6 +3,7 @@
 
 #include "Propiedad.h"
 #include "DataReportePropiedad.h"
+#include "DataVenta.h"
 
 class Inmobiliaria; //fwd declaration
 
@@ -18,6 +19,7 @@ public:
     Propiedad getPropiedad();
     int getCodigoPropiedad();
     DataReportePropiedad getDataReportePropiedad();
+    DataVenta* getDataVenta();
     ~Venta();
 
 
