@@ -4,13 +4,13 @@
 #include<string>
 #include<map>
 #include "Chat.h"
-#include "Zona.h"
 #include "Venta.h"
 #include "Alquiler.h"
 #include "DataMensaje.h"
 #include "DataInfoPropiedad.h"
 #include "DataReportePropiedad.h"
 
+class Zona; //fwd declaration
 
 class Propiedad {
 private:
