@@ -1,9 +1,10 @@
 #ifndef VENTA_H
 #define	VENTA_H
 
-#include "Inmobiliaria.h"
 #include "Propiedad.h"
-#include "DataReportePropiedad"
+#include "DataReportePropiedad.h"
+
+class Inmobiliaria; //fwd declaration
 
 class Venta {
 private:
