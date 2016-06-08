@@ -1,9 +1,3 @@
-/* 
- * File:   Alquiler.h
- * Author: gianni.testa
- *
- * Created on 6 de junio de 2016, 09:44 AM
- */
 
 #ifndef ALQUILER_H
 #define	ALQUILER_H
@@ -21,8 +15,6 @@ public:
     int getCodigoPropiedad();
     DataReportePropiedad getDataReportePropiedad();
     virtual ~Alquiler();
-
-
 };
 
 #endif	/* ALQUILER_H */

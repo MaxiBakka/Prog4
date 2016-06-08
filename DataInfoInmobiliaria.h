@@ -2,8 +2,8 @@
 #define DATAINFOINMOBILIARIA_H_INCLUDED
 
 #include <string>
-#include DataZona.h
-#include DataDepartamento.h
+#include<set>
+#include "DataReportePropiedad.h"
 
 using namespace std;
 
@@ -12,16 +12,15 @@ private:
     string nombre;
     string ubicacion;
     string email;
-    DataDepartamento dtdepartamento;
-    DataZona dtzona;
+    set<DataReportePropiedad*>* reportePropiedades;
 public:
     DataInfoInmobiliaria(string n,string u,string e);
     string get_nombre();
     string get_ubicacion();
     string get_email();
-    DataDepartamento get_dtdepartamento();
-    DataZona get_dtzona();
-    ~DataInfoInmobiliaria;
+    set<DataReportePropiedad*>* getReportePropiedades();
+    void agregarDataReportePropiedad(DataReportePropiedad* &drp);
+    ~DataInfoInmobiliaria();
 };
 
 

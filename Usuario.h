@@ -1,23 +1,22 @@
-#ifndef Usuario_h
-#define Usuario_h
+#ifndef USUARIO_H
+#define	USUARIO_H
 
-#include <string>
+#include<string>
 
 using namespace std;
 
-class Usuario {
-    private:
-        string email;
-        string contraseña;
-    public:
-        Usuario();
-        Usuario(string& e,string& c);
-        virtual string& get_email();
-        virtual string& get_contrasenia();
-        virtual void set_contrasenia(string &c);
-        virtual ~Usuario();
+class Usuario{
+private:
+    string email;
+    string contrasenia;
+public:
+    Usuario();
+    Usuario(string& e,string& c);
+    virtual string& get_email();
+    virtual string& get_contrasenia();
+    virtual void set_contrasenia(string &c);
+    virtual ~Usuario();
 };
 
+#endif	/* USUARIO_H */
 
-
-#endif // Usuario_h

@@ -1,28 +1,32 @@
-#include Usuario.h
+#include "Usuario.h"
 
-Usuario :: Usuario(){
+Usuario::Usuario() {
     this->email='';
-    this->contrasenia='';
+    this->contrasenia='';   
 }
 
-Usuario :: Usuario(string& e,string& c){
+Usuario::Usuario(string& e, string& c) {
+    this->contrasenia=c;
     this->email=e;
+}
+
+string& Usuario::get_contrasenia() {
+    return this->contrasenia;
+}
+
+string& Usuario::get_email() {
+    return this->email;
+}
+
+void Usuario::set_contrasenia(string& c) {
     this->contrasenia=c;
 }
 
-void Usuario:: set_contrasenia(string &c){
-    contrasenia=c;
+Usuario::~Usuario() {
+
 }
 
-string & Usuario:: get_email(){
-    return email;
-}
 
-string & Usuario:: get_contrasenia(){
-    
-    return contrasenia;
-}
 
-Usuario::~Usuario(){
-    
-}
+
+
