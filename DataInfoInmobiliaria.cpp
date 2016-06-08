@@ -1,30 +1,37 @@
 #include "DataInfoInmobiliaria.h"
 
-DataInfoInmobiliaria::DataInfoInmobiliaria(string n,string u,string e){
+DataInfoInmobiliaria::DataInfoInmobiliaria(string& n,string& u,string& e,set<DataReportePropiedad*>* propiedades){
     this->nombre=n;
     this->ubicacion=u;
     this->email=e;
+    this->reportePropiedades= propiedades
 }
 
-string DataInfoInmobiliaria::get_nombre(){
+string& DataInfoInmobiliaria::get_nombre(){
     return this->nombre;
 }
 
-string DataInfoInmobiliaria::get_ubicacion(){
+string& DataInfoInmobiliaria::get_ubicacion(){
     return this->ubicacion;
 }
 
-string DataInfoInmobiliaria::get_email(){
+string& DataInfoInmobiliaria::get_email(){
     return this->email;
 }
 
-void DataInfoInmobiliaria::agregarDataReportePropiedad(DataReportePropiedad*& drp) {
-    this->reportePropiedades->insert(drp);
-}
-
 set<DataReportePropiedad*>* DataInfoInmobiliaria::getReportePropiedades() {
-    new set<DataReportePropiedad*>* res (this->reportePropiedades);
-    return res;    
+
+    return reportePropiedades;
 }
 
-DataInfoInmobiliaria :: ~DataInfoInmobiliaria(){}
+DataInfoInmobiliaria :: ~DataInfoInmobiliaria(){
+
+  for(set<DataReportePropiedad*>::iterator it = reportePropiedades->begin(); it!=reportePropiedades->end(); ++it){
+		delete *it;
+	}
+}
+
+ostream& operator<<(ostream& o, const DataInfoInmobiliaria& di){
+  //ver en que formato imprimir
+
+}

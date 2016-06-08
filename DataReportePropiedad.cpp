@@ -1,6 +1,7 @@
 #include "DataReportePropiedad.h"
 
-DataReportePropiedad::DataReportePropiedad(int c,int cda, int d,int b,bool g,string dir,float ia,float ia) {
+DataReportePropiedad::DataReportePropiedad(int c,int cda, int d,int b,bool g,string dir,
+  float ia,float ia,DataZona* dz,DataDepartamento* dpto) {
     this->codigo=c;
     this->cantDeAmbientes=cda;
     this->dormitorios=d;
@@ -9,7 +10,9 @@ DataReportePropiedad::DataReportePropiedad(int c,int cda, int d,int b,bool g,str
     this->direccion=dir;
     this->infoAlquiler=ia;
     this->infoVenta=iv;
-    
+    this->ddpto=dpto;
+    this->dzona=dz;
+
 }
 
 int DataReportePropiedad::getBanios() {
@@ -46,4 +49,16 @@ DataDepartamento* DataReportePropiedad::getDataDepartamento() {
 
 DataZona* DataReportePropiedad::getDataZona() {
     return this->dzona;
+}
+
+DataReportePropiedad::~DataReportePropiedad(){
+  delete this->dzona;
+  delete this->ddpto;
+
+}
+
+ostream& operator<<(ostream& o, DataReportePropiedad& drp){
+
+//imprimir con algun formato ,hay q verlo 
+
 }

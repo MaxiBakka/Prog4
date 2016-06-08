@@ -2,6 +2,8 @@
 #define	DATAREPORTEPROPIEDAD_H
 
 #include <string>
+#include <iostream>
+
 #include "DataZona.h"
 #include "DataDepartamento.h"
 using namespace std;
@@ -19,7 +21,9 @@ private:
     DataDepartamento* ddpto;
     DataZona* dzona;
 public:
-    DataReportePropiedad(int c,int cda, int d,int b,bool g,string &dir,float iv,float ia);
+    DataReportePropiedad(int c,int cda, int d,int b,bool g,string &dir,float iv,float ia,DataZona* dz,DataDepartamento* dpto);
+
+    //getters
     int getCodigo();
     int getCantDeAmbientes();
     int getDormitorios();
@@ -29,9 +33,11 @@ public:
     float getInfoAlquiler();
     DataDepartamento* getDataDepartamento();
     DataZona* getDataZona();
+
     virtual ~DataReportePropiedad();
 
 };
 
-#endif	
+ostream& operator<<(ostream& o, DataReportePropiedad& drp);
 
+#endif
