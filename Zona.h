@@ -4,8 +4,11 @@
 #include<string>
 #include<map>
 #include "DataZona.h"
-#include "Departamento.h"
 #include "Propiedad.h"
+
+using namespace std;
+
+class Departamento;//fwd declaration
 
 class Zona {
 private:
