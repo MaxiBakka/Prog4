@@ -18,7 +18,7 @@ public:
     int get_segundo();
     //sobrecarga de operadores
     Hora& operator =(const Hora h);
-
+    //destructor
     ~Hora();
 };
 
