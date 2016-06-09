@@ -18,16 +18,16 @@ class ManejadorPropiedades {
 private:
     static ManejadorPropiedades* instancia;
     ManejadorPropiedades();
-    set<Propiedad*>* propiedades;
+    map<int,Propiedad*>* propiedades;
 public:
     static ManejadorPropiedades* getInstancia();
     //Destructor
     virtual~ManejadorPropiedades();
     //Operaciones DSD
-    set<Propiedad*>* getPropiedades();
     void crearPropiedad(DataPropiedad* p,Zona z);
     void eliminarPropiedad(int c);
-    set<DataInfoPropiedad*>* getConversacionesPropiedad(Zona z,string email);
+    bool ExistePropiedad(int codigo);
+    set<DataInfoPropiedad*>* getConversacionesPropiedad(Zona* z,string& email);
     Propiedad* getPropiedad(int c);
 };
 

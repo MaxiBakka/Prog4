@@ -24,7 +24,7 @@ public:
     DataZona* getDataZona();
     void AgregarPropiedad(Propiedad* p);
     void RemoverPropiedad(Propiedad* p);
-    map<int,Propiedad*>* getPropiedades();
+    set<Propiedad*>* getPropiedades();
     ~Zona();
 };
 

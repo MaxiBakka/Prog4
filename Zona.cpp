@@ -31,8 +31,9 @@ void Zona :: RemoverPropiedad(Propiedad* p){
     propiedades->erase(p->getCodigo());
 }
 
-map<int,Propiedad*>* Zona :: getPropiedades(){
-    res=new map<int,Propiedad*>();
+set<Propiedad*>* Zona::getPropiedades(){
+
+    set<Propiedad*>* res=new set<Propiedad*>();
     for (map<int,Propiedad*>::iterator it= propiedades->begin(); it!=propiedades->end(); ++it){
         res[it->first]=it->second;
     }
