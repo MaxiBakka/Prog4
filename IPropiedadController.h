@@ -1,5 +1,5 @@
-#ifndef IpropiedadController.h
-#define  IpropiedadController.h
+#ifndef IpropiedadController_h
+#define IpropiedadController_h
 
 #include "DataPropiedad.h"
 #include "DataAlquiler.h"
@@ -14,6 +14,7 @@
 #include <set>
 
 using namespace std;
+
 class IpropiedadController{
 
 public:
@@ -33,8 +34,13 @@ public:
 	virtual void eliminarPropiedad(int codigo) = 0;
 	virtual set<DataMensaje*>* listarMensajes() = 0;
 	virtual set<DataInfoPropiedad*>* obtnerConversaciones() = 0;
-	virtual void seleccionarPropiedad(int codigo) = 0; 
+	virtual void seleccionarPropiedad(int codigo) = 0;
 	virtual void seleccionarDepartamento(string letra) = 0;
 	virtual void seleccionarZona(int codigo) = 0;
 	virtual void seleccionarEdificio(string nombre) = 0;
-}
+	//caso de uso consultarPropiedad
+	
+  virtual set<DataDetallePropiedad*>* obtenerDetallePropiedad() = 0;
+  virtual DataInfoInmobiliaria* informacionDetallada() = 0;
+};
+#endif //IpropiedadController_h
