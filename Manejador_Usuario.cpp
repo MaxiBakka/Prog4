@@ -13,9 +13,25 @@ Manejador_Usuario :: Manejador_Usuario(){
 	interesados =  new map<string,Interesado*>();
 	administradores = new map<string,Administrador*>();
 };
+
 Manejador_Usuario :: ~Manejador_Usuario(){
+	map<string,Inmobiliaria*>::iterator inmoIt;
+	map<string,Interesado*>::iterator interIt;
+	map<string,Administrador*>::iterator adminIt;
 	
-	//creo que aca deberia destruirse todos los usuarios, o destruir la coleccion
+	for(inmoIt=inmobiliarias->begin(),inmoIt!=inmobiliarias->end(),++inmoIt){
+		delete inmoIt->second();
+		delete inmobiliarias;
+	}
+	for(interIt=interesados->begin(),interIt!=interesados->end(),++interIt){
+		delete interIt->second();
+		delete interesados;
+	}
+	for(adminIt=administradores->begin(),adminIt!=administradores->end(),++adminIt){
+		delete adminIt->second();
+		delete administradores;
+	}
+
 };
 
 public Manejador_Usuario::getInstance(){
@@ -45,11 +61,14 @@ Interesado* Manejador_Usuario::getInteresado(string &email){
 	}
 
 }
-Usuario* Manejador_Usuario::getUsuario(string &email){   // esta operacion se tiene que fijar en todas las colecciones para ver que tipo
-	map<string,Inmobiliaria*>::iterator it;		//de usuario retornar
+Usuario* Manejador_Usuario::getUsuario(string &email){
+	map<string,Inmobiliaria*>::iterator it;
+	map<string,Interesado*>::iterator it2;
 	it = inmobiliarias->find(email);
 	if(it != inmobiliarias->end()){
 		return it->second();
+	}else if(it2 != interesados->end()){
+		return it2->second();
 	}else{
 		throw UsuarioNotFound();
 	}
@@ -66,6 +85,20 @@ void Manejador_Usuario::CrearInteresado(DataInteresado*di){
 }
 
 //existencia del usuario
-bool Manejador_Usuario::existeUsuario(string& email);
+bool Manejador_Usuario::existeUsuario(string& email){
+	map<string,Inmobiliaria*>::iterator it;
+	map<string,Interesado*>::iterator it2;
+	it = inmobiliarias->find(email);
+	it2 = interesados->find(email);
+	return (it != inmobiliarias->end() || it2 != interesados->end())
+}
+
 //obtencion Datatypes
-set<DataInfoInmobiliaria*>* Manejador_Usuario::getDataInfoInmobiliaria();
+set<DataInfoInmobiliaria*>* Manejador_Usuario::getDataInfoInmobiliaria(){
+	set<DataInfoInmobiliaria*>* infoInmo =  new <DataInfoInmobiliaria*>();
+	map<string,Inmobiliaria*>::iterator it;
+	for(it=inmobiliarias->begin(),it!=inmobiliaras->end(),++it){
+		infoInmo->insert(*it->getInfoInmobiliaria());
+	}
+	return infoInmo;
+}
