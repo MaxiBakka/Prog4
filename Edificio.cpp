@@ -1,12 +1,22 @@
 #include "Edificio.h"
-
+ #include <utility>
 
 Edificio :: Edificio(const string& nombre,int cantPisos,float gcomunes){
+  if(de->get_gastosComunes < 0 || de->get_cantPisos < 1) throw ExValoresNoPositivos; 
     nombre=nombre;
     cantPisos=cantPisos;
-    gastosComunes=gastosComunes;
+    gastosComunes=gcomunes;
     this->apartamentos= new map<int,Apartamento*>();
 }
+
+Edificio::Edificio(DataEdificio*de){
+  if(de->get_gastosComunes < 0 || de->get_cantPisos < 1) throw ExValoresNoPositivos;
+  this->nombre=de->get_nombreNombre();
+  this->gastosComunes=de->get_gastosComunes();
+  this->cantPisos=de->get_cantPisos();
+  this->apartamentos= new map<int,Apartamento*>();
+}
+
 //getters
 const string& Edificio :: getNombre(){
     return nombre;
@@ -21,7 +31,7 @@ float Edificio :: getGastosComunes(){
 }
 //setters
 void Edificio::setGastosComunes(float &gcomunes){
-    gastosComunes=gc;
+    gastosComunes=gcomunes;
 }
 void Edificio::setNombre(const string& nombre){
 
@@ -38,7 +48,7 @@ DataEdificio* Edificio :: getDataEdificio(){
 }
 
 void Edificio::agregarApartamento(Apartamento*apto){
-apartamentos->insert(pair<int,Apartamento*>(apto->getCodigo,apto));
+apartamentos->insert(pair<int,Apartamento*>(apto->getCodigo(),apto));
 
 }
 void Edificio::RemoverApartamento(int& codigo){
@@ -56,6 +66,8 @@ Edificio::~Edificio(){
   for (map<int,Apartamento*>::iterator it= apartamentos->begin(); it!=apartamentos->end(); ++it){
       delete it->second;
   }
+  apartamentos->clear();
+
   delete apartamentos;
 
 }

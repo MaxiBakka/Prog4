@@ -50,7 +50,7 @@ void Zona :: AgregarPropiedad(Propiedad* p){
 }
 
 void Zona :: RemoverPropiedad(int& codigo){
-    propiedades->erase(p->getCodigo());
+    propiedades->erase(codigo);
 }
 
 

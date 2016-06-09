@@ -19,7 +19,7 @@ ManejadorDepartamentos::ManejadorDepartamenos(){
 
 
 
-ManejadorDepartamentos* ManejadorDepartamentos::getInstancia({
+ManejadorDepartamentos* ManejadorDepartamentos::getInstancia(){
 	if (instancia==NULL)
 		instancia= new ManejadorDepartamentos();
 
