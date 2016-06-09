@@ -1,10 +1,13 @@
 #ifndef Zona_h
 #define Zona_h
 
-#include<string>
-#include<map>
+#include <string>
+#include <map>
+#include <set>
+
 #include "DataZona.h"
 #include "Propiedad.h"
+#include "DataDepartamento.h"
 
 using namespace std;
 
@@ -17,13 +20,20 @@ private:
     Departamento* departamento;
     map<int,Propiedad*>*propiedades;
 public:
-    Zona(int c,string n,Departamento* &d); //en el metodo le agregas una coleccion de propiedades vacia
+    Zona(int c,string n,Departamento* &d);
     int getCodigo();
     string getNombre();
     Departamento* getDepartamento();
     DataZona* getDataZona();
+    //se utiliza para el caso de uso obtener reporte
+    DataDepartamento* getDataDepartamento();
+    //setters
+    void setCodigo(int);
+    void setNombre(string&);
+
+
     void AgregarPropiedad(Propiedad* p);
-    void RemoverPropiedad(Propiedad* p);
+    void RemoverPropiedad(int& codigo);
     set<Propiedad*>* getPropiedades();
     ~Zona();
 };
