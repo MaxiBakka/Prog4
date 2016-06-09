@@ -24,21 +24,27 @@ private:
     set<Alquiler*>*alquileres;
     set<Venta*>*ventas;
 public:
-    Inmobiliaria(string email,string contrasenia,string nombre,string dir);
+    Inmobiliaria(string& email,string& contrasenia,string& nombre,string& dir);
+    //getters
     string getNombre();
     string getDireccion();
     set<Chat*>* getChats();
     set<Alquiler*>* getAlquileres();
     set<Venta*>* getVentas();
+    //operaciones sobre venta y alquiler
     void crearAlquiler(DataAlquiler* &da,Propiedad p);
     void crearVenta(DataVenta* &dv,Propiedad p);
-    void eliminarChat(Chat* &c);
+
     void borrarVenta(Venta* &v);
     void borrarAlquiler(Alquiler* a);
+
+    //operaciones sobre chat
+    bool ExisteChat(Chat&* chat);
     void agregarChat(Chat* &c);
-    DataInfoInmobiliaria getDataInfoInmobiliaria();
-    DataInmobiliaria getDataInmobiliaria();
+    void eliminarChat(Chat* &c);
+    //obtencion de datatypes
+    DataInfoInmobiliaria* getDataInfoInmobiliaria();
+    DataInmobiliaria* getDataInmobiliaria();
 };
 
 #endif	/* INMOBILIARIA_H */
-

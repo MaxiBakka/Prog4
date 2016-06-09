@@ -1,12 +1,12 @@
 #include "Inmobiliaria.h"
 #include "DataAlquiler.h"
 
-Inmobiliaria::Inmobiliaria(string email, string contrasenia, string nombre, string dir):Usuario(email,contrasenia) {
+Inmobiliaria::Inmobiliaria(string& email, string& contrasenia, string& nombre, string& dir):Usuario(email,contrasenia) {
     this->nombre=nombre;
     this->direccion=dir;
-    this->alquileres = new set<Alquiler*>*;
-    this->chats = new set<Chat*>*;
-    this->ventas = new set<Venta*>*;
+    this->alquileres = new set<Alquiler*>();
+    this->chats = new set<Chat*>();
+    this->ventas = new set<Venta*>();
 }
 
 string Inmobiliaria::getNombre() {
@@ -65,26 +65,10 @@ DataInfoInmobiliaria Inmobiliaria::getDataInfoInmobiliaria() {
 }
 
 DataInmobiliaria Inmobiliaria::getDataInmobiliaria() {
-    return new DataInfoInmobiliaria(this->nombre,this->get_email(),this->direccion);
+    return new DataInmobiliaria(this->nombre,this->get_email(),this->direccion);
 }
 
 set<Venta*>* Inmobiliaria::getVentas() {
     new set<Venta*>* res (this->ventas);//constructor por copia
     return res;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
