@@ -1,12 +1,11 @@
-#ifndef Edificio
-#define  Edificio
+#ifndef Edificio_h
+#define  Edificio_h
 
 #include <map>
 #include <string>
 
 #include "Apartamento.h"
-
-classs DataEdificio;
+#include "DataEdificio.h"
 
 using namespace std;
 

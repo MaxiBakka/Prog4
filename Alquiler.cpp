@@ -22,6 +22,10 @@ int Alquiler :: getCodigoPropiedad(){
     return this->propiedad->getCodigo();
 }
 
+DataAlquiler* Alquiler::getDataAlquiler() {
+    return new DataAlquiler(this->precio);
+}
+
 /*DataReportePropiedad Alquiler :: getDataReportePropiedad(){
     
 }*/

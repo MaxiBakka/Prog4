@@ -1,8 +1,7 @@
 #include "DataCasa.h"
-#include "DataPropiedad.h"
 
-DataCasa :: DataCasa(int cAmbientes, int Dormitorios , int banos, string direc, bool gar, DataInfoAlquiler *&infoAlquiler, DataInfoVenta *&infoVenta, float m2Ed, float eVerde):
-    DataPropiedad(cAmbientes,Dormitorios,banos,direc,gar,*&infoAlquiler,*&infoVenta){
+DataCasa :: DataCasa(int cod,int cAmbientes, int Dormitorios , int banos, string direc, bool gar, DataAlquiler *&infoAlquiler, DataVenta *&infoVenta, float m2Ed, float eVerde):
+    DataPropiedad(cod,cAmbientes,Dormitorios,banos,direc,gar,infoAlquiler,infoVenta){
 
 		this->m2edificados=m2Ed;
 		this->espacioverde=eVerde;
@@ -27,11 +26,11 @@ bool DataCasa :: getGaraje(){
 	return this->garaje;
 }
 
-DataInfoAlquiler*& DataCasa :: getAlquiler(){
+DataAlquiler*& DataCasa :: getAlquiler(){
 	return this->info_alquiler;
 }
 
-DataInfoVenta*& DataCasa :: getVenta(){
+DataVenta*& DataCasa :: getVenta(){
 	return this->info_venta;
 }
 
