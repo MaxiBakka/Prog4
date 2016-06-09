@@ -40,12 +40,12 @@ ManejadorPropiedades::~ManejadorPropiedades(){
 void ManejadorPropiedades::eliminarPropiedad(int c){
 
 
-    	if(!(ExisteDepartamento(letra))){
+    	if(!(ExistePropiedad(c))){
     			throw ExPropiedadNoExistente();
     	}else{
     			Propiedad* p =propiedades->find(c)->second;
     			propiedades->erase(c);
-    			delete p-;
+    			delete p;
     	}
 
 
