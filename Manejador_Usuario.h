@@ -31,20 +31,15 @@ public:
     //getters de usuarios
     Inmobiliaria* getInmobiliaria(string &email);
     Interesado* getInteresado(string &email);
-	Usuario* getUsuario(string &email);
+		Usuario* getUsuario(string &email);
 
 	//operaciones del caso AltaInmobiliaria Y AltaInteresado
 	void CrearInmobiliaria(DataInmobiliaria*di);
 	void CrearInteresado(DataInteresado*di);
 
-	//existencia del usuario
-	bool existeUsuario(string& email);
 	//obtencion Datatypes
 	set<DataInfoInmobiliaria*>*getDataInfoInmobiliaria();
 
-	/**
-	 * si en algun momento necesito un usuario hago getUsuario desde la clase sesion (singleton)
-	 */
 
 };
 
