@@ -3,11 +3,7 @@
 #include "Inmobiliaria.h"
 #include "Interesado.h"
 #include "../datatypes/DataInmobiliaria.h"
-
-
-
-
-
+#include "WrongPwd.h"
 
 
 
@@ -55,7 +51,7 @@ void UsuarioController::IngresarContrasenia(string& pwd){
 			password= new string;
 			*password= pwd;
 		}else{
-			//falta implementar
+			
 			throw WrongPwd();
 
 		}
@@ -79,40 +75,28 @@ bool UsuarioController::primeraVez(){
 }
 
 void UsuarioController::IngresarInmobiliaria(DataInmobiliaria* di){
-		try{
-
-			Manejador_Usuario* mu = Manejador_Usuario::getInstance();
-			mu->CrearInmobiliaria(di);
-		}catch(string e){
-			cout<<"Fallo al ingresar inmobiliaria" << e <<'\n';//Maxi:esta excepcion debe saltar si el mail o nombre de la inmobiliaria no es unico
-		}
+	
+		Manejador_Usuario* mu = Manejador_Usuario::getInstance();
+		mu->CrearInmobiliaria(di);
 }
 
 set<DataInfoInmobiliaria*>* UsuarioController::obtenerReporte(){
 
 	Manejador_Usuario* mu = Manejador_Usuario::getInstance();
-	return mu->getDataInfoInmobiliaria() ;
-
+	return mu->getDataInfoInmobiliaria();
 }
 
 //CASO DE USO CERRAR SESION
 void UsuarioController::CerrarSesion(){
 
 	Sesion*sesion= Sesion::getInstancia();
-	sesion->CerrarSesion(this->usuario);
+	sesion->CerrarSesion();
 }
 
 
 //CASO DE USO ALTA INTERESADO
 void UsuarioController::IngresarInteresado(DtInteresado*di){
 
-	try{
-
 		Manejador_Usuario* mu = Manejador_Usuario::getInstance();
 		mu->CrearInteresado(di);
-
-	}catch(string email){
-		cout<<"Interesado ya existente" << email.what() <<'\n';//Maxi:esta excepcion debe saltar si el mail de el interesado no es unico
-	}
-
 }
