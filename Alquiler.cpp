@@ -1,35 +1,22 @@
 #include "Alquiler.h"
 
-Alquiler :: Alquiler(float p,Inmobiliaria* &i,Propiedad* &prop) {
+Alquiler :: Alquiler(float p) {
     this->precio=p;
-    this->inmobiliaria=i;
-    this->propiedad=prop;
 }
 
 float Alquiler :: getPrecio(){
     return this->precio;
 }
 
-Inmobiliaria Alquiler :: getInmobiliaria(){
-    return this->inmobiliaria;
-}
+void Alquiler::setPrecio(float precio){
 
-Propiedad Alquiler :: getPropiedad(){
-    return this->propiedad;
-}
-
-int Alquiler :: getCodigoPropiedad(){
-    return this->propiedad->getCodigo();
+  this->precio=precio;
 }
 
 DataAlquiler* Alquiler::getDataAlquiler() {
     return new DataAlquiler(this->precio);
 }
 
-/*DataReportePropiedad Alquiler :: getDataReportePropiedad(){
-    
-}*/
-
 Alquiler::~Alquiler() {
-}
 
+}

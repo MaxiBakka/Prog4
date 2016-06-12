@@ -1,5 +1,6 @@
 #include "Zona.h"
 #include "Departamento.h"
+#include "NoHayPropiedades.h"
 
 #include <utility>
 
@@ -55,12 +56,24 @@ void Zona :: RemoverPropiedad(int& codigo){
 
 
 set<Propiedad*>* Zona::getPropiedades(){
+if(propiedades->size()==0)throw NoHayPropiedades();
 
     set<Propiedad*>* res=new set<Propiedad*>();
     for (map<int,Propiedad*>::iterator it= propiedades->begin(); it!=propiedades->end(); ++it){
-        res[it->first]=it->second;
+        res->insert(it->second);
     }
     return res;
+}
+
+set<DataDetallePropiedad*>* Zona::getDataDetallePropiedad(){
+  if(propiedades->size()==0)throw NoHayPropiedades();
+
+  set<DataDetallePropiedad*>* res=new set<DataDetallePropiedad*>();
+  for (map<int,Propiedad*>::iterator it= propiedades->begin(); it!=propiedades->end(); ++it){
+    res->insert(it->second->getDataDetallePropiedad());
+  }
+  return res;
+
 }
 
 Zona::~Zona(){

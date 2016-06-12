@@ -1,36 +1,22 @@
 #include "Venta.h"
 
-Venta :: Venta(float p,Inmobiliaria* &i,Propiedad* &prop) {
+Venta :: Venta(float p) {
     this->precio=p;
-    this->inmobiliaria=i;
-    this->propiedad=prop;
 }
 
 float Venta :: getPrecio(){
     return this->precio;
 }
 
-Inmobiliaria Venta :: getInmobiliaria(){
-    return this->inmobiliaria;
+void Venta::setPrecio(float precio){
+
+  this->precio=precio;
 }
 
-Propiedad Venta :: getPropiedad(){
-    return this->propiedad;
-}
-
-int Venta :: getCodigoPropiedad(){
-    return this->propiedad->getCodigo();
-}
-
-DataReportePropiedad Venta::getDataReportePropiedad() {
+DataVenta* Venta::getDataVenta() {
     return new DataVenta(this->precio);
 }
 
-
-/*DataReportePropiedad Venta :: getDataReportePropiedad(){
-    
-}*/
-
 Venta::~Venta() {
-}
 
+}

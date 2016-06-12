@@ -43,7 +43,7 @@ public:
     	virtual set<DataInfoInmobiliaria*>* ObtenerReporte();
 
       //Cerrar sesion
-      virtual void CerrarSesion(string emailUsuario);
+      virtual void CerrarSesion();
 
       //Alta Interesado
       virtual void IngresarInteresado(DtInteresado*di)

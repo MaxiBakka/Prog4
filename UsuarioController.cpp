@@ -30,7 +30,7 @@ void UsuarioController::activarSesion(){
 
 }
 
-void UsuarioController::cancelarInicioSesion(){
+void UsuarioController::CancelarInicioSesion(){
 		if(password!=NULL) delete password;
 
 		delete email;
@@ -51,7 +51,7 @@ void UsuarioController::IngresarContrasenia(string& pwd){
 			password= new string;
 			*password= pwd;
 		}else{
-			
+
 			throw WrongPwd();
 
 		}
@@ -75,12 +75,12 @@ bool UsuarioController::primeraVez(){
 }
 
 void UsuarioController::IngresarInmobiliaria(DataInmobiliaria* di){
-	
+
 		Manejador_Usuario* mu = Manejador_Usuario::getInstance();
 		mu->CrearInmobiliaria(di);
 }
 
-set<DataInfoInmobiliaria*>* UsuarioController::obtenerReporte(){
+set<DataInfoInmobiliaria*>* UsuarioController::ObtenerReporte(){
 
 	Manejador_Usuario* mu = Manejador_Usuario::getInstance();
 	return mu->getDataInfoInmobiliaria();

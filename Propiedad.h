@@ -9,8 +9,10 @@
 #include "DataMensaje.h"
 #include "DataInfoPropiedad.h"
 #include "DataReportePropiedad.h"
+#include "DataPropiedad.h"
 
 class Zona; //fwd declaration
+class Oferta;
 
 using namespace std;
 
@@ -24,10 +26,9 @@ private:
     string direccion;
     float m2Totales;
     Zona* zona;
-    Venta* venta;
-    Alquiler* alquiler;
+    Oferta* oferta;
 public:
-    Propiedad(int cod,int cda,int dormi,int banios,bool garaje,string dir,float m2t,Zona* z);
+    Propiedad(int cod,int cda,int dormi,int banios,bool garaje,string dir,float m2t,Zona* z,Oferta*of);
     virtual int getCodigo();
     virtual int getCantDeAmbientes();
     virtual int getDormitorios();
@@ -36,12 +37,18 @@ public:
     virtual string getDireccion();
     virtual float getM2Totales();
     virtual Zona* getZona();
-    virtual Venta* getVenta();
-    virtual Alquiler* getAlquiler();
+    virtual Oferta* getOferta();
+
     virtual ~Propiedad();
-    
+
+    //obtencion datatypes
+    virtual DataReportePropiedad* getDataReportePropiedad();
+    virtual DataInfoPropiedad* getDataInfoPropiedad();
+    virtual DataDetallePropiedad * getDataDetallePropiedad();
+    virtual DataPropiedad * getDataPropiedad();
     //Faltan operaciones del DSD
+
+    virtual void ingresarMensaje(string &email,DataMensaje* mensaje);
 };
 
 #endif	/* PROPIEDAD_H */
-

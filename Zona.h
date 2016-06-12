@@ -8,6 +8,7 @@
 #include "DataZona.h"
 #include "Propiedad.h"
 #include "DataDepartamento.h"
+#include "DataDetallePropiedad.h"
 
 using namespace std;
 
@@ -35,6 +36,8 @@ public:
     void AgregarPropiedad(Propiedad* p);
     void RemoverPropiedad(int& codigo);
     set<Propiedad*>* getPropiedades();
+    set<DataDetallePropiedad*>* getDataDetallePropiedad();
+
     ~Zona();
 };
 

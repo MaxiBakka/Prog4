@@ -8,8 +8,10 @@
 
 #include "Propiedad.h"
 #include "DataPropiedad.h"
-#include "DataInfoPropiedad.h" 
+#include "DataInfoPropiedad.h"
 #include "Zona.h"
+#include "Oferta.h"
+#include "Edificio.h"
 
 
 using namespace std;
@@ -24,7 +26,7 @@ public:
     //Destructor
     virtual~ManejadorPropiedades();
     //Operaciones DSD
-    void crearPropiedad(DataPropiedad* p,Zona z);
+    Propiedad* crearPropiedad(DataPropiedad* p,Zona* z,Oferta*oferta,Edificio*edificio);
     void eliminarPropiedad(int c);
     bool ExistePropiedad(int codigo);
     set<DataInfoPropiedad*>* getConversacionesPropiedad(Zona* z,string& email);
@@ -32,4 +34,3 @@ public:
 };
 
 #endif	/* MANEJADORPROPIEDADES_H */
-

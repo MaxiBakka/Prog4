@@ -19,9 +19,9 @@ public:
       virtual ~IUsuarioController(){};
       //Iniciar sesion
       virtual void activarSesion() = 0;
-      virtual void cancelarInicioSesion() = 0;
-      virtual ConfirmarContrasenia(string pwd) = 0;
-      virtual bool esUsuarioAdmin(string& email) = 0;
+      virtual void  CancelarInicioSesion() = 0;
+      virtual ConfirmarContrasenia(string& pwd) = 0;
+      virtual bool esUsuarioAdmin() = 0;
       virtual void IngresarEmail(string& email) = 0;
       virtual void IngresarContrasenia(string& pwd)= 0;
       virtual void IngresarContraseniaNueva(string& pwd) = 0;
@@ -31,9 +31,9 @@ public:
       //Caso de uso Obtener reporte de Inmobiliarias
       virtual set<DataInfoInmobiliaria*>* ObtenerReporte() = 0;
       //AltaInteresado
-      virtual void IngresarInteresado(DataInteresado*di) = 0;
+      virtual void IngresarInteresado(DtInteresado*di) = 0;
       //Cerrar sesion
-      virtual void CerrarSesion(string emailUsuario) = 0;
+      virtual void CerrarSesion() = 0;
 
 };
 #endif

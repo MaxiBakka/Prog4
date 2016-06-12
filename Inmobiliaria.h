@@ -14,6 +14,7 @@
 #include "DataVenta.h"
 #include "DataInfoInmobiliaria.h"
 
+class Oferta;
 using namespace std;
 
 class Inmobiliaria:public Usuario {
@@ -21,8 +22,7 @@ private:
     string nombre;
     string direccion;
     set<Chat*>*chats;
-    set<Alquiler*>*alquileres;
-    set<Venta*>*ventas;
+    set<Oferta*>*ofertas;
 public:
     Inmobiliaria(string& email,string& contrasenia,string& nombre,string& dir);
     //getters
@@ -31,12 +31,13 @@ public:
     set<Chat*>* getChats();
     set<Alquiler*>* getAlquileres();
     set<Venta*>* getVentas();
-    //operaciones sobre venta y alquiler
-    void crearAlquiler(DataAlquiler* &da,Propiedad p);
-    void crearVenta(DataVenta* &dv,Propiedad p);
+    //operaciones sobre OFERTA(venta y alquiler)
 
-    void borrarVenta(Venta* &v);
-    void borrarAlquiler(Alquiler* a);
+    //void crearAlquiler(DataAlquiler* &da,Propiedad p);
+    //void crearVenta(DataVenta* &dv,Propiedad p);
+
+    void AgregarOferta(Oferta* oferta);
+    void borrarOferta(Oferta* &oferta);
 
     //operaciones sobre chat
     bool ExisteChat(Chat&* chat);

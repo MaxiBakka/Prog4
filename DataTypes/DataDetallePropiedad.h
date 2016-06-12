@@ -10,13 +10,13 @@ class DataDetallePropiedad {
 private:
     int codigo;
     string direccion;
-    float venta,alquiler;
+    bool venta,alquiler;
 public:
-    DataDetallePropiedad(int codigo,string& direccion,float venta,float alquiler);
+    DataDetallePropiedad(int codigo,string& direccion,bool venta,bool alquiler);
     int getCodigo();
     string& getDireccion();
-    float getVenta();
-    float getAlquiler();
+    bool getVenta();
+    bool getAlquiler();
     ~DataDetallePropiedad();
 
 };
@@ -25,4 +25,3 @@ ostream& operator<<(ostream& o, const DataDetallePropiedad& ddp);
 
 
 #endif	/* DATADETALLEPROPIEDAD_H */
-

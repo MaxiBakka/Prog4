@@ -1,6 +1,8 @@
 #include "ManejadorPropiedades.h"
 
- ManejadorPropiedades* ManejadorPropiedades::instancia= NULL;
+#include <utility>
+
+ManejadorPropiedades* ManejadorPropiedades::instancia= NULL;
 
 ManejadorPropiedades::ManejadorPropiedades(){
 
@@ -31,11 +33,20 @@ ManejadorPropiedades::~ManejadorPropiedades(){
 
 }
     //Operaciones DSD
- void ManejadorPropiedades::crearPropiedad(DataPropiedad* p,Zona z){
+Propiedad* ManejadorPropiedades::crearPropiedad(DataPropiedad* p,Zona* z,Oferta*oferta,Edificio*edificio){
+  DataCasa*dc=dynamic_cast<DataCasa*>(&p);
+  if(dc!=NULL){
+    Propiedad*propiedad= new Casa(dc,z,oferta);//no se deberia pasar solo el datatype,lo voy a cambiar dsp
+  }else{
+    DataApartamento*dc=dynamic_cast<DataApartamento*>(&p);
+    Propiedad*propiedad= new Apartamento(dc,z,oferta,edificio);
+  }
 
-//
+  oferta->setPropiedad(propiedad);
+  propiedades->insert(pair<int,Propiedad*>(propiedad->getCodigo(),propiedad));
 
- }
+  return propiedad;
+}
 
 void ManejadorPropiedades::eliminarPropiedad(int c){
 
