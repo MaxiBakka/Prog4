@@ -68,14 +68,19 @@ bool flag=TRUE;
     }
   }
 
-  if (flag) throw NoExisteChat;
+  if (flag) throw NoExisteChat();
 
   return res;
 
 }
 
 Interesado :: ~Interesado(){
-//habria que preguntar que hacer aca y en otras clases q son el mismo caso
-//porque el sistema no tiene ninguna operacion que elimine interesados
+  
+  for (set<Chat*>::iterator it=chats->begin() ;it!=chats->end(); ++it) {
+      Chat*chat= *it;
+      delete chat;
+  }
+  chats->clear();
+  delete chats;
 
 }

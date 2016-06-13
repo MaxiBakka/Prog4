@@ -6,15 +6,17 @@
 #include <set>
 
 #include "Usuario.h"
-#include "Venta.h"
-#include "Alquiler.h"
+//#include "Venta.h"
+//#include "Alquiler.h"
 #include "Chat.h"
-#include "Propiedad.h"
-#include "DataAlquiler.h"
-#include "DataVenta.h"
+
 #include "DataInfoInmobiliaria.h"
+#include "DataChat.h"
+#include "DataInmobiliaria.h"
 
 class Oferta;
+
+
 using namespace std;
 
 class Inmobiliaria:public Usuario {
@@ -25,12 +27,12 @@ private:
     set<Oferta*>*ofertas;
 public:
     Inmobiliaria(string& email,string& contrasenia,string& nombre,string& dir);
+    virtual ~Inmobiliaria();
     //getters
     string getNombre();
     string getDireccion();
     set<Chat*>* getChats();
-    set<Alquiler*>* getAlquileres();
-    set<Venta*>* getVentas();
+
     //operaciones sobre OFERTA(venta y alquiler)
 
     //void crearAlquiler(DataAlquiler* &da,Propiedad p);
@@ -43,9 +45,13 @@ public:
     bool ExisteChat(Chat&* chat);
     void agregarChat(Chat* &c);
     void eliminarChat(Chat* &c);
+    Chat* ElegirChat(DataChat* &dc);
+
+
     //obtencion de datatypes
     DataInfoInmobiliaria* getDataInfoInmobiliaria();
     DataInmobiliaria* getDataInmobiliaria();
+
 };
 
 #endif	/* INMOBILIARIA_H */

@@ -14,6 +14,7 @@ Oferta::~Oferta(){
   if(alquiler!=NULL) delete alquiler;
   if(venta!=NULL) delete venta;
   inmobiliaria->borrarOferta(this);
+  //propiedad->borrarOferta(this);
 }
 
 bool Oferta::ExisteVenta(){

@@ -68,13 +68,15 @@ bool ManejadorPropiedades::ExistePropiedad(int codigo){
 }
 
 set<DataInfoPropiedad*>* ManejadorPropiedades::getConversacionesPropiedad(Zona* z,string& email){
-	set<DataInfoPropiedad*>* res= set<DataInfoPropiedad*>();
 
-	set<Propiedades*>* props = z->getPropiedades();
+	set<Propiedad*>* props = z->getPropiedades();
+
+	set<DataInfoPropiedad*>* res=new set<DataInfoPropiedad*>();
 	for(set<Propiedades*>::iterator it= props->begin();it!=props->end();++it ){
 		res->insert(*it->getDataInfoPropiedad());
 
 	}
+	delete props;//solo borra la memoria asignada al a coleccion sin borrar lo de adentro?
 		return res;
 
 }

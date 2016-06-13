@@ -1,6 +1,9 @@
 #include "PropiedadController.h"
 
 #include "Usuario.h"
+#include "Sesion.h"
+#include "Venta.h"
+#include "Alquiler.h"
 #include "ManejadorDepartamentos.h"
 #include "ManejadorEdificios.h"
 #include "Manejador_Usuario.h"

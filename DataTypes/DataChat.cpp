@@ -1,13 +1,13 @@
 #include "DataChat.h"
 
-DataChat::DataChat(string& ei, string& inm, vector<DataMensaje*>* m) {
+DataChat::DataChat(string& ei, string& inm,int cod) {
     this->emailInteresado=ei;
     this->nombreInmobiliaria=inm;
-    this->mensajes=m;
+    this->codigo=cod;
 }
 
-vector<DataMensaje*>* DataChat::getDataMensajes() {
-    return this->mensajes;
+int DataChat::getCodigo() {
+    return this->codigo;
 }
 
 string DataChat::getEmailInteresado() {
@@ -18,7 +18,13 @@ string DataChat::getNombreInmobiliaria() {
 }
 
 DataChat::~DataChat() {
-    for(vector<DataMensaje*>::iterator it=this->mensajes->begin();it!=this->mensajes->end();++it){
-        delete *it;
-    }
+
+}
+
+ostream& operator <<(ostream& o, DataChat& dc) {
+  o << "Conversacion sobre Propiedad: " << dc.getCodigo() << endl;
+  o << "Inmobiliaria: " << dc.getNombreInmobiliaria()<< endl;
+  o <<"Interesado: " << dc.getEmailInteresado()<< endl;
+
+  return o;
 }

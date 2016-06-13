@@ -1,4 +1,4 @@
-#include Hora.h
+#include "Hora.h"
 #include "HoraInvalida.h"
 
 Hora :: Hora(){
