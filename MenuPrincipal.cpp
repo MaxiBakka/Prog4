@@ -1,0 +1,57 @@
+
+
+#include "MenuPrincipal.h"
+
+#include <iostream>
+#include <string>
+
+
+
+using namespace std;
+MenuPrincipal::MenuPrincipal() {
+}
+
+void MenuPrincipal::printMenu(){
+	cout << "Menu principal" << endl;
+	cout << "1 - Iniciar Sesion" << endl;
+	cout << "2 - Cerrar Sesion " << endl;
+	cout << "3 - Menu para Administradores" << endl;
+	cout << "4 - Menu para Inmobiliarias" << endl;
+	cout << "5 - Menu para Interesados" << endl;
+	cout << endl;
+	cout << "0 - Salir" << endl;
+}
+
+void MenuPrincipal::ejecutarOpcion(int opc){
+	PantallaUI* submenu = NULL;
+	switch(opc){
+	case 0:
+		salirDelSistema();
+		break;
+	case 1:
+		submenu = new IniciarSesion();
+		break;
+	case 2:
+		submenu = new IUsuarioController::CerrarSesion();
+		break;
+	case 3:
+		submenu = new MenuAdministradores();
+		break;
+	case 4:
+		submenu = new MenuInombiliarias();
+		break;
+	case 5:
+		submenu = new MenuInteresados();
+		break;
+	default:
+		throw ExOpcionInvalida();
+	}
+	if (submenu!=NULL) {
+		submenu->ejecutar();
+		delete submenu;
+	}
+}
+
+MenuPrincipal::~MenuPrincipal() {
+}
+
