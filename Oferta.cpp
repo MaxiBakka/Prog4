@@ -47,11 +47,14 @@ Inmobiliaria* Oferta::getInmobiliaria(){
 //SETTERS
 void Oferta::setVenta(float precio){
 
+  if(!ExisteVenta()) this->venta = new Venta(precio);
   this->venta->setPrecio(precio);
+
 }
 void Oferta::setAlquiler(float precio){
-
+if(!ExisteAlquier()) this->alquiler= new Alquiler(precio);
   this->alquiler->setPrecio(precio);
+
 }
 
 void Oferta::setPropiedad(Propiedad* prop){

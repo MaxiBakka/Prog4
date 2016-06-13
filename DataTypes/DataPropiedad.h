@@ -16,13 +16,14 @@ protected:
 	int cantAmbientes, dormitorios, banios,codigo;
 	string direccion;
 	bool garaje;
-	DataAlquiler*info_alquiler;
-	DataVenta*info_venta;
+	float m2Totales;
+	float info_alquiler;
+	float info_venta;
 
 public:
 
-		DataPropiedad(int cod,int cantAmbientes, int cantDormitorios , int  cantBanios, string direccion, bool garaje, DataAlquiler *&infoAlquiler,
-                 DataVenta *&infoVenta);
+		DataPropiedad(int cod,int cantAmbientes, int cantDormitorios , int  cantBanios, string direccion, bool garaje,float m2Totales,float &infoAlquiler,
+                 float &infoVenta);
 		virtual ~DataPropiedad(){};
 		//getteres
 		virtual string getDireccion()=0;
@@ -30,8 +31,8 @@ public:
 		virtual int getDormitorios()=0;
 		virtual int getBanios()=0;
 		virtual bool getGaraje()=0;
-		virtual DataAlquiler*& getAlquiler()=0;
-		virtual DataVenta*& getVenta()=0;
+		virtual float & getAlquiler()=0;
+		virtual float & getVenta()=0;
 		virtual int getCodigo()=0;
 
 

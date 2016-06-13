@@ -6,6 +6,7 @@
 
 #include "Propiedad.h"
 #include "DataCasa.h"
+#include "Oferta.h"
 
 using namespace std;
 
@@ -14,13 +15,15 @@ private:
     int espacioVerde;
     float m2Edificados;
 public:
-    Casa(int cod,int cda,int dormi,int banios,bool garaje,string dir,float m2t,Zona* z,int ev,float m2e);
+    Casa(int cod,int cda,int dormi,int banios,bool garaje,string dir,float m2t,Zona* z,Oferta* of,int ev,float m2e);
     int getEspacioVerde();
     float getM2Edificados();
+
+    void setEspacioVerde(int espverde);
+    void setM2edificados(float m2edificados);
     DataCasa* getDataCasa();
-    ~Casa();
+    virtual ~Casa();
 
 };
 
 #endif	/* CASA_H */
-

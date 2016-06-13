@@ -73,7 +73,7 @@ set<DataInfoPropiedad*>* ManejadorPropiedades::getConversacionesPropiedad(Zona* 
 
 	set<DataInfoPropiedad*>* res=new set<DataInfoPropiedad*>();
 	for(set<Propiedades*>::iterator it= props->begin();it!=props->end();++it ){
-		res->insert(*it->getDataInfoPropiedad());
+		res->insert(*it->getDataInfoPropiedad(email));
 
 	}
 	delete props;//solo borra la memoria asignada al a coleccion sin borrar lo de adentro?

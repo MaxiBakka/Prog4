@@ -1,7 +1,8 @@
 #include "Propiedad.h"
 #include "Zona.h"
+#include "Oferta.h"
 
-Propiedad::Propiedad(int cod, int cda, int dormi, int banios, bool garaje, string dir, float m2t,Zona* z) {
+Propiedad::Propiedad(int cod, int cda, int dormi, int banios, bool garaje, string dir, float m2t,Zona* z,Oferta*of) {
     this->codigo=cod;
     this->cantDeAmbientes=cda;
     this->dormitorios=dormi;
@@ -10,14 +11,13 @@ Propiedad::Propiedad(int cod, int cda, int dormi, int banios, bool garaje, strin
     this->direccion=dir;
     this->m2Totales=m2t;
     this->zona=z;
-    this->alquiler=NULL;
-    this->venta=NULL;
-    this->zona->AgregarPropiedad(this);
+    this->oferta=of;
+    this->chats= new set<Chat*>();
+
+
 }
 
-Alquiler* Propiedad::getAlquiler() {
-    return this->alquiler;
-}
+
 
 int Propiedad::getBanios() {
     return this->Banios;
@@ -47,29 +47,112 @@ float Propiedad::getM2Totales() {
     return this->m2Totales;
 }
 
-Venta* Propiedad::getVenta() {
-    return this->venta;
-}
+
 
 Zona* Propiedad::getZona() {
     return this->zona;
 }
 
-Propiedad::~Propiedad() {
-    if(this->venta!=NULL){
-    this->venta->~Venta();
-    }
-    if(this->alquiler!=NULL){
-    this->alquiler->~Alquiler();
-    }
-    //aca hay que ver como hacer para que la inmobiliaria tambien remueva dichas ventas y alquileres de sus colecciones
+void Propiedad::setCodigo(int codigo){
+
+  this->codigo=codigo;
+}
+void PropiedadsetCantDeAmbientes(int cantambientes){
+
+  this->cantDeAmbientes=cantambientes;
+}
+void Propiedad::setDormitorios(int dorm){
+  this->dormitorios=dorm;
+}
+void Propiedad::setBanios(int banio){
+
+  this->Banios=banio;
+}
+void Propiedad::setGaraje(bool garaje){
+  this->garaje=garaje;
+
+}
+void Propiedad::setDireccion(string &direccion){
+  this->direccion=direccion;
+}
+void Propiedad::setM2Totales(float m2tot){
+
+this->m2Totales=m2tot;
+}
+void Propiedad::setVenta(float precio){
+  this->oferta->setVenta(precio);
+
+}
+void Propiedad::setAlquiler(float precio){
+
+  this->oferta->setAlquiler(precio);
+
+}
+
+//obtencion datatypes
+DataReportePropiedad* Propiedad::getDataReportePropiedad(){
+
+//caso de uso obtener reporte de Inmobiliaria
+
 }
 
 
+DataInfoPropiedad* Propiedad::getDataInfoPropiedad(string &email){
+ int cant=0;
+  for (set<Chat*>::iterator it =chats->begin(); it!=chats->end(); ++it) {
+    if(*it->getEmailInteresado()==email){
+      cant= *it->cantidadMensajes();
+      break;
+    }
+  }
+  return new DataInfoPropiedad(this->codigo,this->direccion,cant);
+
+}
 
 
+DataDetallePropiedad *Propiedad:: getDataDetallePropiedad(){
+
+  return new DataDetallePropiedad(codigo,direccion,oferta->ExisteVenta(),oferta->ExisteAlquier());
+
+}
 
 
+DataPropiedad * Propiedad::getDataPropiedad(){
+  float alquiler=0;
+  float venta=0;
+
+  if(oferta->ExisteVenta()){
+   venta = oferta->getVenta()->getPrecio();
+  }
+  if(oferta->ExisteAlquier()){
+  alquiler=oferta->getAlquiler()->getPrecio();
+  }
+
+  return new DataPropiedad(codigo,cantDeAmbientes,dormitorios,Banios,direccion,garaje,m2Totales,alquiler,venta);
+}
+//Faltan operaciones del DSD
+void Propiedad::modificarPropiedad(DataPropiedad*dp){
+//caso de uso modificarPropiedad falta hacerlo
+
+}
+void Propiedad::ingresarMensaje(string &email,DataMensaje* mensaje){
+//caso de uso enviar mensaje interesado,me falta terminar esta op
+
+}
 
 
+Propiedad::~Propiedad() {
+  //elimino los chats
+  for(set<Chat*>::iterator it = chats->begin(); it!=chats->end();++it){
+    Chat*chat= *it;
+    delete chat;
+  }
+  chats->clear();
+  delete chats;
 
+//elimino oferta(venta/alquiler)
+  delete oferta;
+//remuevo la instancia de propiedad en la zona donde la prop pertenece
+  this->zona->RemoverPropiedad(codigo);
+
+}
