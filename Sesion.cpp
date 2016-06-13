@@ -18,7 +18,7 @@ Usuario* Sesion::getInstancia() {
 }
 
 Usuario* Sesion::getUsuario() {
-    return this->usuario=NULL;
+    return this->usuario;
 }
 
 void Sesion::iniciarSesion(Usuario*& user) {
@@ -28,7 +28,3 @@ void Sesion::iniciarSesion(Usuario*& user) {
 Sesion::~Sesion() {
     
 }
-
-
-
-
