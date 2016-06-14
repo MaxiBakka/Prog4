@@ -231,10 +231,16 @@ void cargarApartamentos(){
           apto=mp->getPropiedad(codigo);
           refAlquileres->insert(std::pair<int,Apartamento*>(ref,apto));
           delete dapto;
-          
+
       default
         throw ExOpcionInvalida();
 
     }
   }
+}
+
+void cargarAdministrador(){
+    Administrador* admin= new Administrador("adm1@sis.com","Pass1");
+    ref="UA1";
+    refAdministradores->insert<std::pair<string,Administrador*>(ref,admin);
 }

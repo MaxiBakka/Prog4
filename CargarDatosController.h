@@ -14,6 +14,7 @@
 #include "../ClasesDeDominio/Mensaje.h"
 #include "../ClasesDeDominio/Apartamento.h"
 #include "../ClasesDeDominio/Casa.h"
+#include "../ClasesDeDominio/Administrador.h"
 #include "../Interfaces/ICargaDatosController.h"
 
 using namespace std;
@@ -41,6 +42,7 @@ private:
 	map<string,Casa*>* refCasas;
 	map<string,Chat*>* refChats;
 	map<string,Apartamento*>* refApartamentos;
+	map<string,Administrador*>* refAdministradores;
 
 
 public:
