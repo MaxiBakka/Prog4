@@ -2,11 +2,11 @@
 #ifndef CASA_H
 #define	CASA_H
 
-#include<string>
+#include <string>
 
 #include "Propiedad.h"
-#include "DataCasa.h"
 #include "Oferta.h"
+#include "DataPropiedad.h"
 
 using namespace std;
 
@@ -21,7 +21,9 @@ public:
 
     void setEspacioVerde(int espverde);
     void setM2edificados(float m2edificados);
-    DataCasa* getDataCasa();
+    DataPropiedad* getDataPropiedad();
+
+    void modificarPropiedad(DataPropiedad*dp);
     virtual ~Casa();
 
 };

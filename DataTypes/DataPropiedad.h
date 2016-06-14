@@ -33,6 +33,7 @@ public:
 		virtual bool getGaraje()=0;
 		virtual float & getAlquiler()=0;
 		virtual float & getVenta()=0;
+		virtual float getM2totales()=0;
 		virtual int getCodigo()=0;
 
 

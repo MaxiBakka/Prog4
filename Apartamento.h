@@ -5,7 +5,8 @@
 
 #include "Propiedad.h"
 #include "Oferta.h"
-#include "DataApartamento.h"
+#include "DataPropiedad.h"
+
 class Edificio; //fwd declaration
 
 using namespace std;
@@ -21,7 +22,8 @@ public:
 
     void setM2edificados(float m2e);
 
-    DataApartamento* getDataApartamento();
+    DataPropiedad* getDataPropiedad();
+    void modificarPropiedad(DataPropiedad*dp);
     virtual ~Apartamento();
 
 

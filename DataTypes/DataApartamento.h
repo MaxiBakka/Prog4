@@ -15,12 +15,20 @@ class DataApartamento: public DataPropiedad{
 
 private:
 
-	float m2totales;
-	DataEdificio*edificio;
-
+	float m2edificados;
 public:
 		DataApartamento(DataApartamento*da);
-		DataApartamento(int cod,int cAmbientes, int dormitorios , int banios, string direc, bool garaje, DataAlquiler *&infoAlquiler, DataVenta *&infoVenta, float m2Tot,DataEdificio *&de);
+		DataApartamento(int cod,
+			  int cAmbientes,
+			  int dormitorios,
+			  int banios,
+				string direc,
+				bool garaje,
+				float infoAlquiler,
+				float infoVenta,
+				float m2Tot,
+				float m2edif);
+				
 		virtual ~DataApartamento();
 		//getterss
 
@@ -33,7 +41,8 @@ public:
 		virtual DataAlquiler* getAlquiler();
 		virtual DataVenta* getVenta();
 		float getM2totales();
-		DataEdificio* getEdificio();
+		float getM2edificados();
+
 
 };
 

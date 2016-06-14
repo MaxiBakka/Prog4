@@ -36,15 +36,7 @@ string Inmobiliaria::getDireccion() {
     return this->direccion;
 }
 
-/*
-void Inmobiliaria::crearAlquiler(DataAlquiler*& da, Propiedad* &p) {
-    this->alquileres->insert(new Alquiler(da->get_precio(),this,p));
-}
 
-void Inmobiliaria::crearVenta(DataVenta*& dv, Propiedad p) {
-    this->ventas->insert(new Venta(dv->get_precio(),this,p));
-}
-*/
 
 //operaciones sobre oferta
 void Inmobiliaria::AgregarOferta(Oferta* oferta){

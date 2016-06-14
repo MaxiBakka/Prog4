@@ -4,6 +4,8 @@
 #include "Sesion.h"
 #include "Venta.h"
 #include "Alquiler.h"
+#include "Chat.h"
+#include "Oferta.h"
 #include "ManejadorDepartamentos.h"
 #include "ManejadorEdificios.h"
 #include "Manejador_Usuario.h"
@@ -161,10 +163,18 @@ void PropiedadController::enviarMensaje(DataMensaje* mensaje){
 Sesion*sesion = Sesion::getInstancia();
 string email = sesion->getUsuario()->get_email();
 
-  propiedad->ingresarMensaje(email,mensaje);
-  //sujeto a cambios, me parece q es mejor si el interesado ingresa el mensaje y si no hay chat el lo crea.
-
-
+  if(this->propiedad->ExisteChat(email)){
+    this->propiedad->ingresarMensaje(mensaje);
+  }
+  else{
+    Interesado*interesado= dynamic_cast<Interesado*>(&sesion->getUsuario());
+    Inmobiliaria*inmobiliaria=propiedad->getOferta()->getInmobiliaria();
+    Chat*chat= new Chat(email,inmobiliaria->getNombre(),this->propiedad,interesado,inmobiliaria);
+    chat->nuevoMensaje(mensaje);
+    inmobiliaria->agregarChat(chat);
+    propiedad->AgregarChat(chat);
+    interesado->AgregarChat(chat);
+  }
 }
 
 set<DataMensaje*>* PropiedadController::listarMensajes(){

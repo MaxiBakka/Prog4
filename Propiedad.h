@@ -61,9 +61,11 @@ public:
     virtual DataInfoPropiedad* getDataInfoPropiedad(string &email);
     virtual DataDetallePropiedad * getDataDetallePropiedad();
     virtual DataPropiedad * getDataPropiedad();
-    //Faltan operaciones del DSD
+    
     virtual void modificarPropiedad(DataPropiedad*dp);
-    virtual void ingresarMensaje(string &email,DataMensaje* mensaje);
+    virtual void ingresarMensaje(DataMensaje* mensaje);
+    virtual void AgregarChat(Chat*c);
+    virtual bool ExisteChat(string &email);
 };
 
 #endif	/* PROPIEDAD_H */

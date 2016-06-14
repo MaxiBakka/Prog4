@@ -16,8 +16,8 @@ private:
 
 public:
 
-		DataCasa(int cod,int cAmbientes, int Dormitorios , int banos, string direc, bool gar,DataAlquiler *&infoAlquiler, DataVenta *&infoVenta, float m2Tot, float everde);
-        virtual ~DataCasa();
+DataCasa(int cod,int cAmbientes, int Dormitorios , int banos, string direc, bool gar,float infoAlquiler, float infoVenta, float m2Tot,float m2edif,float everde);
+virtual ~DataCasa();
 
 		virtual string getDireccion();
 		virtual int getCantAmbientes();
@@ -26,6 +26,7 @@ public:
 		virtual bool getGaraje();
 		virtual DataAlquiler*& getAlquiler();
 		virtual DataVenta*& getVenta();
+		float getM2totales();
 		float getM2edificados();
 		float getEspacioVerde();
 

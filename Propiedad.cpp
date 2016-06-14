@@ -53,11 +53,16 @@ Zona* Propiedad::getZona() {
     return this->zona;
 }
 
+Oferta* Propiedad::getOferta(){
+
+  return this->oferta;
+}
+
 void Propiedad::setCodigo(int codigo){
 
   this->codigo=codigo;
 }
-void PropiedadsetCantDeAmbientes(int cantambientes){
+void Propiedad::setCantDeAmbientes(int cantambientes){
 
   this->cantDeAmbientes=cantambientes;
 }
@@ -89,6 +94,21 @@ void Propiedad::setAlquiler(float precio){
 
 }
 
+void Propiedad::AgregarChat(Chat* c) {
+    this->chats->insert(c);
+}
+
+bool Propiedad::ExisteChat(string &email){
+
+  bool existe=false;
+  for (set<Chat*>::iterator it =chats->begin(); it!=chats->end(); ++it) {
+    if(*it->getEmailInteresado()==email){
+      existe=true;
+      break;
+    }
+  }
+  return existe;
+}
 //obtencion datatypes
 DataReportePropiedad* Propiedad::getDataReportePropiedad(){
 
@@ -105,8 +125,8 @@ DataInfoPropiedad* Propiedad::getDataInfoPropiedad(string &email){
       break;
     }
   }
-  return new DataInfoPropiedad(this->codigo,this->direccion,cant);
 
+  return new DataInfoPropiedad(this->codigo,this->direccion,cant);
 }
 
 
@@ -116,28 +136,14 @@ DataDetallePropiedad *Propiedad:: getDataDetallePropiedad(){
 
 }
 
+void Propiedad::ingresarMensaje(DataMensaje* mensaje){
 
-DataPropiedad * Propiedad::getDataPropiedad(){
-  float alquiler=0;
-  float venta=0;
-
-  if(oferta->ExisteVenta()){
-   venta = oferta->getVenta()->getPrecio();
+  for (set<Chat*>::iterator it =chats->begin(); it!=chats->end(); ++it) {
+    if(*it->getEmailInteresado()==email){
+      *it->nuevoMensaje(mensaje);
+      break;
+    }
   }
-  if(oferta->ExisteAlquier()){
-  alquiler=oferta->getAlquiler()->getPrecio();
-  }
-
-  return new DataPropiedad(codigo,cantDeAmbientes,dormitorios,Banios,direccion,garaje,m2Totales,alquiler,venta);
-}
-//Faltan operaciones del DSD
-void Propiedad::modificarPropiedad(DataPropiedad*dp){
-//caso de uso modificarPropiedad falta hacerlo
-
-}
-void Propiedad::ingresarMensaje(string &email,DataMensaje* mensaje){
-//caso de uso enviar mensaje interesado,me falta terminar esta op
-
 }
 
 
