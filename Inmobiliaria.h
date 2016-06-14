@@ -42,7 +42,7 @@ public:
     void borrarOferta(Oferta* &oferta);
 
     //operaciones sobre chat
-    bool ExisteChat(Chat&* chat);
+    bool ExisteChat(Chat* &chat);
     void agregarChat(Chat* &c);
     void eliminarChat(Chat* &c);
     Chat* ElegirChat(DataChat* &dc);

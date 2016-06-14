@@ -52,7 +52,7 @@ void Interesado::EliminarChat(Chat *chat){
 
   this->chats->erase(chat);
 }
-bool Interesado::ExisteChat(Chat&* chat){
+bool Interesado::ExisteChat(Chat* &chat){
 
   return chats->find(chat)!=chats->end();
 }
@@ -75,7 +75,7 @@ bool flag=TRUE;
 }
 
 Interesado :: ~Interesado(){
-  
+
   for (set<Chat*>::iterator it=chats->begin() ;it!=chats->end(); ++it) {
       Chat*chat= *it;
       delete chat;

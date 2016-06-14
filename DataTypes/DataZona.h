@@ -14,6 +14,6 @@ class DataZona{
 		int get_codigo();
 		string get_nombre();
 		~DataZona();
-}
+};
 
 #endif
