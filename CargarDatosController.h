@@ -21,7 +21,7 @@ using namespace std;
 class CargarDatosController: public ICargaDatosController {
 private:
 	static bool DatosCargados;
-	
+
 	virtual void cargarDepartamentos();
 	virtual void cargarZonas();
 	virtual void cargarApartamentos();
@@ -33,14 +33,14 @@ private:
 	virtual void cargarAdministrador();
 
 	//Atributos que guarden las referencias como en el pdf.
-	map<string,Departamento*>* refEmpresas;
-	map<string,Zona*>* refSucursales;
-	map<string,Edificio*>* refSecciones;
-	map<string,Inmobiliaria*>* refEstudiantes;
-	map<string,Interesado*>* refAsignaturas;
-	map<string,Casa*>* refCarreras;
-	map<string,Chat*>* refOfertas;
-	map<string,Apartamento*>* refEncargados;
+	map<string,Departamento*>* refDepartamentos;
+	map<string,Zona*>* refZonas;
+	map<string,Edificio*>* refEdificios;
+	map<string,Inmobiliaria*>* refInmobiliarias;
+	map<string,Interesado*>* refInteresados;
+	map<string,Casa*>* refCasas;
+	map<string,Chat*>* refChats;
+	map<string,Apartamento*>* refApartamentos;
 
 
 public:
