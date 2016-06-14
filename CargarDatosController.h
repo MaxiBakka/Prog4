@@ -42,7 +42,7 @@ private:
 	map<string,Casa*>* refCasas;
 	map<string,Chat*>* refChats;
 	map<string,Apartamento*>* refApartamentos;
-	map<string,Administrador*>* refAdministradores;
+	Administrador* administrador;
 
 
 public:
