@@ -13,7 +13,7 @@ void CargarDatosController::cargarDepartamentos(){
 
 while (i<5) {
 
-      switch(opc){
+      switch(i){
   	case 0:
   		ref="D1";letra="A";nombre="Canelones";
       ddpto= new DataDepartamento(letra,nombre);
@@ -55,7 +55,7 @@ void cargarZonas(){
   int i=0;
   while (i<5){
 
-    switch (opc) {
+    switch (i) {
       case 0:
           ref="Z1";nombre="Zona1";codigo=101;
           zona = new Zona(codigo,nombre,refDepartamentos->find("D1"));
@@ -105,7 +105,7 @@ int i=0;
 
 while(i<5){
 
-  switch (opc) {
+  switch (i) {
     case 0:
       ref="E1";nombre="Apache Viviente";cantidadPisos=4;gCom=1300;
       ded= new DataEdificio(nombre,cantidadPisos,gCom);
@@ -152,12 +152,12 @@ void cargarApartamentos(){
   int i=0;
 
   while(i<6){
-    switch (ocp) {
+    switch (i) {
       case 0:
           ref="AP1";codigo=1111;ambientes=2;dormitorios=1;banios=1;garaje=false;
           direccion="Iturria 1115 AP 104";m2edificados=34;m2totales=34;
           pventa=34567;palquiler=-1;
-          dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+          DataPopiedad* prop = new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                     garaje,palquiler,pventa,m2totales,m2edificados);
           venta = new Venta(pventa);
           alquiler=NULL;
@@ -242,5 +242,40 @@ void cargarApartamentos(){
 void cargarAdministrador(){
     Administrador* admin= new Administrador("adm1@sis.com","Pass1");
     ref="UA1";
-    refAdministradores->insert<std::pair<string,Administrador*>(ref,admin);
+    refAdministradores->insert(std::pair<string,Administrador*>(ref,admin));
+}
+
+void cargarInteresados(){
+  Manejador_Usuario* mu = Manejador_Usuario::getInstancia();
+  DtInteresado* di;
+  Interesado* Interesado;
+  string ref,email,password,nombre,apellido;
+  int edad;
+  int i=0;
+  while (i<5) {
+    switch (i) {
+      case 0:
+        ref="T1";email="int1@sis.com";password="passt1";nombre="Julio";apellido="Chaz";
+        di= new DtInteresado(nombre,apellido,edad,email);
+      case 1:
+        ref="T2";email="int2@sis.com";password="passt2";nombre="Andrea";apellido="Berruti";
+        di= new DtInteresado(nombre,apellido,edad,email);
+      case 2:
+        ref="T3";email="int3@sis.com";password="passt3";nombre="Sonia";apellido="Braga";
+        di= new DataInteresado(nombre,apellido,edad,email);
+      case 3:
+        ref="T4";email="int4@sis.com";password="passt4";nombre="Alfonso";apellido="Mier";
+        di= new DataInteresado(nombre,apellido,edad,email);
+      case 4:
+        ref="T5";email="int5@sis.com";password="passt5";nombre="Juan";apellido="Alpi";
+        di= new DataInteresado(nombre,apellido,edad,email);
+      default
+        throw ExOpcionInvalida();
+    }
+    mu->CrearInteresado(di);
+    interesado = mu->getInteresado(email);
+    interesado->set_contrasenia(password);
+    delete di;
+    refInteresados->insert(std::pair<string,Interesado*>(ref,interesado));
+  }
 }
