@@ -1,7 +1,6 @@
 #ifndef VENTA_H
 #define	VENTA_H
 
-#include "Oferta.h"
 #include "DataVenta.h"
 
 class Venta {

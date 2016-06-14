@@ -1,16 +1,17 @@
 #include "Factory.h"
 #include "UsuarioController.h"
 #include "PropiedadController.h"
+#include "EnviarMensajeController.h"
 
 	Factory* Factory::instancia = NULL;
-	
+
 	Factory::Factory(){};
-	
+
 	Factory::~Factory(){};
-	
+
 	Factory* Factory::getInstance(){
 		if (instancia==NULL)
-			instancia = new Factory();		
+			instancia = new Factory();
 		return instancia;
 	}
 
@@ -22,3 +23,6 @@
 		return new UsuarioController();
 	}
 
+	IEnviarMenajeController *Factory::getIEnviarMenajeController(){
+		return new EnviarMensajeController();
+	}

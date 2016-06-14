@@ -1,8 +1,9 @@
 #ifndef Factory.h
 #define Factory.h
 
-class "IPropiedadController.h"
-class "IUsuarioController.h"
+#include  "IPropiedadController.h"
+#include  "IUsuarioController.h"
+#include  "IEnviarMenajeController.h"
 
 
 class Factory {
@@ -15,6 +16,7 @@ class Factory {
 		static Factory*getInstance();
 		static IPropiedadController *getIPropiedadController();
 		static IUsuarioController *getIUsuarioController();
+		static IEnviarMenajeController *getIEnviarMenajeController();
 
 };
 

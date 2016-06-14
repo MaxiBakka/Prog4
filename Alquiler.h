@@ -2,7 +2,7 @@
 #define	ALQUILER_H
 
 #include "DataAlquiler.h"
-#include "Oferta.h"
+
 
 class Alquiler {
 private:
@@ -11,7 +11,7 @@ public:
     Alquiler(float p);
     float getPrecio();
     void setPrecio(float precio);
-    
+
     DataAlquiler* getDataAlquiler();
     virtual ~Alquiler();
 };
