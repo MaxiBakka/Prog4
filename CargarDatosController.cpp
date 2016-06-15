@@ -256,7 +256,7 @@ void CargarDatosController::cargarApartamentos(){
           ref="AP1";codigo=1111;ambientes=2;dormitorios=1;banios=1;garaje=false;
           direccion="Iturria 1115 AP 104";m2edificados=34;m2totales=34;
           pventa=34567;palquiler=-1;
-          DataPopiedad* dapto = new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+          dapto = new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                     garaje,palquiler,pventa,m2totales,m2edificados);
           venta = new Venta(pventa);
           alquiler=NULL;
@@ -272,7 +272,7 @@ void CargarDatosController::cargarApartamentos(){
         direccion="Iturria 1115 AP 105";m2edificados=35;m2totales=35;
         pventa=65789;palquiler=-1;
 
-        DataPopiedad* dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+        dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                   garaje,palquiler,pventa,m2totales,m2edificados);
         venta = new Venta(pventa);
         alquiler=NULL;
@@ -286,7 +286,7 @@ void CargarDatosController::cargarApartamentos(){
         ref="AP3";codigo=1113;ambientes=2;dormitorios=1;banios=1;garaje=true;
         direccion="CALLEJON 456 AP 01";m2edificados=45;m2totales=45;
         pventa=-1;palquiler=7689;
-        DataPopiedad* dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+        dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                   garaje,palquiler,pventa,m2totales,m2edificados);
         venta = NULL;
         alquiler= new Alquiler(palquiler);
@@ -300,7 +300,7 @@ void CargarDatosController::cargarApartamentos(){
         ref="AP4";codigo=1114;ambientes=7;dormitorios=3;banios=2;garaje=true;
         direccion="CORCEGA 3456 AP 2";m2edificados=34;m2totales=34;
         pventa=-1;palquiler=6789;
-        DataPopiedad* dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+        dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                   garaje,palquiler,pventa,m2totales,m2edificados);
         venta = NULL;
         alquiler = new Alquiler(palquiler);
@@ -315,7 +315,7 @@ void CargarDatosController::cargarApartamentos(){
         ref="AP5";codigo=1115;ambientes=4;dormitorios=1;banios=1;garaje=false;
         direccion="LUCRECIA 456 AP 3";m2edificados=25;m2totales=25;
         pventa=-1;palquiler=7890;
-        DataPopiedad* dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+        dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                   garaje,palquiler,pventa,m2totales,m2edificados);
         venta = NULL;
         alquiler= new Alquiler(palquiler);
@@ -329,7 +329,7 @@ void CargarDatosController::cargarApartamentos(){
           ref="AP6";codigo=1116;ambientes=2;dormitorios=1;banios=1;garaje=false;
           direccion="LUCRECIA 456 AP 3";m2edificados=17;m2totales=17;
           pventa=-1;palquiler=768;
-          DataPopiedad* dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+          dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                     garaje,palquiler,pventa,m2totales,m2edificados);
           venta = NULL;
           alquiler= new Alquiler(palquiler);
@@ -475,23 +475,23 @@ void CargarDatosController::cargarInteresados(){
   while (i<5) {
     switch (i) {
       case 0:
-        ref="T1";email="int1@sis.com";password="passt1";nombre="Julio";apellido="Chaz";
+        ref="T1";email="int1@sis.com";password="passt1";nombre="Julio";apellido="Chaz";edad=34;
         di= new DtInteresado(nombre,apellido,edad,email);
         i++;
       case 1:
-        ref="T2";email="int2@sis.com";password="passt2";nombre="Andrea";apellido="Berruti";
+        ref="T2";email="int2@sis.com";password="passt2";nombre="Andrea";apellido="Berruti";edad=56;
         di= new DtInteresado(nombre,apellido,edad,email);
         i++;
       case 2:
-        ref="T3";email="int3@sis.com";password="passt3";nombre="Sonia";apellido="Braga";
+        ref="T3";email="int3@sis.com";password="passt3";nombre="Sonia";apellido="Braga";edad=45;
         di= new DtInteresado(nombre,apellido,edad,email);
         i++;
       case 3:
-        ref="T4";email="int4@sis.com";password="passt4";nombre="Alfonso";apellido="Mier";
+        ref="T4";email="int4@sis.com";password="passt4";nombre="Alfonso";apellido="Mier";edad=30;
         di= new DtInteresado(nombre,apellido,edad,email);
         i++;
       case 4:
-        ref="T5";email="int5@sis.com";password="passt5";nombre="Juan";apellido="Alpi";
+        ref="T5";email="int5@sis.com";password="passt5";nombre="Juan";apellido="Alpi";edad=60;
         di= new DtInteresado(nombre,apellido,edad,email);
         i++;
       default:

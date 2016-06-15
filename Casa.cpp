@@ -1,6 +1,8 @@
 
 #include "Casa.h"
 #include "DataCasa.h"
+#include "Zona.h"
+
 
 Casa::Casa(int cod, int cda, int dormi, int banios, bool garaje, string dir, float m2t,Zona* z,Oferta* of, int ev, float m2e)
 :Propiedad(cod,cda,dormi,banios,garaje,dir,m2t,z,of) {
@@ -8,7 +10,6 @@ Casa::Casa(int cod, int cda, int dormi, int banios, bool garaje, string dir, flo
     this->espacioVerde=ev;
     this->m2Edificados=m2e;
     z->AgregarPropiedad(this);
-    e->agregarApartamento(this);
 }
 
 int Casa::getEspacioVerde() {
@@ -28,7 +29,7 @@ void Casa::setM2edificados(float m2edificados){
 }
 
 
-DataPropiedad* Casa::getDatapropiedad() {
+DataPropiedad* Casa::getDataPropiedad() {
   float alquiler=0;
   float venta=0;
 
@@ -44,18 +45,18 @@ DataPropiedad* Casa::getDatapropiedad() {
 }
 
 void Casa::modificarPropiedad(DataPropiedad*dp){
+  DataCasa* dc= dynamic_cast<DataCasa*>(dp);
+  this->setCantDeAmbientes(dc->getCantAmbientes());
+  this->setDormitorios(dc->getDormitorios());
+  this->setBanios(dc->getBanios());
+  this->setGaraje(dc->getGaraje());
+  this->setDireccion(dc->getDireccion());
+  this->setM2Totales(dc->getM2totales());
+  this->setAlquiler(dc->getAlquiler());
+  this->setVenta(dc->getVenta());
 
-  this->setCantDeAmbientes(dp->getCantAmbientes());
-  this->setDormitorios(dp->getDormitorios());
-  this->setBanios(dp->getBanios());
-  this->setGaraje(dp->getGaraje());
-  this->setDireccion(dp->getDireccion());
-  this->setM2Totales(dp->getM2totales());
-  this->setAlquiler(dp->getAlquiler());
-  this->setVenta(dp->getVenta());
-
-  this->setM2edificados(dp->getM2edificados());
-  this->espacioVerde=dp->getEspacioVerde();
+  this->setM2edificados(dc->getM2edificados());
+  this->espacioVerde=dc->getEspacioVerde();
 }
 
 
