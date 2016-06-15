@@ -1,18 +1,21 @@
 #include "CargarDatosController.h"
 #include <utility>
 
-#include "ManejadorEdificios.h"
-#include "ManejadorDepartamentos.h"
-#include "ManejadorPropiedades.h"
-#include "Manejador_Usuario.h"
+#include "../manejadores/ManejadorEdificios.h"
+#include "../manejadores/ManejadorDepartamentos.h"
+#include "../manejadores/ManejadorPropiedades.h"
+#include "../manejadores/Manejador_Usuario.h"
 
-#include "DataPropiedad.h"
-#include "DataDepartamento.h"
-#include "DataEdificio.h"
-#include "DataInmobiliaria.h"
-#include "DataCasa.h"
-#include "DataApartamento.h"
-#include "DtInteresado.h"
+#include "../dataTypes/DataPropiedad.h"
+#include "../dataTypes/DataDepartamento.h"
+#include "../dataTypes/DataEdificio.h"
+#include "../dataTypes/DataInmobiliaria.h"
+#include "../dataTypes/DataCasa.h"
+#include "../dataTypes/DataApartamento.h"
+#include "../dataTypes/DtInteresado.h"
+#include "../dataTypes/DataMensaje.h"
+#include "../dataTypes/Hora.h"
+#include "../dataTypes/Fecha.h"
 
 #include "../excepciones/ExOpcionInvalida.h"
 #include "../excepciones/DatosYaCargado.h"
@@ -33,6 +36,7 @@ refZonas= new map<string,Zona*>;
 refInteresados= new map<string,Interesado*>;
 refInmobiliarias= new map<string,Inmobiliaria*>;
 refChats= new map<string,Chat*>;
+administrador=NULL;
 }
 
 Ctrl_CargarDatos::~Ctrl_CargarDatos() {
@@ -447,9 +451,12 @@ void cargarCasas(){
 
 
 void cargarAdministrador(){
-    Administrador* admin= new Administrador("adm1@sis.com","Pass1");
-    ref="UA1";
-    refAdministradores->insert(std::pair<string,Administrador*>(ref,admin));
+  string email="adm1@sis.com",pass="Pass1";
+
+    Manejador_Usuario* mu = Manejador_Usuario::getInstancia();
+    mu->CrearAdministrador(email,pass);
+    this->administrador=mu->getUsuario(email);
+
 }
 
 
@@ -494,8 +501,96 @@ void cargarInteresados(){
 }
 
 void cargarDatosdeSistema::cargarMensajes(){
-  
 
+int hora,minutos,segundos;
+string fecha,texto,ref;
+Hora* hora;
+Fecha* fecha_mensaje;
+DataMensaje* mensaje;
+Interesado* interesado;
+Propiedad* prop;
+Inmobiliaria* inmob;
+
+  while (i<6) {
+
+    switch(i){
+
+      case 0:
+        ref="O1";hora=13;minutos=02;segundos=00;
+        fecha="25/05/2016";
+        texto="Estoy Interesado";
+        inmob= refInmobiliarias->find("I1")->second;
+        prop= refCasas->find("C1")->second;
+        interesado= refInteresados->find("T1")->second;
+
+        i++;
+      case 1:
+        ref="O2";hora=12;minutos=30;segundos=00;
+        fecha="24/05/2016";
+        texto="Cuanto cuesta?";
+        inmob= refInmobiliarias->find("I3")->second;
+        prop= refCasas->find("C4")->second;
+        interesado= refInteresados->find("T2")->second;
+
+        i++;
+      case 2:
+        ref="O3";hora=12;minutos=35;segundos=00;
+        fecha="23/05/2016";
+        texto="PERDON ME EQUIVOQUE";
+        inmob= refInmobiliarias->find("I1")->second;
+        prop= refCasas->find("C1")->second;
+        interesado= refInteresados->find("T3")->second;
+
+        i++;
+      case 3:
+        ref="O4";hora=0;minutos=30;segundos=00;
+        fecha="1/6/2016";
+        texto="Quiero hacer una oferta ya!";
+        inmob= refInmobiliarias->find("I1")->second;
+        prop= refCasas->find("AP1")->second;
+        interesado= refInteresados->find("T4")->second;
+
+        i++;
+      case 4:
+        ref="O5";hora=12;minutos=45;segundos=00;
+        fecha="2/6/2016";
+        texto="Tiene humedad?";
+        inmob= refInmobiliarias->find("I1")->second;
+        prop= refCasas->find("AP2")->second;
+        interesado= refInteresados->find("T1")->second;
+
+        i++;
+      case 5:
+        ref="O6";hora=2;minutos=05;segundos=00;
+        fecha="3/6/2016";
+        texto="Cual es el precio?";
+        inmob= refInmobiliarias->find("I2")->second;
+        prop= refCasas->find("AP3")->second;
+        interesado= refInteresados->find("T5")->second;
+
+        i++;
+      default:
+        throw ExOpcionInvalida();
+      }
+
+      hora = new Hora(hora,minutos,segundos);
+      fecha_mensaje= new Fecha(fecha);
+      mensaje= new DataMensaje(*fecha_mensaje,*hora,texto);
+
+      if(prop->ExisteChat(interesado->get_email())){
+        prop->ingresarMensaje(mensaje);
+      }
+      else{
+
+        Chat*chat= new Chat(interesado->get_email(),inmob->getNombre(),prop,interesado,inmob);
+        chat->nuevoMensaje(mensaje);
+        inmob->agregarChat(chat);
+        prop->AgregarChat(chat);
+        interesado->AgregarChat(chat);
+
+      }
+      delete mensaje;delete hora; delete fecha_mensaje;
+  }
 }
 
 void CargarDatosController::cargarDatosdeSistema(){
@@ -504,6 +599,13 @@ void CargarDatosController::cargarDatosdeSistema(){
 		throw DatosYaCargado();
 	}
 
+//eliminar datos que ya existian en el sistema
+
+/*Manejador_Usuario* mu = Manejador_Usuario::getInstancia();
+ManejadorDepartamentos* md = ManejadorDepartamentos::getInstancia();
+ManejadorEdificios * me= ManejadorEdificios::getInstancia();
+ManejadorPropiedades* mp = ManejadorPropiedades::getInstancia();
+delete mp; delete md; delete me; delete mu; */
 	cargarDepartamentos();
 	cargarZonas();
 	cargarEdificios();

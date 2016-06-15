@@ -4,6 +4,10 @@
 #include "UsuarioNotFound.h"
 #include "ExisteInteresado.h"
 #include "InmobiliariaYaExistente.h"
+
+#include "Inmobiliaria.h"
+#include "Administrador.h"
+#include "Interesado.h"
 #include <utility>
 
 
@@ -89,24 +93,29 @@ Usuario* Manejador_Usuario::getUsuario(string &email){
 	}
 
 }
+void Manejador_Usuario::CrearAdministrador(string &email,string &password){
+
+	Administrador*admin= new Administrador(email,password);
+	administradores->insert(pair<string,Administrador*>(email,admin));
+}
 
 //operaciones del caso AltaInmobiliaria Y AltaInteresado
 void Manejador_Usuario::CrearInmobiliaria(DataInmobiliaria*di){
-	if(!(inmobiliarias->find(di->get_email())!=inmobiliarias->end()))
+	if(!(inmobiliarias->find(di->get_email())!=inmobiliarias->end())){
 	  for (map<string,Inmobiliaria*>::iterator it = inmobiliarias->begin(); it!=inmobiliarias->end();it++) {
-	  	if(it->second->getNombre()==di->get_nombre()) throw InmobiliariaYaExistente;
+	  	if(it->second->getNombre()==di->get_nombre()) throw InmobiliariaYaExistente();
 
-	  } 															 //tmb hay q fijarse q el nombre de la inmo sea unico ,la coleccion esta hecha por email
+	  } 					 //tmb hay q fijarse q el nombre de la inmo sea unico ,la coleccion esta hecha por email
 		Inmobiliaria* inmo = new Inmobiliaria(di->get_email()," ",di->get_nombre(),di->get_direccion()); //la unica es recorrer toda la coleccion
 		inmobiliarias->insert(pair<string,Inmobiliaria*>(di->get_email(),inmo));
 	}else{
-		throw InmobiliariaYaExistente;
+		throw InmobiliariaYaExistente();
 	}
 }
 
 void Manejador_Usuario::CrearInteresado(DataInteresado*di){
 	if (interesados->find(di->get_email())!=interesados->end()) {
-		throw ExisteInteresado;
+		throw ExisteInteresado();
 	} else {
 		Intresado * inter = new Interesado(di->get_email()," ",di->get_nombre(),di->get_apellido(),di->get_edad());
 		interesados->insert(pair<string,Interesado*>(di->get_email(),inter));

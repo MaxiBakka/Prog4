@@ -36,6 +36,7 @@ public:
 	//operaciones del caso AltaInmobiliaria Y AltaInteresado
 	void CrearInmobiliaria(DataInmobiliaria*di);
 	void CrearInteresado(DataInteresado*di);
+	void CrearAdministrador(string &email,string &password);
 
 	//obtencion Datatypes
 	set<DataInfoInmobiliaria*>*getDataInfoInmobiliaria();

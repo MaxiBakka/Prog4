@@ -25,7 +25,7 @@ Fecha::Fecha(const string& fecha) {
 	istringstream f(fecha);
 	string s;
 	int dato = 0;
-	while(getline(f, s,' ')){
+	while(getline(f, s,'/')){
 		if(dato == 0){
 			this->dia = atoi(s.c_str());
 			dato++;
