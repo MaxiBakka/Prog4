@@ -8,6 +8,8 @@ using namespace std;
 
 class WrongPwd : public exception{
 	public:
+		WrongPwd();
+		~WrongPwd();
 		virtual const char* what()const throw();
 
 };

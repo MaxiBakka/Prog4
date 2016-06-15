@@ -8,9 +8,10 @@ using namespace std;
 
 class NoHayPropiedades : public exception{
 	public:
+		NoHayPropiedades();
+		~NoHayPropiedades();
 		virtual const char* what()const throw();
 
 };
 
 #endif	/* NOHAYPROPIEDADES_H */
-

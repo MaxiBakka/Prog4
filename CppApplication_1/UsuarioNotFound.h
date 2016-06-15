@@ -9,10 +9,11 @@ using namespace std;
 
 class UsuarioNotFound : public exception{
 	public:
+		UsuarioNotFound();
+		~UsuarioNotFound();
 		virtual const char* what()const throw();
 
 };
 
 
 #endif	/* USUARIONOTFOUND_H */
-

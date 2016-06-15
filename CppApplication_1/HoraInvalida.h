@@ -8,9 +8,10 @@ using namespace std;
 
 class HoraInvalida : public exception{
 	public:
+		HoraInvalida();
+		~HoraInvalida();
 		virtual const char* what()const throw();
 
 };
 
 #endif	/* HORAINVALIDA_H */
-

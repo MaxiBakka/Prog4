@@ -8,9 +8,10 @@ using namespace std;
 
 class NoHayDepartamentoEnMemoria : public exception{
 	public:
+		NoHayDepartamentoEnMemoria();
+		~NoHayDepartamentoEnMemoria();
 		virtual const char* what()const throw();
 
 };
 
 #endif	/* NOHAYDEPARTAMENTOENMEMORIA_H */
-

@@ -8,9 +8,10 @@ using namespace std;
 
 class ExNoHayMensajes : public exception{
 	public:
+		ExNoHayMensajes();
+		~ExNoHayMensajes();
 		virtual const char* what()const throw();
 
 };
 
 #endif	/* EXNOHAYMENSAJES_H */
-

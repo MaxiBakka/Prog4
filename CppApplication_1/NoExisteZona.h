@@ -8,10 +8,11 @@ using namespace std;
 
 class NoExisteZona : public exception{
 	public:
+		NoExisteZona();
+		~NoExisteZona();
 		virtual const char* what()const throw();
 
 };
 
 
 #endif	/* NOEXISTEZONA_H */
-

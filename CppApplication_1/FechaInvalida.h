@@ -8,9 +8,10 @@ using namespace std;
 
 class FechaInvalida : public exception{
 	public:
+		FechaInvalida();
+		~FechaInvalida();
 		virtual const char* what()const throw();
 
 };
 
 #endif	/* FECHAINVALIDA_H */
-

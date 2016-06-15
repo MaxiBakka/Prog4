@@ -8,10 +8,11 @@ using namespace std;
 
 class ExNoHayZonas : public exception{
 	public:
+		ExNoHayZonas();
+		~ExNoHayZonas();
 		virtual const char* what()const throw();
 
 };
 
 
 #endif	/* EXNOHAYZONAS_H */
-

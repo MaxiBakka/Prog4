@@ -8,10 +8,11 @@ using namespace std;
 
 class PrecioInvalido : public exception{
 	public:
+		PrecioInvalido();
+		~PrecioInvalido();
 		virtual const char* what()const throw();
 
 };
 
 
 #endif	/* PRECIOINVALIDO_H */
-
