@@ -1,5 +1,6 @@
 #include "ExOpcionInvalida.h"
 
-	virtual const char* ExOpcionInvalida::what()const throw(){
-		return "Opcion Invalida, intente nuevamente";
-	}
+
+const char* ExOpcionInvalida::what()const throw(){
+		return "Opcion inválida. Intente nuevamente.";
+}
