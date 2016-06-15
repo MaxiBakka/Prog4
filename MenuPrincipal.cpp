@@ -31,6 +31,17 @@ void MenuPrincipal::ejecutarOpcion(int opc){
 		break;
 	case 1:
 		IniciarSesion();
+		/*Sesion*sesion=Sesion::getInstancia();
+		Usuario*user=sesion->getUsuario()
+		if(Interesado*int=dynamic_cast<Interesado*>(user)){
+			submenu= new MenuIntersados();
+		}
+		else if(Inmobiliaria*inm=dynamic_cast<Inmobiliaria*>(user)){
+			submenu= new MenuInmobiliarias();
+		}
+		else{
+			submenu= new MenuAdministradores();
+		}	*/
 		break;
 	case 2:
 		IUsuarioController::CerrarSesion();
@@ -58,4 +69,3 @@ void MenuPrincipal::ejecutarOpcion(int opc){
 
 MenuPrincipal::~MenuPrincipal() {
 }
-
