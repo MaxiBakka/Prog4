@@ -1,11 +1,24 @@
 #include "CargarDatosController.h"
+#include <utility>
 
 #include "ManejadorEdificios.h"
 #include "ManejadorDepartamentos.h"
 #include "ManejadorPropiedades.h"
 #include "Manejador_Usuario.h"
 
-#include "ExOpcionInvalida.h"
+#include "DataPropiedad.h"
+#include "DataDepartamento.h"
+#include "DataEdificio.h"
+#include "DataInmobiliaria.h"
+#include "DataCasa.h"
+#include "DataApartamento.h"
+#include "DtInteresado.h"
+
+#include "../excepciones/ExOpcionInvalida.h"
+#include "../excepciones/DatosYaCargado.h"
+
+
+
 using namespace std;
 
 bool CargarDatosController::DatosCargados = false;
@@ -23,7 +36,7 @@ refChats= new map<string,Chat*>;
 }
 
 Ctrl_CargarDatos::~Ctrl_CargarDatos() {
-  
+
 	delete refEdificios;
 	delete refApartamentos;
 	delete refCasas;
@@ -236,7 +249,7 @@ void cargarApartamentos(){
           ref="AP1";codigo=1111;ambientes=2;dormitorios=1;banios=1;garaje=false;
           direccion="Iturria 1115 AP 104";m2edificados=34;m2totales=34;
           pventa=34567;palquiler=-1;
-          dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+          DataPopiedad* prop = new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                     garaje,palquiler,pventa,m2totales,m2edificados);
           venta = new Venta(pventa);
           alquiler=NULL;
@@ -318,6 +331,7 @@ void cargarApartamentos(){
           zona=refZonas->find("Z4")->second;
           edificio=refEdificios->find("E4")->second;
           oferta = new Oferta(venta,alquiler,NULL,inmob);
+          i++
       default:
         throw ExOpcionInvalida();
 
@@ -329,7 +343,7 @@ void cargarApartamentos(){
   }
 }
 
-void cargarApartamentos(){
+void cargarCasas(){
   ManejadorPropiedades* mp = ManejadorPropiedades::getInstancia();
   DataPropiedad* dcasa;
   Oferta* oferta;
@@ -435,5 +449,70 @@ void cargarApartamentos(){
 void cargarAdministrador(){
     Administrador* admin= new Administrador("adm1@sis.com","Pass1");
     ref="UA1";
-    refAdministradores->insert<std::pair<string,Administrador*>(ref,admin);
+    refAdministradores->insert(std::pair<string,Administrador*>(ref,admin));
+}
+
+
+void cargarInteresados(){
+  Manejador_Usuario* mu = Manejador_Usuario::getInstancia();
+  DtInteresado* di;
+  Interesado* Interesado;
+  string ref,email,password,nombre,apellido;
+  int edad;
+  int i=0;
+  while (i<5) {
+    switch (i) {
+      case 0:
+        ref="T1";email="int1@sis.com";password="passt1";nombre="Julio";apellido="Chaz";
+        di= new DtInteresado(nombre,apellido,edad,email);
+        i++;
+      case 1:
+        ref="T2";email="int2@sis.com";password="passt2";nombre="Andrea";apellido="Berruti";
+        di= new DtInteresado(nombre,apellido,edad,email);
+        i++;
+      case 2:
+        ref="T3";email="int3@sis.com";password="passt3";nombre="Sonia";apellido="Braga";
+        di= new DtInteresado(nombre,apellido,edad,email);
+        i++;
+      case 3:
+        ref="T4";email="int4@sis.com";password="passt4";nombre="Alfonso";apellido="Mier";
+        di= new DtInteresado(nombre,apellido,edad,email);
+        i++;
+      case 4:
+        ref="T5";email="int5@sis.com";password="passt5";nombre="Juan";apellido="Alpi";
+        di= new DtInteresado(nombre,apellido,edad,email);
+        i+;
+      default
+        throw ExOpcionInvalida();
+    }
+    mu->CrearInteresado(di);
+    interesado = mu->getInteresado(email);
+    interesado->set_contrasenia(password);
+    delete di;
+    refInteresados->insert(std::pair<string,Interesado*>(ref,interesado));
+  }
+}
+
+void cargarDatosdeSistema::cargarMensajes(){
+  
+
+}
+
+void CargarDatosController::cargarDatosdeSistema(){
+
+  if(CargarDatosController::DatosCargados){
+		throw DatosYaCargado();
+	}
+
+	cargarDepartamentos();
+	cargarZonas();
+	cargarEdificios();
+	cargarAdministrador();
+	cargarInmobiliarias();
+	cargarInteresados();
+	cargarApartamentos();
+	cargarCasas();
+	cargarMensajes();
+
+	CargarDatosController::DatosCargados = true;
 }
