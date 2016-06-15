@@ -2,11 +2,10 @@
 #define DataDepartamento_h
 
 #include <string>
-#include "DataPropiedad.h"
 
 using namespace std;
 
-class DataDepartamento: public DataPropiedad{
+class DataDepartamento{
 	private:
 		string nombre;
 		string letra;
