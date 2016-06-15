@@ -21,7 +21,7 @@
 #include "Fecha.h"
 
 #include "ExOpcionInvalida.h"
-//#include "../excepciones/DatosYaCargado.h"
+#include "DatosYaCargados.h"
 
 
 
@@ -142,7 +142,7 @@ while (i<5) {
 }
 }
 
-void cargarZonas(){
+void CargarDatosController::cargarZonas(){
   Zona* zona;
   Departamento* dpto;
   string nombre,ref;
@@ -189,7 +189,7 @@ void cargarZonas(){
   }
 }
 
-void cargarEdificios(){
+void CargarDatosController::cargarEdificios(){
 
 ManejadorEdificios* me = ManejadorEdificios::getInstancia();
 Edificio* ed;
@@ -233,7 +233,7 @@ while(i<5){
 }
 }
 
-void cargarApartamentos(){
+void CargarDatosController::cargarApartamentos(){
   ManejadorPropiedades* mp = ManejadorPropiedades::getInstancia();
   DataPropiedad* dapto;
   Oferta* oferta;
@@ -350,7 +350,7 @@ void cargarApartamentos(){
   }
 }
 
-void cargarCasas(){
+void CargarDatosController::cargarCasas(){
   ManejadorPropiedades* mp = ManejadorPropiedades::getInstancia();
   DataPropiedad*dcasa;
   Oferta*oferta;
@@ -453,17 +453,17 @@ void cargarCasas(){
 }
 
 
-void cargarAdministrador(){
+void CargarDatosController::cargarAdministrador(){
   string email="adm1@sis.com",pass="Pass1";
 
     Manejador_Usuario* mu = Manejador_Usuario::getInstancia();
     mu->CrearAdministrador(email,pass);
-    this->administrador=mu->getUsuario(email);
+    this->administrador= dynamic_cast<Administrador*>(mu->getUsuario(email));
 
 }
 
 
-void cargarInteresados(){
+void CargarDatosController::cargarInteresados(){
 
   Manejador_Usuario*mu = Manejador_Usuario::getInstancia();
   DtInteresado*di;
@@ -505,7 +505,7 @@ void cargarInteresados(){
   }
 }
 
-void cargarDatosdeSistema::cargarMensajes(){
+void CargarDatosController::cargarMensajes(){
 
 int h,minutos,segundos;
 string fecha,texto,ref;
@@ -602,7 +602,7 @@ int i=0;
 void CargarDatosController::cargarDatosdeSistema(){
 
   if(CargarDatosController::DatosCargados){
-		throw DatosYaCargado();
+		throw DatosYaCargados();
 	}
 
 //eliminar datos que ya existian en el sistema

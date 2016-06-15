@@ -19,36 +19,36 @@
 
 using namespace std;
 
-class CargarDatosController:public ICargarDatosController {
+class CargarDatosController:public ICargarDatosController{
 private:
-	static bool DatosCargados;
+  static bool DatosCargados;
 
-	virtual void cargarDepartamentos();
-	virtual void cargarZonas();
-	virtual void cargarApartamentos();
-	virtual void cargarCasas();
-	virtual void cargarInmobiliarias();
-	virtual void cargarInteresados();
-	virtual void cargarEdificios();
-	virtual void cargarMensajes();
-	virtual void cargarAdministrador();
+  virtual void cargarDepartamentos();
+  virtual void cargarZonas();
+  virtual void cargarApartamentos();
+  virtual void cargarCasas();
+  virtual void cargarInmobiliarias();
+  virtual void cargarInteresados();
+  virtual void cargarEdificios();
+  virtual void cargarMensajes();
+  virtual void cargarAdministrador();
 
-	//Atributos que guarden las referencias como en el pdf.
-	map<string,Departamento*>* refDepartamentos;
-	map<string,Zona*>* refZonas;
-	map<string,Edificio*>* refEdificios;
-	map<string,Inmobiliaria*>* refInmobiliarias;
-	map<string,Interesado*>* refInteresados;
-	map<string,Propiedad*>* refCasas;
-	map<string,Chat*>* refChats;
-	map<string,Propiedad*>* refApartamentos;
-	Administrador* administrador;
-
+  //Atributos que guarden las referencias como en el pdf.
+  map<string,Departamento*>* refDepartamentos;
+  map<string,Zona*>* refZonas;
+  map<string,Edificio*>* refEdificios;
+  map<string,Inmobiliaria*>* refInmobiliarias;
+  map<string,Interesado*>* refInteresados;
+  map<string,Propiedad*>* refCasas;
+  map<string,Chat*>* refChats;
+  map<string,Propiedad*>* refApartamentos;
+  Administrador* administrador;
 
 public:
-	CargarDatosController();
-	virtual ~CargarDatosController();
-	virtual void cargarDatosdeSistema();
+  CargarDatosController();
+  virtual ~CargarDatosController();
+  virtual void cargarDatosdeSistema();
+
 };
 
 #endif
