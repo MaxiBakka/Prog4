@@ -15,7 +15,7 @@ Hora& DataMensaje :: get_hora(){
     return this->hora;
 }
 
-const string& DataMensaje :: get_texto(){
+string& DataMensaje :: get_texto(){
     return this->texto;
 }
 

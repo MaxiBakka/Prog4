@@ -97,6 +97,9 @@ void Propiedad::setAlquiler(float precio){
 void Propiedad::AgregarChat(Chat* c) {
     this->chats->insert(c);
 }
+void Propiedad::eliminarChat(Chat * chat){
+  chats->erase(chat);
+}
 
 bool Propiedad::ExisteChat(string &email){
 

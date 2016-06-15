@@ -66,7 +66,7 @@ void Inmobiliaria::agregarChat(Chat*& c) {
     this->chats->insert(c);
 }
 
-void Inmobiliaria::eliminarChat(Chat*& c) {
+void Inmobiliaria::eliminarChat(Chat* c) {
     this->chats->erase(c);
 }
 

@@ -1,6 +1,8 @@
 #include "Chat.h"
 #include "Propiedad.h"
 #include "ExNoHayMensajes.h"
+#include "Inmobiliaria.h"
+#include  "Interesado.h"
 
 using namespace std;
 
@@ -58,16 +60,18 @@ bool Chat::esChatPropiedad(int codigo) {
 }
 
 set<DataMensaje*>* Chat::getDataMensajes() {
-    if (mensajes->size()==0) {
-      throw ExNoHayMensajes();
-    }
-    else{
-        set<DataMensaje*>* res = new set<DataMensaje*>();
-        for (int i =0,vector<Mensaje*>::reverse_iterator it=mensajes->rbegin(); (it!=mensajes->rend() && i<5); i++,++it) {
-          res->insert(it->getDataMensaje());
-        }
-    }
-  return res;
+  set<DataMensaje*>* res = new set<DataMensaje*>();
+ if (mensajes->size()==0) {
+   throw ExNoHayMensajes();
+ }
+ else{
+
+     int i =0;
+     for (vector<Mensaje*>::reverse_iterator it=mensajes->rbegin(); (it!=mensajes->rend() && i<5); i++,++it) {
+       res->insert(*it->getDataMensaje());
+     }
+ }
+return res;
 }
 
 void Chat::nuevoMensaje(DataMensaje* m) {
@@ -82,8 +86,8 @@ Chat::~Chat() {
   }
   delete mensajes;
   interesado->EliminarChat(this);
-  inmobiliaria->EliminarChat(this);
-  propiedad->EliminarChat(this);
+  inmobiliaria->eliminarChat(this);
+  propiedad->eliminarChat(this);
   //segun el diagrama solo la propiedad llama al destructor de chat cuando una propiedad se Elimina
   //nose si dejarlo asi porque supongo que no se puede pedir que el sistema elimine un chat porq le pinto no tendria sentido
 

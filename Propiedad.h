@@ -65,6 +65,7 @@ public:
     virtual void modificarPropiedad(DataPropiedad*dp);
     virtual void ingresarMensaje(DataMensaje* mensaje);
     virtual void AgregarChat(Chat*c);
+    virtual void eliminarChat(Chat * chat);
     virtual bool ExisteChat(string &email);
 };
 

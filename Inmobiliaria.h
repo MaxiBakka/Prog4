@@ -44,7 +44,7 @@ public:
     //operaciones sobre chat
     bool ExisteChat(Chat* &chat);
     void agregarChat(Chat* &c);
-    void eliminarChat(Chat* &c);
+    void eliminarChat(Chat* c);
     Chat* ElegirChat(DataChat* &dc);
 
 

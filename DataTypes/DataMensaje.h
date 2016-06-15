@@ -20,7 +20,7 @@ public:
     //getters
     Fecha& get_fecha();
     Hora& get_hora();
-    const string& get_texto();
+    string& get_texto();
     //destructor
     ~DataMensaje();
 
