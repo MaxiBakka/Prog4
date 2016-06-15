@@ -14,7 +14,7 @@ class DataInfoPropiedad{
         int get_codigo();
         string get_direccion();
         int get_cantMensajes();
-        ~DataInfoPropiedad;
+        ~DataInfoPropiedad();
 };
 
 #endif // DataInfoPropiedad_h

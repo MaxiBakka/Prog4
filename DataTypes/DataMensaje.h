@@ -26,6 +26,6 @@ public:
 
 };
 
-oustream& operator <<(ostream &output,DataMensaje& dm);
+ostream& operator <<(ostream &output,DataMensaje& dm);
 
 #endif // DataMensaje_h

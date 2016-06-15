@@ -28,7 +28,7 @@ public:
 				float infoVenta,
 				float m2Tot,
 				float m2edif);
-				
+
 		virtual ~DataApartamento();
 		//getterss
 
@@ -38,8 +38,8 @@ public:
 		virtual int getDormitorios();
 		virtual int getBanios();
 		virtual bool getGaraje();
-		virtual DataAlquiler* getAlquiler();
-		virtual DataVenta* getVenta();
+		virtual float & getAlquiler();
+		virtual float & getVenta();
 		float getM2totales();
 		float getM2edificados();
 

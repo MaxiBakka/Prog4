@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+using namespace std;
+
 class Hora{
 private:
     int hora;
