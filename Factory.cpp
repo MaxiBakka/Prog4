@@ -2,6 +2,8 @@
 #include "UsuarioController.h"
 #include "PropiedadController.h"
 #include "EnviarMensajeController.h"
+#include "ModificarPropiedadController.h"
+#include "CargarDatosController.h"
 
 	Factory* Factory::instancia = NULL;
 
@@ -26,3 +28,12 @@
 	IEnviarMenajeController *Factory::getIEnviarMenajeController(){
 		return new EnviarMensajeController();
 	}
+
+	 IModificarPropiedadController *Factory::getIModificarPropiedadController(){
+
+		 return new ModificarPropiedadController();
+	 }
+	 ICargarDatosController *Factory::getICargarDatosController(){
+		 	return new CargarDatosController();
+
+	 }
