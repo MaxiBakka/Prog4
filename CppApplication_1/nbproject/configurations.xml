@@ -4,18 +4,31 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>EdificioNoExistente.h</itemPath>
       <itemPath>../excepciones/ExDptoNoExistente.h</itemPath>
+      <itemPath>ExNoHayMensajes.h</itemPath>
       <itemPath>ExNoHayZonas.h</itemPath>
+      <itemPath>ExisteEdificio.h</itemPath>
       <itemPath>ExisteInteresado.h</itemPath>
       <itemPath>ExvaloresNoPositivos.h</itemPath>
+      <itemPath>FechaInvalida.h</itemPath>
+      <itemPath>HoraInvalida.h</itemPath>
       <itemPath>../excepciones/InmobiliariaNotFound.h</itemPath>
       <itemPath>InmobiliariaYaExistente.h</itemPath>
       <itemPath>InteresadoNotFound.h</itemPath>
+      <itemPath>NoExisteChat.h</itemPath>
       <itemPath>NoExisteZona.h</itemPath>
+      <itemPath>NoHayChatEnMemoria.h</itemPath>
+      <itemPath>NoHayConversaciones.h</itemPath>
+      <itemPath>NoHayDepartamentoEnMemoria.h</itemPath>
       <itemPath>NoHayDepartamentos.h</itemPath>
+      <itemPath>NoHayPropiedades.h</itemPath>
+      <itemPath>PrecioInvalido.h</itemPath>
       <itemPath>UsuarioNotFound.h</itemPath>
+      <itemPath>ValoresInvalidos.h</itemPath>
       <itemPath>../excepciones/WrongPwd.h</itemPath>
       <itemPath>YaExisteDepartamento.h</itemPath>
+      <itemPath>YaExistePropiedad.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -24,18 +37,31 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>EdificioNoExistente.cpp</itemPath>
       <itemPath>ExDptoNoExistente.cpp</itemPath>
+      <itemPath>ExNoHayMensajes.cpp</itemPath>
       <itemPath>ExNoHayZonas.cpp</itemPath>
+      <itemPath>ExisteEdificio.cpp</itemPath>
       <itemPath>ExisteInteresado.cpp</itemPath>
       <itemPath>ExvaloresNoPositivos.cpp</itemPath>
+      <itemPath>FechaInvalida.cpp</itemPath>
+      <itemPath>HoraInvalida.cpp</itemPath>
       <itemPath>../excepciones/InmobiliariaNotFound.cpp</itemPath>
       <itemPath>InmobiliariaYaExistente.cpp</itemPath>
       <itemPath>InteresadoNotFound.cpp</itemPath>
+      <itemPath>NoExisteChat.cpp</itemPath>
       <itemPath>NoExisteZona.cpp</itemPath>
+      <itemPath>NoHayChatEnMemoria.cpp</itemPath>
+      <itemPath>NoHayConversaciones.cpp</itemPath>
+      <itemPath>NoHayDepartamentoEnMemoria.cpp</itemPath>
       <itemPath>NoHayDepartamentos.cpp</itemPath>
+      <itemPath>NoHayPropiedades.cpp</itemPath>
+      <itemPath>PrecioInvalido.cpp</itemPath>
       <itemPath>UsuarioNotFound.cpp</itemPath>
+      <itemPath>ValoresInvalidos.cpp</itemPath>
       <itemPath>../excepciones/WrongPwd.cpp</itemPath>
       <itemPath>YaExisteDepartamento.cpp</itemPath>
+      <itemPath>YaExistePropiedad.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -76,11 +102,23 @@
       </item>
       <item path="../excepciones/WrongPwd.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="EdificioNoExistente.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EdificioNoExistente.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ExDptoNoExistente.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExNoHayMensajes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExNoHayMensajes.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ExNoHayZonas.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ExNoHayZonas.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ExisteEdificio.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExisteEdificio.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ExisteInteresado.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -90,6 +128,14 @@
       </item>
       <item path="ExvaloresNoPositivos.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="FechaInvalida.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FechaInvalida.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HoraInvalida.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HoraInvalida.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="InmobiliariaYaExistente.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="InmobiliariaYaExistente.h" ex="false" tool="3" flavor2="0">
@@ -98,21 +144,53 @@
       </item>
       <item path="InteresadoNotFound.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="NoExisteChat.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NoExisteChat.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="NoExisteZona.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="NoExisteZona.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NoHayChatEnMemoria.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NoHayChatEnMemoria.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NoHayConversaciones.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NoHayConversaciones.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NoHayDepartamentoEnMemoria.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NoHayDepartamentoEnMemoria.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="NoHayDepartamentos.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="NoHayDepartamentos.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="NoHayPropiedades.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NoHayPropiedades.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PrecioInvalido.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PrecioInvalido.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="UsuarioNotFound.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="UsuarioNotFound.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ValoresInvalidos.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ValoresInvalidos.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="YaExisteDepartamento.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="YaExisteDepartamento.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="YaExistePropiedad.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="YaExistePropiedad.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -153,11 +231,23 @@
       </item>
       <item path="../excepciones/WrongPwd.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="EdificioNoExistente.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EdificioNoExistente.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ExDptoNoExistente.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExNoHayMensajes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExNoHayMensajes.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ExNoHayZonas.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ExNoHayZonas.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ExisteEdificio.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExisteEdificio.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ExisteInteresado.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -167,6 +257,14 @@
       </item>
       <item path="ExvaloresNoPositivos.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="FechaInvalida.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FechaInvalida.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HoraInvalida.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HoraInvalida.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="InmobiliariaYaExistente.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="InmobiliariaYaExistente.h" ex="false" tool="3" flavor2="0">
@@ -175,21 +273,53 @@
       </item>
       <item path="InteresadoNotFound.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="NoExisteChat.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NoExisteChat.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="NoExisteZona.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="NoExisteZona.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NoHayChatEnMemoria.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NoHayChatEnMemoria.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NoHayConversaciones.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NoHayConversaciones.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NoHayDepartamentoEnMemoria.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NoHayDepartamentoEnMemoria.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="NoHayDepartamentos.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="NoHayDepartamentos.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="NoHayPropiedades.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NoHayPropiedades.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PrecioInvalido.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PrecioInvalido.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="UsuarioNotFound.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="UsuarioNotFound.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ValoresInvalidos.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ValoresInvalidos.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="YaExisteDepartamento.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="YaExisteDepartamento.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="YaExistePropiedad.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="YaExistePropiedad.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

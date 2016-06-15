@@ -37,16 +37,29 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/1100834015/InmobiliariaNotFound.o \
 	${OBJECTDIR}/_ext/1100834015/WrongPwd.o \
+	${OBJECTDIR}/EdificioNoExistente.o \
 	${OBJECTDIR}/ExDptoNoExistente.o \
+	${OBJECTDIR}/ExNoHayMensajes.o \
 	${OBJECTDIR}/ExNoHayZonas.o \
+	${OBJECTDIR}/ExisteEdificio.o \
 	${OBJECTDIR}/ExisteInteresado.o \
 	${OBJECTDIR}/ExvaloresNoPositivos.o \
+	${OBJECTDIR}/FechaInvalida.o \
+	${OBJECTDIR}/HoraInvalida.o \
 	${OBJECTDIR}/InmobiliariaYaExistente.o \
 	${OBJECTDIR}/InteresadoNotFound.o \
+	${OBJECTDIR}/NoExisteChat.o \
 	${OBJECTDIR}/NoExisteZona.o \
+	${OBJECTDIR}/NoHayChatEnMemoria.o \
+	${OBJECTDIR}/NoHayConversaciones.o \
+	${OBJECTDIR}/NoHayDepartamentoEnMemoria.o \
 	${OBJECTDIR}/NoHayDepartamentos.o \
+	${OBJECTDIR}/NoHayPropiedades.o \
+	${OBJECTDIR}/PrecioInvalido.o \
 	${OBJECTDIR}/UsuarioNotFound.o \
+	${OBJECTDIR}/ValoresInvalidos.o \
 	${OBJECTDIR}/YaExisteDepartamento.o \
+	${OBJECTDIR}/YaExistePropiedad.o \
 	${OBJECTDIR}/main.o
 
 
@@ -84,15 +97,30 @@ ${OBJECTDIR}/_ext/1100834015/WrongPwd.o: ../excepciones/WrongPwd.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1100834015/WrongPwd.o ../excepciones/WrongPwd.cpp
 
+${OBJECTDIR}/EdificioNoExistente.o: EdificioNoExistente.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EdificioNoExistente.o EdificioNoExistente.cpp
+
 ${OBJECTDIR}/ExDptoNoExistente.o: ExDptoNoExistente.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExDptoNoExistente.o ExDptoNoExistente.cpp
 
+${OBJECTDIR}/ExNoHayMensajes.o: ExNoHayMensajes.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExNoHayMensajes.o ExNoHayMensajes.cpp
+
 ${OBJECTDIR}/ExNoHayZonas.o: ExNoHayZonas.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExNoHayZonas.o ExNoHayZonas.cpp
+
+${OBJECTDIR}/ExisteEdificio.o: ExisteEdificio.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExisteEdificio.o ExisteEdificio.cpp
 
 ${OBJECTDIR}/ExisteInteresado.o: ExisteInteresado.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -104,6 +132,16 @@ ${OBJECTDIR}/ExvaloresNoPositivos.o: ExvaloresNoPositivos.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExvaloresNoPositivos.o ExvaloresNoPositivos.cpp
 
+${OBJECTDIR}/FechaInvalida.o: FechaInvalida.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FechaInvalida.o FechaInvalida.cpp
+
+${OBJECTDIR}/HoraInvalida.o: HoraInvalida.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HoraInvalida.o HoraInvalida.cpp
+
 ${OBJECTDIR}/InmobiliariaYaExistente.o: InmobiliariaYaExistente.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -114,25 +152,65 @@ ${OBJECTDIR}/InteresadoNotFound.o: InteresadoNotFound.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/InteresadoNotFound.o InteresadoNotFound.cpp
 
+${OBJECTDIR}/NoExisteChat.o: NoExisteChat.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NoExisteChat.o NoExisteChat.cpp
+
 ${OBJECTDIR}/NoExisteZona.o: NoExisteZona.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NoExisteZona.o NoExisteZona.cpp
+
+${OBJECTDIR}/NoHayChatEnMemoria.o: NoHayChatEnMemoria.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NoHayChatEnMemoria.o NoHayChatEnMemoria.cpp
+
+${OBJECTDIR}/NoHayConversaciones.o: NoHayConversaciones.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NoHayConversaciones.o NoHayConversaciones.cpp
+
+${OBJECTDIR}/NoHayDepartamentoEnMemoria.o: NoHayDepartamentoEnMemoria.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NoHayDepartamentoEnMemoria.o NoHayDepartamentoEnMemoria.cpp
 
 ${OBJECTDIR}/NoHayDepartamentos.o: NoHayDepartamentos.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NoHayDepartamentos.o NoHayDepartamentos.cpp
 
+${OBJECTDIR}/NoHayPropiedades.o: NoHayPropiedades.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NoHayPropiedades.o NoHayPropiedades.cpp
+
+${OBJECTDIR}/PrecioInvalido.o: PrecioInvalido.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PrecioInvalido.o PrecioInvalido.cpp
+
 ${OBJECTDIR}/UsuarioNotFound.o: UsuarioNotFound.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/UsuarioNotFound.o UsuarioNotFound.cpp
 
+${OBJECTDIR}/ValoresInvalidos.o: ValoresInvalidos.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ValoresInvalidos.o ValoresInvalidos.cpp
+
 ${OBJECTDIR}/YaExisteDepartamento.o: YaExisteDepartamento.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/YaExisteDepartamento.o YaExisteDepartamento.cpp
+
+${OBJECTDIR}/YaExistePropiedad.o: YaExistePropiedad.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/YaExistePropiedad.o YaExistePropiedad.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
