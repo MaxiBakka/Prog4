@@ -18,6 +18,7 @@ void MenuPrincipal::printMenu(){
 	cout << "3 - Menu para Administradores" << endl;
 	cout << "4 - Menu para Inmobiliarias" << endl;
 	cout << "5 - Menu para Interesados" << endl;
+	cout << "5 - Cargar Set de Datos de Prueba" << endl;
 	cout << endl;
 	cout << "0 - Salir" << endl;
 }
@@ -29,10 +30,10 @@ void MenuPrincipal::ejecutarOpcion(int opc){
 		salirDelSistema();
 		break;
 	case 1:
-		submenu = new IniciarSesion();
+		IniciarSesion();
 		break;
 	case 2:
-		submenu = new IUsuarioController::CerrarSesion();
+		IUsuarioController::CerrarSesion();
 		break;
 	case 3:
 		submenu = new MenuAdministradores();
@@ -42,6 +43,9 @@ void MenuPrincipal::ejecutarOpcion(int opc){
 		break;
 	case 5:
 		submenu = new MenuInteresados();
+		break;
+	case 6:
+		submenu = //cargar datos;
 		break;
 	default:
 		throw ExOpcionInvalida();
