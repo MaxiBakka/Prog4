@@ -16,16 +16,16 @@ private:
 
 public:
 
-DataCasa(int cod,int cAmbientes, int Dormitorios , int banos, string direc, bool gar,float infoAlquiler, float infoVenta, float m2Tot,float m2edif,float everde);
+DataCasa(int cod,int cAmbientes, int Dormitorios , int banos, string& direc, bool gar,float infoAlquiler, float infoVenta, float m2Tot,float m2edif,float everde);
 virtual ~DataCasa();
 
-		virtual string getDireccion();
+		virtual string& getDireccion();
 		virtual int getCantAmbientes();
 		virtual int getDormitorios();
 		virtual int getBanios();
 		virtual bool getGaraje();
 		virtual float & getAlquiler();
-			virtual float & getVenta();
+        virtual float & getVenta();
 		float getM2totales();
 		float getM2edificados();
 		float getEspacioVerde();

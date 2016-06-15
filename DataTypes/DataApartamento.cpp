@@ -13,7 +13,7 @@ DataApartamento::DataApartamento(DataApartamento*da):DataPropiedad(da->getCantAm
 
 }
 
-string DataApartamento :: getDireccion(){
+string& DataApartamento :: getDireccion(){
 	return this->direccion;
 }
 

@@ -26,7 +26,7 @@ public:
                  float &infoVenta);
 		virtual ~DataPropiedad(){};
 		//getteres
-		virtual string getDireccion()=0;
+		virtual string& getDireccion()=0;
 		virtual int getCantAmbientes()=0;
 		virtual int getDormitorios()=0;
 		virtual int getBanios()=0;

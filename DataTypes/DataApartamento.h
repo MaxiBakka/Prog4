@@ -33,7 +33,7 @@ public:
 		//getterss
 
 		virtual int getCodigo();
-		virtual string getDireccion();
+		virtual string& getDireccion();
 		virtual int getCantAmbientes();
 		virtual int getDormitorios();
 		virtual int getBanios();

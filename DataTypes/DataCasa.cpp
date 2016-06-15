@@ -1,13 +1,13 @@
 #include "DataCasa.h"
 
-DataCasa :: DataCasa(int cod,int cAmbientes, int Dormitorios , int banos, string direc, bool gar, DataAlquiler *&infoAlquiler, DataVenta *&infoVenta, float m2Ed, float eVerde):
+DataCasa :: DataCasa(int cod,int cAmbientes, int Dormitorios , int banos, string& direc, bool gar, DataAlquiler *&infoAlquiler, DataVenta *&infoVenta, float m2Ed, float eVerde):
     DataPropiedad(cod,cAmbientes,Dormitorios,banos,direc,gar,infoAlquiler,infoVenta){
 
 		this->m2edificados=m2Ed;
 		this->espacioverde=eVerde;
 }
 
-string DataCasa :: getDireccion(){
+string& DataCasa :: getDireccion(){
 	return this->direccion;
 }
 
