@@ -1,5 +1,6 @@
 #include "Apartamento.h"
-
+#include "Edificio.h"
+#include "Zona.h"
 #include "DataApartamento.h"
 
 Apartamento::Apartamento(int cod, int cda, int dormi, int banios, bool garaje, string dir, float m2t, Zona* z,Oferta*of,float m2e,Edificio* e)
@@ -50,7 +51,7 @@ void Apartamento::modificarPropiedad(DataPropiedad*dp){
   this->setM2Totales(da->getM2totales());
   this->setAlquiler(da->getAlquiler());
   this->setVenta(da->getVenta());
-  
+
   this->setM2edificados(da->getM2edificados());
 
 }
