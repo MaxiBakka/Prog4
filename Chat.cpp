@@ -1,4 +1,6 @@
 #include "Chat.h"
+#include "Propiedad.h"
+#include "ExNoHayMensajes.h"
 
 using namespace std;
 
@@ -43,7 +45,7 @@ void Chat:: setNombreInmobiliaria(string nombre){
 
 DataChat* Chat::getDataChat(){
 
-  return new DataChat(emailInteresado.nombreInmobiliaria,propiedad->getCodigo());
+  return new DataChat(emailInteresado,nombreInmobiliaria,propiedad->getCodigo());
 
 }
 
