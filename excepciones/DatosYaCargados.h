@@ -4,8 +4,12 @@
 #include<exception>
 #include<iostream>
 
+using namespace std;
+
 class DatosYaCargados {
     public:
+    DatosYaCargados();
+    ~DatosYaCargados();
 		virtual const char* what()const throw();
 };
 

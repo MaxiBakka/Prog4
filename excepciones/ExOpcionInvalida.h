@@ -13,7 +13,8 @@ using namespace std;
 class ExOpcionInvalida : public exception{
 public:
 		virtual const char* what()const throw();
-
+		ExOpcionInvalida();
+		~ExOpcionInvalida();
 };
 
 #endif
