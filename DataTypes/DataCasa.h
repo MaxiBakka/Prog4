@@ -3,8 +3,8 @@
 
 #include <string>
 #include "DataPropiedad.h"
-#include "DataAlquiler.h"
-#include "DataVenta.h"
+#include <iostream>
+
 
 using namespace std;
 
@@ -16,9 +16,10 @@ private:
 
 public:
 
-DataCasa(int cod,int cAmbientes, int Dormitorios , int banos, string& direc, bool gar,float infoAlquiler, float infoVenta, float m2Tot,float m2edif,float everde);
+DataCasa(int cod,int cAmbientes, int Dormitorios , int banios, string& direc, bool gar,float &infoAlquiler, float &infoVenta, float m2Tot,float m2edif,float everde);
 virtual ~DataCasa();
 
+		virtual int getCodigo();
 		virtual string& getDireccion();
 		virtual int getCantAmbientes();
 		virtual int getDormitorios();
@@ -33,6 +34,8 @@ virtual ~DataCasa();
 
 
 };
+
+ostream &operator <<(ostream &output,DataCasa& dc);
 
 
 #endif

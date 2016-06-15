@@ -7,6 +7,8 @@
 #include "ManejadorPropiedades.h"
 #include "Manejador_Usuario.h"
 
+
+
 #include "DataPropiedad.h"
 #include "DataDepartamento.h"
 #include "DataEdificio.h"
@@ -30,8 +32,8 @@ bool CargarDatosController::DatosCargados = false;
 CargarDatosController::CargarDatosController(){
 
 this->refEdificios= new map<string,Edificio*>();
-refApartamentos= new map<string,Apartamento*>();
-refCasas= new map<string,Casa*>();
+refApartamentos= new map<string,Propiedad*>();
+refCasas= new map<string,Propiedad*>();
 refDepartamentos= new map<string,Departamento*>();
 refZonas= new map<string,Zona*>();
 refInteresados= new map<string,Interesado*>();
@@ -343,18 +345,18 @@ void cargarApartamentos(){
     }
     inmob->AgregarOferta(oferta);
     apto=mp->crearPropiedad(dapto,zona,oferta,edificio);
-    refApartamentos->insert(std::pair<int,Apartamento*>(ref,apto));
+    refApartamentos->insert(std::pair<string,Propiedad*>(ref,apto));
     delete dapto;
   }
 }
 
 void cargarCasas(){
   ManejadorPropiedades* mp = ManejadorPropiedades::getInstancia();
-  DataPropiedad* dcasa;
-  Oferta* oferta;
-  Venta* venta;
-  Alquiler* alquiler;
-  Propiedad* apto;
+  DataPropiedad*dcasa;
+  Oferta*oferta;
+  Venta*venta;
+  Alquiler*alquiler;
+  Propiedad*casa;
   Inmobiliaria*inmob;
   Zona*zona;
   string ref,direccion;
@@ -417,7 +419,7 @@ void cargarCasas(){
         dcasa=new DataCasa(codigo,ambientes,dormitorios,banios,direccion,
                                   garaje,palquiler,pventa,m2totales,m2edificados,espacioverde);
         venta = NULL;
-        alquiler= new alquiler(palquiler);
+        alquiler= new Alquiler(palquiler);
 
         inmob=refInmobiliarias->find("I3")->second;
         zona=refZonas->find("Z2")->second;
@@ -445,7 +447,7 @@ void cargarCasas(){
     }
     inmob->AgregarOferta(oferta);
     casa=mp->crearPropiedad(dcasa,zona,oferta,NULL);
-    refCasas->insert(std::pair<int,Casa*>(ref,casa));
+    refCasas->insert(std::pair<string,Propiedad*>(ref,casa));
     delete dcasa;
   }
 }
@@ -462,12 +464,14 @@ void cargarAdministrador(){
 
 
 void cargarInteresados(){
-  Manejador_Usuario* mu = Manejador_Usuario::getInstancia();
-  DtInteresado* di;
-  Interesado* Interesado;
+
+  Manejador_Usuario*mu = Manejador_Usuario::getInstancia();
+  DtInteresado*di;
+  Interesado*interesado;
   string ref,email,password,nombre,apellido;
   int edad;
   int i=0;
+
   while (i<5) {
     switch (i) {
       case 0:
@@ -489,8 +493,8 @@ void cargarInteresados(){
       case 4:
         ref="T5";email="int5@sis.com";password="passt5";nombre="Juan";apellido="Alpi";
         di= new DtInteresado(nombre,apellido,edad,email);
-        i+;
-      default
+        i++;
+      default:
         throw ExOpcionInvalida();
     }
     mu->CrearInteresado(di);
@@ -503,7 +507,7 @@ void cargarInteresados(){
 
 void cargarDatosdeSistema::cargarMensajes(){
 
-int hora,minutos,segundos;
+int h,minutos,segundos;
 string fecha,texto,ref;
 Hora* hora;
 Fecha* fecha_mensaje;
@@ -511,13 +515,14 @@ DataMensaje* mensaje;
 Interesado* interesado;
 Propiedad* prop;
 Inmobiliaria* inmob;
+int i=0;
 
   while (i<6) {
 
     switch(i){
 
       case 0:
-        ref="O1";hora=13;minutos=02;segundos=00;
+        ref="O1";h=13;minutos=02;segundos=00;
         fecha="25/05/2016";
         texto="Estoy Interesado";
         inmob= refInmobiliarias->find("I1")->second;
@@ -526,7 +531,7 @@ Inmobiliaria* inmob;
 
         i++;
       case 1:
-        ref="O2";hora=12;minutos=30;segundos=00;
+        ref="O2";h=12;minutos=30;segundos=00;
         fecha="24/05/2016";
         texto="Cuanto cuesta?";
         inmob= refInmobiliarias->find("I3")->second;
@@ -535,7 +540,7 @@ Inmobiliaria* inmob;
 
         i++;
       case 2:
-        ref="O3";hora=12;minutos=35;segundos=00;
+        ref="O3";h=12;minutos=35;segundos=00;
         fecha="23/05/2016";
         texto="PERDON ME EQUIVOQUE";
         inmob= refInmobiliarias->find("I1")->second;
@@ -544,7 +549,7 @@ Inmobiliaria* inmob;
 
         i++;
       case 3:
-        ref="O4";hora=0;minutos=30;segundos=00;
+        ref="O4";h=0;minutos=30;segundos=00;
         fecha="1/6/2016";
         texto="Quiero hacer una oferta ya!";
         inmob= refInmobiliarias->find("I1")->second;
@@ -553,7 +558,7 @@ Inmobiliaria* inmob;
 
         i++;
       case 4:
-        ref="O5";hora=12;minutos=45;segundos=00;
+        ref="O5";h=12;minutos=45;segundos=00;
         fecha="2/6/2016";
         texto="Tiene humedad?";
         inmob= refInmobiliarias->find("I1")->second;
@@ -562,7 +567,7 @@ Inmobiliaria* inmob;
 
         i++;
       case 5:
-        ref="O6";hora=2;minutos=05;segundos=00;
+        ref="O6";h=2;minutos=05;segundos=00;
         fecha="3/6/2016";
         texto="Cual es el precio?";
         inmob= refInmobiliarias->find("I2")->second;
@@ -574,7 +579,7 @@ Inmobiliaria* inmob;
         throw ExOpcionInvalida();
       }
 
-      hora = new Hora(hora,minutos,segundos);
+      hora = new Hora(h,minutos,segundos);
       fecha_mensaje= new Fecha(fecha);
       mensaje= new DataMensaje(*fecha_mensaje,*hora,texto);
 

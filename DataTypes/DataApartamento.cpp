@@ -1,17 +1,11 @@
 #include "DataApartamento.h"
 
-DataApartamento :: DataApartamento(int cod,int cAmbientes, int dormitorios , int banios, string direc, bool garaje, DataAlquiler *& infoAlquiler, DataVenta *&infoVenta, float m2Tot,int codigo,DataEdificio*&de)
-:DataPropiedad(cod,cAmbientes,dormitorios,banios,direc,garaje,infoAlquiler,infoVenta){
-		this->edificio=de;
-		this->m2totales=m2Tot;
+DataApartamento :: DataApartamento(int cod,int cAmbientes, int dormitorios , int banios, string direc, bool garaje, float &infoAlquiler,float &infoVenta, float m2Tot,float m2edif)
+:DataPropiedad(cod,cAmbientes,dormitorios,banios,direc,garaje,m2Tot,infoAlquiler,infoVenta){
+		this->m2edificados=m2edif;
 }
 
-DataApartamento::DataApartamento(DataApartamento*da):DataPropiedad(da->getCantAmbientes,da->getDormitorios,da->getBanios,da->getDireccion,da->getGaraje,da->getAlquiler,da->getVenta,da->getCodigo){
-	this->edificio=da->getEdificio;
-	this->m2totales=da->getM2totales;
 
-
-}
 
 string& DataApartamento :: getDireccion(){
 	return this->direccion;
@@ -32,24 +26,26 @@ bool DataApartamento :: getGaraje(){
 	return this->garaje;
 }
 
-DataAlquiler* DataApartamento :: getAlquiler(){
+float & DataApartamento :: getAlquiler(){
 	return this->info_alquiler;
 }
 
-DataVenta* DataApartamento :: getVenta(){
+float & DataApartamento :: getVenta(){
 	return this->info_venta;
 }
 
 float DataApartamento :: getM2totales(){
-	return this->m2totales;
+	return this->m2Totales;
 }
 int DataApartamento:: getCodigo(){
 	return this->codigo;
 }
+float DataApartamento::getM2edificados(){
 
-DataEdificio* DataApartamento:: getEdificio(){
-	return this->edificio;
+	return m2edificados;
 }
+
+
 //desctructor
 DataApartamento::~DataApartamento(){
 

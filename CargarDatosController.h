@@ -39,9 +39,9 @@ private:
 	map<string,Edificio*>* refEdificios;
 	map<string,Inmobiliaria*>* refInmobiliarias;
 	map<string,Interesado*>* refInteresados;
-	map<string,Casa*>* refCasas;
+	map<string,Propiedad*>* refCasas;
 	map<string,Chat*>* refChats;
-	map<string,Apartamento*>* refApartamentos;
+	map<string,Propiedad*>* refApartamentos;
 	Administrador* administrador;
 
 

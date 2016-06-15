@@ -1,9 +1,9 @@
 #include "DataCasa.h"
 
-DataCasa :: DataCasa(int cod,int cAmbientes, int Dormitorios , int banos, string& direc, bool gar, DataAlquiler *&infoAlquiler, DataVenta *&infoVenta, float m2Ed, float eVerde):
-    DataPropiedad(cod,cAmbientes,Dormitorios,banos,direc,gar,infoAlquiler,infoVenta){
+DataCasa :: DataCasa(int cod,int cAmbientes, int Dormitorios , int banios, string& direc, bool gar,float &infoAlquiler, float &infoVenta,float m2Tot,float m2edif,float everde):
+    DataPropiedad(cod,cAmbientes,Dormitorios,banios,direc,gar,m2Tot,infoAlquiler,infoVenta){
 
-		this->m2edificados=m2Ed;
+		this->m2edificados=m2edif;
 		this->espacioverde=eVerde;
 }
 
@@ -25,15 +25,21 @@ int DataCasa :: getBanios(){
 bool DataCasa :: getGaraje(){
 	return this->garaje;
 }
+int DataCasa:: getCodigo(){
+	return this->codigo;
+}
 
-DataAlquiler*& DataCasa :: getAlquiler(){
+float & DataCasa :: getAlquiler(){
 	return this->info_alquiler;
 }
 
-DataVenta*& DataCasa :: getVenta(){
+float & DataCasa :: getVenta(){
 	return this->info_venta;
 }
+float DataCasa::getM2totales(){
+return this->m2Totales
 
+}
 float DataCasa :: getM2edificados(){
 	return this->m2edificados;
 }
@@ -45,3 +51,5 @@ float DataCasa :: getEspacioVerde(){
 DataCasa::~DataCasa(){
 
 }
+
+ostream &operator <<(ostream &output,DataApartamento& da);

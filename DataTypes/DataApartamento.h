@@ -5,9 +5,6 @@
 #include <iostream>
 
 #include "DataPropiedad.h"
-#include "DataVenta.h"
-#include "DataAlquiler.h"
-#include "DataEdificio.h"
 
 using namespace std;
 
@@ -17,7 +14,7 @@ private:
 
 	float m2edificados;
 public:
-		DataApartamento(DataApartamento*da);
+	
 		DataApartamento(int cod,
 			  int cAmbientes,
 			  int dormitorios,
