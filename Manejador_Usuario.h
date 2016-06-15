@@ -6,7 +6,7 @@
 #include <set>
 
 #include "DataInmobiliaria.h"
-#include "DataInteresado.h"
+#include "DtInteresado.h"
 #include "DataInfoInmobiliaria.h"
 #include "Usuario.h"
 
@@ -24,7 +24,7 @@ private:
 
 public:
 
-    static Manejador_Usuario* getInstance();
+    static Manejador_Usuario* getInstancia();
 
     virtual ~Manejador_Usuario ();
 
@@ -35,7 +35,7 @@ public:
 
 	//operaciones del caso AltaInmobiliaria Y AltaInteresado
 	void CrearInmobiliaria(DataInmobiliaria*di);
-	void CrearInteresado(DataInteresado*di);
+	void CrearInteresado(DtInteresado*di);
 	void CrearAdministrador(string &email,string &password);
 
 	//obtencion Datatypes

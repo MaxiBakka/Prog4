@@ -1,5 +1,5 @@
-#ifndef Interesado.h
-#define Interesado.h
+#ifndef Interesado_h
+#define Interesado_h
 
 #include "Usuario.h"
 #include "Chat.h"
@@ -32,7 +32,7 @@ class Interesado : public Usuario{
         //operaciones de chat
         void AgregarChat(Chat *chat);
         void EliminarChat(Chat *chat);
-        bool ExisteChat(Chat&* chat);
+        bool ExisteChat(Chat* &chat);
 
 
         virtual ~Interesado();

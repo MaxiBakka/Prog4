@@ -26,7 +26,7 @@ private:
     int dormitorios;
     int Banios;
     bool garaje;
-    string direccion;
+    string& direccion;
     float m2Totales;
     Zona* zona;
     Oferta* oferta;
@@ -38,7 +38,7 @@ public:
     virtual int getDormitorios();
     virtual int getBanios();
     virtual bool getGaraje();
-    virtual string getDireccion();
+    virtual string& getDireccion();
     virtual float getM2Totales();
     virtual Zona* getZona();
     virtual Oferta* getOferta();
@@ -61,7 +61,7 @@ public:
     virtual DataInfoPropiedad* getDataInfoPropiedad(string &email);
     virtual DataDetallePropiedad * getDataDetallePropiedad();
     virtual DataPropiedad * getDataPropiedad();
-    
+
     virtual void modificarPropiedad(DataPropiedad*dp);
     virtual void ingresarMensaje(DataMensaje* mensaje);
     virtual void AgregarChat(Chat*c);

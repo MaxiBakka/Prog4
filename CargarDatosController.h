@@ -1,25 +1,25 @@
-#ifndef CARGARDATOSCONTROLLER_H_
-#define CARGARDATOSCONTROLLER_H_
+#ifndef CARGARDATOSCONTROLLER_H
+#define CARGARDATOSCONTROLLER_H
 
 #include <map>
 #include <string>
 
-#include "../ClasesDeDominio/Departamento.h"
-#include "../ClasesDeDominio/Zona.h"
-#include "../ClasesDeDominio/Propiedad.h"
-#include "../ClasesDeDominio/Administrador.h"
-#include "../ClasesDeDominio/Inmobiliaria.h"
-#include "../ClasesDeDominio/Edificio.h"
-#include "../ClasesDeDominio/Interesado.h"
-#include "../ClasesDeDominio/Mensaje.h"
-#include "../ClasesDeDominio/Apartamento.h"
-#include "../ClasesDeDominio/Casa.h"
-#include "../ClasesDeDominio/Administrador.h"
-#include "../Interfaces/ICargaDatosController.h"
+#include "Departamento.h"
+#include "Zona.h"
+#include "Propiedad.h"
+#include "Administrador.h"
+#include "Inmobiliaria.h"
+#include "Edificio.h"
+#include "Interesado.h"
+#include "Mensaje.h"
+#include "Apartamento.h"
+#include "Casa.h"
+#include "Administrador.h"
+#include "ICargarDatosController.h"
 
 using namespace std;
 
-class CargarDatosController: public ICargaDatosController {
+class CargarDatosController:public ICargarDatosController {
 private:
 	static bool DatosCargados;
 
@@ -50,3 +50,5 @@ public:
 	virtual ~CargarDatosController();
 	virtual void cargarDatosdeSistema();
 };
+
+#endif

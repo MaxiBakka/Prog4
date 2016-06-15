@@ -1,5 +1,5 @@
-#ifndef ManejadorEdificios
-#define  ManejadorEdificios
+#ifndef ManejadorEdificios_h
+#define  ManejadorEdificios_h
 
 #include <map>
 #include <string>

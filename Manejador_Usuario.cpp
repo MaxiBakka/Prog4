@@ -48,7 +48,7 @@ Manejador_Usuario::~Manejador_Usuario(){
 
 }
 
-public Manejador_Usuario::getInstance(){
+public Manejador_Usuario::getInstancia(){
 	if (instancia==NULL) instancia = new Manejador_Usuario();
 	return instancia;
 }

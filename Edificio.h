@@ -35,8 +35,8 @@ public:
 
       //apartamentos
       void agregarApartamento(Apartamento*apto);
-      void RemoverApartamento(int& codigo);
-      bool ExisteApartamento(int& codigo);
+      void RemoverApartamento(int codigo);
+      bool ExisteApartamento(int codigo);
 
 };
 

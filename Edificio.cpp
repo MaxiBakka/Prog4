@@ -2,7 +2,7 @@
  #include <utility>
 
 Edificio :: Edificio(const string& nombre,int cantPisos,float gcomunes){
-  if(de->get_gastosComunes < 0 || de->get_cantPisos < 1) throw ExValoresNoPositivos; 
+  if(de->get_gastosComunes < 0 || de->get_cantPisos < 1) throw ExValoresNoPositivos;
     nombre=nombre;
     cantPisos=cantPisos;
     gastosComunes=gcomunes;
@@ -51,12 +51,12 @@ void Edificio::agregarApartamento(Apartamento*apto){
 apartamentos->insert(pair<int,Apartamento*>(apto->getCodigo(),apto));
 
 }
-void Edificio::RemoverApartamento(int& codigo){
+void Edificio::RemoverApartamento(int codigo){
   apartamentos->erase(codigo);
 
 }
 
-bool Edificio::ExisteApartamento(int &codigo){
+bool Edificio::ExisteApartamento(int codigo){
     return apartamentos->find(codigo)!=apartamentos->end();
 
 }

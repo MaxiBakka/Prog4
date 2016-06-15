@@ -1,24 +1,25 @@
 #include "CargarDatosController.h"
 #include <utility>
+#include <map>
 
-#include "../manejadores/ManejadorEdificios.h"
-#include "../manejadores/ManejadorDepartamentos.h"
-#include "../manejadores/ManejadorPropiedades.h"
-#include "../manejadores/Manejador_Usuario.h"
+#include "ManejadorEdificios.h"
+#include "ManejadorDepartamentos.h"
+#include "ManejadorPropiedades.h"
+#include "Manejador_Usuario.h"
 
-#include "../dataTypes/DataPropiedad.h"
-#include "../dataTypes/DataDepartamento.h"
-#include "../dataTypes/DataEdificio.h"
-#include "../dataTypes/DataInmobiliaria.h"
-#include "../dataTypes/DataCasa.h"
-#include "../dataTypes/DataApartamento.h"
-#include "../dataTypes/DtInteresado.h"
-#include "../dataTypes/DataMensaje.h"
-#include "../dataTypes/Hora.h"
-#include "../dataTypes/Fecha.h"
+#include "DataPropiedad.h"
+#include "DataDepartamento.h"
+#include "DataEdificio.h"
+#include "DataInmobiliaria.h"
+#include "DataCasa.h"
+#include "DataApartamento.h"
+#include "DtInteresado.h"
+#include "DataMensaje.h"
+#include "Hora.h"
+#include "Fecha.h"
 
-#include "../excepciones/ExOpcionInvalida.h"
-#include "../excepciones/DatosYaCargado.h"
+#include "ExOpcionInvalida.h"
+//#include "../excepciones/DatosYaCargado.h"
 
 
 
@@ -28,18 +29,18 @@ bool CargarDatosController::DatosCargados = false;
 
 CargarDatosController::CargarDatosController(){
 
-refEdificios= new map<string,Edificio*>;
-refApartamentos= new map<string,Apartamento*>;
-refCasas= new map<string,Casa*>;
-refDepartamentos= new map<string,Departamento*>;
-refZonas= new map<string,Zona*>;
-refInteresados= new map<string,Interesado*>;
-refInmobiliarias= new map<string,Inmobiliaria*>;
-refChats= new map<string,Chat*>;
+this->refEdificios= new map<string,Edificio*>();
+refApartamentos= new map<string,Apartamento*>();
+refCasas= new map<string,Casa*>();
+refDepartamentos= new map<string,Departamento*>();
+refZonas= new map<string,Zona*>();
+refInteresados= new map<string,Interesado*>();
+refInmobiliarias= new map<string,Inmobiliaria*>();
+refChats= new map<string,Chat*>();
 administrador=NULL;
 }
 
-Ctrl_CargarDatos::~Ctrl_CargarDatos() {
+CargarDatosController::~CargarDatosController() {
 
 	delete refEdificios;
 	delete refApartamentos;
@@ -131,7 +132,7 @@ while (i<5) {
   		throw ExOpcionInvalida();
   	}
 
-    md->agregarDepartamento(ddpto);
+    md->AgregarDepartamento(ddpto);
   			delete ddpto;
   			dpto = md->getDepartamento(letra);
   			refDepartamentos->insert(std::pair<string,Departamento*>(ref,dpto));
@@ -141,8 +142,8 @@ while (i<5) {
 
 void cargarZonas(){
   Zona* zona;
-  Departamento*dpto;
-  string ref,nombre;
+  Departamento* dpto;
+  string nombre,ref;
   int codigo;
   int i=0;
   while (i<5){
@@ -150,7 +151,7 @@ void cargarZonas(){
     switch (i) {
       case 0:
           ref="Z1";nombre="Zona1";codigo=101;
-          dpto= refDepartamentos->find("D1")->second;
+          dpto = refDepartamentos->find("D1")->second;
           zona = new Zona(codigo,nombre,dpto);
           dpto->AddZona(zona);
           i++;
@@ -253,7 +254,7 @@ void cargarApartamentos(){
           ref="AP1";codigo=1111;ambientes=2;dormitorios=1;banios=1;garaje=false;
           direccion="Iturria 1115 AP 104";m2edificados=34;m2totales=34;
           pventa=34567;palquiler=-1;
-          DataPopiedad* prop = new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+          DataPopiedad* dapto = new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                     garaje,palquiler,pventa,m2totales,m2edificados);
           venta = new Venta(pventa);
           alquiler=NULL;
@@ -269,7 +270,7 @@ void cargarApartamentos(){
         direccion="Iturria 1115 AP 105";m2edificados=35;m2totales=35;
         pventa=65789;palquiler=-1;
 
-        dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+        DataPopiedad* dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                   garaje,palquiler,pventa,m2totales,m2edificados);
         venta = new Venta(pventa);
         alquiler=NULL;
@@ -283,7 +284,7 @@ void cargarApartamentos(){
         ref="AP3";codigo=1113;ambientes=2;dormitorios=1;banios=1;garaje=true;
         direccion="CALLEJON 456 AP 01";m2edificados=45;m2totales=45;
         pventa=-1;palquiler=7689;
-        dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+        DataPopiedad* dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                   garaje,palquiler,pventa,m2totales,m2edificados);
         venta = NULL;
         alquiler= new Alquiler(palquiler);
@@ -297,10 +298,10 @@ void cargarApartamentos(){
         ref="AP4";codigo=1114;ambientes=7;dormitorios=3;banios=2;garaje=true;
         direccion="CORCEGA 3456 AP 2";m2edificados=34;m2totales=34;
         pventa=-1;palquiler=6789;
-        dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+        DataPopiedad* dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                   garaje,palquiler,pventa,m2totales,m2edificados);
         venta = NULL;
-        alquiler= new alquiler(palquiler);
+        alquiler = new Alquiler(palquiler);
 
         inmob=refInmobiliarias->find("I2")->second;
         zona=refZonas->find("Z3")->second;
@@ -312,7 +313,7 @@ void cargarApartamentos(){
         ref="AP5";codigo=1115;ambientes=4;dormitorios=1;banios=1;garaje=false;
         direccion="LUCRECIA 456 AP 3";m2edificados=25;m2totales=25;
         pventa=-1;palquiler=7890;
-        dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+        DataPopiedad* dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                   garaje,palquiler,pventa,m2totales,m2edificados);
         venta = NULL;
         alquiler= new Alquiler(palquiler);
@@ -326,7 +327,7 @@ void cargarApartamentos(){
           ref="AP6";codigo=1116;ambientes=2;dormitorios=1;banios=1;garaje=false;
           direccion="LUCRECIA 456 AP 3";m2edificados=17;m2totales=17;
           pventa=-1;palquiler=768;
-          dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
+          DataPopiedad* dapto=new DataApartamento(codigo,ambientes,dormitorios,banios,direccion,
                                     garaje,palquiler,pventa,m2totales,m2edificados);
           venta = NULL;
           alquiler= new Alquiler(palquiler);
@@ -335,7 +336,7 @@ void cargarApartamentos(){
           zona=refZonas->find("Z4")->second;
           edificio=refEdificios->find("E4")->second;
           oferta = new Oferta(venta,alquiler,NULL,inmob);
-          i++
+          i++;
       default:
         throw ExOpcionInvalida();
 

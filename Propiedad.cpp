@@ -2,7 +2,7 @@
 #include "Zona.h"
 #include "Oferta.h"
 
-Propiedad::Propiedad(int cod, int cda, int dormi, int banios, bool garaje, string dir, float m2t,Zona* z,Oferta*of) {
+Propiedad::Propiedad(int cod, int cda, int dormi, int banios, bool garaje, string& dir, float m2t,Zona* z,Oferta*of) {
     this->codigo=cod;
     this->cantDeAmbientes=cda;
     this->dormitorios=dormi;
@@ -31,7 +31,7 @@ int Propiedad::getCodigo() {
     return this->codigo;
 }
 
-string Propiedad::getDireccion() {
+string& Propiedad::getDireccion() {
     return this->direccion;
 }
 

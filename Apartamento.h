@@ -16,7 +16,7 @@ private:
     Edificio* edificio;
     float m2edificados;
 public:
-    Apartamento(int cod,int cda,int dormi,int banios,bool garaje,string dir,float m2t,Zona* z,Oferta*of,float m2e,Edificio* e);
+    Apartamento(int cod,int cda,int dormi,int banios,bool garaje,string& dir,float m2t,Zona* z,Oferta*of,float m2e,Edificio* e);
     float getM2Edificados();
     Edificio* getEdificio();
 
