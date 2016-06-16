@@ -50,7 +50,7 @@ void ingPrimeraVez(){
 
 
 RutinaInicioSesion::RutinaInicioSesion(){
-	ctrl = Factory::getIUsuarioController();
+	UsuarioController* ctrl = Factory::getIUsuarioController();
 }
 RutinaInicioSesion::~RutinaInicioSesion(){}
 
