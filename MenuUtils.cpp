@@ -93,7 +93,7 @@ void IOConsola::esperarInput() {
 	getline(cin,dummy);
 }
 
-/*bool IOConsola::leerOpcion(const string& msg) {
+bool IOConsola::leerOpcion(const string& msg) {
 	bool res = false;
 	bool error = false;
 	while(true){
@@ -111,10 +111,6 @@ void IOConsola::esperarInput() {
 		}
 	}
 	return res;
-}*/
-
-void IOConsola::imprimirError(const string& msg) {
-	limpiarConsola();
-	imprimirImagen("error");
-	cout << msg << endl;
 }
+
+

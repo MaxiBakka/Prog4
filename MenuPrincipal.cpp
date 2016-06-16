@@ -1,6 +1,7 @@
 
 
 #include "MenuPrincipal.h"
+#include "/Rutinas/RutinaInicioSesion.h"
 
 #include <iostream>
 #include <string>
@@ -14,11 +15,7 @@ MenuPrincipal::MenuPrincipal() {
 void MenuPrincipal::printMenu(){
 	cout << "Menu principal" << endl;
 	cout << "1 - Iniciar Sesion" << endl;
-	cout << "2 - Cerrar Sesion " << endl;
-	cout << "3 - Menu para Administradores" << endl;
-	cout << "4 - Menu para Inmobiliarias" << endl;
-	cout << "5 - Menu para Interesados" << endl;
-	cout << "5 - Cargar Set de Datos de Prueba" << endl;
+	cout << "2 - Cargar Set de Datos de Prueba" << endl;
 	cout << endl;
 	cout << "0 - Salir" << endl;
 }
@@ -30,7 +27,8 @@ void MenuPrincipal::ejecutarOpcion(int opc){
 		salirDelSistema();
 		break;
 	case 1:
-		IniciarSesion();
+		subemenu = new RutinaInicioSesion();
+
 		/*Sesion*sesion=Sesion::getInstancia();
 		Usuario*user=sesion->getUsuario()
 		if(Interesado*int=dynamic_cast<Interesado*>(user)){
@@ -46,18 +44,7 @@ void MenuPrincipal::ejecutarOpcion(int opc){
 	case 2:
 		IUsuarioController::CerrarSesion();
 		break;
-	case 3:
-		submenu = new MenuAdministradores();
-		break;
-	case 4:
-		submenu = new MenuInombiliarias();
-		break;
-	case 5:
-		submenu = new MenuInteresados();
-		break;
-	case 6:
-		submenu = //cargar datos;
-		break;
+
 	default:
 		throw ExOpcionInvalida();
 	}

@@ -10,8 +10,6 @@ using namespace std;
 
 class MenuUtils {
 public:
-	static void imprimirConfirmacion(const string& msg);
-	static void imprimirError(const string& msg);
 	static void limpiarConsola();
 	static int leerInt();
 	static double leerDouble();
