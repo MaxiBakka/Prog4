@@ -71,21 +71,25 @@ while (i<4) {
       password="pass4";direccion="Benitez 1134";
       di= new DataInmobiliaria(nombre,email,direccion);
       i++;
+      break;
   	case 1:
       ref="I2";email="inm2@sis.com";nombre="Garcia";
       password="pass5";direccion="Rivera 1340";
       di= new DataInmobiliaria(nombre,email,direccion);
       i++;
+      break;
   	case 2:
-      ref="I1";email="inm3@sis.com";nombre="Invernissi";
+      ref="I3";email="inm3@sis.com";nombre="Invernissi";
       password="pass6";direccion="Comercio 234";
       di= new DataInmobiliaria(nombre,email,direccion);
       i++;
+      break;
   	case 3:
-      ref="I1";email="inm4@sis.com";nombre="Solei";
+      ref="I4";email="inm4@sis.com";nombre="Solei";
       password="pass7";direccion="Inca 3456";
       di= new DataInmobiliaria(nombre,email,direccion);
       i++;
+      break;
   	default:
   		throw ExOpcionInvalida();
   	}
@@ -112,24 +116,29 @@ while (i<5) {
       switch(i){
   	case 0:
   		ref="D1";letra="A";nombre="Canelones";
-      ddpto= new DataDepartamento(letra,nombre);
+      ddpto= new DataDepartamento(nombre,letra);
       i++;
+      break;
   	case 1:
   		ref="D2";letra="B";nombre="Maldonado";
-      ddpto= new DataDepartamento(letra,nombre);
+      ddpto= new DataDepartamento(nombre,letra);
       i++;
+      break;
   	case 2:
   		ref="D3";letra="C";nombre="Rocha";
-      ddpto= new DataDepartamento(letra,nombre);
+      ddpto= new DataDepartamento(nombre,letra);
       i++;
+      break;
   	case 3:
       ref="D4";letra="D";nombre="Salto";
-      ddpto= new DataDepartamento(letra,nombre);
+      ddpto= new DataDepartamento(nombre,letra);
       i++;
+      break;
   	case 4:
       ref="D5";letra="E";nombre="Montevideo";
-      ddpto= new DataDepartamento(letra,nombre);
+      ddpto= new DataDepartamento(nombre,letra);
       i++;
+      break;
   	default:
   		throw ExOpcionInvalida();
   	}
@@ -157,30 +166,35 @@ void CargarDatosController::cargarZonas(){
           zona = new Zona(codigo,nombre,dpto);
           dpto->AddZona(zona);
           i++;
+          break;
       case 1:
           ref="Z2";nombre="Zona2";codigo=102;
           dpto= refDepartamentos->find("D1")->second;
           zona = new Zona(codigo,nombre,dpto);
           dpto->AddZona(zona);
           i++;
+          break;
       case 2:
           ref="Z3";nombre="Zona3";codigo=103;
           dpto= refDepartamentos->find("D2")->second;
           zona = new Zona(codigo,nombre,dpto);
           dpto->AddZona(zona);
           i++;
+          break;
       case 3:
           ref="Z4";nombre="Zona4";codigo=104;
           dpto= refDepartamentos->find("D4")->second;
           zona = new Zona(codigo,nombre,dpto);
           dpto->AddZona(zona);
           i++;
+          break;
       case 4:
           ref="Z5";nombre="Zona5";codigo=105;
           dpto= refDepartamentos->find("D4")->second;
           zona = new Zona(codigo,nombre,dpto);
           dpto->AddZona(zona);
           i++;
+          break;
       default:
         throw ExOpcionInvalida();
     }
@@ -206,22 +220,27 @@ while(i<5){
       ref="E1";nombre="Apache Valiente";cantidadPisos=4;gCom=1300;
       ded= new DataEdificio(nombre,cantidadPisos,gCom);
       i++;
+      break;
     case 1:
       ref="E2";nombre="Mebeo";cantidadPisos=20;gCom=755;
       ded= new DataEdificio(nombre,cantidadPisos,gCom);
       i++;
+      break;
     case 2:
       ref="E3";nombre="Socrates";cantidadPisos=34;gCom=134;
       ded= new DataEdificio(nombre,cantidadPisos,gCom);
       i++;
+      break;
     case 3:
       ref="E4";nombre="El Burdel";cantidadPisos=12;gCom=450;
       ded= new DataEdificio(nombre,cantidadPisos,gCom);
       i++;
+      break;
     case 4:
       ref="E5";nombre="Milajo";cantidadPisos=5;gCom=3456;
       ded= new DataEdificio(nombre,cantidadPisos,gCom);
       i++;
+      break;
     default:
       throw ExOpcionInvalida();
   }
@@ -267,6 +286,7 @@ void CargarDatosController::cargarApartamentos(){
 
           oferta = new Oferta(venta,alquiler,NULL,inmob);
           i++;
+          break;
       case 1:
         ref="AP2";codigo=1112;ambientes=3;dormitorios=1;banios=1;garaje=false;
         direccion="Iturria 1115 AP 105";m2edificados=35;m2totales=35;
@@ -282,6 +302,7 @@ void CargarDatosController::cargarApartamentos(){
 
         oferta = new Oferta(venta,alquiler,NULL,inmob);
         i++;
+        break;
       case 2:
         ref="AP3";codigo=1113;ambientes=2;dormitorios=1;banios=1;garaje=true;
         direccion="CALLEJON 456 AP 01";m2edificados=45;m2totales=45;
@@ -296,6 +317,7 @@ void CargarDatosController::cargarApartamentos(){
 
         oferta = new Oferta(venta,alquiler,NULL,inmob);
         i++;
+        break;
       case 3:
         ref="AP4";codigo=1114;ambientes=7;dormitorios=3;banios=2;garaje=true;
         direccion="CORCEGA 3456 AP 2";m2edificados=34;m2totales=34;
@@ -311,6 +333,7 @@ void CargarDatosController::cargarApartamentos(){
 
         oferta = new Oferta(venta,alquiler,NULL,inmob);
         i++;
+        break;
       case 4:
         ref="AP5";codigo=1115;ambientes=4;dormitorios=1;banios=1;garaje=false;
         direccion="LUCRECIA 456 AP 3";m2edificados=25;m2totales=25;
@@ -325,6 +348,7 @@ void CargarDatosController::cargarApartamentos(){
         edificio=refEdificios->find("E4")->second;
         oferta = new Oferta(venta,alquiler,NULL,inmob);
         i++;
+        break;
       case 5:
           ref="AP6";codigo=1116;ambientes=2;dormitorios=1;banios=1;garaje=false;
           direccion="LUCRECIA 456 AP 3";m2edificados=17;m2totales=17;
@@ -339,6 +363,7 @@ void CargarDatosController::cargarApartamentos(){
           edificio=refEdificios->find("E4")->second;
           oferta = new Oferta(venta,alquiler,NULL,inmob);
           i++;
+          break;
       default:
         throw ExOpcionInvalida();
 
@@ -382,6 +407,7 @@ void CargarDatosController::cargarCasas(){
 
           oferta = new Oferta(venta,alquiler,NULL,inmob);
           i++;
+          break;
       case 1:
         ref="C2";codigo=2112;ambientes=2;dormitorios=1;banios=1;garaje=false;
         direccion="Gloria 345";m2edificados=35;m2totales=55;espacioverde=20;
@@ -398,6 +424,7 @@ void CargarDatosController::cargarCasas(){
 
         oferta = new Oferta(venta,alquiler,NULL,inmob);
         i++;
+        break;
       case 2:
         ref="C3";codigo=2113;ambientes=3;dormitorios=1;banios=1;garaje=false;
         direccion="CHAPAZ 345";m2edificados=12;m2totales=22;espacioverde=10;
@@ -412,6 +439,7 @@ void CargarDatosController::cargarCasas(){
 
         oferta = new Oferta(venta,alquiler,NULL,inmob);
         i++;
+        break;
       case 3:
         ref="C4";codigo=2114;ambientes=6;dormitorios=3;banios=2;garaje=true;
         direccion="JUANICO 456";m2edificados=34;m2totales=34;espacioverde=0;
@@ -427,6 +455,7 @@ void CargarDatosController::cargarCasas(){
 
         oferta = new Oferta(venta,alquiler,NULL,inmob);
         i++;
+        break;
       case 4:
         ref="C5";codigo=2115;ambientes=3;dormitorios=1;banios=1;garaje=false;
         direccion="VENECIA 3456";m2edificados=25;m2totales=25;espacioverde=0;
@@ -441,6 +470,7 @@ void CargarDatosController::cargarCasas(){
 
         oferta = new Oferta(venta,alquiler,NULL,inmob);
         i++;
+        break;
       default:
         throw ExOpcionInvalida();
 
@@ -478,22 +508,27 @@ void CargarDatosController::cargarInteresados(){
         ref="T1";email="int1@sis.com";password="passt1";nombre="Julio";apellido="Chaz";edad=34;
         di= new DtInteresado(nombre,apellido,edad,email);
         i++;
+        break;
       case 1:
         ref="T2";email="int2@sis.com";password="passt2";nombre="Andrea";apellido="Berruti";edad=56;
         di= new DtInteresado(nombre,apellido,edad,email);
         i++;
+        break;
       case 2:
         ref="T3";email="int3@sis.com";password="passt3";nombre="Sonia";apellido="Braga";edad=45;
         di= new DtInteresado(nombre,apellido,edad,email);
         i++;
+        break;
       case 3:
         ref="T4";email="int4@sis.com";password="passt4";nombre="Alfonso";apellido="Mier";edad=30;
         di= new DtInteresado(nombre,apellido,edad,email);
         i++;
+        break;
       case 4:
         ref="T5";email="int5@sis.com";password="passt5";nombre="Juan";apellido="Alpi";edad=60;
         di= new DtInteresado(nombre,apellido,edad,email);
         i++;
+        break;
       default:
         throw ExOpcionInvalida();
     }
@@ -530,6 +565,7 @@ int i=0;
         interesado= refInteresados->find("T1")->second;
 
         i++;
+        break;
       case 1:
         ref="O2";h=12;minutos=30;segundos=00;
         fecha="24/05/2016";
@@ -539,6 +575,7 @@ int i=0;
         interesado= refInteresados->find("T2")->second;
 
         i++;
+        break;
       case 2:
         ref="O3";h=12;minutos=35;segundos=00;
         fecha="23/05/2016";
@@ -548,33 +585,37 @@ int i=0;
         interesado= refInteresados->find("T3")->second;
 
         i++;
+        break;
       case 3:
         ref="O4";h=0;minutos=30;segundos=00;
         fecha="1/6/2016";
         texto="Quiero hacer una oferta ya!";
         inmob= refInmobiliarias->find("I1")->second;
-        prop= refCasas->find("AP1")->second;
+        prop= refApartamentos->find("AP1")->second;
         interesado= refInteresados->find("T4")->second;
 
         i++;
+        break;
       case 4:
         ref="O5";h=12;minutos=45;segundos=00;
         fecha="2/6/2016";
         texto="Tiene humedad?";
         inmob= refInmobiliarias->find("I1")->second;
-        prop= refCasas->find("AP2")->second;
+        prop= refApartamentos->find("AP2")->second;
         interesado= refInteresados->find("T1")->second;
 
         i++;
+        break;
       case 5:
         ref="O6";h=2;minutos=05;segundos=00;
         fecha="3/6/2016";
         texto="Cual es el precio?";
         inmob= refInmobiliarias->find("I2")->second;
-        prop= refCasas->find("AP3")->second;
+        prop= refApartamentos->find("AP3")->second;
         interesado= refInteresados->find("T5")->second;
 
         i++;
+        break;
       default:
         throw ExOpcionInvalida();
       }
