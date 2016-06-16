@@ -2,6 +2,8 @@
 
 #include "MenuPrincipal.h"
 #include "/Rutinas/RutinaInicioSesion.h"
+#include "/Rutinas/RutinaAltaInmobiliaria.h"
+#include "/Rutinas/RutinaAltaInteresado.h"
 
 #include <iostream>
 #include <string>
