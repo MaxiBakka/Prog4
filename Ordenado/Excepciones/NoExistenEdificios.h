@@ -1,12 +1,12 @@
-#ifndef DATOSYACARGADOS_H
-#define DATOSYACARGADOS_H
+#ifndef NOEXISTENEDIFICIOS_H
+#define NOEXISTENEDIFICIOS_H
 
 #include<exception>
 #include<iostream>
 
 using namespace std;
 
-class DatosYaCargados:public excepcion {
+class NoExistenEdificios:public excepcion {
     public:
     DatosYaCargados();
     virtual const char* what()const throw();
