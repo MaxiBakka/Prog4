@@ -3,6 +3,7 @@
 #include "Menu.h"
 #include "UserInterface.h"
 #include "ExOpcionInvalida.h"
+#include "MenuUtils.h"
 #include <iostream>
 
 using namespace std;

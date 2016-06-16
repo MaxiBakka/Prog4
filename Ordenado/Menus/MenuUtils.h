@@ -10,15 +10,12 @@ using namespace std;
 
 class MenuUtils {
 public:
-	static void imprimirConfirmacion(const string& msg);
-	static void imprimirError(const string& msg);
 	static void limpiarConsola();
 	static int leerInt();
-	static double leerDouble();
 	static float leerFloat();
 	static string leerString();
 	static void esperarInput();
-	static Date leerDate();
+	static Fecha leerFecha();
 	static bool leerOpcion(const string& msg);
 };
 

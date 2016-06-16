@@ -11,7 +11,8 @@
 #include <iostream>
 
 using namespace std;
-int IOConsola::leerInt(){
+
+int MenuUtils::leerInt(){
 	int num;
 	string str = "";
 	while(true){
@@ -24,22 +25,9 @@ int IOConsola::leerInt(){
 	}
 	return num;
 }
-//lee un doble de la linea ingresada, vuelve a solicitar en caso de error
-double IOConsola::leerDouble(){
-	double num;
-	string str = "";
-	while(true){
-		getline(cin, str);
-		stringstream entrada(str);
-		if (entrada >> num){
-			break;
-		}
-		cout << "Debe ingresar un doble. Intente nuevamente" << endl;
-	}
-	return num;
-}
 
-float IOConsola::leerFloat(){
+
+float MenuUtils::leerFloat(){
 	float num;
 	string str = "";
 	while(true){
@@ -53,28 +41,28 @@ float IOConsola::leerFloat(){
 	return num;
 }
 
-string IOConsola::leerString() {
+string MenuUtils::leerString() {
 	string str;
 	getline(cin, str);
 	return str;
 }
 
-void IOConsola::limpiarConsola() {
+void MenuUtils::limpiarConsola() {
 	system("clear");
 }
 
 
-Date IOConsola::leerDate(){
+Fecha MenuUtils::leerFecha(){
 	Fecha res;
 	int dd, mm, aaaa;
 	bool error = true;
 	while (error){
 		cout << "Ingrese Dia: ";
-		dd = IOConsola::leerInt();
+		dd = MenuUtils::leerInt();
 		cout << "Ingrese Mes: ";
-		mm = IOConsola::leerInt();
+		mm = MenuUtils::leerInt();
 		cout << "Ingrese año: ";
-		aaaa = IOConsola::leerInt();
+		aaaa = MenuUtils::leerInt();
 		cout << endl;
 		try{
 			res = Fecha(dd, mm, aaaa);
@@ -87,13 +75,13 @@ Date IOConsola::leerDate(){
 	return res;
 }
 
-void IOConsola::esperarInput() {
+void MenuUtils::esperarInput() {
 	cout << "Presione enter para continuar..." << endl;
 	string dummy;
 	getline(cin,dummy);
 }
 
-/*bool IOConsola::leerOpcion(const string& msg) {
+bool MenuUtils::leerOpcion(const string& msg) {
 	bool res = false;
 	bool error = false;
 	while(true){
@@ -111,10 +99,6 @@ void IOConsola::esperarInput() {
 		}
 	}
 	return res;
-}*/
-
-void IOConsola::imprimirError(const string& msg) {
-	limpiarConsola();
-	imprimirImagen("error");
-	cout << msg << endl;
 }
+
+
