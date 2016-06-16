@@ -69,10 +69,11 @@ void RutinaInicioSesion::ejecutar(){
 			cout<< "Inicio de Sesion Cancelado!";
 			if(!MenuUtils::leerOpcion("Desea intentar nuevamente?"){
 				delete ctrl;
-				ctrl = Factory::getIUsuarioController();
+				UsuarioController = Factory::getIUsuarioController();
 			}else{
 				break;
 			}
 		}
 	}
+	MenuUtils::LimpiarConsola();
 }
