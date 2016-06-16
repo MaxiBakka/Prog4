@@ -17,14 +17,17 @@ void MenuInmobiliarias::presentar() {
 	cout << "5 - Eliminar Propiedad" << endl;
 	cout << "6 - Enviar Mensaje" << endl;
 	cout << endl;
-	cout << "0 - Atrás" << endl;
+	cout << "0 - Cerrar Sesion" << endl;
 }
 
 void MenuInmobiliarias::ejecutarOpcion(int opc) {
 	UserInterface* submenu = NULL;
+
 	switch(opc){
 	case 0:
-		setSalida();
+		UserInterface*cerrarSesion= new RutinaCerrarSesion();
+		cerrarSesion->ejecutar();
+		delete cerrarSesion;
 		break;
 	case 1:
 		//Alta Edifcio
@@ -57,4 +60,3 @@ void MenuInmobiliarias::ejecutarOpcion(int opc) {
 
 MenuInmobiliarias::~MenuInmobiliarias() {
 }
-

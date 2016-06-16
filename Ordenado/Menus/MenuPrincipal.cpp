@@ -34,7 +34,6 @@ void MenuPrincipal::printMenu(){
 	cout << "3 - Cerrar Sesion"<<  endl;
 	cout << endl;
 	cout << "0 - Salir" << endl;
-	leerOpcion();// no se si va esto me entro la duda de como leia la opcion y de quien mandaba a impirmir el menu
 }
 
 void MenuPrincipal::ejecutarOpcion(int opc){

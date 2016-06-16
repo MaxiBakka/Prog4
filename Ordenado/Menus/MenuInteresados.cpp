@@ -13,15 +13,17 @@ void MenuIntersados::presentar() {
 	cout << "1 - Consultar Propiedad" << endl;
 	cout << "2 - Enviar Mensaje" << endl;
 	cout << endl;
-	cout << "0 - Atrás" << endl;
+	cout << "0 - Cerrar Sesion" << endl;
 }
 
 void MenuIntersados::ejecutarOpcion(int opc) {
 	UserInterface* submenu = NULL;
 	switch(opc){
 	case 0:
-		setSalida();
-		break;
+		UserInterface*cerrarSesion= new RutinaCerrarSesion();
+		cerrarSesion->ejecutar();
+		delete cerrarSesion;
+	break;
 	case 1:
 		//Consulta prop
 		break;
@@ -41,4 +43,3 @@ void MenuIntersados::ejecutarOpcion(int opc) {
 
 MenuIntersados::~MenuIntersados() {
 }
-

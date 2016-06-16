@@ -14,14 +14,16 @@ void MenuAdministradores::presentar() {
 	cout << "2 - Alta Interesado" << endl;
 	cout << "3 - Obtener Reporte de Inmobiliarias" << endl;
 	cout << endl;
-	cout << "0 - Atrás" << endl;
+	cout << "0 - Cerrar Sesion" << endl;
 }
 
 void MenuAdministradores::ejecutarOpcion(int opc) {
 	UserInterface* submenu = NULL;
 	switch(opc){
 	case 0:
-		setSalida();
+		UserInterface*cerrarSesion= new RutinaCerrarSesion();
+		cerrarSesion->ejecutar();
+		delete cerrarSesion;
 		break;
 	case 1:
 		//despliega algo para leer datos y crea el dataInmo
@@ -48,4 +50,3 @@ void MenuAdministradores::ejecutarOpcion(int opc) {
 
 MenuAdministradores::~MenuAdministradores() {
 }
-
