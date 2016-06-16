@@ -4,10 +4,6 @@ ExNoHayZonas::ExNoHayZonas(){
 
 }
 
-ExNoHayZonas::~ExNoHayZonas(){
-	
-}
-
-	virtual const char* ExNoHayZonas::what()const throw(){
+const char* ExNoHayZonas::what()const throw(){
 		return "No hay zonas";
 	}

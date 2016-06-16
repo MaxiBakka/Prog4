@@ -9,7 +9,10 @@
 #include "ManejadorDepartamentos.h"
 #include "ManejadorEdificios.h"
 #include "Manejador_Usuario.h"
-#include "Manejador_Propiedad.h"
+#include "ManejadorPropiedades.h"
+
+#include "DataCasa.h"
+#include "DataApartamento.h"
 
 #include "PrecioInvalido.h"
 #include "YaExistePropiedad.h"
@@ -43,21 +46,21 @@ PropiedadController::~PropiedadController(){
 void PropiedadController::confirmarAltaPropiedad() {
 
 Sesion*sesion= Sesion::getInstancia();
-Inmobiliaria*i= sesion->getUsuario();
+Inmobiliaria*i= dynamic_cast<Inmobiliaria*>(sesion->getUsuario());
 Oferta*oferta;
   if (da!=NULL && dv!=NULL) {
-    oferta = new Oferta(new Venta(dv->getPrecio()),new Alquiler(da->getPrecio()),NULL,i);
+    oferta = new Oferta(new Venta(dv->get_precio()),new Alquiler(da->get_precio()),NULL,i);
     delete dv;
     delete da;
   } else if (da!=NULL) {
-    oferta = new Oferta(NULL,new Alquiler(da->getPrecio()),NULL,i);
+    oferta = new Oferta(NULL,new Alquiler(da->get_precio()),NULL,i);
     delete da;
   } else {
-    oferta = new Oferta(new Venta(dv->getPrecio()),NULL,NULL,i);
+    oferta = new Oferta(new Venta(dv->get_precio()),NULL,NULL,i);
     delete dv;
   }
 
-  Manejador_Propiedad*mp= Manejador_Propiedad::getInstancia();
+  ManejadorPropiedades*mp= ManejadorPropiedades::getInstancia();
   this->propiedad=mp->crearPropiedad(dp,zona,oferta,edificio);
   i->AgregarOferta(oferta);
 
@@ -70,40 +73,44 @@ Oferta*oferta;
 
 
 void PropiedadController::ingresarNuevaCasa(DataPropiedad* casa){
+DataCasa*house;
   if (ManejadorPropiedades::getInstancia()->ExistePropiedad(casa->getCodigo())){
     throw YaExistePropiedad();
   }
-  if(casa->getCantAmbientes()<0 || casa->getDormitorios()<0 || casa->getBanios()<0 || casa->getm2edificados()<=0
-    || casa->getEspacioVerde()<0){
+  house=dynamic_cast<DataCasa*>(casa);
+  if(house->getCantAmbientes()<0 || house->getDormitorios()<0 || house->getBanios()<0 || house->getM2edificados()<=0
+    || house->getEspacioVerde()<0){
     throw ValoresInvalidos();
   }
 
 
-  this->dp=casa;
+  this->dp=house;
 
 }
 
 void PropiedadController::ingresarPrecioAlquiler(DataAlquiler* pAlquiler){
-  if(pAlquiler->getPrecio() <= 0) throw PrecioInvalido();
+  if(pAlquiler->get_precio() <= 0) throw PrecioInvalido();
   this->da=pAlquiler;
 
 }
 
 void PropiedadController::ingresarNuevoApartamento(DataPropiedad* apartamento){
+DataApartamento*apto=dynamic_cast<DataApartamento*>(apartamento);
 
-  if(apartamento->getCantAmbientes()<0 || apartamento->getDormitorios()<0 || apartamento->getBanios()<0 ||
-    apartamento->getm2edificados()<=0{
+  if(apto->getCantAmbientes()<0 || apto->getDormitorios()<0 || apto->getBanios()<0 ||
+    apto->getM2edificados()<=0){
     throw ValoresInvalidos();
   }
-  if (ManejadorPropiedades::getInstancia()->ExistePropiedad(apartamento->getCodigo())){
+
+  if (ManejadorPropiedades::getInstancia()->ExistePropiedad(apto->getCodigo())){
     throw YaExistePropiedad();
   }
 
-  this->dp=apartamento;
+  this->dp=apto;
 }
 
 void PropiedadController::ingresarPrecioVenta(DataVenta* pVenta){
-  if(pVenta->getPrecio() <= 0) throw PrecioInvalido();
+  if(pVenta->get_precio() <= 0) throw PrecioInvalido();
   this->dv=pVenta;
 }
 
@@ -164,10 +171,10 @@ Sesion*sesion = Sesion::getInstancia();
 string email = sesion->getUsuario()->get_email();
 
   if(this->propiedad->ExisteChat(email)){
-    this->propiedad->ingresarMensaje(mensaje);
+    this->propiedad->ingresarMensaje(mensaje,email);
   }
   else{
-    Interesado*interesado= dynamic_cast<Interesado*>(&sesion->getUsuario());
+    Interesado*interesado= dynamic_cast<Interesado*>(sesion->getUsuario());
     Inmobiliaria*inmobiliaria=propiedad->getOferta()->getInmobiliaria();
     Chat*chat= new Chat(email,inmobiliaria->getNombre(),this->propiedad,interesado,inmobiliaria);
     chat->nuevoMensaje(mensaje);
@@ -179,7 +186,7 @@ string email = sesion->getUsuario()->get_email();
 
 set<DataMensaje*>* PropiedadController::listarMensajes(){
   Sesion* sesion = Sesion::getInstancia();
-  Interesado*interesado= dynamic_cast<Interesado*>(&sesion->getUsuario());
+  Interesado*interesado= dynamic_cast<Interesado*>(sesion->getUsuario());
 
   set<DataMensaje*>* dm = interesado->ObtenerDataMensajes(propiedad->getCodigo());
 
@@ -224,17 +231,17 @@ set<DataDetallePropiedad*>* PropiedadController::obtenerDetallePropiedad(){
 }
 
 DataInfoInmobiliaria* PropiedadController::informacionDetallada(){
-  set<DataReportePropiedad*>* reportes= set<DataReportePropiedad*>();
+  set<DataReportePropiedad*>* reportes=new  set<DataReportePropiedad*>();
   //me fijo si la propiedad esta en venta y/o alquiler
+  float preciov=0;
+  float precioa=0;
+
   if (propiedad->getOferta()->ExisteVenta()) {
-    float preciov =propiedad->getOferta()->getVenta()->getPrecio();
-  } else {
-    float preciov=0;
+    preciov =propiedad->getOferta()->getVenta()->getPrecio();
   }
+
   if (propiedad->getOferta()->ExisteAlquier()) {
-    float precioa =propiedad->getOferta()->getAlquiler()->getPrecio();
-  } else {
-    float precioa=0;
+     precioa =propiedad->getOferta()->getAlquiler()->getPrecio();
   }
   //creo los datos de la propiedad sin la zona y departamento.
   reportes->insert(new DataReportePropiedad(propiedad->getCodigo(),propiedad->getCantDeAmbientes(),
@@ -242,6 +249,6 @@ DataInfoInmobiliaria* PropiedadController::informacionDetallada(){
   //pido la inmobiliaria de la propiedad
   Inmobiliaria*i= propiedad->getOferta()->getInmobiliaria();
   //retorno el datatype con los datos de la inmobiliaria y la propiedad
-  return new DataInfoInmobiliaria(i->getNombre(),getDireccion(),get_email(),reportes);
+  return new DataInfoInmobiliaria(i->getNombre(),i->getDireccion(),i->get_email(),reportes);
 
 }

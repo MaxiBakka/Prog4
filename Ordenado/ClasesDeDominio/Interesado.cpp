@@ -1,10 +1,11 @@
 #include "Interesado.h"
 #include "DataMensaje.h"
 #include "DtInteresado.h"
+#include "NoExisteChat.h"
 
 Interesado :: Interesado():Usuario(){
-    this->nombre='';
-    this->apellido='':
+    this->nombre="";
+    this->apellido="";
     this->edad=-1;
 
 }
@@ -12,7 +13,7 @@ Interesado :: Interesado():Usuario(){
 Interesado :: Interesado(string& e,string& c,string& n,string& a,int age):Usuario(e,c){
 
     this->nombre=n;
-    this->apellido=a:
+    this->apellido=a;
     this->edad=age;
     this->chats= new set<Chat*>();
 }
@@ -59,12 +60,12 @@ bool Interesado::ExisteChat(Chat* &chat){
 
 //caso de uso Enviar Mensaje Interesado
 set<DataMensaje*>* Interesado::ObtenerDataMensajes(int codigo){
-
-bool flag=TRUE;
+set<DataMensaje*>*res = new set<DataMensaje*>();
+bool flag=true;
   for (set<Chat*>::iterator it=chats->begin();it!=chats->end()&& flag;++it) {
-    if(*it->esChatPropiedad(codigo)){
-      set<DataMensaje*>*res= *it->getDataMensajes();
-      flag=FALSE;
+    if((*it)->esChatPropiedad(codigo)){
+      res = (*it)->getDataMensajes();
+      flag=false;
     }
   }
 

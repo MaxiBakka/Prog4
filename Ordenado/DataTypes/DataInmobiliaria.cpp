@@ -7,15 +7,15 @@ DataInmobiliaria::DataInmobiliaria(string nombre, string email, string direccion
 	this->direccion=direccion;
 }
 
-string DataInmobiliaria::get_nombre(){
+string& DataInmobiliaria::get_nombre(){
 	return this->nombre;
 }
 
-string DataInmobiliaria::get_email(){
+string& DataInmobiliaria::get_email(){
 	return this->email;
 }
 
-string DataInmobiliaria::get_direccion(){
+string& DataInmobiliaria::get_direccion(){
 	return this->direccion;
 }
 

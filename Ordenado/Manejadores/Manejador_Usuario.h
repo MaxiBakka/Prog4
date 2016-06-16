@@ -9,6 +9,9 @@
 #include "DtInteresado.h"
 #include "DataInfoInmobiliaria.h"
 #include "Usuario.h"
+#include "Administrador.h"
+#include "Interesado.h"
+#include "Inmobiliaria.h"
 
 
 using namespace std;

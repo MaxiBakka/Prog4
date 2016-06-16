@@ -584,7 +584,7 @@ int i=0;
       mensaje= new DataMensaje(*fecha_mensaje,*hora,texto);
 
       if(prop->ExisteChat(interesado->get_email())){
-        prop->ingresarMensaje(mensaje);
+        prop->ingresarMensaje(mensaje,interesado->get_email());
       }
       else{
 

@@ -9,7 +9,7 @@ using namespace std;
 class ExvaloresNoPositivos : public exception{
 	public:
 		ExvaloresNoPositivos();
-		~ExvaloresNoPositivos();
+		~ExvaloresNoPositivos() throw();
 		virtual const char* what()const throw();
 
 };

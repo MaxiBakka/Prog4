@@ -1,6 +1,6 @@
 #include "DataInfoInmobiliaria.h"
 
-DataInfoInmobiliaria::DataInfoInmobiliaria(string& n,string& u,string& e,set<DataReportePropiedad*>* propiedades){
+DataInfoInmobiliaria::DataInfoInmobiliaria(string n,string u,string e,set<DataReportePropiedad*>* propiedades){
     this->nombre=n;
     this->ubicacion=u;
     this->email=e;

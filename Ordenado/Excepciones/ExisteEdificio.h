@@ -9,7 +9,6 @@ using namespace std;
 class ExisteEdificio : public exception{
 	public:
 		ExisteEdificio();
-		virtual ~ExisteEdificio();
 		virtual const char* what()const throw();
 
 };

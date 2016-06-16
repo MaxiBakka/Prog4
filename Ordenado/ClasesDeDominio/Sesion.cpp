@@ -10,11 +10,11 @@ void Sesion::cerrarSesion() {
     this->usuario=NULL;
 }
 
-Usuario* Sesion::getInstancia() {
-    if (this->instancia=NULL){
+Sesion* Sesion::getInstancia() {
+    if (instancia=NULL){
         instancia = new Sesion();
     }
-    return this->instancia;
+    return instancia;
 }
 
 Usuario* Sesion::getUsuario() {
@@ -26,5 +26,5 @@ void Sesion::iniciarSesion(Usuario*& user) {
 }
 
 Sesion::~Sesion() {
-    
+
 }

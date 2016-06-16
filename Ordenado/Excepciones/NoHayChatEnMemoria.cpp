@@ -4,10 +4,8 @@ NoHayChatEnMemoria::NoHayChatEnMemoria(){
 
 }
 
-NoHayChatEnMemoria::~NoHayChatEnMemoria(){
-  
-}
 
-        virtual const char* NoHayChatEnMemoria::what()const throw(){
+
+const char* NoHayChatEnMemoria::what()const throw(){
 		return "No hay chat en memoria";
-	}
+}

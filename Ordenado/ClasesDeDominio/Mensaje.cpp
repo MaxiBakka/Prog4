@@ -1,6 +1,6 @@
 #include "Mensaje.h"
 
-Mensaje :: Mensaje(Fecha& f, Hora& h, string& t){
+Mensaje :: Mensaje( Fecha& f,  Hora& h, string& t):fecha(f){
     this->fecha=f;
     this->hora=h;
     this->texto=t;

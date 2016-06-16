@@ -1,8 +1,8 @@
 #include "DataMensaje.h"
 
 
-DataMensaje :: DataMensaje(Fecha& f,Hora& h,string t){
-    this->fecha=f;
+DataMensaje::DataMensaje(Fecha& f,Hora& h,string& t):fecha(f){
+
     this->hora=h;
     this->texto=t;
 }
@@ -27,5 +27,6 @@ DataMensaje :: ~DataMensaje(){
 
 ostream& operator <<(ostream& output, DataMensaje& dm) {
   //Implementar formato de salida
+  return output;
 
 }

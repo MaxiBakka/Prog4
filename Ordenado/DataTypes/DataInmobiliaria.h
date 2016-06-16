@@ -13,9 +13,9 @@ class DataInmobiliaria {
 	public:
 			DataInmobiliaria(string nombre,string email,string direccion);
 
-			string get_nombre();
-			string get_direccion();
-			string get_email();
+			string& get_nombre();
+			string& get_direccion();
+			string& get_email();
 
 			virtual ~DataInmobiliaria();
 };

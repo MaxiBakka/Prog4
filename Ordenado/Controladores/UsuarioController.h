@@ -11,6 +11,8 @@
 #include <set>
 #include <string>
 
+using namespace std;
+
 class UsuarioController : public IUsuarioController{
 
 private:
@@ -25,7 +27,7 @@ public:
       UsuarioController();
       virtual ~UsuarioController();
 
-      virtual void IngresarEmail(string& email);
+        virtual void IngresarEmail(string& correo);
     	virtual void activarSesion();
     	virtual void CancelarInicioSesion();
     	virtual void ConfirmarContrasenia(string& pwd);
@@ -46,7 +48,7 @@ public:
       virtual void CerrarSesion();
 
       //Alta Interesado
-      virtual void IngresarInteresado(DtInteresado*di)
+      virtual void IngresarInteresado(DtInteresado*di);
 
 
 };

@@ -1,7 +1,8 @@
-#ifndef IModificarPropiedadController
-#define IModificarPropiedadController
+#ifndef IModificarPropiedadController_h
+#define IModificarPropiedadController_h
 
 #include "DataPropiedad.h"
+
 using namespace std;
 
 class IModificarPropiedadController {

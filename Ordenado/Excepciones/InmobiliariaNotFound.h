@@ -10,7 +10,6 @@ class InmobiliariaNotFound : public exception{
 	public:
 		virtual const char* what()const throw();
 		InmobiliariaNotFound();
-		~InmobiliariaNotFound();
 };
 
 

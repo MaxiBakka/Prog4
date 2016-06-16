@@ -1,5 +1,5 @@
-#ifndef IUsuarioController.h
-#define  IUsuarioController.h
+#ifndef  IUsuarioController_h
+#define  IUsuarioController_h
 
 #include "DataInmobiliaria.h"
 #include "DataInfoInmobiliaria.h"
@@ -20,9 +20,9 @@ public:
       //Iniciar sesion
       virtual void activarSesion() = 0;
       virtual void  CancelarInicioSesion() = 0;
-      virtual ConfirmarContrasenia(string& pwd) = 0;
+      virtual void ConfirmarContrasenia(string& pwd) = 0;
       virtual bool esUsuarioAdmin() = 0;
-      virtual void IngresarEmail(string& email) = 0;
+      virtual void IngresarEmail(string& correo) = 0;
       virtual void IngresarContrasenia(string& pwd)= 0;
       virtual void IngresarContraseniaNueva(string& pwd) = 0;
       virtual bool PrimeraVez() = 0;

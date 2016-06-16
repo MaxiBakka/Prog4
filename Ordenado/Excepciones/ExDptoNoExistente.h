@@ -9,7 +9,7 @@ using namespace std;
 class ExDptoNoExistente : public exception{
 	public:
 		ExDptoNoExistente();
-		virtual ~ExDptoNoExistente();
+
 		virtual const char* what()const throw();
 
 };

@@ -9,7 +9,6 @@ using namespace std;
 class InmobiliariaYaExistente : public exception{
 	public:
 		InmobiliariaYaExistente();
-		~InmobiliariaYaExistente();
 		virtual const char* what()const throw();
 
 };

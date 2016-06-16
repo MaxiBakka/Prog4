@@ -10,7 +10,6 @@ using namespace std;
 class ExisteInteresado : public exception{
 	public:
 		ExisteInteresado();
-		virtual ~ExisteInteresado();
 		virtual const char* what()const throw();
 
 };

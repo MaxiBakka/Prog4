@@ -2,20 +2,17 @@
 
 #include <utility>
 
-
-#include "../exceptions/NoHayDepartamentos.h"
-#include "../exceptions/YaExisteDepartamento.h"
-#include "../exceptions/ExDptoNoExistente.h"
+#include "NoHayDepartamentos.h"
+#include "YaExisteDepartamento.h"
+#include "ExDptoNoExistente.h"
 
 using namespace std;
 
 ManejadorDepartamentos* ManejadorDepartamentos::instancia = NULL;
 
-ManejadorDepartamentos::ManejadorDepartamenos(){
-		departamentos = new map<string,Departamento*>();
-
-
-};
+ManejadorDepartamentos::ManejadorDepartamentos(){
+    departamentos = new map<string,Departamento*>();
+}
 
 
 
@@ -52,21 +49,21 @@ Departamento* ManejadorDepartamentos::getDepartamento(const string& letra){
 	}else throw ExDptoNoExistente();
 }
 
-bool ManejadorDepartamenos::ExisteDepartamento(string &letra){
+bool ManejadorDepartamentos::ExisteDepartamento(string &letra){
 		return departamentos->find(letra)!= departamentos->end();
 }
 
  //Agregar Departamento
 void ManejadorDepartamentos::AgregarDepartamento(DataDepartamento*dd){
-	if (ExisteDepartamento(dd->getLetra())) {
+	if (ExisteDepartamento(dd->get_letra())) {
 		throw YaExisteDepartamento();
 	} else {
 		Departamento* d= new Departamento(dd);
-		departamentos->insert(pair<string,Departamento*>(dd->getLetra(),d))
+		departamentos->insert(pair<string,Departamento*>(dd->get_letra(),d));
 	}
 }
 
-void Departamento::RemoverDepartamento(string &letra){
+void ManejadorDepartamentos::RemoverDepartamento(string &letra){
 	//al querer destruir un departamento se llama a esta operacion del manejador
 	if(!ExisteDepartamento(letra)){
 		throw ExDptoNoExistente();

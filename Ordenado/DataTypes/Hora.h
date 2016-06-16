@@ -19,7 +19,7 @@ public:
     int get_minuto();
     int get_segundo();
     //sobrecarga de operadores
-    Hora& operator =(const Hora h);
+    Hora& operator =(Hora h);
     //destructor
     ~Hora();
 };

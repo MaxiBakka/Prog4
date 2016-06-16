@@ -31,9 +31,9 @@ public:
 	virtual set<DataDepartamento*>* listarDepartamentos() = 0;
 	virtual set<DataEdificio*>* listarEdificios() = 0;
 	virtual set<DataZona*>* listarZonas() = 0;
-	virtual void seleccionarDepartamento(string letra) = 0;
+	virtual void seleccionarDepartamento(string& letra) = 0;
 	virtual void seleccionarZona(int codigo) = 0;
-	virtual void seleccionarEdificio(string nombre) = 0;
+	virtual void seleccionarEdificio(const string& nombre) = 0;
 	//virtual bool tipoPropiedad(int codigo) = 0; esta operacion se hace directamente en el menu
 	//caso de uso eliminarPropiedad
 	virtual void eliminarPropiedad(int codigo) = 0;

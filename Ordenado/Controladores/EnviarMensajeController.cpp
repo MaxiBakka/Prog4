@@ -18,13 +18,13 @@ void EnviarMensajeController::enviarMensaje(DataMensaje* mensaje) {
 
 set<DataChat*>* EnviarMensajeController::listarChats() {
 
-Sesion * sesion = Sesion::getInstancia();
-Inmobiliaria*inmobiliaria= dynamic_cast<Inmobiliaria*>(&sesion->getUsuario());
+Sesion* sesion = Sesion::getInstancia();
+Inmobiliaria*inmobiliaria= dynamic_cast<Inmobiliaria*>(sesion->getUsuario());
   set<Chat*>* chats=inmobiliaria->getChats();
   set<DataChat*>* dc= new set<DataChat*>();
 
   for (set<Chat*>::iterator it =chats->begin(); it!=chats->end(); ++it) {
-    dc->insert(*it->getDataChat());
+    dc->insert((*it)->getDataChat());
   }
   if(dc->size()==0){
 		dc->clear();
@@ -43,7 +43,7 @@ set<DataMensaje*>* EnviarMensajeController::listarMensajes() {
 void EnviarMensajeController::seleccionarChat(DataChat* dc) {
 
   Sesion * sesion = Sesion::getInstancia();
-  Inmobiliaria*inmobiliaria= dynamic_cast<Inmobiliaria*>(&sesion->getUsuario());
+  Inmobiliaria*inmobiliaria= dynamic_cast<Inmobiliaria*>(sesion->getUsuario());
   this->chat= inmobiliaria->ElegirChat(dc);
 
 }

@@ -14,7 +14,7 @@ private:
 public:
 
     Fecha(int d,int m,int a);
-    Fecha(const Fecha& ref);
+    Fecha(Fecha& ref);
     Fecha(const string& fecha);
 
     int get_dia();
@@ -22,7 +22,7 @@ public:
     int get_anio();
 
     //sobrecarga de operadores
-    Fecha& operator =(const Fecha f);
+    Fecha& operator =(Fecha f);
 
     ~Fecha();
 };

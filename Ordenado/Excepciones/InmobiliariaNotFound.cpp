@@ -1,13 +1,9 @@
 #include "InmobiliariaNotFound.h"
 
-InmobiliariNotFound::InmobiliariNotFound(){
+InmobiliariaNotFound::InmobiliariaNotFound(){
 
 }
 
-InmobiliariNotFound::~InmobiliariNotFound(){
-
-}
-
-virtual const char* InmobiliariNotFound::what()const throw(){
+const char* InmobiliariaNotFound::what()const throw(){
 		return "Inmobiliaria no encontrada";
 }

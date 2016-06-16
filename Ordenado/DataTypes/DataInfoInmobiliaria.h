@@ -15,13 +15,13 @@ private:
     string email;
     set<DataReportePropiedad*>* reportePropiedades;
 public:
-    DataInfoInmobiliaria(string& n,string& u,string& e,set<DataReportePropiedad*>* propiedades);
+    DataInfoInmobiliaria(string n,string u,string e,set<DataReportePropiedad*>* propiedades);
     string& get_nombre();
     string& get_ubicacion();
     string& get_email();
     set<DataReportePropiedad*>* getReportePropiedades();
     ~DataInfoInmobiliaria();
-    
+
 };
 
 ostream& operator<<(ostream& o, const DataInfoInmobiliaria& di);

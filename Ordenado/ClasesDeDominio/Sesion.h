@@ -3,7 +3,7 @@
 #define	SESION_H
 
 #include "Usuario.h"
- 
+
 
 class Sesion {
 private:
@@ -11,15 +11,15 @@ private:
     Sesion();
     Usuario* usuario;
 public:
-    static Usuario* getInstancia();
-    
+    static Sesion* getInstancia();
+
     //Iniciar Sesion
     void iniciarSesion(Usuario* &user);
     //Cerrar Sesion
     void cerrarSesion();
     //obtener Usuario
     Usuario* getUsuario();
-    //destructor 
+    //destructor
     virtual ~Sesion();
 
 };

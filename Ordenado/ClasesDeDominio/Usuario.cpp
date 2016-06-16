@@ -1,8 +1,8 @@
 #include "Usuario.h"
 
 Usuario::Usuario() {
-    this->email='';
-    this->contrasenia='';   
+    this->email="";
+    this->contrasenia="";
 }
 
 Usuario::Usuario(string& e, string& c) {

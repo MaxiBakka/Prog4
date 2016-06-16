@@ -2,9 +2,9 @@
 #include "Manejador_Usuario.h"
 #include "Inmobiliaria.h"
 #include "Interesado.h"
-#include "../datatypes/DataInmobiliaria.h"
+#include "DataInmobiliaria.h"
 #include "WrongPwd.h"
-
+#include "Sesion.h"
 
 
 
@@ -25,7 +25,7 @@ void UsuarioController::activarSesion(){
 		delete password;
 		delete email;
 		Sesion*sesion= Sesion::getInstancia();
-		sesion->ActivarSesion(this->usuario);
+		sesion->iniciarSesion(this->usuario);
 		usuario=NULL;
 
 }
@@ -42,9 +42,10 @@ void UsuarioController::ConfirmarContrasenia(string& pwd){
 }
 
 bool UsuarioController::esUsuarioAdmin(){
-		Manejador_Usuario* manUs = Manejador_Usuario::getInstance();
-		usuario = manUs->getUsuario(this->email);
-		return (0 != Administrador*admin= dynamic_cast<Administrador*>(&usuario));
+		Manejador_Usuario* manUs = Manejador_Usuario::getInstancia();
+		usuario = manUs->getUsuario(*this->email);
+		Administrador*admin;
+		return (0 != (admin= dynamic_cast<Administrador*>(usuario)));
 }
 void UsuarioController::IngresarContrasenia(string& pwd){
 		if(pwd==usuario->get_contrasenia()){
@@ -64,25 +65,25 @@ void UsuarioController::IngresarContraseniaNueva(string& pwd){
 			*password=pwd;
 }
 
-bool UsuarioController::primeraVez(){
+bool UsuarioController::PrimeraVez(){
 		return (usuario->get_contrasenia() == " ");
 }
 
- void UsuarioController::IngresarEmail(string& email){
+ void UsuarioController::IngresarEmail(string& correo){
 
 	 		this->email= new string;
-			*email= email;
+			*email= correo;
 }
 
 void UsuarioController::IngresarInmobiliaria(DataInmobiliaria* di){
 
-		Manejador_Usuario* mu = Manejador_Usuario::getInstance();
+		Manejador_Usuario* mu = Manejador_Usuario::getInstancia();
 		mu->CrearInmobiliaria(di);
 }
 
 set<DataInfoInmobiliaria*>* UsuarioController::ObtenerReporte(){
 
-	Manejador_Usuario* mu = Manejador_Usuario::getInstance();
+	Manejador_Usuario* mu = Manejador_Usuario::getInstancia();
 	return mu->getDataInfoInmobiliaria();
 }
 
@@ -90,13 +91,13 @@ set<DataInfoInmobiliaria*>* UsuarioController::ObtenerReporte(){
 void UsuarioController::CerrarSesion(){
 
 	Sesion*sesion= Sesion::getInstancia();
-	sesion->CerrarSesion();
+	sesion->cerrarSesion();
 }
 
 
 //CASO DE USO ALTA INTERESADO
 void UsuarioController::IngresarInteresado(DtInteresado*di){
 
-		Manejador_Usuario* mu = Manejador_Usuario::getInstance();
+		Manejador_Usuario* mu = Manejador_Usuario::getInstancia();
 		mu->CrearInteresado(di);
 }

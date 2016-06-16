@@ -5,7 +5,7 @@
 #include "Propiedad.h"
 #include "Zona.h"
 #include "Departamento.h"
-#include "IPropiedadController"
+#include "IPropiedadController.h"
 
 #include "DataPropiedad.h"
 #include "DataAlquiler.h"
@@ -24,7 +24,7 @@
 
 using namespace std;
 
-class PropiedadController: public IPropiedadController {
+class PropiedadController:public IPropiedadController {
 private:
     Departamento* dpto;
     Zona* zona;
@@ -45,7 +45,7 @@ public:
 	set<DataDepartamento*>* listarDepartamentos();
 	set<DataEdificio*>* listarEdificios();
 	set<DataZona*>* listarZonas();
-  void seleccionarDepartamento(string& letra);
+    void seleccionarDepartamento(string& letra);
 	void seleccionarZona(int codigo);
 	void seleccionarEdificio(const string& nombre);
 

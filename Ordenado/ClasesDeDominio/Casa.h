@@ -7,6 +7,7 @@
 #include "Propiedad.h"
 #include "Oferta.h"
 #include "DataPropiedad.h"
+#include "DataReportePropiedad.h"
 
 using namespace std;
 
@@ -22,6 +23,7 @@ public:
     void setEspacioVerde(int espverde);
     void setM2edificados(float m2edificados);
     DataPropiedad* getDataPropiedad();
+    DataReportePropiedad* getDataReportePropiedad();
 
     void modificarPropiedad(DataPropiedad*dp);
     virtual ~Casa();

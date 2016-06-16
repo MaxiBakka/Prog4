@@ -2,6 +2,7 @@
 #include "Casa.h"
 #include "DataCasa.h"
 #include "Zona.h"
+#include "DataReporteCasa.h"
 
 
 Casa::Casa(int cod, int cda, int dormi, int banios, bool garaje, string dir, float m2t,Zona* z,Oferta* of, int ev, float m2e)
@@ -28,6 +29,24 @@ void Casa::setM2edificados(float m2edificados){
   this->m2Edificados=m2edificados;
 }
 
+DataReportePropiedad* Casa::getDataReportePropiedad(){
+float alquiler=0;
+  float venta=0;
+
+  if(getOferta()->ExisteVenta()){
+   venta = getOferta()->getVenta()->getPrecio();
+  }
+  if(getOferta()->ExisteAlquier()){
+  alquiler=getOferta()->getAlquiler()->getPrecio();
+  }
+
+  return new DataReporteCasa(this->getCodigo(),this->getCantDeAmbientes(),
+  getDormitorios(),getBanios(),this->getGaraje(),getDireccion(),venta,alquiler,m2Edificados,
+    espacioVerde,
+    this->zona->getDataZona(),
+    this->zona->getDataDepartamento());
+
+}
 
 DataPropiedad* Casa::getDataPropiedad() {
   float alquiler=0;

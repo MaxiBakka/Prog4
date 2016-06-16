@@ -4,10 +4,6 @@ ExisteInteresado::ExisteInteresado(){
 
 }
 
-ExisteInteresado::~ExisteInteresado(){
-	
-}
-
-	virtual const char* ExisteInteresado::what()const throw(){
+const char* ExisteInteresado::what()const throw(){
 		return "Interesado ya existente";
 	}

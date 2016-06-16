@@ -2,6 +2,7 @@
 #include "Edificio.h"
 #include "DataApartamento.h"
 #include "Zona.h"
+#include "DataReporteApartamento.h"
 
 Apartamento::Apartamento(int cod, int cda, int dormi, int banios, bool garaje, string& dir, float m2t, Zona* z,Oferta*of,float m2e,Edificio* e)
 :Propiedad(cod,cda,dormi,banios,garaje,dir,m2t,z,of) {
@@ -25,6 +26,25 @@ DataPropiedad* Apartamento::getDataPropiedad() {
 
 return new DataApartamento(this->getCodigo(),this->getCantDeAmbientes(),
 getDormitorios(),getBanios(),getDireccion(),getGaraje(),alquiler,venta,getM2Totales(),m2edificados);
+
+
+}
+
+DataReportePropiedad* Apartamento::getDataReportePropiedad(){
+
+ float alquiler=0;
+  float venta=0;
+
+  if(getOferta()->ExisteVenta()){
+   venta = getOferta()->getVenta()->getPrecio();
+  }
+  if(getOferta()->ExisteAlquier()){
+  alquiler=getOferta()->getAlquiler()->getPrecio();
+  }
+
+return new DataReporteApartamento(this->getCodigo(),this->getCantDeAmbientes(),
+    getDormitorios(),getBanios(),this->getGaraje(),getDireccion(),venta,alquiler,this->zona->getDataZona(),
+    this->zona->getDataDepartamento(),getM2Totales(),m2edificados);
 
 
 }

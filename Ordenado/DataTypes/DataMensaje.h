@@ -16,7 +16,7 @@ private:
     string texto;
 public:
     //constructor
-    DataMensaje(Fecha& f,Hora& h,string t);
+    DataMensaje(Fecha& f,Hora& h,string& t);
     //getters
     Fecha& get_fecha();
     Hora& get_hora();

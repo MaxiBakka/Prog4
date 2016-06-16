@@ -4,10 +4,6 @@ NoHayDepartamentos::NoHayDepartamentos(){
 
 }
 
-NoHayDepartamentos::~NoHayDepartamentos(){
-	
-}
-
-	virtual const char* NoHayDepartamentos::what()const throw(){
+const char* NoHayDepartamentos::what()const throw(){
 		return "No hay departamentos.";
 	}

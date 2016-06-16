@@ -19,7 +19,7 @@ void Zona::setCodigo(int cod){
 }
 
 void Zona::setNombre(string& name){
-  this->nombre = name
+  this->nombre = name;
 }
 
 

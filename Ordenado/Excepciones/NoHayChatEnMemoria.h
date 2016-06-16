@@ -9,7 +9,7 @@ using namespace std;
 class NoHayChatEnMemoria : public exception{
 	public:
 		NoHayChatEnMemoria();
-		~NoHayChatEnMemoria();
+
 		virtual const char* what()const throw();
 
 };

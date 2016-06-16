@@ -12,8 +12,8 @@ class DataDepartamento{
 	public:
 
 		DataDepartamento(string name, string letra);
-		string get_nombre();
-		string get_letra();
+		string& get_nombre();
+		string& get_letra();
 		virtual ~DataDepartamento();
 };
 

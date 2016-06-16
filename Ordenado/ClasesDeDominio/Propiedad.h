@@ -20,13 +20,13 @@ class Oferta;
 using namespace std;
 
 class Propiedad {
-private:
+protected:
     int codigo;
     int cantDeAmbientes;
     int dormitorios;
     int Banios;
     bool garaje;
-    string& direccion;
+    string direccion;
     float m2Totales;
     Zona* zona;
     Oferta* oferta;
@@ -57,13 +57,13 @@ public:
     virtual ~Propiedad();
 
     //obtencion datatypes
-    virtual DataReportePropiedad* getDataReportePropiedad();
+    virtual DataReportePropiedad* getDataReportePropiedad()=0;
     virtual DataInfoPropiedad* getDataInfoPropiedad(string &email);
     virtual DataDetallePropiedad * getDataDetallePropiedad();
-    virtual DataPropiedad * getDataPropiedad();
+    virtual DataPropiedad * getDataPropiedad()=0;
 
-    virtual void modificarPropiedad(DataPropiedad*dp);
-    virtual void ingresarMensaje(DataMensaje* mensaje);
+    virtual void modificarPropiedad(DataPropiedad*dp)=0;
+    virtual void ingresarMensaje(DataMensaje* mensaje,string &email);
     virtual void AgregarChat(Chat*c);
     virtual void eliminarChat(Chat * chat);
     virtual bool ExisteChat(string &email);

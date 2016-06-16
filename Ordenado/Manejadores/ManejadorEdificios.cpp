@@ -10,21 +10,21 @@
 ManejadorEdificios* ManejadorEdificios::instancia=NULL;
 
 ManejadorEdificios::ManejadorEdificios() {
-    this->edificios=new map<string,Edificio*>*();
+    this->edificios = new map<string,Edificio*>();
 }
 
 void ManejadorEdificios::addEdificio(DataEdificio* de) {
 
     if((edificios->find(de->get_nombre())==edificios->end()) && (de->get_cantPisos() > 0) && (de->get_gastosComunes() >0) ){
       Edificio* d = new Edificio(de->get_nombre(),de->get_cantPisos(),de->get_gastosComunes());
-      this->edificios->insert(pair<string,Edificio*>*(de->get_nombre(),d));
+      this->edificios->insert(pair<string,Edificio*>(de->get_nombre(),d));
     }else throw ExisteEdificio();
 }
 
 Edificio* ManejadorEdificios::getEdificio(const string& nombre) {
     //agregar excepcion existeEdificio
     if(edificios->find(nombre)!=edificios->end()){
-      return this->edificios->find(nombre);
+      return this->edificios->find(nombre)->second;
     }else throw EdificioNoExistente();
 }
 
@@ -37,8 +37,9 @@ set<DataEdificio*>* ManejadorEdificios::getEdificios() {
       for (map<string,Edificio*>::iterator it =edificios->begin();it!=edificios->end();it++) {
         res->insert(it->second->getDataEdificio());
       }
+   return res;
   }
-    return res;
+
 }
 
 ManejadorEdificios* ManejadorEdificios::getInstancia() {

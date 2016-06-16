@@ -1,4 +1,3 @@
-
 #ifndef INMOBILIARIA_H
 #define	INMOBILIARIA_H
 
@@ -6,13 +5,12 @@
 #include <set>
 
 #include "Usuario.h"
-//#include "Venta.h"
-//#include "Alquiler.h"
 #include "Chat.h"
-
 #include "DataInfoInmobiliaria.h"
 #include "DataChat.h"
 #include "DataInmobiliaria.h"
+
+#include <set>
 
 class Oferta;
 
@@ -23,10 +21,10 @@ class Inmobiliaria:public Usuario {
 private:
     string nombre;
     string direccion;
-    set<Chat*>*chats;
-    set<Oferta*>*ofertas;
+    set<Chat*>* chats;
+    set<Oferta*>* ofertas;
 public:
-    Inmobiliaria(string& email,string& contrasenia,string& nombre,string& dir);
+    Inmobiliaria(string& email,string contrasenia,string& nombre,string& dir);
     virtual ~Inmobiliaria();
     //getters
     string getNombre();
@@ -39,7 +37,7 @@ public:
     //void crearVenta(DataVenta* &dv,Propiedad p);
 
     void AgregarOferta(Oferta* oferta);
-    void borrarOferta(Oferta* &oferta);
+    void borrarOferta(Oferta* oferta);
 
     //operaciones sobre chat
     bool ExisteChat(Chat* &chat);

@@ -1,4 +1,9 @@
 #include "ManejadorPropiedades.h"
+#include "DataCasa.h"
+#include "DataApartamento.h"
+#include "Casa.h"
+#include "Apartamento.h"
+//#include "EsPropiedadNoExistente.h"
 
 #include <utility>
 
@@ -23,23 +28,24 @@ ManejadorPropiedades* ManejadorPropiedades::getInstancia(){
     //Destructor
 ManejadorPropiedades::~ManejadorPropiedades(){
 
-	for(map<int,Propiedades*>::iterator it = propiedades->begin(); it != propiedades->end(); ++it){
+	for(map<int,Propiedad*>::iterator it = propiedades->begin(); it != propiedades->end(); ++it){
 			Propiedad* p = it->second;
 			delete p;
 	}
 		propiedades->clear();
 		delete propiedades;
-		MajeadorPropiedades::instancia = NULL;
+		ManejadorPropiedades::instancia = NULL;
 
 }
     //Operaciones DSD
 Propiedad* ManejadorPropiedades::crearPropiedad(DataPropiedad* p,Zona* z,Oferta*oferta,Edificio*edificio){
-  DataCasa*dc=dynamic_cast<DataCasa*>(&p);
+  Propiedad* propiedad;
+  DataCasa*dc=dynamic_cast<DataCasa*>(p);
   if(dc!=NULL){
-    Propiedad*propiedad= new Casa(dc,z,oferta);//no se deberia pasar solo el datatype,lo voy a cambiar dsp
+    propiedad= new Casa(dc->getCodigo(),dc->getCantAmbientes(),dc->getDormitorios(),dc->getBanios(),dc->getGaraje(),dc->getDireccion(),dc->getM2totales(),z,oferta,dc->getEspacioVerde(),dc->getM2edificados());//no se deberia pasar solo el datatype,lo voy a cambiar dsp
   }else{
-    DataApartamento*dc=dynamic_cast<DataApartamento*>(&p);
-    Propiedad*propiedad= new Apartamento(dc,z,oferta,edificio);
+    DataApartamento*da=dynamic_cast<DataApartamento*>(p);
+    propiedad= new Apartamento(da->getCodigo(),da->getCantAmbientes(),da->getDormitorios(),da->getBanios(),da->getGaraje(),da->getDireccion(),da->getM2totales(),z,oferta,da->getM2edificados(),edificio);
   }
 
   oferta->setPropiedad(propiedad);
@@ -52,7 +58,7 @@ void ManejadorPropiedades::eliminarPropiedad(int c){
 
 
     	if(!(ExistePropiedad(c))){
-    			throw ExPropiedadNoExistente();
+    			//throw ExPropiedadNoExistente();
     	}else{
     			Propiedad* p =propiedades->find(c)->second;
     			propiedades->erase(c);
@@ -72,9 +78,8 @@ set<DataInfoPropiedad*>* ManejadorPropiedades::getConversacionesPropiedad(Zona* 
 	set<Propiedad*>* props = z->getPropiedades();
 
 	set<DataInfoPropiedad*>* res=new set<DataInfoPropiedad*>();
-	for(set<Propiedades*>::iterator it= props->begin();it!=props->end();++it ){
-		res->insert(*it->getDataInfoPropiedad(email));
-
+	for(set<Propiedad*>::iterator it= props->begin();it!=props->end();++it ){
+		res->insert((*it)->getDataInfoPropiedad(email));
 	}
 	delete props;//solo borra la memoria asignada al a coleccion sin borrar lo de adentro?
 		return res;
@@ -86,6 +91,6 @@ Propiedad*ManejadorPropiedades::getPropiedad(int c){
 		if(it!= propiedades->end()){
 			return it->second;
 
-		}else throw ExPropiedadNoExistente();
+		}else {}//throw ExPropiedadNoExistente();
 
 }

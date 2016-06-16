@@ -14,7 +14,7 @@ Fecha :: Fecha(int d,int m,int a){
 
 }
 
-Fecha::Fecha(const Fecha& ref) {
+Fecha::Fecha(Fecha& ref) {
 	this->anio=ref.anio;
 	this->mes=ref.mes;
 	this->dia=ref.dia;

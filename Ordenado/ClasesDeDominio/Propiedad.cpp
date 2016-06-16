@@ -105,26 +105,20 @@ bool Propiedad::ExisteChat(string &email){
 
   bool existe=false;
   for (set<Chat*>::iterator it =chats->begin(); it!=chats->end(); ++it) {
-    if(*it->getEmailInteresado()==email){
+    if((*it)->getEmailInteresado()==email){
       existe=true;
       break;
     }
   }
   return existe;
 }
-//obtencion datatypes
-DataReportePropiedad* Propiedad::getDataReportePropiedad(){
-
-//caso de uso obtener reporte de Inmobiliaria
-
-}
 
 
 DataInfoPropiedad* Propiedad::getDataInfoPropiedad(string &email){
  int cant=0;
   for (set<Chat*>::iterator it =chats->begin(); it!=chats->end(); ++it) {
-    if(*it->getEmailInteresado()==email){
-      cant= *it->cantidadMensajes();
+    if((*it)->getEmailInteresado()==email){
+      cant= (*it)->cantidadMensajes();
       break;
     }
   }
@@ -139,11 +133,11 @@ DataDetallePropiedad *Propiedad:: getDataDetallePropiedad(){
 
 }
 
-void Propiedad::ingresarMensaje(DataMensaje* mensaje){
+void Propiedad::ingresarMensaje(DataMensaje* mensaje,string &email){
 
   for (set<Chat*>::iterator it =chats->begin(); it!=chats->end(); ++it) {
-    if(*it->getEmailInteresado()==email){
-      *it->nuevoMensaje(mensaje);
+    if((*it)->getEmailInteresado()==email){
+      (*it)->nuevoMensaje(mensaje);
       break;
     }
   }

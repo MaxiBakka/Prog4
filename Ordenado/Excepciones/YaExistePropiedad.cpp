@@ -5,9 +5,9 @@ YaExistePropiedad::YaExistePropiedad(){
 }
 
 YaExistePropiedad::~YaExistePropiedad(){
-	
+
 }
 
-	virtual const char* YaExistePropiedad::what()const throw(){
+const char* YaExistePropiedad::what()const throw(){
 		return "La propiedad ya existe";
-	}
+}

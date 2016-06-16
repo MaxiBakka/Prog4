@@ -1,8 +1,10 @@
 #include "Inmobiliaria.h"
 #include "DataReportePropiedad.h"
 #include "NoExisteChat.h"
+//#include "Propiedad.h"
+#include "Oferta.h"
 
-Inmobiliaria::Inmobiliaria(string& email, string& contrasenia, string& nombre, string& dir):Usuario(email,contrasenia) {
+Inmobiliaria::Inmobiliaria(string& email, string contrasenia, string& nombre, string& dir):Usuario(email,contrasenia) {
     this->nombre=nombre;
     this->direccion=dir;
     this->ofertas = new set<Oferta*>();
@@ -10,7 +12,7 @@ Inmobiliaria::Inmobiliaria(string& email, string& contrasenia, string& nombre, s
 
 }
 
-Inmobiliaria::~Inmobiliaria{
+Inmobiliaria::~Inmobiliaria(){
 
   for (set<Oferta*>::iterator it=ofertas->begin() ;it!=ofertas->end(); ++it) {
       Oferta*of= *it;
@@ -44,7 +46,7 @@ void Inmobiliaria::AgregarOferta(Oferta* oferta){
   this->ofertas->insert(oferta);
 }
 
-void Inmobiliaria::borrarOferta(Oferta* &oferta){
+void Inmobiliaria::borrarOferta(Oferta* oferta){
 
   this->ofertas->erase(oferta);
 
@@ -70,10 +72,10 @@ void Inmobiliaria::eliminarChat(Chat* c) {
     this->chats->erase(c);
 }
 
-Chat* ElegirChat(DataChat* &dc){
+Chat* Inmobiliaria::ElegirChat(DataChat* &dc){
   Chat* c=NULL;
-  for ( set<Chat*>::iterator it=chats->begin(); it!=chats->end(); ++it) {
-      if((dc->getEmailInteresado()==*it->getEmailInteresado()) && (dc->getCodigo()== *it->getPropiedad()->getCodigo())){
+  for(set<Chat*>::iterator it=chats->begin(); it!=chats->end(); ++it) {
+      if((dc->getEmailInteresado()==(*it)->getEmailInteresado()) && (dc->getCodigo()== (*it)->getPropiedad()->getCodigo())){
         c=*it;
       }
   }
@@ -85,9 +87,9 @@ DataInfoInmobiliaria* Inmobiliaria::getDataInfoInmobiliaria(){
 
   set<DataReportePropiedad*>*reportes= new set<DataReportePropiedad*>();
   for (set<Oferta*>::iterator it= ofertas->begin(); it!=ofertas->end(); ++it) {
-    reportes->insert(*it->getDataReportePropiedad());
+    reportes->insert((*it)->getDataReportePropiedad());
   }
-  return DataInfoInmobiliaria(nombre,direccion,this->get_email(),reportes);
+  return new DataInfoInmobiliaria(nombre,direccion,this->get_email(),reportes);
 
 
 
