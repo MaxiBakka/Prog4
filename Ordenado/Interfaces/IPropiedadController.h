@@ -20,8 +20,8 @@ using namespace std;
 class IPropiedadController{
 
 public:
-	IPropiedadController(){};
-	virtual ~IPropiedadController(){};
+	IPropiedadController();
+	virtual ~IPropiedadController();
 
 	virtual void confirmarAltaPropiedad() = 0;
 	virtual void ingresarNuevaCasa(DataPropiedad* casa) = 0;

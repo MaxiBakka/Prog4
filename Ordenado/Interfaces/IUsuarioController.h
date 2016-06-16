@@ -15,8 +15,8 @@ using namespace std;
 class IUsuarioController{
 
 public:
-      IUsuarioController(){};
-      virtual ~IUsuarioController(){};
+      IUsuarioController();
+      virtual ~IUsuarioController();
       //Iniciar sesion
       virtual void activarSesion() = 0;
       virtual void  CancelarInicioSesion() = 0;
