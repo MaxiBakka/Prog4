@@ -1,30 +1,38 @@
 #include "RutinaInicioSesion.h"
 #include "MenuUtils.h"
 #include "UsuarioNotFound.h"
+#include "ProcesoCancelado.h"
+#include "WrongPwd.h"
+#include <iostream>
+
+#include <string>
+
+#include "Factory.h"
+
 
 using namespace std;
 
-void ingresoEmail(){
+void RutinaInicioSesion::ingresoEmail(){
 	while(true){
 		try{
 			cout<<endl<<"Ingrese su Email: ";
 			string usr = MenuUtils::leerString();
 			ctrl->IngresarEmail(usr);
 		}catch(UsuarioNotFound &e){
-			cout<< e.what())<<endl;
+			cout<< e.what()<<endl;
 			if(!MenuUtils::leerOpcion("Desea intentar nuevamente?")) throw ProcesoCancelado();
 		}
 	}
 
 }
 
-void ingresoPwd(){
+void RutinaInicioSesion::ingresoPwd(){
 	while(true){
 		try{
-			cout<<endl<<"Ingrese su Contraseña:";
+			cout<<endl<<"Ingrese su ContraseÃ±a:";
 			string pwd = MenuUtils::leerString();
 			ctrl->IngresarContrasenia(pwd);
-			}
+
 		}catch(WrongPwd &e){
 			cout<< e.what()<<endl;
 			if(!MenuUtils::leerOpcion("Desea intentar nuevamente?")) throw ProcesoCancelado();
@@ -32,17 +40,17 @@ void ingresoPwd(){
 	}
 }
 
-void ingPrimeraVez(){
+void RutinaInicioSesion::ingPrimeraVez(){
 	string primPwd ="";
 	int intentos = 0;
 	while(primPwd==""){
 		if (intentos != 0){
-			cout<<endl<<"La contraseña no puede ser vacia:";
+			cout<<endl<<"La contraseÃ±a no puede ser vacia:";
 			if(!MenuUtils::leerOpcion("Desea intentar nuevamente?")) throw ProcesoCancelado();
 		}
-		cout<<endl<<"Ingrese su Nueva Contraseña:";
+		cout<<endl<<"Ingrese su Nueva ContraseÃ±a:";
 		primPwd = MenuUtils::leerString();
-		intentos++
+		intentos++;
 	}
 	ctrl->IngresarContraseniaNueva(primPwd);
 }
@@ -50,7 +58,7 @@ void ingPrimeraVez(){
 
 
 RutinaInicioSesion::RutinaInicioSesion(){
-	UsuarioController* ctrl = Factory::getIUsuarioController();
+	ctrl = Factory::getIUsuarioController();
 }
 RutinaInicioSesion::~RutinaInicioSesion(){}
 
@@ -60,20 +68,20 @@ void RutinaInicioSesion::ejecutar(){
 		try{
 			cout<< " Inicio de Sesion ";
 			ingresoEmail();
-			if(ctrl->esUsuarioAdmin() || !ctrl->primeraVez()){
+			if(ctrl->esUsuarioAdmin() || !ctrl->PrimeraVez()){
 				ingresoPwd();
 			}else{
 				ingPrimeraVez();
 			}
 		}catch(ProcesoCancelado&){
 			cout<< "Inicio de Sesion Cancelado!";
-			if(!MenuUtils::leerOpcion("Desea intentar nuevamente?"){
+			if(!MenuUtils::leerOpcion("Desea intentar nuevamente?")){
 				delete ctrl;
-				UsuarioController = Factory::getIUsuarioController();
+				ctrl = Factory::getIUsuarioController();
 			}else{
 				break;
 			}
 		}
 	}
-	MenuUtils::LimpiarConsola();
+	MenuUtils::limpiarConsola();
 }

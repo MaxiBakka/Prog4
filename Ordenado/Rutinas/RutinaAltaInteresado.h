@@ -1,13 +1,14 @@
 #ifndef RutinaAltaInteresado_h
 #define  RutinaAltaInmobiliari_h
 
-#include "IPropiedadController.h"
+#include "IUsuarioController.h"
+#include "UserInterface.h"
 
 using namespace std;
 
 class RutinaAltaInteresado: public UserInterface {
 private:
-	IPropiedadController* ctrl;
+	IUsuarioController* ctrl;
 	void IngresarInteresado();
 public:
 	RutinaAltaInteresado();

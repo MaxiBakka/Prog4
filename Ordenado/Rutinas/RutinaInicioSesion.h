@@ -1,14 +1,21 @@
+#ifndef RutinaAltaInteresado_h
+#define  RutinaAltaInmobiliari_h
 
+#include "IUsuarioController.h"
 #include "UserInterface.h"
 
-#ifndef RUTINA_INCIO_SESION_H_
-#define RUTINA_INCIO_SESION_H_
+using namespace std;
 
 class RutinaInicioSesion: public UserInterface {
+private:
+	IUsuarioController* ctrl;
+	void ingPrimeraVez();
+	void ingresoEmail();
+	void ingresoPwd();
 public:
 	RutinaInicioSesion();
 	void ejecutar();
 	virtual ~RutinaInicioSesion();
 };
 
-#endif /* RUTINA_INCIO_SESION_H_*/
+#endif

@@ -2,17 +2,21 @@
 
 #include "DtInteresado.h"
 #include "ProcesoCancelado.h"
+#include "ExisteInteresado.h"
+#include "Factory.h"
 
 #include <string>
 
 #include "MenuUtils.h"
 
 
+#include <iostream>
+
 
 void RutinaAltaInteresado::IngresarInteresado(){
 
   while(true){
-    DataInteresado* di= NULL;
+    DtInteresado* di= NULL;
   		try{
   			string nombre,email,direccion,apellido;
         int edad;
@@ -33,7 +37,7 @@ void RutinaAltaInteresado::IngresarInteresado(){
    			 apellido= MenuUtils::leerString();
          //el usuario ingresa su edad
          cout << "Ingrese la edad: ";
-         edad= MenuUtils::leerInt()
+         edad= MenuUtils::leerInt();
   			//el usuario ingresa la direccion
   			cout << "Ingrese la direccion: ";
   			direccion = MenuUtils::leerString(); ;
@@ -46,7 +50,7 @@ void RutinaAltaInteresado::IngresarInteresado(){
 
   			if(MenuUtils::leerOpcion("Desea confirmar estos datos?")){
   				ctrl->IngresarInteresado(di);
-  				MenuUtils::imprimirConfirmacion("Datos ingresado correctamente");
+  				cout << "Datos ingresado correctamente"<< endl;
   				MenuUtils::esperarInput();
   				break;
   			}else{
@@ -54,7 +58,7 @@ void RutinaAltaInteresado::IngresarInteresado(){
   				if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
   			}
       }catch(ExisteInteresado& e){
-        if (di!=NULL) delete dol;
+        if (di!=NULL) delete di;
           cout << e.what() << '\n';
           //en caso de error se le pregunta al usuario si desea continuar
           if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();

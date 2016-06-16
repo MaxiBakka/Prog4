@@ -1,6 +1,8 @@
 #include "RutinaAltaInmobiliaria.h"
 #include "DataInmobiliaria.h"
 #include "ProcesoCancelado.h"
+#include "InmobiliariaYaExistente.h"
+#include "Factory.h"
 
 #include <iostream>
 
@@ -8,9 +10,10 @@
 
 #include "MenuUtils.h"
 
+using namespace std;
 
 
-void IngresarInmobiliaria(){
+void RutinaAltaInmobiliaria::AltaInmobiliaria(){
 
   while(true){
     DataInmobiliaria* di= NULL;
@@ -48,7 +51,7 @@ void IngresarInmobiliaria(){
   				if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
   			}
       }catch(InmobiliariaYaExistente& e){
-        if (di!=NULL) delete dol;
+        if (di!=NULL) delete di;
           cout << e.what() << '\n';
           //en caso de error se le pregunta al usuario si desea continuar
           if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
@@ -62,13 +65,13 @@ RutinaAltaInmobiliaria::RutinaAltaInmobiliaria(){
 
 }
 
-RutinaAltaInmobiliaria::ejecutar(){
+void RutinaAltaInmobiliaria::ejecutar(){
   while(true){
     try{
     cout << "Bienvenido Administrador" << endl;
     cout << "Alta de Inmobiliarias" << endl << endl;
 
-      IngresarInmobiliaria();
+      AltaInmobiliaria();
       MenuUtils::limpiarConsola();
 
       if(MenuUtils::leerOpcion("Desea realizar otra alta?")){
