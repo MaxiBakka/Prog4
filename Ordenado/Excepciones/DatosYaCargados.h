@@ -6,10 +6,9 @@
 
 using namespace std;
 
-class DatosYaCargados {
+class DatosYaCargados:public excepcion {
     public:
     DatosYaCargados();
-    virtual~DatosYaCargados();
     virtual const char* what()const throw();
 };
 
