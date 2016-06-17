@@ -5,13 +5,13 @@
 
 using namespace std;
 
-class IPropiedadController;
+class IEnviarMensajeController;
 
 class RutinaEnviarMensajeInmobiliaria: public UserInterface {
 private:
-	IPropiedadController* ctrl;
+	IEnviarMensajeController* ctrl;
 	void seleccionarChat();
-  void ingresarChat();
+  void ingresarMensaje();
 public:
 	RutinaEnviarMensajeInmobiliaria();
 	void ejecutar();
