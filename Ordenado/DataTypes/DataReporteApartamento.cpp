@@ -19,8 +19,17 @@ DataReporteApartamento::~DataReporteApartamento() {
 
 }
 
+ostream& operator<<(ostream& output, DataReporteApartamento& dra){
+    output<< setprecision(30);
+    output << "Codigo: " << dra.getCodigo() << '\n' << "Direccion del apartamento: " << dra.getDireccion() << '\n' << "Cantidad de ambientes: " << dra.getCantDeAmbientes()<< '\n'<< "Dormitorios: " << dra.getDormitorios() << '\n'
+    << "Banios: " << dra.getBanios() << '\n' << "Garaje: " << dra.getGaraje() << '\n';
+    if(dra.getInfoAlquiler()>1){
+        output<< "Precio Alquiler: " << dra.getInfoAlquiler() << '\n';
+    }
+    if(dra.getInfoVenta()>1){
+        output<< "Precio Venta: " << dra.getInfoVenta() << '\n';
+    }
+    output << "M2 totales: " << dra.getM2Totales() << '\n' << "M2 Edificados: " << dra.getM2Edificados() << '\n';
 
-
-
-
-
+    return output;
+ }

@@ -26,7 +26,7 @@ DataMensaje :: ~DataMensaje(){
 }
 
 ostream& operator <<(ostream& output, DataMensaje& dm) {
-  //Implementar formato de salida
+  output << "Fecha: " << dm.get_fecha() << endl << "Hora: " << dm.get_hora() << endl << "Mensaje: " << dm.get_texto() << endl;
   return output;
 
 }

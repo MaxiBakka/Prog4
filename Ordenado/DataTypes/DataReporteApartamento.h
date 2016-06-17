@@ -2,6 +2,8 @@
 #define	DATAREPORTEAPARTAMENTO_H
 
 #include "DataReportePropiedad.h"
+#include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -17,4 +19,3 @@ public:
 };
 
 #endif	/* DATAREPORTEAPARTAMENTO_H */
-

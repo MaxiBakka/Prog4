@@ -20,3 +20,18 @@ float DataReporteCasa::getM2Totales() {
 DataReporteCasa::~DataReporteCasa() {
 }
 
+ostream& operator<<(ostream& output, DataReporteCasa& drc){
+
+    output<< setprecision(30);
+    output << "Codigo:" << drc.getCodigo() << '\n' << "Direccion del apartamento:" << drc.getDireccion() << '\n' << "Cantidad de ambientes:" << drc.getCantDeAmbientes()<< '\n'<< "Dormitorios:" << drc.getDormitorios() << '\n'
+    << "Banios:" << drc.getBanios() << '\n' << "Garaje:" << drc.getGaraje() << '\n';
+    if(drc.getInfoAlquiler()>1){
+        output<< "Precio Alquiler:" << drc.getInfoAlquiler() << '\n';
+    }
+    if(drc.getInfoVenta()>1){
+        output<< "Precio Venta:" << drc.getInfoVenta() << '\n';
+    }
+    output << "M2 totales:" << drc.getM2Totales() << '\n' << "M2 Edificados:" << drc.getM2Edificados() << '\n';
+
+    return output;
+}

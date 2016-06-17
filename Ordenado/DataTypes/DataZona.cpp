@@ -17,3 +17,9 @@ string DataZona :: get_nombre(){
 DataZona::~DataZona(){
 
 }
+
+ostream & operator <<(ostream &o, DataZona& dz){
+
+    o << "Nombre: " << dz.get_nombre() << endl << "Codigo: " << dz.get_codigo() << endl;
+    return o;
+}

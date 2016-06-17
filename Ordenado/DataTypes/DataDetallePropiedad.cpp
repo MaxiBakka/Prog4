@@ -28,8 +28,14 @@ DataDetallePropiedad::~DataDetallePropiedad() {
 
 }
 
-ostream& operator<<(ostream& o, const DataDetallePropiedad& ddp){
+ostream& operator<<(ostream& output, DataDetallePropiedad& ddp){
 
+output << "Codigo de la propiedad:" << ddp.getCodigo() << endl << "Direccion:" << ddp.getDireccion()<< endl;
+if(ddp.getVenta())
+    output << "Propiedad se encuentra a la Venta"<< endl;
+if(ddp.getAlquiler())
+    output << "Propiedad se encuentra en Alquiler" << endl;
 
+    return output;
 
 }

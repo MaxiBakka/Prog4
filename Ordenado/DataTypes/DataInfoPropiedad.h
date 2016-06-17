@@ -2,6 +2,8 @@
 #define DataInfoPropiedad_h
 
 #include <string>
+#include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -17,5 +19,7 @@ class DataInfoPropiedad{
         int get_cantMensajes();
         ~DataInfoPropiedad();
 };
+
+ostream& operator<<(ostream& o, DataInfoInmobiliaria& di);
 
 #endif // DataInfoPropiedad_h

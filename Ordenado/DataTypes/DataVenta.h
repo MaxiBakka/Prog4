@@ -1,6 +1,8 @@
 #ifndef DataVenta_h
 #define DataVenta_h
 
+#include <iostream>
+
 using namespace std;
 
 
@@ -19,4 +21,7 @@ class DataVenta{
         DataVenta& operator=(DataVenta);
 		~DataVenta();
 };
+
+ostream & operator <<(ostream &o, DataVenta& dv)
+
 #endif

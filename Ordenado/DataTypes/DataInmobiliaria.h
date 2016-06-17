@@ -4,6 +4,7 @@
 using namespace std;
 
 #include <string>
+#include <iostream>
 
 class DataInmobiliaria {
 	private:
@@ -19,5 +20,7 @@ class DataInmobiliaria {
 
 			virtual ~DataInmobiliaria();
 };
+
+ostream& operator<<(ostream& o, DataInmobiliaria& di);
 
 #endif

@@ -22,3 +22,11 @@ string& DataInmobiliaria::get_direccion(){
 DataInmobiliaria::~DataInmobiliaria(){
 
 }
+
+ostream& operator<<(ostream& o, DataInmobiliaria& di){
+
+    o<< "Nombre: " << di.get_nombre() << endl << "Direccion: " << di.get_direccion() << endl << "Email: " << di.get_email() << endl;
+
+
+    return o;
+}

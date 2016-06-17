@@ -16,5 +16,6 @@ public:
 
 };
 
-#endif	/* DATAREPORTECASA_H */
+ostream& operator<<(ostream& output, DataReporteCasa& drc);
 
+#endif	/* DATAREPORTECASA_H */

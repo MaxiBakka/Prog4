@@ -30,7 +30,9 @@ DtInteresado::~DtInteresado() {
 }
 
 
-ostream& operator<<(ostream& o, const DtInteresado& di){
-
+ostream& operator<<(ostream& o, DtInteresado& di){
+    o << setprecision(3);
+    o << "Nombre: " << di.get_Nombre() << endl << "Apellido: " << di.get_Apellido() << endl << "Edad: " << di.get_Edad() << endl << "Email: " << di.get_Email() << endl;
+    return o;
 
 }

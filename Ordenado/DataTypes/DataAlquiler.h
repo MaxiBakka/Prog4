@@ -13,4 +13,6 @@ class DataAlquiler
 
 };
 
+ostream& operator <<(ostream& o, DataAlquiler& N);
+
 #endif
