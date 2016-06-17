@@ -1,6 +1,8 @@
 #include "Hora.h"
 #include "HoraInvalida.h"
 
+#include <iomanip>
+
 Hora :: Hora(){
     this->hora=-1;
     this->minuto=-1;
@@ -43,7 +45,8 @@ Hora&Hora::operator =(const Hora h) {
 }
 
 ostream & operator<<(ostream& o,Hora& h){
-
-  o<< h.get_hora()<< ":" << h.get_minuto()<< ":" << h.get_segundo();
+  o << setfill('0') << setw(2) << h.get_hora()<< ":";
+  o << setfill('0') << setw(2) << h.get_minuto()<< ":";
+  o << setfill('0') << setw(2) << h.get_segundo() << endl;
   return o;
 }

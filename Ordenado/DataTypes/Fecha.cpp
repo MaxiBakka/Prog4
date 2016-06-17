@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 #include <sstream>
+#include <iomanip>
 
 
 Fecha :: Fecha(int d,int m,int a){
@@ -65,6 +66,8 @@ Fecha :: ~Fecha(){
 
 
 ostream& operator<<(ostream& o,  Fecha& f){
-	o << f.get_dia() << "/" << f.get_mes() << "/" << f.get_anio();
+	o << setfill('0') << setw(2)  << f.get_dia() << "/";
+	o << setfill('0') << setw(2)  << f.get_mes() << "/" ;
+	o << setfill('0') << setw(2) << f.get_anio() << endl;
 	return o;
 }
