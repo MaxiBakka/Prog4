@@ -21,9 +21,7 @@ void MenuAdministradores::ejecutarOpcion(int opc) {
 	UserInterface* submenu = NULL;
 	switch(opc){
 	case 0:
-		UserInterface*cerrarSesion= new RutinaCerrarSesion();
-		cerrarSesion->ejecutar();
-		delete cerrarSesion;
+		submenu= new RutinaCerrarSesion();
 		break;
 	case 1:
 		//despliega algo para leer datos y crea el dataInmo

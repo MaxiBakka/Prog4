@@ -58,7 +58,7 @@ void ManejadorPropiedades::eliminarPropiedad(int c){
 
 
     	if(!(ExistePropiedad(c))){
-    			//throw ExPropiedadNoExistente();
+    			throw ExPropiedadNoExistente();
     	}else{
     			Propiedad* p =propiedades->find(c)->second;
     			propiedades->erase(c);
@@ -91,6 +91,6 @@ Propiedad*ManejadorPropiedades::getPropiedad(int c){
 		if(it!= propiedades->end()){
 			return it->second;
 
-		}else {}//throw ExPropiedadNoExistente();
+		}else throw ExPropiedadNoExistente();
 
 }
