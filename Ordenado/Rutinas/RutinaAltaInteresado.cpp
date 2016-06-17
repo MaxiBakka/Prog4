@@ -23,7 +23,7 @@ void RutinaAltaInteresado::IngresarInteresado(){
 
 
 
-  			MenuUtils::limpiarConsola();
+
   			cout << "Alta Interesado - Ingrese sus datos" << endl;
 
   			//el usuario ingresa su email
@@ -38,10 +38,6 @@ void RutinaAltaInteresado::IngresarInteresado(){
          //el usuario ingresa su edad
          cout << "Ingrese la edad: ";
          edad= MenuUtils::leerInt();
-  			//el usuario ingresa la direccion
-  			cout << "Ingrese la direccion: ";
-  			direccion = MenuUtils::leerString(); ;
-
 
   			di= new DtInteresado(nombre,apellido,edad,email);
 

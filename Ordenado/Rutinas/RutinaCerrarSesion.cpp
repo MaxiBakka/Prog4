@@ -2,6 +2,8 @@
 
 #include "Factory.h"
 #include "Menu.h"
+#include "MenuUtils.h"
+
 
 #include <iostream>
 #include <string>
@@ -9,24 +11,24 @@
 using namespace std;
 
 
-RutinaCerrarSesion::RutinaCerrarSesion{
+RutinaCerrarSesion::RutinaCerrarSesion(){
   ctrl= Factory::getIUsuarioController();
 }
 
-RutinaCerrarSesion::~RutinaCerrarSesion{
+RutinaCerrarSesion::~RutinaCerrarSesion(){
 
   delete ctrl;
 }
 
-void RutinaCerrarSesion::ejecutar{
+void RutinaCerrarSesion::ejecutar(){
 
       if (MenuUtils::leerOpcion("Realmente desea cerrar sesion?")) {
-        IOConsola::limpiarConsola();
+        MenuUtils::limpiarConsola();
         ctrl->CerrarSesion();
         std::cout << "Sesion cerrada con exito" << std::endl;
-        Menu::salirDelSistema();
-      }
 
-  IOConsola::limpiarConsola();
+      }
+    MenuUtils::esperarInput();
+  MenuUtils::limpiarConsola();
 
 }

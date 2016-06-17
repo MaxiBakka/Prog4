@@ -11,7 +11,7 @@ void Sesion::cerrarSesion() {
 }
 
 Sesion* Sesion::getInstancia() {
-    if (instancia=NULL){
+    if (instancia==NULL){
         instancia = new Sesion();
     }
     return instancia;
@@ -21,7 +21,7 @@ Usuario* Sesion::getUsuario() {
     return this->usuario;
 }
 
-void Sesion::iniciarSesion(Usuario*& user) {
+void Sesion::iniciarSesion(Usuario* user) {
     this->usuario=user;
 }
 

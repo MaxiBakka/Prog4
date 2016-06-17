@@ -1,31 +1,34 @@
 
 #include <iostream>
 #include <string>
-#include "MenuIntersados.h"
+#include "MenuInteresados.h"
 #include "ExOpcionInvalida.h"
+#include "RutinaConsultarPropiedad.h"
+#include "RutinaCerrarSesion.h"
 
 using namespace std;
-MenuIntersados::MenuIntersados() {
+MenuInteresados::MenuInteresados() {
 }
 
-void MenuIntersados::presentar() {
-	cout << "Menu Intersados" << endl;
+void MenuInteresados::presentar() {
+	cout << "--------Menu Intersados--------" << endl;
 	cout << "1 - Consultar Propiedad" << endl;
 	cout << "2 - Enviar Mensaje" << endl;
 	cout << endl;
 	cout << "0 - Cerrar Sesion" << endl;
+	cout << "---------------------------------- " <<endl;
 }
 
-void MenuIntersados::ejecutarOpcion(int opc) {
+void MenuInteresados::ejecutarOpcion(int opc) {
 	UserInterface* submenu = NULL;
+	bool salir=false;
 	switch(opc){
 	case 0:
-		UserInterface*cerrarSesion= new RutinaCerrarSesion();
-		cerrarSesion->ejecutar();
-		delete cerrarSesion;
-	break;
+		submenu= new RutinaCerrarSesion();
+		salir=true;
+		break;
 	case 1:
-		//Consulta prop
+		submenu = new RutinaConsultarPropiedad();
 		break;
 
 	case 2:
@@ -37,9 +40,10 @@ void MenuIntersados::ejecutarOpcion(int opc) {
 	if (submenu!=NULL) {
 		submenu->ejecutar();
 		delete submenu;
+    if(salir) salirDelSistema();
 	}
 
 }
 
-MenuIntersados::~MenuIntersados() {
+MenuInteresados::~MenuInteresados() {
 }

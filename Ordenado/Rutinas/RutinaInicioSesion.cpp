@@ -4,8 +4,10 @@
 #include "ProcesoCancelado.h"
 #include "WrongPwd.h"
 #include <iostream>
-
+#include "Manejador_Usuario.h"
 #include <string>
+#include "Inmobiliaria.h"
+#include "DataInmobiliaria.h"
 
 #include "Factory.h"
 
@@ -33,8 +35,8 @@ void RutinaInicioSesion::ingresoPwd(){
 			cout<<endl<<"Ingrese su Contrasenia:";
 			string pwd = MenuUtils::leerString();
 			ctrl->IngresarContrasenia(pwd);
-			MenuUtils::limpiarConsola();
-			break;
+            MenuUtils::limpiarConsola();
+            break;
 		}catch(WrongPwd &e){
 			cout<< e.what()<<endl;
 			if(!MenuUtils::leerOpcion("Desea intentar nuevamente?")) throw ProcesoCancelado();
@@ -51,14 +53,14 @@ void RutinaInicioSesion::ingPrimeraVez(){
 			cout<<endl<<"La contraseña no puede ser vacia:";
 			if(!MenuUtils::leerOpcion("Desea intentar nuevamente?")) throw ProcesoCancelado();
 		}
-		cout<<endl<<"Ingrese su Nueva Contraseña:";
+		cout<<endl<<"Ingrese su Nueva Contrasenia:";
 		primPwd = MenuUtils::leerString();
 		intentos++;
 	}
 	ctrl->IngresarContraseniaNueva(primPwd);
 		string confirmpwd;
 while (true) {
-	std::cout << "Confirmacion de Contrasenia:" << std::endl;
+	std::cout << "Confirmacion de Contrasenia:" <<endl ;
 	 confirmpwd= MenuUtils::leerString();
 	if(confirmpwd!=primPwd){
 		std::cout << "contrasenia incorrecta" << std::endl;
@@ -71,6 +73,7 @@ while (true) {
 }
 
 }
+
 
 
 
@@ -90,11 +93,13 @@ void RutinaInicioSesion::ejecutar(){
 			}else{
 				ingPrimeraVez();
 			}
-			ctrl->activarSesion();
-			std::cout << "Inicio de sesion exitoso." << std::endl;
+
+				ctrl->activarSesion();
+            std::cout << "Inicio de sesion exitoso." << std::endl;
+            MenuUtils::esperarInput();
 			break;
 		}catch(ProcesoCancelado&){
-			cout<< "Inicio de Sesion Cancelado!"<< endl;
+			cout<< "Inicio de Sesion Cancelado!";
 			ctrl->CancelarInicioSesion();
 			if(MenuUtils::leerOpcion("Desea intentar iniciar sesion nuevamente?")){
 				delete ctrl;
@@ -113,4 +118,5 @@ void RutinaInicioSesion::ejecutar(){
 			}
 	}
 
+}
 }

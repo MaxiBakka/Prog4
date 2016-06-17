@@ -104,7 +104,7 @@ void Manejador_Usuario::CrearAdministrador(string &email,string &password){
 
 //operaciones del caso AltaInmobiliaria Y AltaInteresado
 void Manejador_Usuario::CrearInmobiliaria(DataInmobiliaria*di){
-	if(!(inmobiliarias->find(di->get_email())!=inmobiliarias->end())){
+	if(!(inmobiliarias->find(di->get_email())!=inmobiliarias->end() || interesados->find(di->get_email())!=interesados->end() )){
 	  for (map<string,Inmobiliaria*>::iterator it = inmobiliarias->begin(); it!=inmobiliarias->end();it++) {
 	  	if(it->second->getNombre()==di->get_nombre()) throw InmobiliariaYaExistente();
 
@@ -118,7 +118,7 @@ void Manejador_Usuario::CrearInmobiliaria(DataInmobiliaria*di){
 }
 
 void Manejador_Usuario::CrearInteresado(DtInteresado* di){
-	if (interesados->find(di->get_Email())!=interesados->end()) {
+	if (interesados->find(di->get_Email())!=interesados->end() || inmobiliarias->find(di->get_Email())!=inmobiliarias->end()) {
 		throw ExisteInteresado();
 	} else {
 	    std::string passDefecto=" ";

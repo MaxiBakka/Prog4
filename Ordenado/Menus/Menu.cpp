@@ -13,7 +13,7 @@ Menu::Menu() {
 }
 
 void Menu::leerOpcion(){
-	cout << "Seleccione una opcion:" << endl;
+	cout << "Seleccione una opcion:";
 	int opc = MenuUtils::leerInt();
 	MenuUtils::limpiarConsola();
 	ejecutarOpcion(opc);
@@ -26,7 +26,7 @@ void Menu::ejecutar(){
 			MenuUtils::limpiarConsola();
 			presentar();
 			if (errorIngreso) {
-				cout << "Opcion inválida. Intente nuevamente."<< endl;
+				cout << "Opcion invï¿½lida. Intente nuevamente."<< endl;
 				errorIngreso = false;
 			}
 			leerOpcion();
@@ -44,4 +44,3 @@ void Menu::salirDelSistema(){
 
 Menu::~Menu() {
 }
-

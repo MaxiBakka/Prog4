@@ -12,17 +12,17 @@
 
 using namespace std;
 
-
 void RutinaAltaInmobiliaria::AltaInmobiliaria(){
 
   while(true){
+
     DataInmobiliaria* di= NULL;
   		try{
   			string nombre,email,direccion;
 
 
 
-  			MenuUtils::limpiarConsola();
+
   			cout << "Alta Inmobiliaria - Ingrese sus datos" << endl;
 
   			//el usuario ingresa su email
@@ -39,11 +39,11 @@ void RutinaAltaInmobiliaria::AltaInmobiliaria(){
   			di= new DataInmobiliaria(nombre,email,direccion);
 
   			MenuUtils::limpiarConsola();
-  			cout << *di;
+                cout << *di;
 
   			if(MenuUtils::leerOpcion("Desea confirmar estos datos?")){
-  				ctrl->IngresarInmobiliarial(di);
-  				MenuUtils::imprimirConfirmacion("Datos ingresado correctamente");
+  				ctrl->IngresarInmobiliaria(di);
+  				cout<<("Datos ingresado correctamente")<< endl;
   				MenuUtils::esperarInput();
   				break;
   			}else{
