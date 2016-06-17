@@ -10,6 +10,7 @@ class IEnviarMensajeController;
 class RutinaEnviarMensajeInmobiliaria: public UserInterface {
 private:
 	IEnviarMensajeController* ctrl;
+	Chat* chat;
 	void seleccionarChat();
   void ingresarMensaje();
 public:
