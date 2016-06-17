@@ -20,3 +20,10 @@ DataVenta::~DataVenta(){
 
 
 }
+
+ostream & operator <<(ostream &o, DataVenta& dv){
+
+    if (dv.get_precio()>0)
+            o << "El precio de Venta es: " << dv.get_precio() << endl;
+    return o;
+}

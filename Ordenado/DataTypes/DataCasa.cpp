@@ -53,4 +53,18 @@ DataCasa::~DataCasa(){
 
 }
 
-ostream &operator <<(ostream &output,DataCasa& dc);
+ostream& operator <<(ostream& output, DataCasa& dc){
+
+output << setprecision(30);
+output << "Codigo:" << dc.getCodigo() << '\n'<< "Direccion de la casa:" << dc.getDireccion() << '\n' << "Cantidad de ambientes:" << dc.getCantAmbientes()<< '\n'<< "Dormitorios:" << dc.getDormitorios() << '\n'
+<< "Banios:" << dc.getBanios() << '\n' << "Garaje:" << dc.getGaraje() << '\n';
+if(dc.getAlquiler()>1)
+    output<< "Precio Alquiler:" << dc.getAlquiler() << '\n';
+ if(dc.getVenta()>1)
+    output<< "Precio Venta:" << dc.getVenta() << '\n';
+output<< "M2 totales:" << dc.getM2totales() << '\n'  << "M2 Edificados:" << dc.getM2edificados() << '\n'
+<< "Espacio verde:" << dc.getEspacioVerde() << '\n';
+
+    return output;
+
+}

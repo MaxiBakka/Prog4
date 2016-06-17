@@ -2,6 +2,7 @@
 #define DataZona_h
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -15,5 +16,7 @@ class DataZona{
 		string get_nombre();
 		~DataZona();
 };
+
+ostream & operator <<(ostream &o, DataZona& dz);
 
 #endif

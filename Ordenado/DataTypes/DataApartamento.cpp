@@ -52,5 +52,15 @@ DataApartamento::~DataApartamento(){
 }
 
 ostream& operator <<(ostream& output, DataApartamento& da){
-	//hacer operacion
-}
+ output<< setprecision(30);
+ output << "Direccion del apartamento:" << da.getDireccion() << '\n' << "Cantidad de ambientes:" << da.getCantAmbientes()<< '\n'<< "Dormitorios:" << da.getDormitorios() << '\n'
+ << "Banios:" << da.getBanios() << '\n' << "Garaje:" << da.getGaraje() << '\n';
+ if(da.getAlquiler()>1)
+    output<< "Precio Alquiler:" << da.getAlquiler() << '\n';
+ if(da.getVenta()>1)
+    output<< "Precio Venta:" << da.getVenta() << '\n';
+output << "M2 totales:" << da.getM2totales() << '\n' << "Codigo:" << da.getCodigo() << '\n' << "M2 Edificados:" << da.getM2edificados() << '\n';
+
+     return output;
+
+ }

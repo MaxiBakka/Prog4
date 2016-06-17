@@ -8,8 +8,13 @@ garaje(garaje),m2Totales(m2Totales), info_alquiler(infoAlquiler), info_venta(inf
 
 
 
-ostream & operator <<(ostream &output, DataPropiedad* dp){
-
-	return output;
-
+ostream & operator <<(ostream &o, DataPropiedad*& dp){
+  DataApartamento* da = dynamic_cast<DataApartamento*>(dp);
+        if(da!=NULL){
+            o << *da;
+        }else{
+            DataCasa* dc = dynamic_cast<DataCasa*>(dp);
+            o<< *dc;
+        }
+    return o;
 }

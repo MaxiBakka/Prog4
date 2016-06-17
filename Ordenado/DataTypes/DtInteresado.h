@@ -4,6 +4,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -23,7 +24,7 @@ public:
 
 };
 
-ostream& operator<<(ostream& o, const DtInteresado& di);
+ostream& operator<<(ostream& o, DtInteresado& di);
 
 
 #endif	/* DTINTERESADO_H */

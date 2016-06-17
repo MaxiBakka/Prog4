@@ -42,6 +42,10 @@ float DataReportePropiedad::getInfoVenta() {
     return this->infoVenta;
 }
 
+string DataReportePropiedad::getDireccion(){
+  return this->direccion;
+}
+
 DataDepartamento* DataReportePropiedad::getDataDepartamento() {
     return this->ddpto;
 }
@@ -56,8 +60,13 @@ DataReportePropiedad::~DataReportePropiedad(){
 
 }
 
-ostream& operator<<(ostream& o, DataReportePropiedad& drp){
-
-//imprimir con algun formato ,hay q verlo
-
+ostream& operator<<(ostream& o, DataReportePropiedad*& drp){
+    DataReporteApartamento* dra = dynamic_cast<DataReporteApartamento*>(drp);
+        if(dra!=NULL){
+            o << *dra;
+        }else{
+            DataReporteCasa* drc = dynamic_cast<DataReporteCasa*>(drp);
+            o<< *drc;
+        }
+    return o;
 }

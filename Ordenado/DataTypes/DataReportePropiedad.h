@@ -31,6 +31,7 @@ public:
     bool getGaraje();
     float getInfoVenta();
     float getInfoAlquiler();
+    string getDireccion();
     DataDepartamento* getDataDepartamento();
     DataZona* getDataZona();
 

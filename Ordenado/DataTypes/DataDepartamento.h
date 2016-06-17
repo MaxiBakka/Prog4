@@ -2,6 +2,7 @@
 #define DataDepartamento_h
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -16,5 +17,7 @@ class DataDepartamento{
 		string& get_letra();
 		virtual ~DataDepartamento();
 };
+
+ostream& operator <<(ostream& output, DataDepartamento& de);
 
 #endif

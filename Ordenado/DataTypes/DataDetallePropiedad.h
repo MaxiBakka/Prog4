@@ -21,7 +21,7 @@ public:
 
 };
 
-ostream& operator<<(ostream& o, const DataDetallePropiedad& ddp);
+ostream& operator<<(ostream& output, DataDetallePropiedad& ddp);
 
 
 #endif	/* DATADETALLEPROPIEDAD_H */

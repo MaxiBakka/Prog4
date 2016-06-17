@@ -23,3 +23,11 @@ DataEdificio::~DataEdificio(){
 
 
 }
+
+ostream& operator<<(ostream& o, DataEdificio& de){
+o << setprecision(10);
+o << "Nombre edificio: " << de.get_nombre() << '\n' << "Cantidad de pisos: " << de.get_cantPisos()<< '\n'<< "Gastos Comunes: " << de.get_gastosComunes() << '\n';
+
+    return o;
+
+}

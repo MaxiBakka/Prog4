@@ -1,4 +1,4 @@
-#ifndef DataEdificio_h	
+#ifndef DataEdificio_h
 #define DataEdificio_h
 
 #include <string>
@@ -11,12 +11,14 @@ class DataEdificio{
 		int cantPisos;
 		float gastosComunes;
 	public:
-		
+
 		DataEdificio(string name, int cpisos, float gComunes);
 		string get_nombre();
 		int get_cantPisos();
 		float get_gastosComunes();
 		virtual ~DataEdificio();
 };
+
+ostream& operator<<(ostream& o, DataEdificio& de);
 
 #endif

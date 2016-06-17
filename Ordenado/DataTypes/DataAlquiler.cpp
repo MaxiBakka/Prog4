@@ -20,3 +20,10 @@ DataAlquiler::~DataAlquiler(){
 
 
 }
+
+ostream& operator <<(ostream& o, DataAlquiler& N){
+
+    o << "El precio del alquiler es:" << N.get_precio() << endl;
+
+    return o;
+}
