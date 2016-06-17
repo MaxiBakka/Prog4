@@ -1,5 +1,6 @@
 #include "DataReportePropiedad.h"
 
+
 DataReportePropiedad::DataReportePropiedad(int c,int cda, int d,int b,bool g,string &dir,float iv,float ia,DataZona* dz,DataDepartamento* dpto) {
     this->codigo=c;
     this->cantDeAmbientes=cda;
@@ -58,15 +59,4 @@ DataReportePropiedad::~DataReportePropiedad(){
   delete this->dzona;
   delete this->ddpto;
 
-}
-
-ostream& operator<<(ostream& o, DataReportePropiedad*& drp){
-    DataReporteApartamento* dra = dynamic_cast<DataReporteApartamento*>(drp);
-        if(dra!=NULL){
-            o << *dra;
-        }else{
-            DataReporteCasa* drc = dynamic_cast<DataReporteCasa*>(drp);
-            o<< *drc;
-        }
-    return o;
 }

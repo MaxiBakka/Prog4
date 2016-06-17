@@ -1,4 +1,7 @@
 #include "DataPropiedad.h"
+#include "DataApartamento.h"
+#include "DataCasa.h"
+
 
 DataPropiedad::DataPropiedad(int cod, int cantAmbientes, int cantDormitorios, int cantBanios, string direccion, bool garaje,float m2Totales,float &infoAlquiler,float &infoVenta) :
 cantAmbientes(cantAmbientes), dormitorios(cantDormitorios), banios(cantBanios), codigo(cod), direccion(direccion),

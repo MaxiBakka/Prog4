@@ -2,6 +2,9 @@
 #define DataEdificio_h
 
 #include <string>
+#include <set>
+#include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -20,5 +23,6 @@ class DataEdificio{
 };
 
 ostream& operator<<(ostream& o, DataEdificio& de);
+ostream& operator <<(ostream& o, const set<DataEdificio*> sds);
 
 #endif

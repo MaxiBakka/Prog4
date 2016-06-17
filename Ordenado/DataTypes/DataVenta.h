@@ -22,6 +22,6 @@ class DataVenta{
 		~DataVenta();
 };
 
-ostream & operator <<(ostream &o, DataVenta& dv)
+ostream & operator <<(ostream &o, DataVenta& dv);
 
 #endif

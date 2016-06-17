@@ -20,6 +20,6 @@ class DataInfoPropiedad{
         ~DataInfoPropiedad();
 };
 
-ostream& operator<<(ostream& o, DataInfoInmobiliaria& di);
+ostream& operator<<(ostream& o, DataInfoPropiedad& di);
 
 #endif // DataInfoPropiedad_h

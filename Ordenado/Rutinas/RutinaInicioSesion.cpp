@@ -18,6 +18,7 @@ void RutinaInicioSesion::ingresoEmail(){
 			cout<<endl<<"Ingrese su Email: ";
 			string usr = MenuUtils::leerString();
 			ctrl->IngresarEmail(usr);
+			break;
 		}catch(UsuarioNotFound &e){
 			cout<< e.what()<<endl;
 			if(!MenuUtils::leerOpcion("Desea intentar nuevamente?")) throw ProcesoCancelado();
@@ -29,13 +30,15 @@ void RutinaInicioSesion::ingresoEmail(){
 void RutinaInicioSesion::ingresoPwd(){
 	while(true){
 		try{
-			cout<<endl<<"Ingrese su Contraseña:";
+			cout<<endl<<"Ingrese su Contrasenia:";
 			string pwd = MenuUtils::leerString();
 			ctrl->IngresarContrasenia(pwd);
-
+			MenuUtils::limpiarConsola();
+			break;
 		}catch(WrongPwd &e){
 			cout<< e.what()<<endl;
 			if(!MenuUtils::leerOpcion("Desea intentar nuevamente?")) throw ProcesoCancelado();
+			MenuUtils::limpiarConsola();
 		}
 	}
 }
@@ -53,6 +56,20 @@ void RutinaInicioSesion::ingPrimeraVez(){
 		intentos++;
 	}
 	ctrl->IngresarContraseniaNueva(primPwd);
+		string confirmpwd;
+while (true) {
+	std::cout << "Confirmacion de Contrasenia:" << std::endl;
+	 confirmpwd= MenuUtils::leerString();
+	if(confirmpwd!=primPwd){
+		std::cout << "contrasenia incorrecta" << std::endl;
+		if(!MenuUtils::leerOpcion("Desea intentar nuevamente?")) throw ProcesoCancelado();
+	}else{
+			ctrl->ConfirmarContrasenia(confirmpwd);
+			break;
+	}
+
+}
+
 }
 
 
@@ -73,15 +90,27 @@ void RutinaInicioSesion::ejecutar(){
 			}else{
 				ingPrimeraVez();
 			}
+			ctrl->activarSesion();
+			std::cout << "Inicio de sesion exitoso." << std::endl;
+			break;
 		}catch(ProcesoCancelado&){
-			cout<< "Inicio de Sesion Cancelado!";
-			if(!MenuUtils::leerOpcion("Desea intentar nuevamente?")){
+			cout<< "Inicio de Sesion Cancelado!"<< endl;
+			ctrl->CancelarInicioSesion();
+			if(MenuUtils::leerOpcion("Desea intentar iniciar sesion nuevamente?")){
 				delete ctrl;
 				ctrl = Factory::getIUsuarioController();
 			}else{
 				break;
 			}
-		}
+		}catch(UsuarioNotFound &e){
+			cout<< e.what()<< endl;
+			ctrl->CancelarInicioSesion();
+			if(MenuUtils::leerOpcion("Desea intentar iniciar sesion nuevamente?")){
+				delete ctrl;
+				ctrl = Factory::getIUsuarioController();
+			}else{
+				break;
+			}
 	}
-	MenuUtils::limpiarConsola();
+
 }

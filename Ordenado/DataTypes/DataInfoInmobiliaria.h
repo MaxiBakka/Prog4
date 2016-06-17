@@ -24,7 +24,7 @@ public:
 
 };
 
-ostream& operator<<(ostream& o, const DataInfoInmobiliaria& di);
+ostream& operator<<(ostream& o, DataInfoInmobiliaria& di);
 
 
 #endif // DATAINFOINMOBILIARIA_H_INCLUDED

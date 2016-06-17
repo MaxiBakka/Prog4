@@ -1,6 +1,8 @@
 #ifndef DataAlquiler_h
 #define DataAlquiler_h
 
+#include <iostream>
+
 class DataAlquiler
 {
 	private: float precio;

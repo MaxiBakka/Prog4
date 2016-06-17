@@ -26,7 +26,8 @@ DataMensaje :: ~DataMensaje(){
 }
 
 ostream& operator <<(ostream& output, DataMensaje& dm) {
-  output << "Fecha: " << dm.get_fecha() << endl << "Hora: " << dm.get_hora() << endl << "Mensaje: " << dm.get_texto() << endl;
+  output << "Mensaje: " << dm.get_texto() << endl;
+  output <<'\t'<<'\t'<< '\t' << dm.get_fecha() << ' ' << dm.get_hora() << endl; 
   return output;
 
 }

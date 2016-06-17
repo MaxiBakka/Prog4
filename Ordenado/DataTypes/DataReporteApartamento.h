@@ -18,4 +18,6 @@ public:
     virtual ~DataReporteApartamento();
 };
 
+ostream& operator<<(ostream& o, DataReporteApartamento& dra);
+
 #endif	/* DATAREPORTEAPARTAMENTO_H */

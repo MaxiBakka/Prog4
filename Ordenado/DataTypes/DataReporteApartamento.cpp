@@ -19,17 +19,25 @@ DataReporteApartamento::~DataReporteApartamento() {
 
 }
 
-ostream& operator<<(ostream& output, DataReporteApartamento& dra){
-    output<< setprecision(30);
-    output << "Codigo: " << dra.getCodigo() << '\n' << "Direccion del apartamento: " << dra.getDireccion() << '\n' << "Cantidad de ambientes: " << dra.getCantDeAmbientes()<< '\n'<< "Dormitorios: " << dra.getDormitorios() << '\n'
-    << "Banios: " << dra.getBanios() << '\n' << "Garaje: " << dra.getGaraje() << '\n';
+ostream& operator<<(ostream& o, DataReporteApartamento& dra){
+    o << setprecision(30);
+    o << "------- Apartamento nº" << dra.getCodigo() << " -------" << endl;
+    o << "Direccion: " << dra.getDireccion() << '\n' ;
+    o << "Cantidad de ambientes: " << dra.getCantDeAmbientes()<< '\n';
+    o << "Dormitorios: " << dra.getDormitorios() << '\n';
+    o << "Banios: " << dra.getBanios() << '\n' ;
+    o << "Incluye Garaje: ";  if(dra.getGaraje()){o << "Si"; }else{ o<< "No";} o << endl;
     if(dra.getInfoAlquiler()>1){
-        output<< "Precio Alquiler: " << dra.getInfoAlquiler() << '\n';
+        o<< "Precio Alquiler: " << dra.getInfoAlquiler() << '\n';
     }
     if(dra.getInfoVenta()>1){
-        output<< "Precio Venta: " << dra.getInfoVenta() << '\n';
+        o<< "Precio Venta: " << dra.getInfoVenta() << '\n';
     }
-    output << "M2 totales: " << dra.getM2Totales() << '\n' << "M2 Edificados: " << dra.getM2Edificados() << '\n';
+    o << "M2 totales: " << dra.getM2Totales() << '\n';
+    o << "M2 Edificados: " << dra.getM2Edificados() << '\n';
+    o << "Departamento: " << *dra.getDataDepartamento() << endl;
+    o << "Zona: " << dra.getDataZona()->get_nombre() << " - Codigo: " << dra.getDataZona()->get_codigo() << endl;
+    o << "------------------------------------------------------------------------------------------------" << endl;
 
-    return output;
+    return o;
  }

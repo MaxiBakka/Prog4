@@ -4,6 +4,7 @@
 #include <string>
 #include "DataPropiedad.h"
 #include <iostream>
+#include <iomanip>
 
 
 using namespace std;

@@ -39,6 +39,5 @@ public:
 
 };
 
-ostream& operator<<(ostream& o, DataReportePropiedad& drp);
 
 #endif

@@ -2,6 +2,10 @@
 #define	DATAREPORTECASA_H
 
 #include "DataReportePropiedad.h"
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
 
 class DataReporteCasa :public DataReportePropiedad {
 private:
@@ -16,6 +20,6 @@ public:
 
 };
 
-ostream& operator<<(ostream& output, DataReporteCasa& drc);
+ostream& operator<<(ostream& o, DataReporteCasa& dra);
 
 #endif	/* DATAREPORTECASA_H */

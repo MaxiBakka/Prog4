@@ -4,6 +4,9 @@ UsuarioNotFound::UsuarioNotFound(){
 
 }
 
+UsuarioNotFound::~UsuarioNotFound(){
+
+}
 const char* UsuarioNotFound::what()const throw(){
-		return "No se encontro el usuario";
+		return "El usuario no se encuentra en el sistema";
 	}

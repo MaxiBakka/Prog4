@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 #include "DataPropiedad.h"
 

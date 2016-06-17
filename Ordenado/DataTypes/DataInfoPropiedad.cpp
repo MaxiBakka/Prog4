@@ -20,14 +20,10 @@ int DataInfoPropiedad :: get_cantMensajes(){
 
 DataInfoPropiedad :: ~DataInfoPropiedad(){}
 
-ostream& operator<<(ostream& o, DataInfoInmobiliaria& di){
-
-    o << "Nombre inmobiliaria:" << di.get_nombre() << '\n' << "Ubicacion:" << di.get_ubicacion()<< '\n'<< "Email:" << di.get_email() << '\n'
-    << "Listado de Propiedades: " << '\n' << '\n';
-    for(set<DataReportePropiedad*>::iterator it = di.getReportePropiedades()->begin();it!=di.getReportePropiedades()->end();++it){
-        DataReportePropiedad* drp = *it;
-        o << drp;
-    }
-    return o;
+ostream& operator<<(ostream& o, DataInfoPropiedad& di){
+  o << "------- Propiedad nº" << di.get_codigo() << " -------" << endl;
+	o << "Direccion: " << di.get_direccion() << endl;
+	o << "Cantidad de mensajes enviados: " << di.get_cantMensajes() << endl;
+  return o;
 
 }
