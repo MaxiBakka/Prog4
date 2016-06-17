@@ -36,6 +36,7 @@ public:
     void AgregarPropiedad(Propiedad* p);
     void RemoverPropiedad(int& codigo);
     set<Propiedad*>* getPropiedades();
+    Propiedad* getPropiedad(int codigo);
     set<DataDetallePropiedad*>* getDataDetallePropiedad();
 
     ~Zona();

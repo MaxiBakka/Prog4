@@ -1,6 +1,7 @@
 #include "Zona.h"
 #include "Departamento.h"
 #include "NoHayPropiedades.h"
+#include "ExPropiedadNoExistente.h"
 
 #include <utility>
 
@@ -22,7 +23,15 @@ void Zona::setNombre(string& name){
   this->nombre = name;
 }
 
+Propiedad* Zona::getPropiedad(int codigo){
 
+  map<int,Propiedad*>::iterator it =propiedades->find(codigo);
+    if(it!= propiedades->end()){
+      return it->second;
+
+    }else throw ExPropiedadNoExistente();
+
+}
 int Zona :: getCodigo(){
     return this->codigo;
 }

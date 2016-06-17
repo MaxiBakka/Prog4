@@ -1,5 +1,7 @@
 #include "DataInfoInmobiliaria.h"
 
+#include "DataReporteApartamento.h"
+#include "DataReporteCasa.h"
 DataInfoInmobiliaria::DataInfoInmobiliaria(string n,string u,string e,set<DataReportePropiedad*>* propiedades){
     this->nombre=n;
     this->ubicacion=u;
@@ -36,8 +38,15 @@ ostream& operator<<(ostream& o, DataInfoInmobiliaria& di){
     o << "Nombre inmobiliaria:" << di.get_nombre() << '\n' << "Ubicacion:" << di.get_ubicacion()<< '\n'<< "Email:" << di.get_email() << '\n'
     << "Listado de Propiedades: " << '\n' << '\n';
     for(set<DataReportePropiedad*>::iterator it = di.getReportePropiedades()->begin();it!=di.getReportePropiedades()->end();++it){
-        DataReportePropiedad* drp = *it;
-        o << drp;
+        DataReporteApartamento* drp =dynamic_cast<DataReporteApartamento*> (*it);
+        if(drp!=0){
+
+           o << *drp;
+        }else if(DataReporteCasa* drp =dynamic_cast<DataReporteCasa*> (*it)){
+
+        o << *drp;
+        }
+
     }
     return o;
 

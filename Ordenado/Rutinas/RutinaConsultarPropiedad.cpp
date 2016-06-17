@@ -130,16 +130,17 @@ void RutinaConsultarPropiedad::ejecutar(){
   			cout << "Ingrese el codigo de la propiedad que desea consultar: ";
   			int id_c = MenuUtils::leerInt();
   			MenuUtils::limpiarConsola();
-		    ctrl->seleccionarPropiedad(id_c);
+		    ctrl->elegirPropiedadzona(id_c);
 
         DataInfoInmobiliaria* di=ctrl->informacionDetallada();
+
   			cout <<  *di << endl;
   			delete di;
   			MenuUtils::esperarInput();
 
   			MenuUtils::limpiarConsola();
 
-  			if(!MenuUtils::leerOpcion("Desea ver los datos de otra propiedad?")){
+  			if(MenuUtils::leerOpcion("Desea ver los datos de otra propiedad?")){
             delete ctrl;
             ctrl = Factory::getIPropiedadController();
         }else{

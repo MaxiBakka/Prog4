@@ -21,25 +21,28 @@ float DataReporteCasa::getM2Totales() {
 DataReporteCasa::~DataReporteCasa() {
 }
 
-ostream& operator<<(ostream& o, DataReporteCasa& dra){
+ostream& operator<<(ostream& o, DataReporteCasa& drc){
     o << setprecision(30);
-    o << "------- Casa nº" << dra.getCodigo() << " -------" << endl;
-    o << "Direccion: " << dra.getDireccion() << '\n' ;
-    o << "Cantidad de ambientes: " << dra.getCantDeAmbientes()<< '\n';
-    o << "Dormitorios: " << dra.getDormitorios() << '\n';
-    o << "Banios: " << dra.getBanios() << '\n' ;
-    o << "Incluye Garaje: ";  if(dra.getGaraje()){o << "Si"; }else{ o<< "No";} o << endl;
-    if(dra.getInfoAlquiler()>1){
-        o<< "Precio Alquiler: " << dra.getInfoAlquiler() << '\n';
+    o << "------- Casa nro:" << drc.getCodigo() << " -------" << endl;
+    o << "Direccion: " << drc.getDireccion() << '\n' ;
+    o << "Cantidad de ambientes: " << drc.getCantDeAmbientes()<< '\n';
+    o << "Dormitorios: " << drc.getDormitorios() << '\n';
+    o << "Banios: " << drc.getBanios() << '\n' ;
+    o << "Incluye Garaje: ";  if(drc.getGaraje()){o << "Si"; }else{ o<< "No";} o << endl;
+    if(drc.getInfoAlquiler()>1){
+        o<< "Precio Alquiler: " << drc.getInfoAlquiler() << '\n';
     }
-    if(dra.getInfoVenta()>1){
-        o<< "Precio Venta: " << dra.getInfoVenta() << '\n';
+    if(drc.getInfoVenta()>1){
+        o<< "Precio Venta: " << drc.getInfoVenta() << '\n';
     }
-    o << "M2 totales: " << dra.getM2Totales() << endl;
-    o << "M2 Edificados: " << dra.getM2Edificados() << endl;
-    o << "Espacio verde: " << dra.getEspacioVerde() << endl;
-    o << "Departamento: " << *dra.getDataDepartamento() << endl;
-    o << "Zona: " << dra.getDataZona()->get_nombre() << " - Codigo: " << dra.getDataZona()->get_codigo() << endl;
+    o << "M2 totales: " << drc.getM2Totales() << endl;
+    o << "M2 Edificados: " << drc.getM2Edificados() << endl;
+    o << "Espacio verde: " << drc.getEspacioVerde() << endl;
+    if(drc.getDataDepartamento()!=NULL)
+    o << "Departamento: " << *drc.getDataDepartamento() << endl;
+    if(drc.getDataZona()!=NULL)
+    o << "Zona: " << drc.getDataZona()->get_nombre() << " - Codigo: " << drc.getDataZona()->get_codigo() << endl;
+
     o << "------------------------------------------------------------------------------------------------" << endl;
 
     return o;

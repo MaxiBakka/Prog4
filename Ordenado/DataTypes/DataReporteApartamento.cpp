@@ -21,7 +21,7 @@ DataReporteApartamento::~DataReporteApartamento() {
 
 ostream& operator<<(ostream& o, DataReporteApartamento& dra){
     o << setprecision(30);
-    o << "------- Apartamento nÂº" << dra.getCodigo() << " -------" << endl;
+    o << "------- Apartamento nº" << dra.getCodigo() << " -------" << endl;
     o << "Direccion: " << dra.getDireccion() << '\n' ;
     o << "Cantidad de ambientes: " << dra.getCantDeAmbientes()<< '\n';
     o << "Dormitorios: " << dra.getDormitorios() << '\n';
@@ -35,7 +35,9 @@ ostream& operator<<(ostream& o, DataReporteApartamento& dra){
     }
     o << "M2 totales: " << dra.getM2Totales() << '\n';
     o << "M2 Edificados: " << dra.getM2Edificados() << '\n';
+    if(dra.getDataDepartamento()!=NULL)
     o << "Departamento: " << *dra.getDataDepartamento() << endl;
+    if(dra.getDataZona()!=NULL)
     o << "Zona: " << dra.getDataZona()->get_nombre() << " - Codigo: " << dra.getDataZona()->get_codigo() << endl;
     o << "------------------------------------------------------------------------------------------------" << endl;
 

@@ -64,6 +64,7 @@ public:
   //caso de uso consultarPropiedad
    set<DataDetallePropiedad*>* obtenerDetallePropiedad();
    DataInfoInmobiliaria* informacionDetallada();
+   void elegirPropiedadzona(int codigo);
 
 };
 #endif	/* PROPIEDADCONTROLLER_H */

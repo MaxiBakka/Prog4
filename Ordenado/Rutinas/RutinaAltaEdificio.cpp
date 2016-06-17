@@ -20,7 +20,7 @@ void RutinaAltaEdificio::IngresarEdificio(){
       float gComunes;
 
 
-      MenuUtils::limpiarConsola()
+      
       cout << "Alta Edificio - Ingrese sus datos" << endl;
 
       //el usuario ingresa su email

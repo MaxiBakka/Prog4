@@ -6,6 +6,8 @@
 #include "Alquiler.h"
 #include "Chat.h"
 #include "Oferta.h"
+#include "Casa.h"
+#include "Apartamento.h"
 #include "ManejadorDepartamentos.h"
 #include "ManejadorEdificios.h"
 #include "Manejador_Usuario.h"
@@ -13,6 +15,8 @@
 
 #include "DataCasa.h"
 #include "DataApartamento.h"
+#include "DataReporteApartamento.h"
+#include "DataReporteCasa.h"
 
 #include "PrecioInvalido.h"
 #include "YaExistePropiedad.h"
@@ -210,6 +214,12 @@ void PropiedadController::seleccionarPropiedad(int codigo){
 
 }
 
+void PropiedadController::elegirPropiedadzona(int codigo){
+  if(zona!=NULL)
+  this->propiedad= zona->getPropiedad(codigo);
+
+}
+
 //Alta Edificio
 void PropiedadController::IngresarEdificio(DataEdificio*de){
 
@@ -244,8 +254,16 @@ DataInfoInmobiliaria* PropiedadController::informacionDetallada(){
      precioa =propiedad->getOferta()->getAlquiler()->getPrecio();
   }
   //creo los datos de la propiedad sin la zona y departamento.
-  reportes->insert(new DataReportePropiedad(propiedad->getCodigo(),propiedad->getCantDeAmbientes(),
-  propiedad->getDormitorios(),propiedad->getBanios(),propiedad->getGaraje(),propiedad->getDireccion(),preciov,precioa,NULL,NULL));
+  if(Casa*propiedadc=dynamic_cast<Casa*>(propiedad)){
+  reportes->insert(new DataReporteCasa(propiedadc->getCodigo(),propiedadc->getCantDeAmbientes(),
+  propiedadc->getDormitorios(),propiedadc->getBanios(),propiedadc->getGaraje(),propiedadc->getDireccion(),preciov,precioa,propiedadc->getM2Edificados(),
+  propiedadc->getEspacioVerde(),NULL,NULL));
+}else{
+    Apartamento*propiedada=dynamic_cast<Apartamento*>(propiedad);
+    reportes->insert(new DataReporteApartamento(propiedada->getCodigo(),propiedada->getCantDeAmbientes(),
+    propiedada->getDormitorios(),propiedada->getBanios(),propiedada->getGaraje(),propiedada->getDireccion(),preciov,precioa
+    ,NULL,NULL,propiedada->getM2Totales(),propiedada->getM2Edificados()));
+}
   //pido la inmobiliaria de la propiedad
   Inmobiliaria*i= propiedad->getOferta()->getInmobiliaria();
   //retorno el datatype con los datos de la inmobiliaria y la propiedad

@@ -30,7 +30,7 @@ const string& Departamento::getLetra() const{
 
 //getters de datatypes
 DataDepartamento* Departamento::getDataDepartamento(){
-  return new DataDepartamento(this->letra,this->nombre);
+  return new DataDepartamento(this->nombre,this->letra);
 
 }
 set<DataZona*>* Departamento::getDataZonas(){

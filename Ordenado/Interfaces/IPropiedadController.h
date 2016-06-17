@@ -50,5 +50,6 @@ public:
 
   virtual set<DataDetallePropiedad*>* obtenerDetallePropiedad() = 0;
   virtual DataInfoInmobiliaria* informacionDetallada() = 0;
+	virtual void elegirPropiedadzona(int codigo) = 0;
 };
 #endif //IPropiedadController_h
