@@ -8,10 +8,12 @@ class RutinaAltaEdificio: public UserInterface {
 private:
   IPropiedadController* ctrl;
   void IngresarEdificio();
+  string nombreEdificio;
 public:
 	RutinaAltaEdificio();
 	void ejecutar();
 	virtual ~RutinaAltaEdificio();
+	string getNombreEdificio();
 };
 
 #endif /* RUTINA_INCIO_CARGAR_DATOS_H_*/
