@@ -5,9 +5,9 @@
 #include <string>
 #include <set>
 
-#include "DataInmobiliaria.h"
-#include "DtInteresado.h"
-#include "DataInfoInmobiliaria.h"
+#include "../DataTypes/DataInmobiliaria.h"
+#include "../DataTypes/../DataTypes/DtInteresado.h"
+#include "../DataTypes/DataInfoInmobiliaria.h"
 #include "Usuario.h"
 #include "Administrador.h"
 #include "Interesado.h"

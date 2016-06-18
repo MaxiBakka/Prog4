@@ -1,6 +1,6 @@
 #include "ManejadorPropiedades.h"
-#include "DataCasa.h"
-#include "DataApartamento.h"
+#include "../DataTypes/DataCasa.h"
+#include "../DataTypes/DataApartamento.h"
 #include "Casa.h"
 #include "Apartamento.h"
 #include "ExPropiedadNoExistente.h"

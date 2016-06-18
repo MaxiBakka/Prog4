@@ -1,6 +1,6 @@
 #include "RutinaAltaEdificio.h"
 
-#include "DataEdificio.h"
+#include "../DataTypes/DataEdificio.h"
 #include "MenuUtils.h"
 #include "ProcesoCancelado.h"
 #include "ExisteEdificio.h"

@@ -7,7 +7,7 @@
 #include "Manejador_Usuario.h"
 #include <string>
 #include "Inmobiliaria.h"
-#include "DataInmobiliaria.h"
+#include "../DataTypes/DataInmobiliaria.h"
 
 #include "Factory.h"
 

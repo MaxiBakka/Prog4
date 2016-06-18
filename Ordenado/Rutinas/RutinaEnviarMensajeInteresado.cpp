@@ -1,8 +1,8 @@
 #include "RutinaEnviarMensajeInteresado.h"
 
 #include "Sesion.h"
-#include "Hora.h"
-#include "Fecha.h"
+#include "../DataTypes/Hora.h"
+#include "../DataTypes/Fecha.h"
 #include "Factory.h"
 
 #include "ExDptoNoExistente.h"

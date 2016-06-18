@@ -1,6 +1,6 @@
-#include "DataPropiedad.h"
-#include "DataApartamento.h"
-#include "DataCasa.h"
+#include "../DataTypes/DataPropiedad.h"
+#include "../DataTypes/DataApartamento.h"
+#include "../DataTypes/DataCasa.h"
 
 
 DataPropiedad::DataPropiedad(int cod, int cantAmbientes, int cantDormitorios, int cantBanios, string direccion, bool garaje,float m2Totales,float &infoAlquiler,float &infoVenta) :

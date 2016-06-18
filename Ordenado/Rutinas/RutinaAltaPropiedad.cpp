@@ -1,4 +1,12 @@
 #include "RutinaAltaPropiedad.h"
+<<<<<<< HEAD
+
+#include "../DataTypes/DataInfoInmobiliaria.h"
+#include "../DataTypes/DataDetallePropiedad.h"
+#include "../DataTypes/DataDepartamento.h"
+#include "../DataTypes/DataZona.h"
+#include "../DataTypes/DataEdificio.h"
+=======
 #include "RutinaConsultarPropiedad.h"
 #include "DataInfoInmobiliaria.h"
 #include "DataDetallePropiedad.h"
@@ -7,6 +15,7 @@
 #include "DataEdificio.h"
 #include "DataCasa.h"
 #include "DataApartamento.h"
+>>>>>>> 4aa4c0312b08ce7b8198fb034b2bb3e392f238b4
 
 #include "ProcesoCancelado.h"
 #include "NoHayDepartamentos.h"

@@ -1,6 +1,6 @@
 #include "RutinaAltaInteresado.h"
 
-#include "DtInteresado.h"
+#include "../DataTypes/DtInteresado.h"
 #include "ProcesoCancelado.h"
 #include "ExisteInteresado.h"
 #include "Factory.h"

@@ -1,9 +1,9 @@
 #include "RutinaConsultarPropiedad.h"
 
-#include "DataInfoInmobiliaria.h"
-#include "DataDetallePropiedad.h"
-#include "DataDepartamento.h"
-#include "DataZona.h"
+#include "../DataTypes/DataInfoInmobiliaria.h"
+#include "../DataTypes/DataDetallePropiedad.h"
+#include "../DataTypes/DataDepartamento.h"
+#include "../DataTypes/DataZona.h"
 
 #include "ProcesoCancelado.h"
 #include "NoHayDepartamentos.h"

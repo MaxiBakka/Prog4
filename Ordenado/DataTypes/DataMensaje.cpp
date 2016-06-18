@@ -1,4 +1,4 @@
-#include "DataMensaje.h"
+#include "../DataTypes/DataMensaje.h"
 
 
 DataMensaje::DataMensaje(Fecha& f,Hora& h,string& t):fecha(f){
@@ -27,7 +27,7 @@ DataMensaje :: ~DataMensaje(){
 
 ostream& operator <<(ostream& output, DataMensaje& dm) {
   output << "Mensaje: " << dm.get_texto() << endl;
-  output <<'\t'<<'\t'<< '\t' << dm.get_fecha() << ' ' << dm.get_hora() << endl; 
+  output <<'\t'<<'\t'<< '\t' << dm.get_fecha() << ' ' << dm.get_hora() << endl;
   return output;
 
 }

@@ -6,7 +6,7 @@
 #include <set>
 
 #include "Departamento.h"
-#include "DataDepartamento.h"
+#include "../DataTypes/DataDepartamento.h"
 
 using namespace std;
 

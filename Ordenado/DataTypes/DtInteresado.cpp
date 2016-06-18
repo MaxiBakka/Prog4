@@ -1,4 +1,4 @@
-#include "DtInteresado.h"
+#include "../DataTypes/DtInteresado.h"
 
 using namespace std;
 

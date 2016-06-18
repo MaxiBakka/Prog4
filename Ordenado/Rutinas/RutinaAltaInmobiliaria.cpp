@@ -1,5 +1,5 @@
 #include "RutinaAltaInmobiliaria.h"
-#include "DataInmobiliaria.h"
+#include "../DataTypes/DataInmobiliaria.h"
 #include "ProcesoCancelado.h"
 #include "InmobiliariaYaExistente.h"
 #include "Factory.h"

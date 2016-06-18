@@ -7,8 +7,8 @@
 #include <string>
 
 #include "Propiedad.h"
-#include "DataPropiedad.h"
-#include "DataInfoPropiedad.h"
+#include "../DataTypes/DataPropiedad.h"
+#include "../DataTypes/DataInfoPropiedad.h"
 #include "Zona.h"
 #include "Oferta.h"
 #include "Edificio.h"

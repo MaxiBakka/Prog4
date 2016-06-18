@@ -1,7 +1,7 @@
 #include "RutinaObtenerReporteInmobiliarias.h"
 #include "Factory.h"
 #include "ProcesoCancelado.h"
-#include "DataDepartamento.h"
+#include "../DataTypes/DataDepartamento.h"
 #include "ManejadorDepartamentos.h"
 #include "ExNoHayZonas.h"
 #include "NoHayDepartamentos.h"
