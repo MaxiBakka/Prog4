@@ -57,7 +57,7 @@ ostream& operator <<(ostream& output, DataCasa& dc){
 
 output << setprecision(30);
 output << "Codigo:" << dc.getCodigo() << '\n'<< "Direccion de la casa:" << dc.getDireccion() << '\n' << "Cantidad de ambientes:" << dc.getCantAmbientes()<< '\n'<< "Dormitorios:" << dc.getDormitorios() << '\n'
-<< "Banios:" << dc.getBanios() << '\n' << "Garaje:" << dc.getGaraje() << '\n';
+<< "Banios:" << dc.getBanios() << '\n' << "Garaje: " ; if(drc.getGaraje()){o << "Si"; }else{ o<< "No";} o << endl;
 if(dc.getAlquiler()>1)
     output<< "Precio Alquiler:" << dc.getAlquiler() << '\n';
  if(dc.getVenta()>1)
