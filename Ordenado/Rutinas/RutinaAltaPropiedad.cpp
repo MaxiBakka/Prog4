@@ -4,8 +4,6 @@
 #include "DataDetallePropiedad.h"
 #include "DataDepartamento.h"
 #include "DataZona.h"
-#include "DataPropiedad.h"
-#include "DataCasa.h"
 
 #include "ProcesoCancelado.h"
 #include "NoHayDepartamentos.h"
@@ -16,8 +14,6 @@
 #include "NoHayPropiedades.h"
 #include "ExPropiedadNoExistente.h"
 #include "RutinaAltaEdificio.h"
-#include "YaExistePropiedad.h"
-#include "ValoresInvalidos.h"
 
 #include "Factory.h"
 
@@ -114,49 +110,53 @@ void RutinaConsultarPropiedad::seleccionarZona(){
 
 void seleccionarEdificio(){
 	while(true){
-
-	}
-
-}
-
-void RutinaConsultarPropiedad::ejecutar(){
-
-	while(true){
 		try{
 			bool salir = false;
-			while(!salir){
-				cout << "Menu Alta Propiedad: " << endl << endl;
-				cout << "1 - Alta Propiedad." << endl;
-				cout << "0 - Salir" << endl;
-				int opt = MenuUtils::leerInt();
-				MenuUtils::limpiarConsola();
-				switch(opt){
-					case 0:{
-						MenuUtils::limpiarConsola();
-						salir = true;
-						break;
-					}
-					case 1:{
-						seleccionarZona();
-						seleccionarDepartamento();
-
-						MenuUtils::limpiarConsola();
-						break;
-					}
-					default:{
-						cout<<"Opcion Invalida. Intente nuevamente.";
-						MenuUtils::esperarInput();
-						break;
-					}
+			MenuUtils::limpiarConsola();
+			cout << "Alta Propiedad - Seleccion de Edificio" << endl;
+			cout << "Edificios en sistema: "<<endl;
+			set<DataEdificio*>* listaEd = ctrl->listarEdificios();
+			cout << *listaEd<< endl<<endl;
+			cout<< "1 - Seleccionar Edificio"<<endl;
+			cout<< "2 - Ingresar Nuevo Edificio"<<endl;
+			cout<< "0 - Salir"<<endl;
+			int opt = MenuUtils::leerInt();
+			MenuUtils::limpiarConsola();
+			switch(opt){
+				case 0:{
+					MenuUtils::limpiarConsola();
+					salir = true;
+					break;
+				}
+				case 1:{
+					cout<<"Ingrese el nombre del edificio: ";
+					string nameEd = MenuUtils::leerString();
+					ctrl->seleccionaEdificio(nameEd);
+					MenuUtils::limpiarConsola();
+					break;
+				}
+				case 2:{
+					UserInterface* submenu = new RutinaAltaEdificio();
+					submenu->ejecutar();
+					string nameEd = submenu->getNombreEdificio();
+					ctrl->seleccionarEdificio(nameEd);
+					delete subemenu;
+					break;
+				}
+				default:{
+					cout<<"Opcion Invalida. Intente nuevamente.";
+					MenuUtils::esperarInput();
+					break;
 				}
 			}
+
+		}catch(EdificioNoExistente& e){
 			MenuUtils::limpiarConsola();
-			if(!MenuUtils::leerOpcion("Desea modificar otra propiedad?")) break;
-		}catch(ProcesoCancelado&){
-			MenuUtils::imprimirError("Modificacion cancelada.");
-			if(!MenuUtils::leerOpcion("Desea modificar otra propiedad?")) break;
+			cout<< e.what()<<endl;
+			if(!MenuUtils::leerOpcion("Desea intentarlo de nuevo?")) break;
 		}
 	}
+
 }
 
 void RutinaAltaPropiedad::ingresarAlquilerVenta(){
@@ -313,3 +313,46 @@ void RutinaAltaPropiedad::ingresarNuevoApartamento(){
     }
   }
 }
+
+void RutinaConsultarPropiedad::ejecutar(){
+
+	while(true){
+		try{
+			bool salir = false;
+			while(!salir){
+				cout << "Menu Alta Propiedad: " << endl << endl;
+				cout << "1 - Alta Propiedad." << endl;
+				cout << "0 - Salir" << endl;
+				int opt = MenuUtils::leerInt();
+				MenuUtils::limpiarConsola();
+				switch(opt){
+					case 0:{
+						MenuUtils::limpiarConsola();
+						salir = true;
+						break;
+					}
+					case 1:{
+						seleccionarZona();
+						seleccionarDepartamento();
+
+						MenuUtils::limpiarConsola();
+						break;
+					}
+					default:{
+						cout<<"Opcion Invalida. Intente nuevamente.";
+						MenuUtils::esperarInput();
+						break;
+					}
+				}
+			}
+			MenuUtils::limpiarConsola();
+			if(!MenuUtils::leerOpcion("Desea modificar otra propiedad?")) break;
+		}catch(ProcesoCancelado&){
+			MenuUtils::imprimirError("Modificacion cancelada.");
+			if(!MenuUtils::leerOpcion("Desea modificar otra propiedad?")) break;
+		}
+		}
+}
+
+
+>>>>>>> 819dafabe3716a771ae5f1cf2c36cb1b30234e3b
