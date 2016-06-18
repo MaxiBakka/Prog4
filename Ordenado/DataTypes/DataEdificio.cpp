@@ -35,7 +35,7 @@ o << "Nombre edificio: " << de.get_nombre() << '\n' << "Cantidad de pisos: " << 
 ostream& operator <<(ostream& o, const set<DataEdificio*> sds) {
 	//estaleciendo cabezales
 	string headNombre = "Edificio"; int colNombre = 25; headNombre.resize(colNombre,' ');
-	string headpisos = "Cantidad de pisos"; int colpisos = 5; headpisos.resize(colpisos, ' ');
+	string headpisos = "Cantidad de pisos"; int colpisos = 20; headpisos.resize(colpisos, ' ');
 	string headgcomunes = "Gastos comunes";
 
 	//imprimir cabezales

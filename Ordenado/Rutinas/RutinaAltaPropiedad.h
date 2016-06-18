@@ -15,7 +15,7 @@ private:
 	void ingresarNuevaCasa();
 	void ingresarNuevoApartamento();
 	void ingresarAlquilerVenta();
-	void AltaEdificio();
+	void seleccionarEdificio();
 public:
     RutinaAltaPropiedad();
 	void ejecutar();

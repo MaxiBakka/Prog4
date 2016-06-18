@@ -8,9 +8,10 @@
 #include "RutinaCerrarSesion.h"
 #include "RutinaAltaEdificio.h"
 #include "RutinaConsultarPropiedad.h"
-//#include "RutinaModificarPropiedad.h"
+#include "RutinaModificarPropiedad.h"
 #include "RutinaEnviarMensajeInmobiliaria.h"
 #include "RutinaEliminarPropiedad.h"
+#include "RutinaAltaPropiedad.h"
 
 using namespace std;
 MenuInmobiliarias::MenuInmobiliarias() {
@@ -42,7 +43,7 @@ void MenuInmobiliarias::ejecutarOpcion(int opc) {
 		break;
 
 	case 2:
-		//Alta Prop
+		submenu = new RutinaAltaPropiedad();
 		break;
 	case 3:
 		submenu = new RutinaConsultarPropiedad();
