@@ -18,4 +18,4 @@ public:
 	virtual ~RutinaEnviarMensajeInmobiliaria();
 };
 
-#endif //RutinaConsultarPropiedad
+#endif //RutinaEnviarMensajeInteresado
