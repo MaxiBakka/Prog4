@@ -1,4 +1,4 @@
-#include "../../UserInterface.h"
+#include "UserInterface.h"
 #include "IModificarPropiedadController.h"
 
 class DataPropiedad;
@@ -7,7 +7,7 @@ class IPropiedadController;
 #ifndef RUTINA_MODIFICAR_PROPIEDAD_H_
 #define RUTINA_MODIFICAR_PROPIEDAD_H_
 
-class RutinaModificarPropiedad: public PantallaUI {
+class RutinaModificarPropiedad: public UserInterface {
 private:
 	IModificarPropiedadController* ctrl;
 	DataPropiedad* propiedad;
