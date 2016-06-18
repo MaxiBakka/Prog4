@@ -11,7 +11,7 @@ class RutinaEnviarMensajeInteresado: public UserInterface {
 private:
 	IPropiedadController* ctrl;
   void seleccionarChat();
-  void ingresarMensaje();
+  void enviarMensaje();
   void seleccionarDepartamento();
   void seleccionarZona();
 public:

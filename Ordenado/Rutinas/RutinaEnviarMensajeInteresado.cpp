@@ -186,6 +186,7 @@ void RutinaEnviarMensajeInteresado::ejecutar(){
             int cod=MenuUtils::leerInt();
 
             ctrl->seleccionarPropiedad(cod);
+            cout <<endl <<endl;
             break;
           }catch(ExPropiedadNoExistente& e){
               cout << e.what() << endl;
@@ -210,6 +211,7 @@ void RutinaEnviarMensajeInteresado::ejecutar(){
      }
 
         enviarMensaje();
+        break;
       }catch(ProcesoCancelado& ){
 
             cout << "Error: se cancelo el envio del mensaje" << '\n';

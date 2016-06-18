@@ -4,7 +4,7 @@
 #include "DataDepartamento.h"
 #include "ManejadorDepartamentos.h"
 #include "ExNoHayZonas.h"
-
+#include "NoHayDepartamentos.h"
 
 
 #include <iostream>
@@ -53,11 +53,17 @@ void RutinaObtenerReporteInmobiliarias::ejecutar() {
                         }
                     }catch(ExNoHayZonas& e){
                             cout << endl << "El departamento no contiene zonas " << endl;
-                        }
+                    }catch(NoHayDepartamentos& e2){
+                            cout << endl << "La inmobiliaria no tiene ofertas"<<endl;
+					}
                     }
                 }
-        delete md;
+        for(set<DataInfoInmobiliaria*>::iterator it = reportes->begin(); it != reportes->end(); ++it){
+            DataInfoInmobiliaria* borrar = *it;
+            delete borrar;
+        }
         delete reportes;
+
 		cout << endl;
         MenuUtils::esperarInput();
 }
