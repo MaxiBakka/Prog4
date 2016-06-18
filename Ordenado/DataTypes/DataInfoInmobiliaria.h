@@ -20,6 +20,7 @@ public:
     string& get_ubicacion();
     string& get_email();
     set<DataReportePropiedad*>* getReportePropiedades();
+    void imprimirCasasYApartamentos(DataZona* dz);
     ~DataInfoInmobiliaria();
 
 };
