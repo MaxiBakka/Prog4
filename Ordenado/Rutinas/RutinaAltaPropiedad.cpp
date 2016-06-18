@@ -110,7 +110,51 @@ void RutinaConsultarPropiedad::seleccionarZona(){
 
 void seleccionarEdificio(){
 	while(true){
+		try{
+			bool salir = false;
+			MenuUtils::limpiarConsola();
+			cout << "Alta Propiedad - Seleccion de Edificio" << endl;
+			cout << "Edificios en sistema: "<<endl;
+			set<DataEdificio*>* listaEd = ctrl->listarEdificios();
+			cout << *listaEd<< endl<<endl;
+			cout<< "1 - Seleccionar Edificio"<<endl;
+			cout<< "2 - Ingresar Nuevo Edificio"<<endl;
+			cout<< "0 - Salir"<<endl;
+			int opt = MenuUtils::leerInt();
+			MenuUtils::limpiarConsola();
+			switch(opt){
+				case 0:{
+					MenuUtils::limpiarConsola();
+					salir = true;
+					break;
+				}
+				case 1:{
+					cout<<"Ingrese el nombre del edificio: ";
+					string nameEd = MenuUtils::leerString();
+					ctrl->seleccionaEdificio(nameEd);
+					MenuUtils::limpiarConsola();
+					break;
+				}
+				case 2:{
+					UserInterface* submenu = new RutinaAltaEdificio();
+					submenu->ejecutar();
+					string nameEd = submenu->getNombreEdificio();
+					ctrl->seleccionarEdificio(nameEd);
+					delete subemenu;
+					break;
+				}
+				default:{
+					cout<<"Opcion Invalida. Intente nuevamente.";
+					MenuUtils::esperarInput();
+					break;
+				}
+			}
 
+		}catch(EdificioNoExistente& e){
+			MenuUtils::limpiarConsola();
+			cout<< e.what()<<endl;
+			if(!MenuUtils::leerOpcion("Desea intentarlo de nuevo?")) break;
+		}
 	}
 
 }
