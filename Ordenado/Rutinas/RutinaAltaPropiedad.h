@@ -12,6 +12,9 @@ private:
 	IPropiedadController* ctrl;
 	void seleccionarDepartamento();
 	void seleccionarZona();
+	void ingresarNuevaCasa();
+	void ingresarNuevoApartamento();
+	void ingresarAlquilerVenta();
 public:
     RutinaAltaPropiedad();
 	void ejecutar();
