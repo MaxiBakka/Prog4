@@ -1,8 +1,10 @@
 #include "RutinaAltaEdificio.h"
 
-#include "DataEdificio_h"
+#include "DataEdificio.h"
 #include "MenuUtils.h"
 #include "ProcesoCancelado.h"
+#include "ExisteEdificio.h"
+#include "Factory.h"
 
 #include <iostream>
 #include <string>
@@ -20,7 +22,7 @@ void RutinaAltaEdificio::IngresarEdificio(){
       float gComunes;
 
 
-      
+
       cout << "Alta Edificio - Ingrese sus datos" << endl;
 
       //el usuario ingresa su email
@@ -41,7 +43,7 @@ void RutinaAltaEdificio::IngresarEdificio(){
 
       if(MenuUtils::leerOpcion("Desea confirmar estos datos?")){
         ctrl->IngresarEdificio(de);
-        MenuUtils::imprimirConfirmacion("Dato ingresados correctamente");
+        cout <<"Dato ingresados correctamente" << endl;
         MenuUtils::esperarInput();
         break;
       }else{
@@ -82,9 +84,9 @@ void RutinaAltaEdificio::ejecutar(){
 
         if(MenuUtils::leerOpcion("Desea empezar de nuevo?")){
           delete ctrl;
-          ctrl = Factory::getIUsuarioController();
+          ctrl = Factory::getIPropiedadController();
         }else{
-          break
+          break;
         }
     }
   }

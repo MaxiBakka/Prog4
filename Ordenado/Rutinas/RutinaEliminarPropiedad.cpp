@@ -1,7 +1,7 @@
 #include "RutinaEliminarPropiedad.h"
 
 #include "ExPropiedadNoExistente.h"
-
+#include "ProcesoCancelado.h"
 #include "Factory.h"
 
 #include <iostream>
@@ -11,7 +11,7 @@
 #include "MenuUtils.h"
 
 RutinaEliminarPropiedad::RutinaEliminarPropiedad(){
-  ctrl-> Factory::getIPropiedadController();
+  ctrl= Factory::getIPropiedadController();
 }
 
 RutinaEliminarPropiedad::~RutinaEliminarPropiedad(){
@@ -21,7 +21,7 @@ RutinaEliminarPropiedad::~RutinaEliminarPropiedad(){
 void RutinaEliminarPropiedad::eliminarPropiedad(){
   while(true){
     try{
-      MenuUtils::limpiarConsola();
+
       cout << "Eliminar Propiedad" << endl;
 
       //el usuario ingresa el codigo de la propiedad que quiere eliminar
@@ -29,13 +29,13 @@ void RutinaEliminarPropiedad::eliminarPropiedad(){
       int cod = MenuUtils::leerInt(); cout << endl;
       if(MenuUtils::leerOpcion("Realmente quiere eliminar la propiedad? ")){
           ctrl->eliminarPropiedad(cod);
-          MenuUtils::imprimirConfirmacion("Propiedad eliminada con exito");
+         cout <<"Propiedad eliminada con exito" << endl;
           MenuUtils::esperarInput();
           break;
       }else{
         if(!MenuUtils::leerOpcion("Desea intentarlo nuevamente? ")) throw ProcesoCancelado();
       }
-    }catch(ExPropiedadNoExistente* &e){
+    }catch(ExPropiedadNoExistente &e){
       cout << e.what() << endl;
       //en caso de error se le pregunta al usuario si desea continuar
       if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();

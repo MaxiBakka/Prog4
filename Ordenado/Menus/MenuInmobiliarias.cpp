@@ -1,9 +1,17 @@
 
 #include <iostream>
 #include <string>
+
 #include "MenuInmobiliarias.h"
+
 #include "ExOpcionInvalida.h"
 #include "RutinaCerrarSesion.h"
+#include "RutinaAltaEdificio.h"
+#include "RutinaConsultarPropiedad.h"
+#include "RutinaModificarPropiedad.h"
+#include "RutinaEnviarMensajeInmobiliaria.h"
+#include "RutinaEliminarPropiedad.h"
+
 using namespace std;
 MenuInmobiliarias::MenuInmobiliarias() {
 }
@@ -30,23 +38,23 @@ void MenuInmobiliarias::ejecutarOpcion(int opc) {
 		salir=true;
 		break;
 	case 1:
-		//Alta Edifcio
+		submenu = new RutinaAltaEdificio();
 		break;
 
 	case 2:
 		//Alta Prop
 		break;
 	case 3:
-		//Consulta prop
+		submenu = new RutinaConsultarPropiedad();
 		break;
 	case 4:
-		//Modificar prop
+		submenu = new RutinaModificarPropiedad();
 		break;
 	case 5:
-		//Eliminar
+		submenu= new RutinaEliminarPropiedad();
 		break;
 	case 6:
-		//Enviar MEnsaje
+		submenu = new RutinaEnviarMensajeInmobiliaria();
 		break;
 	default:
 		throw ExOpcionInvalida();
@@ -61,4 +69,3 @@ void MenuInmobiliarias::ejecutarOpcion(int opc) {
 
 MenuInmobiliarias::~MenuInmobiliarias() {
 }
-
