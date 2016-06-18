@@ -28,7 +28,9 @@ void RutinaObtenerReporteInmobiliarias::ejecutar() {
 			cout<< "Reporte: "<<endl;
 			for(set<DataInfoInmobiliaria*>::iterator it = reportes->begin(); it != reportes->end(); ++it){
 				DataInfoInmobiliaria* cast = dynamic_cast<DataInfoInmobiliaria*>(*it);
-				cout<< *cast <<endl;
+				cout<< "Departamento: " << cast->getDataDepartamento() <<endl;
+				cout << "Zona: " << cast->getDataZona() << endl;
+				cast->imprimirCasasYApartamentos();
 				delete cast;
 			}
 		}else{

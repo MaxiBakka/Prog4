@@ -2,6 +2,8 @@
 
 #include "DataReporteApartamento.h"
 #include "DataReporteCasa.h"
+
+
 DataInfoInmobiliaria::DataInfoInmobiliaria(string n,string u,string e,set<DataReportePropiedad*>* propiedades){
     this->nombre=n;
     this->ubicacion=u;
@@ -19,6 +21,23 @@ string& DataInfoInmobiliaria::get_ubicacion(){
 
 string& DataInfoInmobiliaria::get_email(){
     return this->email;
+}
+
+void imprimirCasasYApartamentos(DataZona* dz){
+  int cantCasas=0;
+  int cantApartamento=0;
+  for(set<DataReportePropiedad*>::iterator it=reportePropiedades->begin();it!=reportePropiedades->end();++it){
+    DatareporteCasa* drc = dynamic_cast<DataReporteCasa*>(*it)
+    if((drc!=NULL) && drc->getDataZona()->get_codigo()==dz->get_codigo() ){
+      cantCasas++;
+    }else{
+      DataReporteApartamento* dra = dynamic_cast<DataReporteApartamento*>(*it);
+      if(dra->getDataZona()->get_codigo()==dz->get_codigo())
+        cantApartamento++;
+    }
+  }
+  cout << "Cantidad de casas: " << cantCasas <<endl;
+  cout << "Cantidad de apartamentos: " << cantApartamento << endl;
 }
 
 set<DataReportePropiedad*>* DataInfoInmobiliaria::getReportePropiedades() {
