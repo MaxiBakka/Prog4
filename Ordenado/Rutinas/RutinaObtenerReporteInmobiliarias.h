@@ -1,4 +1,4 @@
-#include "../../UserInterface.h"
+#include "sUserInterface.h"
 #include "IUsuarioController.h"
 
 class DataPropiedad;

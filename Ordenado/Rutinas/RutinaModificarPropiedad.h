@@ -1,6 +1,6 @@
 #include "UserInterface.h"
 #include "IModificarPropiedadController.h"
-#include "DataPropiedad.h"
+#include "../DataTypes/DataPropiedad.h"
 
 
 #ifndef RUTINA_MODIFICAR_PROPIEDAD_H_

@@ -1,4 +1,4 @@
-#include "DataReporteApartamento.h"
+#include "../DataTypes/DataReporteApartamento.h"
 
 
 DataReporteApartamento:: DataReporteApartamento(int c,int cda, int d,int b,bool g,string &dir,float iv,float ia,DataZona* dz,DataDepartamento* dpto,float m2t,float m2e)
@@ -21,7 +21,7 @@ DataReporteApartamento::~DataReporteApartamento() {
 
 ostream& operator<<(ostream& o, DataReporteApartamento& dra){
     o << setprecision(30);
-    o << "------- Apartamento nº" << dra.getCodigo() << " -------" << endl;
+    o << "------- Apartamento nï¿½" << dra.getCodigo() << " -------" << endl;
     o << "Direccion: " << dra.getDireccion() << '\n' ;
     o << "Cantidad de ambientes: " << dra.getCantDeAmbientes()<< '\n';
     o << "Dormitorios: " << dra.getDormitorios() << '\n';

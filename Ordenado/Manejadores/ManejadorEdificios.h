@@ -6,7 +6,7 @@
 #include <set>
 
 #include "Edificio.h"
-#include "DataEdificio.h"
+#include "../DataTypes/DataEdificio.h"
 
 
 using namespace std;

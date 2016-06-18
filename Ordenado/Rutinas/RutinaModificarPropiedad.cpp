@@ -3,9 +3,9 @@
 #include "Factory.h"
 #include "ExPropiedadNoExistente.h"
 #include "ProcesoCancelado.h"
-#include "DataCasa.h"
+#include "../DataTypes/DataCasa.h"
 #include "Casa.h"
-#include "DataApartamento.h"
+#include "../DataTypes/DataApartamento.h"
 #include "Apartamento.h"
 
 #include <iostream>
@@ -223,4 +223,3 @@ RutinaModificarPropiedad::~RutinaModificarPropiedad() {
 	if (propiedad != NULL) delete propiedad;
 	delete ctrl;
 }
-

@@ -1,4 +1,4 @@
-#include "DataVenta.h"
+#include "../DataTypes/DataVenta.h"
 
 
 DataVenta::DataVenta(float precio){

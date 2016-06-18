@@ -1,4 +1,4 @@
-#include "Hora.h"
+#include "../DataTypes/Hora.h"
 #include "HoraInvalida.h"
 
 #include <iomanip>

@@ -1,4 +1,4 @@
-#include "DataInmobiliaria.h"
+#include "../DataTypes/DataInmobiliaria.h"
 
 DataInmobiliaria::DataInmobiliaria(string nombre, string email, string direccion){
 
