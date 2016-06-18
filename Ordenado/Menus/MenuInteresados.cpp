@@ -5,6 +5,7 @@
 #include "ExOpcionInvalida.h"
 #include "RutinaConsultarPropiedad.h"
 #include "RutinaCerrarSesion.h"
+#include "RutinaEnviarMensajeInteresado.h"
 
 using namespace std;
 MenuInteresados::MenuInteresados() {
@@ -32,7 +33,7 @@ void MenuInteresados::ejecutarOpcion(int opc) {
 		break;
 
 	case 2:
-		//Enviar MEnsaje
+		submenu = new RutinaEnviarMensajeInteresado();
 		break;
 	default:
 		throw ExOpcionInvalida();
@@ -47,3 +48,4 @@ void MenuInteresados::ejecutarOpcion(int opc) {
 
 MenuInteresados::~MenuInteresados() {
 }
+

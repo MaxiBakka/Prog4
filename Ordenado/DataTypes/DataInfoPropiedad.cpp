@@ -21,7 +21,7 @@ int DataInfoPropiedad :: get_cantMensajes(){
 DataInfoPropiedad :: ~DataInfoPropiedad(){}
 
 ostream& operator<<(ostream& o, DataInfoPropiedad& di){
-  o << "------- Propiedad nº" << di.get_codigo() << " -------" << endl;
+  o << "------- Propiedad nro" << di.get_codigo() << " -------" << endl;
 	o << "Direccion: " << di.get_direccion() << endl;
 	o << "Cantidad de mensajes enviados: " << di.get_cantMensajes() << endl;
   return o;

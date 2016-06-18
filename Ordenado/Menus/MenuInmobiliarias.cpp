@@ -8,7 +8,7 @@
 #include "RutinaCerrarSesion.h"
 #include "RutinaAltaEdificio.h"
 #include "RutinaConsultarPropiedad.h"
-#include "RutinaModificarPropiedad.h"
+//#include "RutinaModificarPropiedad.h"
 #include "RutinaEnviarMensajeInmobiliaria.h"
 #include "RutinaEliminarPropiedad.h"
 
@@ -20,7 +20,7 @@ void MenuInmobiliarias::presentar() {
 	cout << "-------Menu Inmobiliarias-------" << endl;
 	cout << "1 - Alta Edificio" << endl;
 	cout << "2 - Alta Propiedad" << endl;
-	cout << "3 - Consulta Propiedad" << endl;
+	cout << "3 - Consultar Propiedad" << endl;
 	cout << "4 - Modificar Propiedad" << endl;
 	cout << "5 - Eliminar Propiedad" << endl;
 	cout << "6 - Enviar Mensaje" << endl;

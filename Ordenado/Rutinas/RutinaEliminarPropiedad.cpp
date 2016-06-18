@@ -66,6 +66,7 @@ void RutinaEliminarPropiedad::ejecutar(){
       if(MenuUtils::leerOpcion("Desea empezar de nuevo? ")){
         delete ctrl;
         ctrl = Factory::getIPropiedadController();
+        MenuUtils::limpiarConsola();
       }else{
         break;
       }
