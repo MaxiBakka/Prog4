@@ -353,6 +353,3 @@ void RutinaConsultarPropiedad::ejecutar(){
 		}
 		}
 }
-
-
->>>>>>> 819dafabe3716a771ae5f1cf2c36cb1b30234e3b
