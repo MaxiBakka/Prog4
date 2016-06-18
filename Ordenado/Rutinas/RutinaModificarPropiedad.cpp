@@ -28,38 +28,32 @@ void RutinaModificarPropiedad::ejecutar() {
 				cout << "Menu Modificar Propiedad: " << endl << endl;
 				cout << "1 - Modificar Propiedad." << endl;
 				cout << "0 - Salir" << endl;
-				int opt = IOConsola::leerInt();
-				IOConsola::limpiarConsola();
+				int opt = MenuUtils::leerInt();
+				MenuUtils::limpiarConsola();
 				switch(opt){
 					case 0:{
-						IOConsola::limpiarConsola();
+						MenuUtils::limpiarConsola();
 						salir = true;
 						break;
 					}
 					case 1:{
+						seleccionarPropiedad();
 						modificarDatos();
-						IOConsola::limpiarConsola();
+						MenuUtils::limpiarConsola();
 						break;
 					}
 					default:{
 						cout<<"Opcion Invalida. Intente nuevamente.";
-						IOConsola::esperarInput();
+						MenuUtils::esperarInput();
 						break;
 					}
 				}
 			}
-			IOConsola::limpiarConsola();
-			if(!IOConsola::leerOpcion("Desea modificar otro estudiante?")) break;
-		}catch(NoExEstudiante&){
-			IOConsola::imprimirError("No existe un estudiante con esa CI.");
-			if(!IOConsola::leerOpcion("Desea intentarlo nuevamente?")) break;
-		}catch(NoHayEstudiantes&){
-			IOConsola::imprimirError("No se puede continuar. No hay Estudiantes en el sistema.");
-			IOConsola::esperarInput();
-			break;
-		}catch(RutinaAbortada&){
-			IOConsola::imprimirError("Modificacion cancelada.");
-			if(!IOConsola::leerOpcion("Desea modificar otro estudiante?")) break;
+			MenuUtils::limpiarConsola();
+			if(!MenuUtils::leerOpcion("Desea modificar otra propiedad?")) break;
+		}catch(ProcesoCancelado&){
+			MenuUtils::imprimirError("Modificacion cancelada.");
+			if(!MenuUtils::leerOpcion("Desea modificar otra propiedad?")) break;
 		}
 	}
 }
@@ -106,7 +100,7 @@ void RutinaModificarPropiedad::modificarDatos() {
 	}
 
 	while(!salir){
-		IOConsola::limpiarConsola();
+		MenuUtils::limpiarConsola();
 		seleccionarPropiedad();
 		cout << "Seleccione que desea editar: " << endl;
 		cout << "1 - Cantidad de Ambientes" << endl;
@@ -122,8 +116,8 @@ void RutinaModificarPropiedad::modificarDatos() {
 			cout << "6 - Metros Totales "<<endl;
 		}
 		cout << endl << "0 - Guardar" << endl;
-		int opt = IOConsola::leerInt();
-		IOConsola::limpiarConsola();
+		int opt = MenuUtils::leerInt();
+		MenuUtils::limpiarConsola();
 		switch(opt){
 			case 0:{
 				if (DataCasa*casa=dynamic_cast<DataCasa*>(propiedad)){
@@ -137,13 +131,13 @@ void RutinaModificarPropiedad::modificarDatos() {
 					ctrl->guardarPropiedad(propTemp);
 					delete propiedad;
 					propiedad = propTemp;
-					IOConsola::imprimirConfirmacion("Los datos han sido guardados con exito");
+					MenuUtils::imprimirConfirmacion("Los datos han sido guardados con exito");
 				}else{
 					delete propTemp;
 					cout<<"No se ha modificado la Propiedad ";
 				}
 				salir = true;
-				IOConsola::esperarInput();
+				MenuUtils::esperarInput();
 				break;
 			}
 			case 1:{
