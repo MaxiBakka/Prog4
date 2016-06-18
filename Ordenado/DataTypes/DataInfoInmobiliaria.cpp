@@ -23,19 +23,22 @@ string& DataInfoInmobiliaria::get_email(){
     return this->email;
 }
 
-void imprimirCasasYApartamentos(DataZona* dz){
+void DataInfoInmobiliaria::imprimirCasasYApartamentos(DataZona* dz){
   int cantCasas=0;
   int cantApartamento=0;
+  DataReporteCasa* drc;
+  DataReporteApartamento* dra;
   for(set<DataReportePropiedad*>::iterator it=reportePropiedades->begin();it!=reportePropiedades->end();++it){
-    DatareporteCasa* drc = dynamic_cast<DataReporteCasa*>(*it)
-    if((drc!=NULL) && drc->getDataZona()->get_codigo()==dz->get_codigo() ){
+    DataReportePropiedad* drprop = dynamic_cast<DataReportePropiedad*>(*it);
+    drc = dynamic_cast<DataReporteCasa*>(drprop);
+    if((drc != NULL) && ((drc->getDataZona()->get_codigo()==dz->get_codigo()))){
       cantCasas++;
     }else{
-      DataReporteApartamento* dra = dynamic_cast<DataReporteApartamento*>(*it);
-      if(dra->getDataZona()->get_codigo()==dz->get_codigo())
+     dra = dynamic_cast<DataReporteApartamento*>(drprop);
+      if((dra!=NULL)&&(dra->getDataZona()->get_codigo()==dz->get_codigo()))
         cantApartamento++;
     }
-  }
+ }
   cout << "Cantidad de casas: " << cantCasas <<endl;
   cout << "Cantidad de apartamentos: " << cantApartamento << endl;
 }
