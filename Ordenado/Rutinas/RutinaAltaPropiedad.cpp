@@ -1,10 +1,12 @@
 #include "RutinaAltaPropiedad.h"
-
+#include "RutinaConsultarPropiedad.h"
 #include "DataInfoInmobiliaria.h"
 #include "DataDetallePropiedad.h"
 #include "DataDepartamento.h"
 #include "DataZona.h"
 #include "DataEdificio.h"
+#include "DataCasa.h"
+#include "DataApartamento.h"
 
 #include "ProcesoCancelado.h"
 #include "NoHayDepartamentos.h"
@@ -15,12 +17,19 @@
 #include "NoHayPropiedades.h"
 #include "ExPropiedadNoExistente.h"
 #include "RutinaAltaEdificio.h"
+#include "EdificioNoExistente.h"
+#include "YaExistePropiedad.h"
+#include "PrecioInvalido.h"
+#include "ValoresInvalidos.h"
 
 #include "Factory.h"
 
 #include <iostream>
 #include <set>
 #include <string>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 #include "MenuUtils.h"
 
@@ -30,11 +39,11 @@ using namespace std;
 RutinaAltaPropiedad::RutinaAltaPropiedad(){
 
   ctrl= Factory::getIPropiedadController();
+  srand(time(NULL));
 }
 
 RutinaAltaPropiedad::~RutinaAltaPropiedad(){
-
-delete ctrl;
+if(ctrl!=NULL) delete ctrl;
 }
 
 
@@ -73,7 +82,7 @@ void RutinaAltaPropiedad::seleccionarDepartamento(){
 
 }
 
-void RutinaConsultarPropiedad::seleccionarZona(){
+void RutinaAltaPropiedad::seleccionarZona(){
 
   while (true) {
     try{
@@ -109,48 +118,54 @@ void RutinaConsultarPropiedad::seleccionarZona(){
 }
 
 
-void seleccionarEdificio(){
+void RutinaAltaPropiedad::seleccionarEdificio(){
 	while(true){
+    string nameEd;
+    string nameEdi;
+    set<DataEdificio*>* listaEd;
 		try{
-			bool salir = false;
+
 			MenuUtils::limpiarConsola();
 			cout << "Alta Propiedad - Seleccion de Edificio" << endl;
 			cout << "Edificios en sistema: "<<endl;
-			set<DataEdificio*>* listaEd = ctrl->listarEdificios();
+			 listaEd = ctrl->listarEdificios();
 			cout << *listaEd<< endl<<endl;
+
+			  for(set<DataEdificio*>::iterator it=listaEd->begin();it!=listaEd->end();++it){
+                DataEdificio* dedificio = dynamic_cast<DataEdificio*>(*it);
+                delete dedificio;
+              }
+                listaEd->clear();
+                delete listaEd;
+
 			cout<< "1 - Seleccionar Edificio"<<endl;
 			cout<< "2 - Ingresar Nuevo Edificio"<<endl;
-			cout<< "0 - Salir"<<endl;
 			int opt = MenuUtils::leerInt();
 			MenuUtils::limpiarConsola();
 			switch(opt){
-				case 0:{
-					MenuUtils::limpiarConsola();
-					salir = true;
-					break;
-				}
 				case 1:{
 					cout<<"Ingrese el nombre del edificio: ";
-					string nameEd = MenuUtils::leerString();
-					ctrl->seleccionaEdificio(nameEd);
+					nameEd = MenuUtils::leerString();
+					ctrl->seleccionarEdificio(nameEd);
 					MenuUtils::limpiarConsola();
 					break;
 				}
+
 				case 2:{
-					UserInterface* submenu = new RutinaAltaEdificio();
+					RutinaAltaEdificio* submenu = new RutinaAltaEdificio();
 					submenu->ejecutar();
-					string nameEd = submenu->getNombreEdificio();
-					ctrl->seleccionarEdificio(nameEd);
-					delete subemenu;
+					nameEdi = submenu->getNombreEdificio();
+					ctrl->seleccionarEdificio(nameEdi);
+					delete submenu;
 					break;
 				}
 				default:{
-					cout<<"Opcion Invalida. Intente nuevamente.";
+					cout <<"Opcion Invalida. Intente nuevamente."<< endl;
 					MenuUtils::esperarInput();
 					break;
 				}
 			}
-
+        break;
 		}catch(EdificioNoExistente& e){
 			MenuUtils::limpiarConsola();
 			cout<< e.what()<<endl;
@@ -161,47 +176,53 @@ void seleccionarEdificio(){
 }
 
 void RutinaAltaPropiedad::ingresarAlquilerVenta(){
+float venta;
+float alquiler;
   while(true){
     try{
-      if(MenuUtils::leerOpcion("Esta casa estara a la venta? ")){
+      if(MenuUtils::leerOpcion("Esta propiedad estara a la venta? ")){
         cout << "Ingrese el precio de venta: " << endl;
         venta=MenuUtils::leerFloat();
+        DataVenta*dv= new DataVenta(venta);
+        ctrl->ingresarPrecioVenta(dv);
       }else{
         venta=-1;
       }
-      if(MenuUtils::leerOpcion("Esta casa estara para alquilar? ")){
+      if(MenuUtils::leerOpcion("Esta propiedad estara para alquilar? ")){
         cout << "Ingrese el precio de alquiler: " << endl;
         alquiler=MenuUtils::leerFloat();
+        DataAlquiler*da=new DataAlquiler(alquiler);
+        ctrl->ingresarPrecioAlquiler(da);
       }else{
         alquiler=-1;
       }
       if((venta<0 && alquiler<0)) throw ProcesoCancelado();
+      break;
     }catch(ProcesoCancelado& ){
-        cout << "Error: debe agregar al menos uno de los datos." <<endl;
-        if(MenuUtils::leerOpcion("Desea empezar de nuevo?")){
-          delete ctrl;
-          ctrl = Factory::getIPropiedadController();
-        }else{
-          break;
-        }
+        cout << "Error: debe ingresar al menos un precio de oferta." <<endl;
+        if(!MenuUtils::leerOpcion("Desea empezar de nuevo?")) break;
+
+    }catch(PrecioInvalido& e){
+
+        cout << e.what() << endl;
+        if(!MenuUtils::leerOpcion("Desea empezar de nuevo?"))throw ProcesoCancelado();
     }
   }
 }
 
 void RutinaAltaPropiedad::ingresarNuevaCasa(){
   while(true){
-    DataPropiedad* dprop;
-    DataCasa* dcasa;
+    DataPropiedad* dcasa;
     try{
 
       cout << "Ingresar una nueva Casa: " << endl<<endl;
       int cod,cAmbientes,dormitorios,banios;
+      string direccion;
       bool garaje;
-      float alquiler,venta,m2totales,m2edificados,m2totales,espacioverde;
+      float m2totales,m2edificados,espacioverde;
       cout << "Ingreso de datos: " <<endl<<endl;
-      //el usuario ingresa el codigo de la casa
-      cout << "Ingrese el codigo: " << endl;
-      cod=MenuUtils::leerInt();
+      //se genera randomicamente el codigo de la casa
+      cod= rand() % 3000 + 3000;
       //el ususario ingresa la cantidad de ambientes de la casa
       cout << "Ingrese la cantidad de ambientes: " <<endl;
       cAmbientes=MenuUtils::leerInt();
@@ -212,7 +233,10 @@ void RutinaAltaPropiedad::ingresarNuevaCasa(){
       cout << "Ingrese la cantidad de banios: " << endl;
       banios=MenuUtils::leerInt();
       //el ususario ingresa si tiene garaje o no
-      banios=MenuUtils::leerOpcion("Tiene garage? ");
+      cout << "Ingrese la direccion de la propiedad: " << endl;
+      direccion= MenuUtils::leerString();
+
+      garaje=MenuUtils::leerOpcion("Tiene garage? ");
       //el ususario ingresa el precio de venta y/o el de alquiler
       //siendo obligatorio ingresar al menos uno de los dos
       ingresarAlquilerVenta();
@@ -223,29 +247,29 @@ void RutinaAltaPropiedad::ingresarNuevaCasa(){
       cout << "Ingrese los m2 de espacio verde: " << endl;
       espacioverde = MenuUtils::leerFloat();
       //se calcula los m2 totales
-      m2totales=espacioverde+m2edificados;
+      m2totales=espacioverde + m2edificados;
       ////el ususario confirma los datos
+      float f=0,f1=0;
       if(MenuUtils::leerOpcion("Desea confirmar estos datos?")){
-        dcasa = new DataCasa(cod,cAmbientes,dormitorios,banios,direccion,garaje,venta,alquiler,m2totales,m2edificados,espacioverde);
-        dprop = dynamic_cast<DataPropiedad*>(dcasa);
-        ctrl->ingresarNuevaCasa(dprop);
-        delete dcasa;
-        delete dprop;
+        dcasa = new DataCasa(cod,cAmbientes,dormitorios,banios,direccion,garaje,f,f1,m2totales,m2edificados,espacioverde);
+
+        ctrl->ingresarNuevaCasa(dcasa);
         cout << "Datos ingresado correctamente"<< endl;
+        ctrl->confirmarAltaPropiedad();
+        cout<< "Propiedad ingresada con exito" << endl;
+
         MenuUtils::esperarInput();
         break;
       }else{
         if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
       }
     }catch(YaExistePropiedad& e){
-        if(dcasa!=NULL){delete dcasa};
-        if(dprop!=NULL){delete dprop};
+        if(dcasa!=NULL){delete dcasa;}
         cout << e.what() << endl;
         //en caso de error se le pregunta al usuario si desea continuar
         if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
     }catch(ValoresInvalidos& exc){
-      if(dcasa!=NULL){delete dcasa};
-      if(dprop!=NULL){delete dprop};
+      if(dcasa!=NULL){delete dcasa;}
       cout << exc.what() << endl;
       //en caso de error se le pregunta al usuario si desea continuar
       if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
@@ -255,28 +279,23 @@ void RutinaAltaPropiedad::ingresarNuevaCasa(){
 
 void RutinaAltaPropiedad::ingresarNuevoApartamento(){
   while(true){
-    DataPropiedad* dprop;
-    DataApartamento* dapto;
+    DataPropiedad* dapto;
+
     try{
-      string nameEdificio;
-      cout << "Ingresar un nuevo Apartamento: " << endl<<endl;
-      cout << "Listado de Edificios: " <<endl<<endl;
-      set<DataEdificio*>* edificios = ctrl->listarEdificios();
-      for(set<DataEdificio*>::iterator it=edificios->begin();it!=edificios->end();++it){
-        DataEdificio* dedificio = dynamic_cast<DataEdificio*>(*it);
-        cout << dedificio;
-        delete dedificio;
-      }
+    cout << "Ingresar un nuevo Apartamento: " << endl<<endl;
+
+
       seleccionarEdificio();
       MenuUtils::limpiarConsola();
+
       cout <<  "Ingresar los datos del Apartamento: "<<endl<<endl;
       int cod,cAmbientes,dormitorios,banios;
       bool garaje;
-      float alquiler,venta,m2totales,m2edificados,m2totales;
+      string direccion;
+      float m2edificados,m2totales;
       cout << "Ingreso de datos: " <<endl<<endl;
-      //el usuario ingresa el codigo del Apartamento
-      cout << "Ingrese el codigo: " << endl;
-      cod=MenuUtils::leerInt();
+      //se genera randomicamentecodigo del Apartamento
+      cod= rand() % 3000 + 3000;
       //el ususario ingresa la cantidad de ambientes del Apartamento
       cout << "Ingrese la cantidad de ambientes: " <<endl;
       cAmbientes=MenuUtils::leerInt();
@@ -286,9 +305,12 @@ void RutinaAltaPropiedad::ingresarNuevoApartamento(){
       //el ususario ingresa la cantidad de banios
       cout << "Ingrese la cantidad de banios: " << endl;
       banios=MenuUtils::leerInt();
+       cout << "Ingrese la direccion de la propiedad: " << endl;
+      direccion= MenuUtils::leerString();
       //el ususario ingresa si tiene garaje o no
-      banios=MenuUtils::leerOpcion("Tiene garage? ");
+      garaje=MenuUtils::leerOpcion("Tiene garage? ");
       //el ususario ingresa el precio de venta y/o el de alquiler
+
       //siendo obligatorio ingresar al menos uno de los dos
       ingresarAlquilerVenta();
       //el ususario ingresa los metros edificados
@@ -297,27 +319,30 @@ void RutinaAltaPropiedad::ingresarNuevoApartamento(){
       //se calcula los m2 totales
       m2totales=m2edificados;
       ////el ususario confirma los datos
+
+
       if(MenuUtils::leerOpcion("Desea confirmar estos datos?")){
-        dapto = new DataApartamento(cod,cAmbientes,dormitorios,banios,direccion,garaje,venta,alquiler,m2totales,m2edificados);
-        dprop = dynamic_cast<DataPropiedad*>(dapto);
-        ctrl->ingresarNuevaCasa(dprop);
-        delete dapto;
-        delete dprop;
+        dapto = new DataApartamento(cod,cAmbientes,dormitorios,banios,direccion,garaje,(float)(0),(float)(0),m2totales,m2edificados);
+        ctrl->ingresarNuevoApartamento(dapto);
         cout << "Datos ingresado correctamente"<< endl;
+
+        ctrl->confirmarAltaPropiedad();
+        cout<< "Propiedad ingresada con exito" << endl;
+
         MenuUtils::esperarInput();
         break;
       }else{
         if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
       }
     }catch(YaExistePropiedad& e){
-        if(dcasa!=NULL){delete dcasa};
-        if(dprop!=NULL){delete dprop};
+        if(dapto!=NULL){delete dapto;}
+
         cout << e.what() << endl;
         //en caso de error se le pregunta al usuario si desea continuar
         if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
     }catch(ValoresInvalidos& exc){
-      if(dcasa!=NULL){delete dcasa};
-      if(dprop!=NULL){delete dprop};
+      if(dapto!=NULL){delete dapto;}
+
       cout << exc.what() << endl;
       //en caso de error se le pregunta al usuario si desea continuar
       if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
@@ -325,7 +350,7 @@ void RutinaAltaPropiedad::ingresarNuevoApartamento(){
   }
 }
 
-void RutinaConsultarPropiedad::ejecutar(){
+void RutinaAltaPropiedad::ejecutar(){
 
 	while(true){
 		try{
@@ -337,27 +362,27 @@ void RutinaConsultarPropiedad::ejecutar(){
 				int opt = MenuUtils::leerInt();
 				MenuUtils::limpiarConsola();
 				switch(opt){
-					case 0:{
+					case 0:
 						MenuUtils::limpiarConsola();
 						salir = true;
 						break;
-					}
 					case 1:{
+					    seleccionarDepartamento();
 						seleccionarZona();
-						seleccionarDepartamento();
-            //ahora decide si ingresar una casa o un apartamento
-            cout << "Que tipo de Propiedad desea dar de alta? " << endl << endl;
+
+                    //ahora decide si ingresar una casa o un apartamento
+                    cout << "Que tipo de Propiedad desea dar de alta? " << endl << endl;
     				cout << "1 - Casa" << endl;
     				cout << "0 - Apartamento" << endl;
     				int opt = MenuUtils::leerInt();
     				MenuUtils::limpiarConsola();
-            if(opt==1){
-              ingresarNuevaCasa();
-            }else{
-              ingresarNuevoApartamento();
-            }
-						break;
-					}
+                        if(opt==1){
+                          ingresarNuevaCasa();
+                        }else{
+                          ingresarNuevoApartamento();
+                        }
+                        break;
+                    }
 					default:{
 						cout<<"Opcion Invalida. Intente nuevamente.";
 						MenuUtils::esperarInput();
@@ -366,10 +391,21 @@ void RutinaConsultarPropiedad::ejecutar(){
 				}
 			}
 			MenuUtils::limpiarConsola();
-			if(!MenuUtils::leerOpcion("Desea dar de alta otra Propiedad? ")) break;
+			if(MenuUtils::leerOpcion("Desea dar de alta otra Propiedad? ")) {
+                  delete ctrl;
+                  ctrl = Factory::getIPropiedadController();
+            }else{
+                break;
+            }
 		}catch(ProcesoCancelado&){
-			MenuUtils::imprimirError("Alta Propiedad cancelada");
+			cout << "Alta Propiedad cancelada"<<endl ;
 			if(!MenuUtils::leerOpcion("Desea dar de alta otra Propiedad? ")) break;
-		}
+		}catch(ExNoHayZonas&e ){
+
+        cout << e.what() << endl;
+
+        if(!MenuUtils::leerOpcion("Desea intentar nuevamente?")) break;
+
+    }
 	}
 }

@@ -39,9 +39,10 @@ PropiedadController::~PropiedadController(){
     if (dv!= NULL) delete dv;
       if (dp != NULL) delete dp;
 
-  dpto=NULL;
-  edificio=NULL;
-  zona=NULL;
+if(dpto!=NULL)  this->dpto=NULL;
+
+if(edificio!=NULL) this->edificio=NULL;
+  if(zona!=NULL)this->zona=NULL;
 
 }
 
@@ -54,21 +55,21 @@ Inmobiliaria*i= dynamic_cast<Inmobiliaria*>(sesion->getUsuario());
 Oferta*oferta;
   if (da!=NULL && dv!=NULL) {
     oferta = new Oferta(new Venta(dv->get_precio()),new Alquiler(da->get_precio()),NULL,i);
-    delete dv;
-    delete da;
+    //delete dv;
+    //delete da;
   } else if (da!=NULL) {
     oferta = new Oferta(NULL,new Alquiler(da->get_precio()),NULL,i);
-    delete da;
+    //delete da;
   } else {
     oferta = new Oferta(new Venta(dv->get_precio()),NULL,NULL,i);
-    delete dv;
+   // delete dv;
   }
 
   ManejadorPropiedades*mp= ManejadorPropiedades::getInstancia();
   this->propiedad=mp->crearPropiedad(dp,zona,oferta,edificio);
   i->AgregarOferta(oferta);
 
-   delete dp;
+  // delete dp;
    propiedad=NULL;
    zona=NULL;
    edificio=NULL;

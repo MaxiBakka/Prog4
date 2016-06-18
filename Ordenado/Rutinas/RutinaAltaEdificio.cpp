@@ -61,16 +61,13 @@ void RutinaAltaEdificio::IngresarEdificio(){
 
 RutinaAltaEdificio::RutinaAltaEdificio(){
   this->ctrl = Factory::getIPropiedadController();
-  nombreEdificioEdificio = "";
+  nombreEdificio = "";
 }
 
 RutinaAltaEdificio::~RutinaAltaEdificio(){
-  if(ctrl!=NULL;) delete ctrl;
+  if(ctrl!=NULL) delete ctrl;
 }
 
-RutinaAltaEdificio::~RutinaAltaEdificio(){
-    delete ctrl;
-}
 
 void RutinaAltaEdificio::ejecutar(){
   while(true){
@@ -103,6 +100,6 @@ void RutinaAltaEdificio::ejecutar(){
 
 
 
-RutinaAltaEdificio::getNombreEdificio(){
+string RutinaAltaEdificio::getNombreEdificio(){
 	return this->nombreEdificio;
 }
