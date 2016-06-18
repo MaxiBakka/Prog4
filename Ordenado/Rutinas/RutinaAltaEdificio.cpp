@@ -17,7 +17,6 @@ void RutinaAltaEdificio::IngresarEdificio(){
     DataEdificio* de=NULL;
     try{
 
-      string nombre;
       int cantPisos;
       float gComunes;
 
@@ -25,9 +24,9 @@ void RutinaAltaEdificio::IngresarEdificio(){
 
       cout << "Alta Edificio - Ingrese sus datos" << endl;
 
-      //el usuario ingresa su email
+      //el usuario ingresa el nombre del edificio
       cout << "Ingrese el nombre: ";
-      nombre = MenuUtils::leerString();
+      nombreEdificio = MenuUtils::leerString();
       //el usuario ingresa la cantidad de pisos
       cout << "Ingrese la cantidad de pisos: ";
       cantPisos=MenuUtils::leerInt();
@@ -36,7 +35,7 @@ void RutinaAltaEdificio::IngresarEdificio(){
       gComunes=MenuUtils::leerFloat();
 
 
-      de = new DataEdificio(nombre,cantPisos,gComunes);
+      de = new DataEdificio(nombreEdificio,cantPisos,gComunes);
 
       MenuUtils::limpiarConsola();
       cout << *de;
@@ -62,6 +61,11 @@ void RutinaAltaEdificio::IngresarEdificio(){
 
 RutinaAltaEdificio::RutinaAltaEdificio(){
   this->ctrl = Factory::getIPropiedadController();
+  nombreEdificioEdificio = "";
+}
+
+RutinaAltaEdificio::~RutinaAltaEdificio(){
+  if(ctrl!=NULL;) delete ctrl;
 }
 
 RutinaAltaEdificio::~RutinaAltaEdificio(){
@@ -95,4 +99,10 @@ void RutinaAltaEdificio::ejecutar(){
         }
     }
   }
+}
+
+
+
+RutinaAltaEdificio::getNombreEdificio(){
+	return this->nombreEdificio;
 }
