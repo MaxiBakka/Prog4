@@ -4,6 +4,7 @@
 #include "DataDetallePropiedad.h"
 #include "DataDepartamento.h"
 #include "DataZona.h"
+#include "DataEdificio.h"
 
 #include "ProcesoCancelado.h"
 #include "NoHayDepartamentos.h"
@@ -257,8 +258,18 @@ void RutinaAltaPropiedad::ingresarNuevoApartamento(){
     DataPropiedad* dprop;
     DataApartamento* dapto;
     try{
-
+      string nameEdificio;
       cout << "Ingresar un nuevo Apartamento: " << endl<<endl;
+      cout << "Listado de Edificios: " <<endl<<endl;
+      set<DataEdificio*>* edificios = ctrl->listarEdificios();
+      for(set<DataEdificio*>::iterator it=edificios->begin();it!=edificios->end();++it){
+        DataEdificio* dedificio = dynamic_cast<DataEdificio*>(*it);
+        cout << dedificio;
+        delete dedificio;
+      }
+      seleccionarEdificio();
+      MenuUtils::limpiarConsola();
+      cout <<  "Ingresar los datos del Apartamento: "<<endl<<endl;
       int cod,cAmbientes,dormitorios,banios;
       bool garaje;
       float alquiler,venta,m2totales,m2edificados,m2totales;
@@ -334,8 +345,17 @@ void RutinaConsultarPropiedad::ejecutar(){
 					case 1:{
 						seleccionarZona();
 						seleccionarDepartamento();
-
-						MenuUtils::limpiarConsola();
+            //ahora decide si ingresar una casa o un apartamento
+            cout << "Que tipo de Propiedad desea dar de alta? " << endl << endl;
+    				cout << "1 - Casa" << endl;
+    				cout << "0 - Apartamento" << endl;
+    				int opt = MenuUtils::leerInt();
+    				MenuUtils::limpiarConsola();
+            if(opt==1){
+              ingresarNuevaCasa();
+            }else{
+              ingresarNuevoApartamento();
+            }
 						break;
 					}
 					default:{
@@ -346,10 +366,10 @@ void RutinaConsultarPropiedad::ejecutar(){
 				}
 			}
 			MenuUtils::limpiarConsola();
-			if(!MenuUtils::leerOpcion("Desea modificar otra propiedad?")) break;
+			if(!MenuUtils::leerOpcion("Desea dar de alta otra Propiedad? ")) break;
 		}catch(ProcesoCancelado&){
-			MenuUtils::imprimirError("Modificacion cancelada.");
-			if(!MenuUtils::leerOpcion("Desea modificar otra propiedad?")) break;
+			MenuUtils::imprimirError("Alta Propiedad cancelada");
+			if(!MenuUtils::leerOpcion("Desea dar de alta otra Propiedad? ")) break;
 		}
-		}
+	}
 }
