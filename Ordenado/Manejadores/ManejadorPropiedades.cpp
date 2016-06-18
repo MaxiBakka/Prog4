@@ -3,7 +3,7 @@
 #include "DataApartamento.h"
 #include "Casa.h"
 #include "Apartamento.h"
-//#include "EsPropiedadNoExistente.h"
+#include "ExPropiedadNoExistente.h"
 
 #include <utility>
 

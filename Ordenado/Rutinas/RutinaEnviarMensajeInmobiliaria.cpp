@@ -140,6 +140,12 @@ void RutinaEnviarMensajeInmobiliaria::ejecutar(){
       //se le pregunta al usuario si desea enviar un nuevo mensaje
       if(MenuUtils::leerOpcion("Desea enviar un nuevo Mensaje? ")){
           enviarMensaje();
+          if(MenuUtils::leerOpcion("Desea empezar de nuevo?")){
+            delete ctrl;
+            ctrl = Factory::getIEnviarMenajeController();
+          }else{
+            break;
+          }
       }else{
         throw ProcesoCancelado();
       }

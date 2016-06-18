@@ -50,6 +50,7 @@ void RutinaAltaEdificio::IngresarEdificio(){
         delete de;
         if(!MenuUtils::leerOpcion("Desea Intentarlo Nuevamente?")) throw ProcesoCancelado();
       }
+      MenuUtils::limpiarConsola();
     }catch(ExisteEdificio& e){
       if (de!=NULL) delete de;
       cout << e.what() << endl;
@@ -61,6 +62,10 @@ void RutinaAltaEdificio::IngresarEdificio(){
 
 RutinaAltaEdificio::RutinaAltaEdificio(){
   this->ctrl = Factory::getIPropiedadController();
+}
+
+RutinaAltaEdificio::~RutinaAltaEdificio(){
+    delete ctrl;
 }
 
 void RutinaAltaEdificio::ejecutar(){
