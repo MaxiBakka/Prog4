@@ -30,15 +30,14 @@ void MenuAdministradores::ejecutarOpcion(int opc) {
         salir=true;
 		break;
 	case 1:
-		submenu= new RutinaAltaInmobiliaria();
+		submenu = new RutinaAltaInmobiliaria();
 		break;
 
 	case 2:
-		submenu= new RutinaAltaInteresado();
+		submenu = new RutinaAltaInteresado();
 		break;
 	case 3:
-		//IUsuarioController::ObtnerReportedato);
-		//ImprimirDatos
+		submenu = new RutinaObtenerReporteInmobiliarias();
 		break;
 	default:
 		throw ExOpcionInvalida();

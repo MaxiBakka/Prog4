@@ -26,7 +26,7 @@ void Menu::ejecutar(){
 			MenuUtils::limpiarConsola();
 			presentar();
 			if (errorIngreso) {
-				cout << "Opcion inv�lida. Intente nuevamente."<< endl;
+				cout << "Opcion invalida. Intente nuevamente."<< endl;
 				errorIngreso = false;
 			}
 			leerOpcion();

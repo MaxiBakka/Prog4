@@ -1,8 +1,7 @@
 #include "../../UserInterface.h"
 #include "IModificarPropiedadController.h"
+#include "DataPropiedad.h"
 
-class DataPropiedad;
-class IPropiedadController;
 
 #ifndef RUTINA_MODIFICAR_PROPIEDAD_H_
 #define RUTINA_MODIFICAR_PROPIEDAD_H_
