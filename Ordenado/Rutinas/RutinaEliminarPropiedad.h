@@ -7,10 +7,10 @@ using namespace std;
 
 class IPropiedadController;
 
-class RutinaConsultarPropiedad: public UserInterface {
+class RutinaEliminarPropiedad: public UserInterface {
 private:
 	IPropiedadController* ctrl;
-	void eliminarDepartamento();
+	void eliminarPropiedad();
 public:
 	RutinaEliminarPropiedad();
 	void ejecutar();

@@ -3,6 +3,12 @@
 #include "Sesion.h"
 #include "Hora.h"
 #include "Fecha.h"
+#include "Factory.h"
+#include "NoExisteChat.h"
+#include "ProcesoCancelado.h"
+#include "ExNoHayMensajes.h"
+#include "NoHayConversaciones.h"
+
 
 #include <iostream>
 #include <map>
@@ -10,22 +16,24 @@
 #include <string>
 #include <time.h>
 
-#include "../MenuUtils"
+#include "MenuUtils.h"
 
 using namespace std;
 
 RutinaEnviarMensajeInmobiliaria::RutinaEnviarMensajeInmobiliaria(){
-  ctrl->Factory::getIEnviarMensajeInmobiliaria();
+  ctrl= Factory::getIEnviarMenajeController();
 }
 
-RutinaModificarPropiedad::~RutinaModificarPropiedad(){
-  chat=NULL;
+RutinaEnviarMensajeInmobiliaria::~RutinaEnviarMensajeInmobiliaria(){
+
   delete ctrl;
 }
 
-void RutinaConsultarPropiedad::seleccionarChat(){
+void RutinaEnviarMensajeInmobiliaria::seleccionarChat(){
   while(true){
+    DataChat* dc;
     try{
+
       cout << "Sus conversaciones existentes: "<<endl<<endl;
       set<DataChat*>* chats = ctrl->listarChats();
       for(set<DataChat*>::iterator it = chats->begin();it!=chats->end();++it){
@@ -33,10 +41,12 @@ void RutinaConsultarPropiedad::seleccionarChat(){
         cout << *c << endl;
         delete c;
       }
+
+      chats->clear();
       delete chats;
       cout << endl;
       int cod;
-      string emailInteresado,emailInmobiliaria;
+      string emailInteresado,nombreInmobiliaria;
       cout << "Seleccionar conversacion: " << endl;
       //el ususario ingresa el codigo de la propiedad
       cout << "Ingrese el codigo de la propiedad: " ;
@@ -47,12 +57,12 @@ void RutinaConsultarPropiedad::seleccionarChat(){
       //obtengo el email de la inmobiliaria que tiene sesion iniciada
       Sesion* s=Sesion::getInstancia();
       Usuario* u= s->getUsuario();
-      emailInmobiliaria=u->get_email();
-      DataChat* dc = new DataChat(emailInteresado,emailInmobiliaria,cod);
-      chat = ctrl->seleccionarChat(c);
+      nombreInmobiliaria=u->get_email();
+       dc = new DataChat(emailInteresado,nombreInmobiliaria,cod);
+        ctrl->seleccionarChat(dc);
       break;
     }catch(NoExisteChat& e){
-      if(dc!=NULL){delete dc};
+      if(dc!=NULL){delete dc;}
       cout<<e.what()<<endl;
       //en caso de error se le pregunta al usuario si desea continuar
       if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
@@ -62,7 +72,6 @@ void RutinaConsultarPropiedad::seleccionarChat(){
 
 void RutinaEnviarMensajeInmobiliaria::enviarMensaje(){
   while(true){
-    try{
       cout << "Enviar nuevo Mensaje: "<<endl<<endl;
 
       string texto;
@@ -89,29 +98,19 @@ void RutinaEnviarMensajeInmobiliaria::enviarMensaje(){
       delete f;
       delete h;
       if(MenuUtils::leerOpcion("Desea confirmar estos datos?")){
-        ctrl->IngresarInteresado(di);
-        delete di;
+        ctrl->enviarMensaje(dm);
+        delete dm;
         cout << "Datos ingresado correctamente"<< endl;
         MenuUtils::esperarInput();
-        break;
+        if(!MenuUtils::leerOpcion("Desea enviar un nuevo mensaje?")) break;
+
       }else{
-        delete di;
+        delete dm;
+        if(f!=NULL){delete f;}
+        if(h!=NULL){delete h;}
         if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
       }
-    }catch(ProcesoCancelado& ){
-      if(f!=NULL){delete f};
-      if(h!=NULL){delete h};
-      if(di!=NULL){delete di};
 
-      cout << "Error: se cancelo el envio del Mensaje" << endl;
-
-      if(MenuUtils::leerOpcion("Desea empezar de nuevo?")){
-        delete ctrl;
-        ctrl = Factory::getIUsuarioController();
-      }else{
-        break;
-      }
-    }
   }
 }
 
@@ -121,18 +120,28 @@ void RutinaEnviarMensajeInmobiliaria::ejecutar(){
       cout << "Bienvenida Inmobiliaria" << endl;
       seleccionarChat();
       //se listan los mensajes del chat seleccionado
-      set<DataMensaje*>* mensajes= ctrl->listarMensajes();
-      for(set<DataMensaje*>::iterator it = mensajes->begin();it!=mensajes->end();++it){
+      try{
+        set<DataMensaje*>* mensajes= ctrl->listarMensajes();
+        for(set<DataMensaje*>::iterator it = mensajes->begin();it!=mensajes->end();++it){
         DataMensaje* dm = dynamic_cast<DataMensaje*>(*it);
         cout << *dm;
         delete dm;
+        }
+
+        delete mensajes;
+
+      }catch(ExNoHayMensajes& e){
+         cout << e.what() << endl;
+      //en caso de error se le pregunta al usuario si desea continuar
+      if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
+
       }
-      delete mensajes;
+
       //se le pregunta al usuario si desea enviar un nuevo mensaje
       if(MenuUtils::leerOpcion("Desea enviar un nuevo Mensaje? ")){
           enviarMensaje();
       }else{
-        break;
+        throw ProcesoCancelado();
       }
     }catch(ProcesoCancelado& ){
 
@@ -140,14 +149,15 @@ void RutinaEnviarMensajeInmobiliaria::ejecutar(){
 
           if(MenuUtils::leerOpcion("Desea empezar de nuevo?")){
             delete ctrl;
-            ctrl = Factory::getIUsuarioController();
+            ctrl = Factory::getIEnviarMenajeController();
           }else{
             break;
           }
-    }catch(ExNoHayMensajes* e){
-      cout << e.what() << endl;
-      //en caso de error se le pregunta al usuario si desea continuar
-      if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
+    }catch(NoHayConversaciones &e){
+        cout << e.what() << endl ;
+
+        MenuUtils::esperarInput();
+        break;
     }
   }
 }
