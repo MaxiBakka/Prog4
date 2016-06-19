@@ -1,7 +1,7 @@
 #ifndef VENTA_H
 #define	VENTA_H
 
-#include "DataVenta.h"
+#include "../DataTypes/DataVenta.h"
 
 class Venta {
 private:

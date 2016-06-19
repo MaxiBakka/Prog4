@@ -8,11 +8,11 @@
 #include "Chat.h"
 #include "Venta.h"
 #include "Alquiler.h"
-#include "DataMensaje.h"
-#include "DataInfoPropiedad.h"
-#include "DataReportePropiedad.h"
-#include "DataPropiedad.h"
-#include "DataDetallePropiedad.h"
+#include "../DataTypes/DataMensaje.h"
+#include "../DataTypes/DataInfoPropiedad.h"
+#include "../DataTypes/DataReportePropiedad.h"
+#include "../DataTypes/DataPropiedad.h"
+#include "../DataTypes/DataDetallePropiedad.h"
 
 class Zona; //fwd declaration
 class Oferta;

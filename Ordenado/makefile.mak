@@ -53,7 +53,6 @@ DataInmobiliaria:
 DataMensaje: Hora Fecha
 	g++ -o ./obj/DataMensaje.o -c ./src/DataTypes/DataMensaje.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataMensaje.o
-
 DataReporteApartamento: DataReportePropiedad
 	g++ -o ./obj/DataReporteApartamento.o -c ./src/DataTypes/DataReporteApartamento.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataReporteApartamento.o
@@ -63,55 +62,69 @@ DataReporteCasa: DataReportePropiedad
 
 
 	
-DataTypes: DataVenta DataZona DataInteresado Fecha Hora DataAlquiler DataChat DataDepartamento DataDetallePropiedad DataEdificio DataPropiedad DataApartamento DataCasa DataReportePropiedad DataInfoInmobiliaria DataInfoPropiedad DataInmobiliaria DataMensaje DataReporteApartamento DataReporteCasa
+DataTypes: DataVenta DataZona DtInteresado Fecha Hora DataAlquiler DataChat DataDepartamento DataDetallePropiedad DataEdificio DataPropiedad DataApartamento DataCasa DataReportePropiedad DataInfoInmobiliaria DataInfoPropiedad DataInmobiliaria DataMensaje DataReporteApartamento DataReporteCasa
 	
 #excepciones
 EstudianteNoInscripto: 
-	g++ -o ./obj/EstudianteNoInscripto.o -c ./src/exceptions/EstudianteNoInscripto.cpp
+	g++ -Wall -Werror -o ./obj/EstudianteNoInscripto.o -c ./src/exceptions/EstudianteNoInscripto.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/EstudianteNoInscripto.o
 NoExAsignatura:	
-	g++ -o ./obj/NoExAsignatura.o -c ./src/exceptions/NoExAsignatura.cpp
+	g++ -Wall -Werror -o ./obj/NoExAsignatura.o -c ./src/exceptions/NoExAsignatura.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/NoExAsignatura.o
 NoExEmpresa:
-	g++ -o ./obj/NoExEmpresa.o -c ./src/exceptions/NoExEmpresa.cpp
+	g++ -Wall -Werror -o ./obj/NoExEmpresa.o -c ./src/exceptions/NoExEmpresa.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/NoExEmpresa.o
 NoExEstudiante:	
-	g++ -o ./obj/NoExEstudiante.o -c ./src/exceptions/NoExEstudiante.cpp
+	g++ -Wall -Werror -o ./obj/NoExEstudiante.o -c ./src/exceptions/NoExEstudiante.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/NoExEstudiante.o
 NoExisteSeccion:	
-	g++ -o ./obj/NoExisteSeccion.o -c ./src/exceptions/NoExisteSeccion.cpp
+	g++ -Wall -Werror -o ./obj/NoExisteSeccion.o -c ./src/exceptions/NoExisteSeccion.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/NoExisteSeccion.o
 NoExisteSucursal:
-	g++ -o ./obj/NoExisteSucursal.o -c ./src/exceptions/NoExisteSucursal.cpp
+	g++ -Wall -Werror -o ./obj/NoExisteSucursal.o -c ./src/exceptions/NoExisteSucursal.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/NoExisteSucursal.o
 NoExOfertaLaboral:
-	g++ -o ./obj/NoExOfertaLaboral.o -c ./src/exceptions/NoExOfertaLaboral.cpp
+	g++ -Wall -Werror -o ./obj/NoExOfertaLaboral.o -c ./src/exceptions/NoExOfertaLaboral.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/NoExOfertaLaboral.o
 OfertaLaboralVigente:
-	g++ -o ./obj/OfertaLaboralVigente.o -c ./src/exceptions/OfertaLaboralVigente.cpp
+	g++ -Wall -Werror -o ./obj/OfertaLaboralVigente.o -c ./src/exceptions/OfertaLaboralVigente.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/OfertaLaboralVigente.o
 YaExisteOferta:
-	g++ -o ./obj/YaExisteOferta.o -c ./src/exceptions/YaExisteOferta.cpp
+	g++ -Wall -Werror -o ./obj/YaExisteOferta.o -c ./src/exceptions/YaExisteOferta.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/YaExisteOferta.o
 ExOpcionInvalida: 
-	g++ -o ./obj/ExOpcionInvalida.o -c ./src/exceptions/ExOpcionInvalida.cpp
+	g++ -Wall -Werror -o ./obj/ExOpcionInvalida.o -c ./src/exceptions/ExOpcionInvalida.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/ExOpcionInvalida.o
 	
-Excepciones: ExOpcionInvalida EstudianteNoInscripto NoExAsignatura NoExEmpresa NoExEstudiante NoExisteSeccion NoExisteSucursal NoExOfertaLaboral OfertaLaboralVigente YaExisteOferta
+Excepciones: 
 
 #manejadores
 ManejadorTiempo : Date
-	g++ -o ./obj/ManejadorTiempo.o -c ./src/manejadores/ManejadorTiempo.cpp
+	g++ -Wall -Werror -o ./obj/ManejadorTiempo.o -c ./src/manejadores/ManejadorTiempo.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/ManejadorTiempo.o
 
 
 
 #interfaces
+IPropiedadController:
+	g++ -Wall -Werror -o ./obj/ManejadorTiempo.o -c ./src/manejadores/ManejadorTiempo.cpp
+	ar rvs ./lib/libTarea2.lib ./obj/ManejadorTiempo.o
 
+IUsuarioController:
+ 
+IPropiedadController:
+ 
+IEnviarMensajeController:
+ 
+IModificarPropiedadController:
+ 
+ICargarDatosController: 
 
 
 #fabrica
-
+Factory: IPropiedadController UsuarioController PropiedadController EnviarMensajeController ModificarPropiedadController CargarDatosController 
+	g++ -o ./obj/Factory.o -c ./src/Fabrica/Factory.cpp
+	ar rvs ./lib/libTarea2.lib ./obj/Factory.o
 
 
 
@@ -178,6 +191,9 @@ Rutinas : RutinaConfigurarFecha RutinaAltaEntrevista RutinaAltaOfertaLaboral Rut
 
 
 #menues
+MenuUtils : 
+	g++ -o ./obj/MenuUtils.o -c ./src/Menus/MenuUtils.cpp
+	ar rvs ./lib/libTarea2.lib ./obj/MenuUtils.o
 Menu : UserInterface ExOpcionInvalida MenuUtils
 	g++ -o ./obj/Menu.o -c ./src/Menus/Menu.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/Menu.o
@@ -193,13 +209,11 @@ MenuInteresados : ExOpcionInvalida RutinaConsultarPropiedad RutinaCerrarSesion R
 MenuPrincipal : MenuInteresados MenuInmobiliarias MenuAdministradores RutinaInicioSesion Sesion Interesado Inmobiliaria Administrador ExOpcionInvalida
 	g++ -o ./obj/MenuPrincipal.o -c ./src/Menus/MenuPrincipal.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/MenuPrincipal.o
-MenuUtils : 
-	g++ -o ./obj/MenuUtils.o -c ./src/Menus/MenuUtils.cpp
-	ar rvs ./lib/libTarea2.lib ./obj/MenuUtils.o
+
 	
 #mains
-BuscoFingJobs: MenuPrincipal
-	g++ -o ./bin/BuscoFingJobs -Wall ./src/BuscoFingJobs.cpp ./lib/libTarea2.lib
+MiCasa: MenuPrincipal
+	g++ -o ./bin/MiCasa -Wall ./src/MiCasa.cpp ./lib/libTarea2.lib
 
 clean:
 	rm ./lib/*.lib
