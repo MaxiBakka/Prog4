@@ -16,11 +16,11 @@ Hora:
 	ar rvs ./lib/libTarea2.lib ./obj/Hora.o
 DataAlquiler:
 	g++ -o ./obj/DataAlquiler.o -c ./src/DataTypes/DataAlquiler.cpp
-	ar rvs ./lib/libTarea2.lib ./obj/DataAlquiler.o 
-DataChat: 
+	ar rvs ./lib/libTarea2.lib ./obj/DataAlquiler.o
+DataChat:
 	g++ -o ./obj/DataChat.o -c ./src/DataTypes/DataChat.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataChat.o
-DataDepartamento: 
+DataDepartamento:
 	g++ -o ./obj/DataDepartamento.o -c ./src/DataTypes/DataDepartamento.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataDepartamento.o
 DataDetallePropiedad:
@@ -28,14 +28,14 @@ DataDetallePropiedad:
 	ar rvs ./lib/libTarea2.lib ./obj/DataDetallePropiedad.o
 DataEdificio:
 	g++ -o ./obj/DataEdificio.o -c ./src/DataTypes/DataEdificio.cpp
-	ar rvs ./lib/libTarea2.lib ./obj/DataEdificio.o	
+	ar rvs ./lib/libTarea2.lib ./obj/DataEdificio.o
 DataPropiedad: DataAlquiler DataVenta
 	g++ -o ./obj/DataPropiedad.o -c ./src/DataTypes/DataPropiedad.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataPropiedad.o
 DataApartamento: DataPropiedad
 	g++ -o ./obj/DataApartamento.o -c ./src/DataTypes/DataApartamento.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataApartamento.o
-DataCasa: DataPropiedad 
+DataCasa: DataPropiedad
 	g++ -o ./obj/DataCasa.o -c ./src/DataTypes/DataCasa.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataCasa.o
 DataReportePropiedad: DataZona DataDepartamento
@@ -61,23 +61,23 @@ DataReporteCasa: DataReportePropiedad
 	ar rvs ./lib/libTarea2.lib ./obj/DataReporteCasa.o
 
 
-	
+
 DataTypes: DataVenta DataZona DtInteresado Fecha Hora DataAlquiler DataChat DataDepartamento DataDetallePropiedad DataEdificio DataPropiedad DataApartamento DataCasa DataReportePropiedad DataInfoInmobiliaria DataInfoPropiedad DataInmobiliaria DataMensaje DataReporteApartamento DataReporteCasa
-	
+
 #excepciones
-EstudianteNoInscripto: 
+EstudianteNoInscripto:
 	g++ -Wall -Werror -o ./obj/EstudianteNoInscripto.o -c ./src/exceptions/EstudianteNoInscripto.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/EstudianteNoInscripto.o
-NoExAsignatura:	
+NoExAsignatura:
 	g++ -Wall -Werror -o ./obj/NoExAsignatura.o -c ./src/exceptions/NoExAsignatura.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/NoExAsignatura.o
 NoExEmpresa:
 	g++ -Wall -Werror -o ./obj/NoExEmpresa.o -c ./src/exceptions/NoExEmpresa.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/NoExEmpresa.o
-NoExEstudiante:	
+NoExEstudiante:
 	g++ -Wall -Werror -o ./obj/NoExEstudiante.o -c ./src/exceptions/NoExEstudiante.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/NoExEstudiante.o
-NoExisteSeccion:	
+NoExisteSeccion:
 	g++ -Wall -Werror -o ./obj/NoExisteSeccion.o -c ./src/exceptions/NoExisteSeccion.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/NoExisteSeccion.o
 NoExisteSucursal:
@@ -92,39 +92,51 @@ OfertaLaboralVigente:
 YaExisteOferta:
 	g++ -Wall -Werror -o ./obj/YaExisteOferta.o -c ./src/exceptions/YaExisteOferta.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/YaExisteOferta.o
-ExOpcionInvalida: 
+ExOpcionInvalida:
 	g++ -Wall -Werror -o ./obj/ExOpcionInvalida.o -c ./src/exceptions/ExOpcionInvalida.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/ExOpcionInvalida.o
-	
-Excepciones: 
+
+Excepciones:
 
 #manejadores
 ManejadorTiempo : Date
 	g++ -Wall -Werror -o ./obj/ManejadorTiempo.o -c ./src/manejadores/ManejadorTiempo.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/ManejadorTiempo.o
 
+#controladores
+UsuarioController: IUsuarioController Manejador_Usuario WrongPwd Sesion
+	g++ -Wall -Werror -o ./obj/UsuarioController.o -c ./src/Controladores/UsuarioController.cpp
+PropiedadController: DataTypes IPropiedadController Clases Manejadores Excepciones
+	g++ -Wall -Werror -o ./obj/PropiedadController.o -c ./src/Controladores/PropiedadController.cpp
+ModificarPropiedadController:IModificarPropiedadController DataPropiedad ProcesoCancelado Sesion Inmobiliaria ManejadorPropiedades
+	g++ -Wall -Werror -o ./obj/ModificarPropiedadController.o -c ./src/Controladores/ModificarPropiedadController.cpp
+EnviarMensajeController:IEnviarMensajeController Clases Excepciones
+	g++ -Wall -Werror -o ./obj/EnviarMensajeController.o -c ./src/Controladores/EnviarMensajeController.cpp
+CargarDatosController: Claes ICargarDatosController Excepciones DataTypes Manejadores
+	g++ -Wall -Werror -o ./obj/CargarDatosController.o -c ./src/Controladores/CargarDatosController.cpp
+
+Controladores: PropiedadController UsuarioController EnviarMensajeController ModificarPropiedadController CargarDatosController
 
 
 #interfaces
-IPropiedadController:
-	g++ -Wall -Werror -o ./obj/ManejadorTiempo.o -c ./src/manejadores/ManejadorTiempo.cpp
-	ar rvs ./lib/libTarea2.lib ./obj/ManejadorTiempo.o
 
+IPropiedadController:
+	g++ -Wall -Werror -o ./obj/IPropiedadController.o -c ./src/Interfaces/IPropiedadController.cpp
 IUsuarioController:
- 
-IPropiedadController:
- 
+ 	g++ -Wall -Werror -o ./obj/IUsuarioController.o -c ./src/Interfaces/IUsuarioController.cpp
 IEnviarMensajeController:
- 
+	g++ -Wall -Werror -o ./obj/IEnviarMensajeController.o -c ./src/Interfaces/IEnviarMensajeController.cpp
 IModificarPropiedadController:
- 
-ICargarDatosController: 
+	g++ -Wall -Werror -o ./obj/IModificarPropiedadController.o -c ./src/Interfaces/IModificarPropiedadController.cpp
+ICargarDatosController:
+	g++ -Wall -Werror -o ./obj/ICargarDatosController.o -c ./src/Interfaces/ICargarDatosController.cpp
 
+Interfaces: IPropiedadController IUsuarioController IEnviarMensajeController IModificarPropiedadController ICargarDatosController
 
 #fabrica
-Factory: IPropiedadController UsuarioController PropiedadController EnviarMensajeController ModificarPropiedadController CargarDatosController 
+Factory: PropiedadController UsuarioController EnviarMensajeController ModificarPropiedadController CargarDatosController
 	g++ -o ./obj/Factory.o -c ./src/Fabrica/Factory.cpp
-	ar rvs ./lib/libTarea2.lib ./obj/Factory.o
+
 
 
 
@@ -145,19 +157,19 @@ Menu : PantallaUI ExOpcionInvalida
 RutinaAltaEntrevista: IOConsola
 	g++ -o ./obj/RutinaAltaEntrevista.o -c ./src/casosDeUso/RutinaAltaEntrevista.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/RutinaAltaEntrevista.o
-	
+
 RutinaAltaOfertaLaboral: IOConsola
 	g++ -o ./obj/RutinaAltaOfertaLaboral.o -c ./src/casosDeUso/RutinaAltaOfertaLaboral.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/RutinaAltaOfertaLaboral.o
-	
+
 RutinaAsignacionOferta: IOConsola
 	g++ -o ./obj/RutinaAsignacionOferta.o -c ./src/casosDeUso/RutinaAsignacionOferta.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/RutinaAsignacionOferta.o
-	
+
 RutinaCargarDatosPrueba: IOConsola
 	g++ -o ./obj/RutinaCargarDatosPrueba.o -c ./src/casosDeUso/RutinaCargarDatosPrueba.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/RutinaCargarDatosPrueba.o
-	
+
 RutinaConsultarDatosEstudiante: IOConsola
 	g++ -o ./obj/RutinaConsultarDatosEstudiante.o -c ./src/casosDeUso/RutinaConsultarDatosEstudiante.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/RutinaConsultarDatosEstudiante.o
@@ -165,15 +177,15 @@ RutinaConsultarDatosEstudiante: IOConsola
 RutinaDarDeBajaOfertaLaboral: IOConsola
 	g++ -o ./obj/RutinaDarDeBajaOfertaLaboral.o -c ./src/casosDeUso/RutinaDarDeBajaOfertaLaboral.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/RutinaDarDeBajaOfertaLaboral.o
-	
+
 RutinaInscripcionOfertaLaboral: IOConsola
 	g++ -o ./obj/RutinaInscripcionOfertaLaboral.o -c ./src/casosDeUso/RutinaInscripcionOfertaLaboral.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/RutinaInscripcionOfertaLaboral.o
-	
+
 RutinaListarOfertasActivas: IOConsola
 	g++ -o ./obj/RutinaListarOfertasActivas.o -c ./src/casosDeUso/RutinaListarOfertasActivas.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/RutinaListarOfertasActivas.o
-	
+
 RutinaModificarEstudiante: IOConsola
 	g++ -o ./obj/RutinaModificarEstudiante.o -c ./src/casosDeUso/RutinaModificarEstudiante.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/RutinaModificarEstudiante.o
@@ -187,11 +199,11 @@ RutinaConfigurarFecha: IOConsola
 	ar rvs ./lib/libTarea2.lib ./obj/RutinaConfigurarFecha.o
 
 
-Rutinas : RutinaConfigurarFecha RutinaAltaEntrevista RutinaAltaOfertaLaboral RutinaAsignacionOferta RutinaCargarDatosPrueba RutinaConsultarDatosEstudiante RutinaDarDeBajaOfertaLaboral RutinaInscripcionOfertaLaboral RutinaInscripcionOfertaLaboral RutinaListarOfertasActivas RutinaModificarEstudiante RutinaVerNotificaciones 
+Rutinas : RutinaConfigurarFecha RutinaAltaEntrevista RutinaAltaOfertaLaboral RutinaAsignacionOferta RutinaCargarDatosPrueba RutinaConsultarDatosEstudiante RutinaDarDeBajaOfertaLaboral RutinaInscripcionOfertaLaboral RutinaInscripcionOfertaLaboral RutinaListarOfertasActivas RutinaModificarEstudiante RutinaVerNotificaciones
 
 
 #menues
-MenuUtils : 
+MenuUtils :
 	g++ -o ./obj/MenuUtils.o -c ./src/Menus/MenuUtils.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/MenuUtils.o
 Menu : UserInterface ExOpcionInvalida MenuUtils
@@ -210,7 +222,7 @@ MenuPrincipal : MenuInteresados MenuInmobiliarias MenuAdministradores RutinaInic
 	g++ -o ./obj/MenuPrincipal.o -c ./src/Menus/MenuPrincipal.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/MenuPrincipal.o
 
-	
+
 #mains
 MiCasa: MenuPrincipal
 	g++ -o ./bin/MiCasa -Wall ./src/MiCasa.cpp ./lib/libTarea2.lib
@@ -218,5 +230,5 @@ MiCasa: MenuPrincipal
 clean:
 	rm ./lib/*.lib
 	rm ./obj/*.o
-	
+
 all: BuscoFingJobs
