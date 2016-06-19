@@ -1,13 +1,13 @@
 #include "RutinaAltaInteresado.h"
 
 #include "../DataTypes/DtInteresado.h"
-#include "ProcesoCancelado.h"
-#include "ExisteInteresado.h"
-#include "Factory.h"
+#include "../Excepciones/ProcesoCancelado.h"
+#include "../Excepciones/ExisteInteresado.h"
+#include "../Fabrica/Factory.h"
 
 #include <string>
 
-#include "MenuUtils.h"
+#include "../Menus/MenuUtils.h"
 
 
 #include <iostream>

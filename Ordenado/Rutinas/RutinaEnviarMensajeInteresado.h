@@ -1,7 +1,7 @@
 #ifndef RutinaEnviarMensajeInteresado_h
 #define RutinaEnviarMensajeInteresado_h
 
-#include "UserInterface.h"
+#include "../Interfaces/UserInterface.h"
 
 using namespace std;
 

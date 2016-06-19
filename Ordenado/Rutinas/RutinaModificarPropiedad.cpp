@@ -1,12 +1,12 @@
 
 #include "RutinaModificarPropiedad.h"
-#include "Factory.h"
-#include "ExPropiedadNoExistente.h"
-#include "ProcesoCancelado.h"
+#include "../Fabrica/Factory.h"
+#include "../Excepciones/ExPropiedadNoExistente.h"
+#include "../Excepciones/ProcesoCancelado.h"
 #include "../DataTypes/DataCasa.h"
-#include "Casa.h"
+#include "../ClasesDeDominio/Casa.h"
 #include "../DataTypes/DataApartamento.h"
-#include "Apartamento.h"
+#include "../ClasesDeDominio/Apartamento.h"
 
 #include <iostream>
 #include <map>
@@ -14,7 +14,7 @@
 #include <string>
 
 
-#include "MenuUtils.h"
+#include "../Menus/MenuUtils.h"
 
 using namespace std;
 

@@ -1,7 +1,7 @@
 #ifndef RutinaAltaPropiedad_h
 #define  RutinaAltaPropiedad_h
 
-#include "UserInterface.h"
+#include "../Interfaces/UserInterface.h"
 
 using namespace std;
 

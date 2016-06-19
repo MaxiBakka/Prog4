@@ -1,5 +1,5 @@
-#include "UserInterface.h"
-#include "IModificarPropiedadController.h"
+#include "../Interfaces/UserInterface.h"
+#include "../Interfaces/IModificarPropiedadController.h"
 #include "../DataTypes/DataPropiedad.h"
 
 

@@ -6,6 +6,7 @@
 #include "RutinaCerrarSesion.h"
 #include "RutinaAltaInteresado.h"
 #include "RutinaAltaInmobiliaria.h"
+#include "Sesion.h"
 
 using namespace std;
 MenuAdministradores::MenuAdministradores() {
@@ -23,11 +24,9 @@ void MenuAdministradores::presentar() {
 
 void MenuAdministradores::ejecutarOpcion(int opc) {
 	UserInterface* submenu = NULL;
-	bool salir=false;
 	switch(opc){
 	case 0:
 		submenu= new RutinaCerrarSesion();
-        salir=true;
 		break;
 	case 1:
 		submenu = new RutinaAltaInmobiliaria();
@@ -45,7 +44,8 @@ void MenuAdministradores::ejecutarOpcion(int opc) {
 	if (submenu!=NULL) {
 		submenu->ejecutar();
 		delete submenu;
-	if(salir) salirDelSistema();
+		if(Sesion::getInstancia()->getUsuario()==NULL)
+		 salirDelSistema();
 	}
 
 
@@ -54,4 +54,3 @@ void MenuAdministradores::ejecutarOpcion(int opc) {
 
 MenuAdministradores::~MenuAdministradores() {
 }
-

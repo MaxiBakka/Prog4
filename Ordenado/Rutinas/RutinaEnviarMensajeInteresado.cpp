@@ -1,17 +1,17 @@
 #include "RutinaEnviarMensajeInteresado.h"
 
-#include "Sesion.h"
+#include "../ClasesDeDominio/Sesion.h"
 #include "../DataTypes/Hora.h"
 #include "../DataTypes/Fecha.h"
-#include "Factory.h"
+#include "../Fabrica/Factory.h"
 
-#include "ExDptoNoExistente.h"
-#include "ProcesoCancelado.h"
-#include "NoExisteZona.h"
-#include "NoExisteChat.h"
-#include "ExNoHayZonas.h"
-#include "NoHayDepartamentos.h"
-#include "ExPropiedadNoExistente.h"
+#include "../Excepciones/ExDptoNoExistente.h"
+#include "../Excepciones/ProcesoCancelado.h"
+#include "../Excepciones/NoExisteZona.h"
+#include "../Excepciones/NoExisteChat.h"
+#include "../Excepciones/ExNoHayZonas.h"
+#include "../Excepciones/NoHayDepartamentos.h"
+#include "../Excepciones/ExPropiedadNoExistente.h"
 
 
 #include <iostream>
@@ -20,7 +20,7 @@
 #include <string>
 #include <time.h>
 
-#include "MenuUtils.h"
+#include "../Menus/MenuUtils.h"
 
 using namespace std;
 

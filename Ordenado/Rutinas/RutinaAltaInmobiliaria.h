@@ -1,7 +1,7 @@
 #ifndef RutinaAltaInmobiliaria_h
 #define  RutinaAltaInmobiliaria_h
 
-#include "UserInterface.h"
+#include "../Interfaces/UserInterface.h"
 
 using namespace std;
 

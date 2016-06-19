@@ -1,14 +1,14 @@
 #include "RutinaEliminarPropiedad.h"
 
-#include "ExPropiedadNoExistente.h"
-#include "ProcesoCancelado.h"
-#include "Factory.h"
+#include "../Excepciones/ExPropiedadNoExistente.h"
+#include "../Excepciones/ProcesoCancelado.h"
+#include "../Fabrica/Factory.h"
 
 #include <iostream>
 #include <set>
 #include <string>
 
-#include "MenuUtils.h"
+#include "../Menus/MenuUtils.h"
 
 RutinaEliminarPropiedad::RutinaEliminarPropiedad(){
   ctrl= Factory::getIPropiedadController();

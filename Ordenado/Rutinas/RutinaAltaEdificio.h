@@ -1,5 +1,5 @@
-#include "UserInterface.h"
-#include "IPropiedadController.h"
+#include "../Interfaces/UserInterface.h"
+#include "../Interfaces/IPropiedadController.h"
 
 #ifndef RUTINA_ALTA_EDIFICIO_H_
 #define RUTINA_ALTA_EDIFICIO_H_

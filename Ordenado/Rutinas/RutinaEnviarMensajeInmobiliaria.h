@@ -1,7 +1,7 @@
 #ifndef RutinaEnviarMensajeInmobiliaria_h
 #define RutinaEnviarMensajeInmobiliaria_h
 
-#include "UserInterface.h"
+#include "../Interfaces/UserInterface.h"
 
 using namespace std;
 

@@ -1,7 +1,7 @@
 #ifndef RutinaEliminarPropiedad_h
 #define  RutinaEliminarPropiedad_h
 
-#include "UserInterface.h"
+#include "../Interfaces/UserInterface.h"
 
 using namespace std;
 

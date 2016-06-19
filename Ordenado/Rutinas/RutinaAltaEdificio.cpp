@@ -1,10 +1,10 @@
 #include "RutinaAltaEdificio.h"
 
 #include "../DataTypes/DataEdificio.h"
-#include "MenuUtils.h"
-#include "ProcesoCancelado.h"
-#include "ExisteEdificio.h"
-#include "Factory.h"
+#include "../Menus/MenuUtils.h"
+#include "../Excepciones/ProcesoCancelado.h"
+#include "../Excepciones/ExisteEdificio.h"
+#include "../Fabrica/Factory.h"
 
 #include <iostream>
 #include <string>

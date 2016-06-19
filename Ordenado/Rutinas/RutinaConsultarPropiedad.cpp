@@ -5,22 +5,22 @@
 #include "../DataTypes/DataDepartamento.h"
 #include "../DataTypes/DataZona.h"
 
-#include "ProcesoCancelado.h"
-#include "NoHayDepartamentos.h"
-#include "ExDptoNoExistente.h"
-#include "NoHayDepartamentoEnMemoria.h"
-#include "ExNoHayZonas.h"
-#include "NoExisteZona.h"
-#include "NoHayPropiedades.h"
-#include "ExPropiedadNoExistente.h"
+#include "../Excepciones/ProcesoCancelado.h"
+#include "../Excepciones/NoHayDepartamentos.h"
+#include "../Excepciones/ExDptoNoExistente.h"
+#include "../Excepciones/NoHayDepartamentoEnMemoria.h"
+#include "../Excepciones/ExNoHayZonas.h"
+#include "../Excepciones/NoExisteZona.h"
+#include "../Excepciones/NoHayPropiedades.h"
+#include "../Excepciones/ExPropiedadNoExistente.h"
 
-#include "Factory.h"
+#include "../Fabrica/Factory.h"
 
 #include <iostream>
 #include <set>
 #include <string>
 
-#include "MenuUtils.h"
+#include "../Menus/MenuUtils.h"
 
 
 RutinaConsultarPropiedad::RutinaConsultarPropiedad(){

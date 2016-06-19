@@ -1,14 +1,14 @@
 #include "RutinaAltaInmobiliaria.h"
 #include "../DataTypes/DataInmobiliaria.h"
-#include "ProcesoCancelado.h"
-#include "InmobiliariaYaExistente.h"
-#include "Factory.h"
+#include "../Excepciones/ProcesoCancelado.h"
+#include "../Excepciones/InmobiliariaYaExistente.h"
+#include "../Fabrica/Factory.h"
 
 #include <iostream>
 
 #include <string>
 
-#include "MenuUtils.h"
+#include "../Menus/MenuUtils.h"
 
 using namespace std;
 

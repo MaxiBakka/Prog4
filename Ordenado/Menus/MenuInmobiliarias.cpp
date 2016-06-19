@@ -12,6 +12,7 @@
 #include "RutinaEnviarMensajeInmobiliaria.h"
 #include "RutinaEliminarPropiedad.h"
 #include "RutinaAltaPropiedad.h"
+#include "Sesion.h"
 
 using namespace std;
 MenuInmobiliarias::MenuInmobiliarias() {
@@ -32,11 +33,9 @@ void MenuInmobiliarias::presentar() {
 
 void MenuInmobiliarias::ejecutarOpcion(int opc) {
 	UserInterface* submenu = NULL;
-	bool salir=false;
 	switch(opc){
 	case 0:
 		submenu= new RutinaCerrarSesion();
-		salir=true;
 		break;
 	case 1:
 		submenu = new RutinaAltaEdificio();
@@ -63,7 +62,8 @@ void MenuInmobiliarias::ejecutarOpcion(int opc) {
 	if (submenu!=NULL) {
 		submenu->ejecutar();
 		delete submenu;
-    if(salir) salirDelSistema();
+		if(Sesion::getInstancia()->getUsuario()==NULL)
+	 	salirDelSistema();
 	}
 
 }

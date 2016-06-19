@@ -1,5 +1,5 @@
-#include "sUserInterface.h"
-#include "IUsuarioController.h"
+#include "../Interfaces/UserInterface.h"
+#include "../Interfaces/IUsuarioController.h"
 
 class DataPropiedad;
 class IUsuarioController;

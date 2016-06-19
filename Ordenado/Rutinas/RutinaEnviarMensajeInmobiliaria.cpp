@@ -1,13 +1,13 @@
 #include "RutinaEnviarMensajeInmobiliaria.h"
 
-#include "Sesion.h"
+#include "../ClasesDeDominio/Sesion.h"
 #include "../DataTypes/Hora.h"
 #include "../DataTypes/Fecha.h"
-#include "Factory.h"
-#include "NoExisteChat.h"
-#include "ProcesoCancelado.h"
-#include "ExNoHayMensajes.h"
-#include "NoHayConversaciones.h"
+#include "../Fabrica/Factory.h"
+#include "../Excepciones/NoExisteChat.h"
+#include "../Excepciones/ProcesoCancelado.h"
+#include "../Excepciones/ExNoHayMensajes.h"
+#include "../Excepciones/NoHayConversaciones.h"
 
 
 #include <iostream>
@@ -16,7 +16,7 @@
 #include <string>
 #include <time.h>
 
-#include "MenuUtils.h"
+#include "../Menus/MenuUtils.h"
 
 using namespace std;
 

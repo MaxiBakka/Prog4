@@ -6,6 +6,7 @@
 #include "RutinaConsultarPropiedad.h"
 #include "RutinaCerrarSesion.h"
 #include "RutinaEnviarMensajeInteresado.h"
+#include "Sesion.h"
 
 using namespace std;
 MenuInteresados::MenuInteresados() {
@@ -22,11 +23,9 @@ void MenuInteresados::presentar() {
 
 void MenuInteresados::ejecutarOpcion(int opc) {
 	UserInterface* submenu = NULL;
-	bool salir=false;
 	switch(opc){
 	case 0:
 		submenu= new RutinaCerrarSesion();
-		salir=true;
 		break;
 	case 1:
 		submenu = new RutinaConsultarPropiedad();
@@ -41,11 +40,11 @@ void MenuInteresados::ejecutarOpcion(int opc) {
 	if (submenu!=NULL) {
 		submenu->ejecutar();
 		delete submenu;
-    if(salir) salirDelSistema();
+		if(Sesion::getInstancia()->getUsuario()==NULL)
+	 	salirDelSistema();
 	}
 
 }
 
 MenuInteresados::~MenuInteresados() {
 }
-

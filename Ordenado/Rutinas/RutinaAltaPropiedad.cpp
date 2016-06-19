@@ -1,37 +1,29 @@
 #include "RutinaAltaPropiedad.h"
-<<<<<<< HEAD
-
+#include "RutinaConsultarPropiedad.h"
 #include "../DataTypes/DataInfoInmobiliaria.h"
 #include "../DataTypes/DataDetallePropiedad.h"
 #include "../DataTypes/DataDepartamento.h"
 #include "../DataTypes/DataZona.h"
 #include "../DataTypes/DataEdificio.h"
-=======
-#include "RutinaConsultarPropiedad.h"
-#include "DataInfoInmobiliaria.h"
-#include "DataDetallePropiedad.h"
-#include "DataDepartamento.h"
-#include "DataZona.h"
-#include "DataEdificio.h"
-#include "DataCasa.h"
-#include "DataApartamento.h"
->>>>>>> 4aa4c0312b08ce7b8198fb034b2bb3e392f238b4
+#include "../DataTypes/DataCasa.h"
+#include "../DataTypes/DataApartamento.h"
 
-#include "ProcesoCancelado.h"
-#include "NoHayDepartamentos.h"
-#include "ExDptoNoExistente.h"
-#include "NoHayDepartamentoEnMemoria.h"
-#include "ExNoHayZonas.h"
-#include "NoExisteZona.h"
-#include "NoHayPropiedades.h"
-#include "ExPropiedadNoExistente.h"
-#include "RutinaAltaEdificio.h"
-#include "EdificioNoExistente.h"
-#include "YaExistePropiedad.h"
-#include "PrecioInvalido.h"
-#include "ValoresInvalidos.h"
 
-#include "Factory.h"
+#include "../Excepciones/ProcesoCancelado.h"
+#include "../Excepciones/NoHayDepartamentos.h"
+#include "../Excepciones/ExDptoNoExistente.h"
+#include "../Excepciones/NoHayDepartamentoEnMemoria.h"
+#include "../Excepciones/ExNoHayZonas.h"
+#include "../Excepciones/NoExisteZona.h"
+#include "../Excepciones/NoHayPropiedades.h"
+#include "../Excepciones/ExPropiedadNoExistente.h"
+#include "../Excepciones/RutinaAltaEdificio.h"
+#include "../Excepciones/EdificioNoExistente.h"
+#include "../Excepciones/YaExistePropiedad.h"
+#include "../Excepciones/PrecioInvalido.h"
+#include "../Excepciones/ValoresInvalidos.h"
+
+#include "../Fabrica/Factory.h"
 
 #include <iostream>
 #include <set>
@@ -40,7 +32,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "MenuUtils.h"
+#include "../Menus/MenuUtils.h"
+
 
 using namespace std;
 

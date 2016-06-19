@@ -1,13 +1,13 @@
 #ifndef RUTINACERRARSESION_H
 #define  RUTINACERRARSESION_H
 
-#include "IUsuarioController.h"
-#include "UserInterface.h"
+#include "../Interfaces/IUsuarioController.h"
+#include "../Interfaces/UserInterface.h"
 
 class RutinaCerrarSesion: public UserInterface {
 private:
 	IUsuarioController* ctrl;
-	
+
 public:
 	RutinaCerrarSesion();
 	void ejecutar();

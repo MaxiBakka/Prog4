@@ -1,10 +1,10 @@
 #include "RutinaObtenerReporteInmobiliarias.h"
-#include "Factory.h"
-#include "ProcesoCancelado.h"
+#include "../Fabrica/Factory.h"
+#include "../Excepciones/ProcesoCancelado.h"
 #include "../DataTypes/DataDepartamento.h"
-#include "ManejadorDepartamentos.h"
-#include "ExNoHayZonas.h"
-#include "NoHayDepartamentos.h"
+#include "../Manejadores/ManejadorDepartamentos.h"
+#include "../Excepciones/ExNoHayZonas.h"
+#include "../Excepciones/NoHayDepartamentos.h"
 
 
 #include <iostream>
@@ -12,7 +12,7 @@
 #include <string>
 
 
-#include "MenuUtils.h"
+#include "../Menus/MenuUtils.h"
 
 using namespace std;
 
@@ -34,7 +34,8 @@ void RutinaObtenerReporteInmobiliarias::ejecutar() {
 				DataInfoInmobiliaria* cast = dynamic_cast<DataInfoInmobiliaria*>(*it);
 				cout << endl;
                 cout << "---------------------------------------------------------------" << endl;
-                cout << "Inmobiliaria: " << cast->get_nombre() << endl<<endl;
+								cout << "Inmobiliaria: " << cast->get_nombre() << endl;
+                cout << "Ubicacion: " << cast->get_ubicacion()<< '\n'<< "Email: " << cast->get_email() << '\n'<< endl;
 				set<DataDepartamento*>* Departamentos = md->getDepartamentos();
 
 				for(set<DataDepartamento*>::iterator itd = Departamentos->begin();itd!=Departamentos->end();++itd){

@@ -1,8 +1,8 @@
 #include "RutinaCargarDatos.h"
-#include "MenuUtils.h"
-#include "Factory.h"
-#include "DatosYaCargados.h"
-#include "ICargarDatosController.h"
+#include "../Menus/MenuUtils.h"
+#include "../Fabrica/Factory.h"
+#include "../Excepciones/DatosYaCargados.h"
+#include "../Interfaces/ICargarDatosController.h"
 
 #include <iostream>
 
@@ -25,4 +25,3 @@ void RutinaCargarDatos::ejecutar(){
 	delete ctrl;
 	MenuUtils::esperarInput();
 }
-

@@ -1,8 +1,8 @@
 #ifndef RutinaAltaInteresado_h
 #define  RutinaAltaInmobiliari_h
 
-#include "IUsuarioController.h"
-#include "UserInterface.h"
+#include "../Interfaces/IUsuarioController.h"
+#include "../Interfaces/UserInterface.h"
 
 using namespace std;
 
