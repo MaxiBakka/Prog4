@@ -7,8 +7,8 @@
 
 #include "DataZona.h"
 #include "Propiedad.h"
-#include "DataDepartamento.h"
-#include "DataDetallePropiedad.h"
+#include "../DataTypes/DataDepartamento.h"
+#include "../DataTypes/DataDetallePropiedad.h"
 
 using namespace std;
 
