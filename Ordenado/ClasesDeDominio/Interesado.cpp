@@ -1,7 +1,7 @@
 #include "Interesado.h"
-#include "DataMensaje.h"
-#include "DtInteresado.h"
-#include "NoExisteChat.h"
+#include "../DataTypes/DataMensaje.h"
+#include "../DataTypes/DtInteresado.h"
+#include "../DataTypes/NoExisteChat.h"
 
 Interesado :: Interesado():Usuario(){
     this->nombre="";

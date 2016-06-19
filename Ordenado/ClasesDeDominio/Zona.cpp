@@ -1,7 +1,7 @@
 #include "Zona.h"
 #include "Departamento.h"
-#include "NoHayPropiedades.h"
-#include "ExPropiedadNoExistente.h"
+#include "../Excepciones/NoHayPropiedades.h"
+#include "../Excepciones/ExPropiedadNoExistente.h"
 
 #include <utility>
 

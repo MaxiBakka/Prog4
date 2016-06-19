@@ -2,9 +2,9 @@
 #define Mensaje_h
 
 #include <string>
-#include "DataMensaje.h"
-#include "Hora.h"
-#include "Fecha.h"
+#include "../DataTypes/DataMensaje.h"
+#include "../DataTypes/Hora.h"
+#include "../DataTypes/Fecha.h"
 
 class Mensaje {
 private:
