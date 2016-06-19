@@ -8,7 +8,6 @@
 #include "Chat.h"
 #include "Venta.h"
 #include "Alquiler.h"
-#include "../DataTypes/DataMensaje.h"
 #include "../DataTypes/DataInfoPropiedad.h"
 #include "../DataTypes/DataReportePropiedad.h"
 #include "../DataTypes/DataPropiedad.h"
