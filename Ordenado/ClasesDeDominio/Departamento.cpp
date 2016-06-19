@@ -1,10 +1,10 @@
 #include "Departamento.h"
 
 #include <utility>
-#include "DataDepartamento.h"
-#include "ExNoHayZonas.h"
-#include "NoExisteZona.h"
-#include "YaExisteZona.h"
+#include "../DataTypes/DataDepartamento.h"
+#include "../Excepciones/ExNoHayZonas.h"
+#include "../Excepciones/NoExisteZona.h"
+#include "../Excepciones/YaExisteZona.h"
 
 using namespace std;
 

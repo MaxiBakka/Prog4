@@ -1,11 +1,11 @@
 #ifndef Factory_h
 #define Factory_h
 
-#include "IPropiedadController.h"
-#include "IUsuarioController.h"
-#include "IEnviarMensajeController.h"
-#include "ICargarDatosController.h"
-#include "IModificarPropiedadController.h"
+#include "../Interfaces/IPropiedadController.h"
+#include "../Interfaces/IUsuarioController.h"
+#include "../Interfaces/IEnviarMensajeController.h"
+#include "../Interfaces/ICargarDatosController.h"
+#include "../Interfaces/IModificarPropiedadController.h"
 
 
 class Factory {

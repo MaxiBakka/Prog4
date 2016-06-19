@@ -1,7 +1,7 @@
 #ifndef ALQUILER_H
 #define	ALQUILER_H
 
-#include "DataAlquiler.h"
+#include "../DataTypes/DataAlquiler.h"
 
 
 class Alquiler {

@@ -1,9 +1,9 @@
-#include "Factory.h"
-#include "UsuarioController.h"
-#include "PropiedadController.h"
-#include "EnviarMensajeController.h"
-#include "ModificarPropiedadController.h"
-#include "CargarDatosController.h"
+#include "../Factory.h"
+#include "../Controladores/UsuarioController.h"
+#include "../Controladores/PropiedadController.h"
+#include "../Controladores/EnviarMensajeController.h"
+#include "../Controladores/ModificarPropiedadController.h"
+#include "../Controladores/CargarDatosController.h"
 
 	Factory* Factory::instancia = NULL;
 

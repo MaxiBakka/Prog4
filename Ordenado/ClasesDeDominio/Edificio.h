@@ -5,7 +5,7 @@
 #include <string>
 
 #include "Apartamento.h"
-#include "DataEdificio.h"
+#include "../DataTypes/DataEdificio.h"
 
 using namespace std;
 

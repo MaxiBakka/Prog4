@@ -1,8 +1,8 @@
 
 #include "Casa.h"
-#include "DataCasa.h"
+#include "../DataTypes/DataCasa.h"
 #include "Zona.h"
-#include "DataReporteCasa.h"
+#include "../DataTypes/DataReporteCasa.h"
 
 
 Casa::Casa(int cod, int cda, int dormi, int banios, bool garaje, string dir, float m2t,Zona* z,Oferta* of, int ev, float m2e)

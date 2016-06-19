@@ -5,8 +5,8 @@
 
 #include "Propiedad.h"
 #include "Oferta.h"
-#include "DataPropiedad.h"
-#include "DataReportePropiedad.h"
+#include "../DataTypes/DataPropiedad.h"
+#include "../DataTypes/DataReportePropiedad.h"
 
 class Edificio; //fwd declaration
 
