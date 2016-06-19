@@ -1,22 +1,22 @@
 #ifndef PROPIEDADCONTROLLER_H
 #define	PROPIEDADCONTROLLER_H
 
-#include "Edificio.h"
-#include "Propiedad.h"
-#include "Zona.h"
-#include "Departamento.h"
-#include "IPropiedadController.h"
+#include "../ClasesDeDominio/Edificio.h"
+#include "../ClasesDeDominio/Propiedad.h"
+#include "../ClasesDeDominio/Zona.h"
+#include "../ClasesDeDominio/Departamento.h"
+#include "../Interfaces/IPropiedadController.h"
 
-#include "DataPropiedad.h"
-#include "DataAlquiler.h"
-#include "DataVenta.h"
-#include "DataDepartamento.h"
-#include "DataEdificio.h"
-#include "DataZona.h"
-#include "DataMensaje.h"
-#include "DataInfoPropiedad.h"
-#include "DataDetallePropiedad.h"
-#include "DataInfoInmobiliaria.h"
+#include "../DataTypes/DataPropiedad.h"
+#include "../DataTypes/DataAlquiler.h"
+#include "../DataTypes/DataVenta.h"
+#include "../DataTypes/DataDepartamento.h"
+#include "../DataTypes/DataEdificio.h"
+#include "../DataTypes/DataZona.h"
+#include "../DataTypes/DataMensaje.h"
+#include "../DataTypes/DataInfoPropiedad.h"
+#include "../DataTypes/DataDetallePropiedad.h"
+#include "../DataTypes/DataInfoInmobiliaria.h"
 
 
 #include <string>

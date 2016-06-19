@@ -1,5 +1,5 @@
-#include "../DataTypes/Hora.h"
-#include "HoraInvalida.h"
+#include "Hora.h"
+#include "../Excepciones/HoraInvalida.h"
 
 #include <iomanip>
 

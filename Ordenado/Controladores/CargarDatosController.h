@@ -4,18 +4,18 @@
 #include <map>
 #include <string>
 
-#include "Departamento.h"
-#include "Zona.h"
-#include "Propiedad.h"
-#include "Administrador.h"
-#include "Inmobiliaria.h"
-#include "Edificio.h"
-#include "Interesado.h"
-#include "Mensaje.h"
-#include "Apartamento.h"
-#include "Casa.h"
-#include "Administrador.h"
-#include "ICargarDatosController.h"
+#include "../ClasesDeDominio/Departamento.h"
+#include "../ClasesDeDominio/Zona.h"
+#include "../ClasesDeDominio/Propiedad.h"
+#include "../ClasesDeDominio/Administrador.h"
+#include "../ClasesDeDominio/Inmobiliaria.h"
+#include "../ClasesDeDominio/Edificio.h"
+#include "../ClasesDeDominio/Interesado.h"
+#include "../ClasesDeDominio/Mensaje.h"
+#include "../ClasesDeDominio/Apartamento.h"
+#include "../ClasesDeDominio/Casa.h"
+#include "../ClasesDeDominio/Administrador.h"
+#include "../Interfaces/ICargarDatosController.h"
 
 using namespace std;
 

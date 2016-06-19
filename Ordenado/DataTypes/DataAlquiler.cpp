@@ -1,4 +1,4 @@
-#include "../DataTypes/DataAlquiler.h"
+#include "DataAlquiler.h"
 
 
 DataAlquiler::DataAlquiler(float precio){

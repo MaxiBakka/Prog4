@@ -1,8 +1,8 @@
 #ifndef ModificarPropiedadController_h_
 #define ModificarPropiedadController_h_
 
-#include "DataPropiedad.h"
-#include "IModificarPropiedadController.h"
+#include "../DataTypes/DataPropiedad.h"
+#include "../Interfaces/IModificarPropiedadController.h"
 
 class Propiedad;
 

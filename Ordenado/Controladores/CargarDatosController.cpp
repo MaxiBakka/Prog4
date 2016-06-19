@@ -2,26 +2,26 @@
 #include <utility>
 #include <map>
 
-#include "ManejadorEdificios.h"
-#include "ManejadorDepartamentos.h"
-#include "ManejadorPropiedades.h"
-#include "Manejador_Usuario.h"
+#include "../Manejadores/ManejadorEdificios.h"
+#include "../Manejadores/ManejadorDepartamentos.h"
+#include "../Manejadores/ManejadorPropiedades.h"
+#include "../Manejadores/Manejador_Usuario.h"
 
 
 
-#include "DataPropiedad.h"
-#include "DataDepartamento.h"
-#include "DataEdificio.h"
-#include "DataInmobiliaria.h"
-#include "DataCasa.h"
-#include "DataApartamento.h"
-#include "DtInteresado.h"
-#include "DataMensaje.h"
-#include "Hora.h"
-#include "Fecha.h"
+#include "../DataTypes/DataPropiedad.h"
+#include "../DataTypes/DataDepartamento.h"
+#include "../DataTypes/DataEdificio.h"
+#include "../DataTypes/DataInmobiliaria.h"
+#include "../DataTypes/DataCasa.h"
+#include "../DataTypes/DataApartamento.h"
+#include "../DataTypes/DtInteresado.h"
+#include "../DataTypes/DataMensaje.h"
+#include "../DataTypes/Hora.h"
+#include "../DataTypes/Fecha.h"
 
-#include "ExOpcionInvalida.h"
-#include "DatosYaCargados.h"
+#include "../Excepciones/ExOpcionInvalida.h"
+#include "../Excepciones/DatosYaCargados.h"
 
 
 

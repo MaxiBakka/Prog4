@@ -6,12 +6,10 @@
 #include <set>
 #include <string>
 
-#include "Propiedad.h"
-#include "../DataTypes/DataPropiedad.h"
-#include "../DataTypes/DataInfoPropiedad.h"
-#include "Zona.h"
-#include "Oferta.h"
-#include "Edificio.h"
+#include "../ClasesDeDominio/Propiedad.h"
+#include "../ClasesDeDominio/Zona.h"
+#include "../ClasesDeDominio/Oferta.h"
+#include "../ClasesDeDominio/Edificio.h"
 
 
 using namespace std;

@@ -1,4 +1,4 @@
-#include "../DataTypes/DataEdificio.h"
+#include "DataEdificio.h"
 #include <sstream>
 
 DataEdificio :: DataEdificio(string name, int cpisos, float gComunes){

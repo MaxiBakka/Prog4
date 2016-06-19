@@ -1,4 +1,4 @@
-#include "../DataTypes/DataDepartamento.h"
+#include "DataDepartamento.h"
 
 
 

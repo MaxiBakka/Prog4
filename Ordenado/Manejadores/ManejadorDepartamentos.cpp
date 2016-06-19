@@ -2,9 +2,9 @@
 
 #include <utility>
 
-#include "NoHayDepartamentos.h"
-#include "YaExisteDepartamento.h"
-#include "ExDptoNoExistente.h"
+#include "../Excepciones/NoHayDepartamentos.h"
+#include "../Excepciones/YaExisteDepartamento.h"
+#include "../Excepciones/ExDptoNoExistente.h"
 
 using namespace std;
 

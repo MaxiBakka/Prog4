@@ -1,5 +1,5 @@
-#include "../DataTypes/Fecha.h"
-#include "FechaInvalida.h"
+#include "Fecha.h"
+#include "../Excepciones/FechaInvalida.h"
 
 #include <cstdlib>
 #include <sstream>

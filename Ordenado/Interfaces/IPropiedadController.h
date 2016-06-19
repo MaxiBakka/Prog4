@@ -1,16 +1,16 @@
 #ifndef IPropiedadController_h
 #define IPropiedadController_h
 
-#include "DataPropiedad.h"
-#include "DataAlquiler.h"
-#include "DataVenta.h"
-#include "DataDepartamento.h"
-#include "DataEdificio.h"
-#include "DataZona.h"
-#include "DataMensaje.h"
-#include "DataInfoPropiedad.h"
-#include "DataDetallePropiedad.h"
-#include "DataInfoInmobiliaria.h"
+#include "../DataTypes/DataPropiedad.h"
+#include "../DataTypes/DataAlquiler.h"
+#include "../DataTypes/DataVenta.h"
+#include "../DataTypes/DataDepartamento.h"
+#include "../DataTypes/DataEdificio.h"
+#include "../DataTypes/DataZona.h"
+#include "../DataTypes/DataMensaje.h"
+#include "../DataTypes/DataInfoPropiedad.h"
+#include "../DataTypes/DataDetallePropiedad.h"
+#include "../DataTypes/DataInfoInmobiliaria.h"
 
 #include <string>
 #include <set>

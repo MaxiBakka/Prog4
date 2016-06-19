@@ -1,4 +1,4 @@
-#include "../DataTypes/DataCasa.h"
+#include "DataCasa.h"
 
 
 DataCasa :: DataCasa(int cod,int cAmbientes, int Dormitorios , int banios, string& direc, bool gar,float &infoAlquiler, float &infoVenta,float m2Tot,float m2edif,float everde):

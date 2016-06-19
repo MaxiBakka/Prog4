@@ -1,4 +1,4 @@
-#include "../DataTypes/DataReporteCasa.h"
+#include "DataReporteCasa.h"
 #include <iomanip>
 
 DataReporteCasa::DataReporteCasa(int c, int cda, int d, int b, bool g, string& dir, float iv, float ia, float m2E, float ev,DataZona* dz,DataDepartamento* dpto):DataReportePropiedad(c,cda,d,b,g,dir,iv,ia,dz,dpto) {

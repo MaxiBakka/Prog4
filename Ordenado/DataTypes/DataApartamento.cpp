@@ -1,4 +1,4 @@
-#include "../DataTypes/DataApartamento.h"
+#include "DataApartamento.h"
 
 DataApartamento :: DataApartamento(int cod,int cAmbientes, int dormitorios , int banios, string& direc, bool garaje, float infoAlquiler,float infoVenta, float m2Tot,float m2edif)
 :DataPropiedad(cod,cAmbientes,dormitorios,banios,direc,garaje,m2Tot,infoAlquiler,infoVenta){

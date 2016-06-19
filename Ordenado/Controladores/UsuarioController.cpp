@@ -1,10 +1,8 @@
 #include "UsuarioController.h"
-#include "Manejador_Usuario.h"
-#include "Inmobiliaria.h"
-#include "Interesado.h"
-#include "DataInmobiliaria.h"
-#include "WrongPwd.h"
-#include "Sesion.h"
+
+
+#include "../Excepciones/WrongPwd.h"
+#include "../ClasesDeDominio/Sesion.h"
 
 
 

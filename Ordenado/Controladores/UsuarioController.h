@@ -1,12 +1,8 @@
 #ifndef UsuarioController_h
 #define UsuarioController_h
 
-#include "Manejador_Usuario.h"
-#include "Usuario.h"
-#include "IUsuarioController.h"
-#include "DtInteresado.h"
-#include "DataInmobiliaria.h"
-#include "DataInfoInmobiliaria.h"
+#include "../Manejadores/Manejador_Usuario.h"
+#include "../Interfaces/IUsuarioController.h"
 
 #include <set>
 #include <string>

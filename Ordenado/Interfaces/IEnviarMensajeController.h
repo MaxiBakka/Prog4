@@ -2,8 +2,8 @@
 #define IEnviarMensajeController_h
 //usuario inmobiliaria
 
-#include "DataChat.h"
-#include "DataMensaje.h"
+#include "../DataTypes/DataChat.h"
+#include "../DataTypes/DataMensaje.h"
 
 #include <set>
 
