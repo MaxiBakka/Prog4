@@ -5,7 +5,7 @@
 #include "Alquiler.h"
 #include "Inmobiliaria.h"
 #include "Propiedad.h"
-#include "../DataTypes/DataReportePropiedad.h"
+
 
 class Oferta {
 private:

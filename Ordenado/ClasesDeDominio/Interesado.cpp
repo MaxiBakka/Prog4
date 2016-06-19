@@ -1,5 +1,4 @@
 #include "Interesado.h"
-#include "../DataTypes/DataMensaje.h"
 #include "../DataTypes/DtInteresado.h"
 #include "../DataTypes/NoExisteChat.h"
 
