@@ -1,13 +1,10 @@
 #include "Manejador_Usuario.h"
-#include "InmobiliariaNotFound.h"
-#include "InteresadoNotFound.h"
-#include "UsuarioNotFound.h"
-#include "ExisteInteresado.h"
-#include "InmobiliariaYaExistente.h"
+#include "../Excepciones/InmobiliariaNotFound.h"
+#include "../Excepciones/InteresadoNotFound.h"
+#include "../Excepciones/UsuarioNotFound.h"
+#include "../Excepciones/ExisteInteresado.h"
+#include "../Excepciones/InmobiliariaYaExistente.h"
 
-#include "Inmobiliaria.h"
-#include "Administrador.h"
-#include "Interesado.h"
 #include <utility>
 
 

@@ -1,5 +1,5 @@
 
-#include "../DataTypes/DataDetallePropiedad.h"
+#include "DataDetallePropiedad.h"
 
 DataDetallePropiedad::DataDetallePropiedad(int codigo, string& direccion, bool venta, bool alquiler) {
     this->codigo=codigo;

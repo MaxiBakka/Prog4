@@ -1,4 +1,4 @@
-#include "../DataTypes/DataInfoPropiedad.h"
+#include "DataInfoPropiedad.h"
 
 DataInfoPropiedad :: DataInfoPropiedad(int c,string d,int cmjs){
     this->codigo=c;

@@ -4,10 +4,8 @@
 
 #include <set>
 
-#include "DataMensaje.h"
-#include "DataChat.h"
-#include "Chat.h"
-#include "IEnviarMensajeController.h"
+#include "../ClasesDeDominio/Chat.h"
+#include "../Interfaces/IEnviarMensajeController.h"
 
 
 class EnviarMensajeController :public IEnviarMensajeController{

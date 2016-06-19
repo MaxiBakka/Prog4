@@ -1,4 +1,4 @@
-#include "../DataTypes/DataChat.h"
+#include "DataChat.h"
 
 DataChat::DataChat(string& ei, string& inm,int cod) {
     this->emailInteresado=ei;

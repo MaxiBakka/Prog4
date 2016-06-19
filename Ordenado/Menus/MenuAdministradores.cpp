@@ -1,12 +1,12 @@
-
+#include "MenuAdministradores.h"
 #include <iostream>
 #include <string>
-#include "MenuAdministradores.h"
-#include "ExOpcionInvalida.h"
-#include "RutinaCerrarSesion.h"
-#include "RutinaAltaInteresado.h"
-#include "RutinaAltaInmobiliaria.h"
-#include "Sesion.h"
+
+#include "../Excepciones/ExOpcionInvalida.h"
+#include "../Rutinas/RutinaCerrarSesion.h"
+#include "../Rutinas/RutinaAltaInteresado.h"
+#include "../Rutinas/RutinaAltaInmobiliaria.h"
+#include "../ClasesDeDominio/Sesion.h"
 
 using namespace std;
 MenuAdministradores::MenuAdministradores() {

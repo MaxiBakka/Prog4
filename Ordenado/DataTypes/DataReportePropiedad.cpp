@@ -1,4 +1,4 @@
-#include "../DataTypes/DataReportePropiedad.h"
+#include "DataReportePropiedad.h"
 
 
 DataReportePropiedad::DataReportePropiedad(int c,int cda, int d,int b,bool g,string &dir,float iv,float ia,DataZona* dz,DataDepartamento* dpto) {

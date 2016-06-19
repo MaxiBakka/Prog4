@@ -5,8 +5,8 @@
 #include <string>
 #include <set>
 
-#include "Edificio.h"
-#include "../DataTypes/DataEdificio.h"
+#include "../ClasesDeDominio/Edificio.h"
+
 
 
 using namespace std;

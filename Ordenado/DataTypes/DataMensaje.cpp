@@ -1,4 +1,4 @@
-#include "../DataTypes/DataMensaje.h"
+#include "DataMensaje.h"
 
 
 DataMensaje::DataMensaje(Fecha& f,Hora& h,string& t):fecha(f){

@@ -1,10 +1,9 @@
 #include "ModificarPropiedadController.h"
 
-#include "ManejadorPropiedades.h"
-#include "Propiedad.h"
-#include "Inmobiliaria.h"
-#include "Sesion.h"
-#include "ProcesoCancelado.h"
+#include "../Manejadores/ManejadorPropiedades.h"
+#include "../ClasesDeDominio/Inmobiliaria.h"
+#include "../ClasesDeDominio/Sesion.h"
+#include "../Excepciones/ProcesoCancelado.h"
 
 
 

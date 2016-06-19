@@ -1,7 +1,7 @@
 #ifndef IModificarPropiedadController_h
 #define IModificarPropiedadController_h
 
-#include "DataPropiedad.h"
+#include "../DataTypes/DataPropiedad.h"
 
 using namespace std;
 

@@ -5,13 +5,11 @@
 #include <string>
 #include <set>
 
-#include "../DataTypes/DataInmobiliaria.h"
-#include "../DataTypes/../DataTypes/DtInteresado.h"
-#include "../DataTypes/DataInfoInmobiliaria.h"
-#include "Usuario.h"
-#include "Administrador.h"
-#include "Interesado.h"
-#include "Inmobiliaria.h"
+#include "../DataTypes/DtInteresado.h"
+
+#include "../ClasesDeDominio/Administrador.h"
+#include "../ClasesDeDominio/Interesado.h"
+#include "../ClasesDeDominio/Inmobiliaria.h"
 
 
 using namespace std;

@@ -2,11 +2,11 @@
 #include <iostream>
 #include <string>
 #include "MenuInteresados.h"
-#include "ExOpcionInvalida.h"
-#include "RutinaConsultarPropiedad.h"
-#include "RutinaCerrarSesion.h"
-#include "RutinaEnviarMensajeInteresado.h"
-#include "Sesion.h"
+#include "../Excepciones/ExOpcionInvalida.h"
+#include "../Rutinas/RutinaConsultarPropiedad.h"
+#include "../Rutinas/RutinaCerrarSesion.h"
+#include "../Rutinas/RutinaEnviarMensajeInteresado.h"
+#include "../ClasesDeDominio/Sesion.h"
 
 using namespace std;
 MenuInteresados::MenuInteresados() {

@@ -1,10 +1,10 @@
 #include "EnviarMensajeController.h"
-#include "Usuario.h"
-#include "Sesion.h"
-#include "Inmobiliaria.h"
+#include "../ClasesDeDominio/Usuario.h"
+#include "../ClasesDeDominio/Sesion.h"
+#include "../ClasesDeDominio/Inmobiliaria.h"
 
-#include "NoHayChatEnMemoria.h"
-#include "NoHayConversaciones.h"
+#include "../Excepciones/NoHayChatEnMemoria.h"
+#include "../Excepciones/NoHayConversaciones.h"
 
 EnviarMensajeController::EnviarMensajeController() {
     this->chat=NULL;

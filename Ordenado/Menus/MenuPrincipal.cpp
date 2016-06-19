@@ -5,15 +5,15 @@
 #include "MenuInmobiliarias.h"
 #include "MenuAdministradores.h"
 
-#include "RutinaInicioSesion.h"
+#include "../Rutinas/RutinaInicioSesion.h"
 
 
-#include "Sesion.h"
-#include "Interesado.h"
-#include "Inmobiliaria.h"
-#include "Administrador.h"
+#include "../ClasesDeDominio/Sesion.h"
+#include "../ClasesDeDominio/Interesado.h"
+#include "../ClasesDeDominio/Inmobiliaria.h"
+#include "../ClasesDeDominio/Administrador.h"
 
-#include "ExOpcionInvalida.h"
+#include "../Excepciones/ExOpcionInvalida.h"
 
 
 #include <iostream>

@@ -1,9 +1,9 @@
 #ifndef  IUsuarioController_h
 #define  IUsuarioController_h
 
-#include "DataInmobiliaria.h"
-#include "DataInfoInmobiliaria.h"
-#include "DtInteresado.h"
+#include "../DataTypes/DataInmobiliaria.h"
+#include "../DataTypes/DataInfoInmobiliaria.h"
+#include "../DataTypes/DtInteresado.h"
 
 #include <string>
 #include <set>

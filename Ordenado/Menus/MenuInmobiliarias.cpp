@@ -4,15 +4,15 @@
 
 #include "MenuInmobiliarias.h"
 
-#include "ExOpcionInvalida.h"
-#include "RutinaCerrarSesion.h"
-#include "RutinaAltaEdificio.h"
-#include "RutinaConsultarPropiedad.h"
-#include "RutinaModificarPropiedad.h"
-#include "RutinaEnviarMensajeInmobiliaria.h"
-#include "RutinaEliminarPropiedad.h"
-#include "RutinaAltaPropiedad.h"
-#include "Sesion.h"
+#include "../Excepciones/ExOpcionInvalida.h"
+#include "../Rutinas/RutinaCerrarSesion.h"
+#include "../Rutinas/RutinaAltaEdificio.h"
+#include "../Rutinas/RutinaConsultarPropiedad.h"
+#include "../Rutinas/RutinaModificarPropiedad.h"
+#include "../Rutinas/RutinaEnviarMensajeInmobiliaria.h"
+#include "../Rutinas/RutinaEliminarPropiedad.h"
+#include "../Rutinas/RutinaAltaPropiedad.h"
+#include "../ClasesDeDominio/Sesion.h"
 
 using namespace std;
 MenuInmobiliarias::MenuInmobiliarias() {

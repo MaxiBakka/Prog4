@@ -5,7 +5,7 @@
 #include <string>
 #include <set>
 
-#include "Departamento.h"
+#include "../ClasesDeDominio/Departamento.h"
 #include "../DataTypes/DataDepartamento.h"
 
 using namespace std;

@@ -1,7 +1,7 @@
-#include "../DataTypes/DataInfoInmobiliaria.h"
+#include "DataInfoInmobiliaria.h"
 
-#include "../DataTypes/DataReporteApartamento.h"
-#include "../DataTypes/DataReporteCasa.h"
+#include "DataReporteApartamento.h"
+#include "DataReporteCasa.h"
 
 
 DataInfoInmobiliaria::DataInfoInmobiliaria(string n,string u,string e,set<DataReportePropiedad*>* propiedades){

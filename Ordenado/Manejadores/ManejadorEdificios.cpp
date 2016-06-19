@@ -1,7 +1,7 @@
 #include "ManejadorEdificios.h"
-#include "ExisteEdificio.h"
-#include "EdificioNoExistente.h"
-#include "NoExistenEdificios.h"
+#include "../Excepciones/ExisteEdificio.h"
+#include "../Excepciones/EdificioNoExistente.h"
+#include "../Excepciones/NoExistenEdificios.h"
 
 
 #include <utility>

@@ -1,4 +1,4 @@
-#include "../DataTypes/DataZona.h"
+#include "DataZona.h"
 
 
 DataZona :: DataZona(int code, string name){
