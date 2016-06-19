@@ -7,8 +7,8 @@
 #include <set>
 
 #include "Mensaje.h"
-#include "DataMensaje.h"
-#include "DataChat.h"
+#include "../DataTypes/DataMensaje.h"
+#include "../DataTypes/DataChat.h"
 
 
 

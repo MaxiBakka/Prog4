@@ -2,7 +2,7 @@
 
 #include <utility>
 
-#include "ExvaloresNoPositivos.h"
+#include "../Excepciones/ExvaloresNoPositivos.h"
 
 Edificio :: Edificio(const string& nombre,int cantPisos,float gcomunes){
   if(gcomunes < 0 || cantPisos < 1) throw ExvaloresNoPositivos();

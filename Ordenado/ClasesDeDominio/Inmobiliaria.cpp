@@ -1,6 +1,6 @@
 #include "Inmobiliaria.h"
-#include "DataReportePropiedad.h"
-#include "NoExisteChat.h"
+#include "../DataTypes/DataReportePropiedad.h"
+#include "../Excepciones/NoExisteChat.h"
 //#include "Propiedad.h"
 #include "Oferta.h"
 

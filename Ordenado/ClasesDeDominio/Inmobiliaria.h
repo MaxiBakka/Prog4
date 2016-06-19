@@ -6,9 +6,9 @@
 
 #include "Usuario.h"
 #include "Chat.h"
-#include "DataInfoInmobiliaria.h"
-#include "DataChat.h"
-#include "DataInmobiliaria.h"
+#include "../DataTypes/DataInfoInmobiliaria.h"
+#include "../DataTypes/DataChat.h"
+#include "../DataTypes/DataInmobiliaria.h"
 
 #include <set>
 

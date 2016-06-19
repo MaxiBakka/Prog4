@@ -1,8 +1,8 @@
 #include "Apartamento.h"
 #include "Edificio.h"
-#include "DataApartamento.h"
+#include "../DataTypes/DataApartamento.h"
 #include "Zona.h"
-#include "DataReporteApartamento.h"
+#include "../DataTypes/DataReporteApartamento.h"
 
 Apartamento::Apartamento(int cod, int cda, int dormi, int banios, bool garaje, string& dir, float m2t, Zona* z,Oferta*of,float m2e,Edificio* e)
 :Propiedad(cod,cda,dormi,banios,garaje,dir,m2t,z,of) {
