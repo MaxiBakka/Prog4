@@ -1,63 +1,63 @@
 #DataTypes
 DataVenta:
-	g++ -o ./obj/DataVenta.o -c ./src/DataTypes/DataVenta.cpp
+	g++ -Wall -Werror -o ./obj/DataVenta.o -c ./src/DataTypes/DataVenta.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataVenta.o
 DataZona:
-	g++ -o ./obj/DataZona.o -c ./src/DataTypes/DataZona.cpp
+	g++ -Wall -Werror -o ./obj/DataZona.o -c ./src/DataTypes/DataZona.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataZona.o
-DataInteresado:
-	g++ -o ./obj/DataInteresado.o -c ./src/DataTypes/DataInteresado.cpp
-	ar rvs ./lib/libTarea2.lib ./obj/DataInteresado.o
+DtInteresado:
+	g++ -Wall -Werror -o ./obj/DtInteresado.o -c ./src/DataTypes/DtInteresado.cpp
+	ar rvs ./lib/libTarea2.lib ./obj/DtInteresado.o
 Fecha:
-	g++ -o ./obj/Fecha.o -c ./src/DataTypes/Fecha.cpp
+	g++ -Wall -Werror -o ./obj/Fecha.o -c ./src/DataTypes/Fecha.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/Fecha.o
 Hora:
-	g++ -o ./obj/Hora.o -c ./src/DataTypes/Hora.cpp
+	g++ -Wall -Werror -o ./obj/Hora.o -c ./src/DataTypes/Hora.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/Hora.o
 DataAlquiler:
-	g++ -o ./obj/DataAlquiler.o -c ./src/DataTypes/DataAlquiler.cpp
+	g++ -Wall -Werror -o ./obj/DataAlquiler.o -c ./src/DataTypes/DataAlquiler.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataAlquiler.o 
 DataChat: 
-	g++ -o ./obj/DataChat.o -c ./src/DataTypes/DataChat.cpp
+	g++ -Wall -Werror -o ./obj/DataChat.o -c ./src/DataTypes/DataChat.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataChat.o
 DataDepartamento: 
-	g++ -o ./obj/DataDepartamento.o -c ./src/DataTypes/DataDepartamento.cpp
+	g++ -Wall -Werror -o ./obj/DataDepartamento.o -c ./src/DataTypes/DataDepartamento.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataDepartamento.o
 DataDetallePropiedad:
-	g++ -o ./obj/DataDetallePropiedad.o -c ./src/DataTypes/DataDetallePropiedad.cpp
+	g++ -Wall -Werror -o ./obj/DataDetallePropiedad.o -c ./src/DataTypes/DataDetallePropiedad.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataDetallePropiedad.o
 DataEdificio:
-	g++ -o ./obj/DataEdificio.o -c ./src/DataTypes/DataEdificio.cpp
+	g++ -Wall -Werror -o ./obj/DataEdificio.o -c ./src/DataTypes/DataEdificio.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataEdificio.o	
 DataPropiedad: DataAlquiler DataVenta
-	g++ -o ./obj/DataPropiedad.o -c ./src/DataTypes/DataPropiedad.cpp
+	g++ -Wall -Werror -o ./obj/DataPropiedad.o -c ./src/DataTypes/DataPropiedad.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataPropiedad.o
 DataApartamento: DataPropiedad
-	g++ -o ./obj/DataApartamento.o -c ./src/DataTypes/DataApartamento.cpp
+	g++ -Wall -Werror -o ./obj/DataApartamento.o -c ./src/DataTypes/DataApartamento.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataApartamento.o
 DataCasa: DataPropiedad 
-	g++ -o ./obj/DataCasa.o -c ./src/DataTypes/DataCasa.cpp
+	g++ -Wall -Werror -o ./obj/DataCasa.o -c ./src/DataTypes/DataCasa.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataCasa.o
 DataReportePropiedad: DataZona DataDepartamento
-	g++ -o ./obj/DataReportePropiedad.o -c ./src/DataTypes/DataReportePropiedad.cpp
+	g++ -Wall -Werror -o ./obj/DataReportePropiedad.o -c ./src/DataTypes/DataReportePropiedad.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataReportePropiedad.o
 DataInfoInmobiliaria: DataReportePropiedad
-	g++ -o ./obj/DataInfoInmobiliaria.o -c ./src/DataTypes/DataInfoInmobiliaria.cpp
+	g++ -Wall -Werror -o ./obj/DataInfoInmobiliaria.o -c ./src/DataTypes/DataInfoInmobiliaria.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataInfoInmobiliaria.o
 DataInfoPropiedad:
-	g++ -o ./obj/DataInfoPropiedad.o -c ./src/DataTypes/DataInfoPropiedad.cpp
+	g++-Wall -Werror  -o ./obj/DataInfoPropiedad.o -c ./src/DataTypes/DataInfoPropiedad.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataInfoPropiedad.o
 DataInmobiliaria:
-	g++ -o ./obj/DataInmobiliaria.o -c ./src/DataTypes/DataInmobiliaria.cpp
+	g++ -Wall -Werror -o ./obj/DataInmobiliaria.o -c ./src/DataTypes/DataInmobiliaria.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataInmobiliaria.o
 DataMensaje: Hora Fecha
-	g++ -o ./obj/DataMensaje.o -c ./src/DataTypes/DataMensaje.cpp
+	g++ -Wall -Werror -o ./obj/DataMensaje.o -c ./src/DataTypes/DataMensaje.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataMensaje.o
 DataReporteApartamento: DataReportePropiedad
-	g++ -o ./obj/DataReporteApartamento.o -c ./src/DataTypes/DataReporteApartamento.cpp
+	g++ -Wall -Werror -o ./obj/DataReporteApartamento.o -c ./src/DataTypes/DataReporteApartamento.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataReporteApartamento.o
 DataReporteCasa: DataReportePropiedad
-	g++ -o ./obj/DataReporteCasa.o -c ./src/DataTypes/DataReporteCasa.cpp
+	g++ -Wall -Werror -o ./obj/DataReporteCasa.o -c ./src/DataTypes/DataReporteCasa.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/DataReporteCasa.o
 
 
@@ -107,22 +107,25 @@ ManejadorTiempo : Date
 
 #interfaces
 IPropiedadController:
-	g++ -Wall -Werror -o ./obj/ManejadorTiempo.o -c ./src/manejadores/ManejadorTiempo.cpp
-	ar rvs ./lib/libTarea2.lib ./obj/ManejadorTiempo.o
-
+	g++ -Wall -Werror -o ./obj/IPropiedadController.o -c ./src/Interfaces/IPropiedadController.cpp
+	ar rvs ./lib/libTarea2.lib ./obj/IPropiedadController.o
 IUsuarioController:
- 
-IPropiedadController:
- 
-IEnviarMensajeController:
- 
-IModificarPropiedadController:
- 
+	g++ -Wall -Werror -o ./obj/IUsuarioController.o -c ./src/Interfaces/IUsuarioController.cpp
+	ar rvs ./lib/libTarea2.lib ./obj/IUsuarioController.o
 ICargarDatosController: 
+	g++ -Wall -Werror -o ./obj/ICargarDatosControllerController.o -c ./src/Interfaces/ICargarDatosController.cpp
+	ar rvs ./lib/libTarea2.lib ./obj/ICargarDatosController.o
+IEnviarMensajeController:
+	g++ -Wall -Werror -o ./obj/IEnviarMensajeController.o -c ./src/Interfaces/IEnviarMensajeController.cpp
+	ar rvs ./lib/libTarea2.lib ./obj/IEnviarMensajeController.o
+IModificarPropiedadController:
+	g++ -Wall -Werror -o ./obj/IModificarPropiedadController.o -c ./src/Interfaces/IModificarPropiedadController.cpp
+	ar rvs ./lib/libTarea2.lib ./obj/IModificarPropiedadController.o
+
 
 
 #fabrica
-Factory: IPropiedadController UsuarioController PropiedadController EnviarMensajeController ModificarPropiedadController CargarDatosController 
+Factory: UsuarioController PropiedadController EnviarMensajeController ModificarPropiedadController CargarDatosController 
 	g++ -o ./obj/Factory.o -c ./src/Fabrica/Factory.cpp
 	ar rvs ./lib/libTarea2.lib ./obj/Factory.o
 
