@@ -4,6 +4,7 @@
 #include "../Menus/MenuUtils.h"
 #include "../Excepciones/ProcesoCancelado.h"
 #include "../Excepciones/ExisteEdificio.h"
+#include "../Excepciones/ExvaloresNoPositivos.h"
 #include "../Fabrica/Factory.h"
 
 #include <iostream>
@@ -51,6 +52,11 @@ void RutinaAltaEdificio::IngresarEdificio(){
       }
       MenuUtils::limpiarConsola();
     }catch(ExisteEdificio& e){
+      if (de!=NULL) delete de;
+      cout << e.what() << endl;
+      //en caso de error se le pregunta al usuario si desea continuar
+      if(!MenuUtils::leerOpcion("Desea Intentarlo nuevamente?")) throw ProcesoCancelado();
+    }catch(ExvaloresNoPositivos& e){
       if (de!=NULL) delete de;
       cout << e.what() << endl;
       //en caso de error se le pregunta al usuario si desea continuar
