@@ -2,6 +2,74 @@
 MiCasa: MenuPrincipal DatosYaCargados Manejadores
 	g++ -o ./bin/MiCasa -Wall ./src/MiCasa.cpp
 
+#excepciones
+
+DatosYaCargados:
+	g++ -Wall -Werror -o ./obj/DatosYaCargados.o -c ./src/Excepciones/DatosYaCargados.cpp
+EdificioNoExistente:
+	g++ -Wall -Werror -o ./obj/EdificioNoExistente.o -c ./src/Excepciones/EdificioNoExistente.cpp
+ExDptoNoExistente:
+	g++ -Wall -Werror -o ./obj/ExDptoNoExistente.o -c ./src/Excepciones/ExDptoNoExistente.cpp
+ExisteEdificio:
+	g++ -Wall -Werror -o ./obj/ExisteEdificio.o -c ./src/Excepciones/ExisteEdificio.cpp
+ExisteInteresado:
+	g++ -Wall -Werror -o ./obj/ExisteInteresado.o -c ./src/Excepciones/ExisteInteresado.cpp
+ExNoHayMensajes:
+	g++ -Wall -Werror -o ./obj/ExNoHayMensajes.o -c ./src/Excepciones/ExNoHayMensajes.cpp
+ExNoHayZonas:
+	g++ -Wall -Werror -o ./obj/ExNoHayZonas.o -c ./src/Excepciones/ExNoHayZonas.cpp
+ExOpcionInvalida:
+	g++ -Wall -Werror -o ./obj/ExOpcionInvalida.o -c ./src/Excepciones/ExOpcionInvalida.cpp
+ExPropiedadNoExistente:
+	g++ -Wall -Werror -o ./obj/ExPropiedadNoExistente.o -c ./src/Excepciones/ExPropiedadNoExistente.cpp
+ExvaloresNoPositivos:
+	g++ -Wall -Werror -o ./obj/ExValoresNoPositivos.o -c ./src/Excepciones/ExValoresNoPositivos.cpp
+FechaInvalida:
+	g++ -Wall -Werror -o ./obj/FechaInvalida.o -c ./src/Excepciones/FechaInvalida.cpp
+HoraInvalida:
+	g++ -Wall -Werror -o ./obj/HoraInvalida.o -c ./src/Excepciones/HoraInvalida.cpp
+InmobiliariaNotFound:
+	g++ -Wall -Werror -o ./obj/InmobiliariaNotFound.o -c ./src/Excepciones/InmobiliariaNotFound.cpp
+InmobiliariaYaExistente:
+	g++ -Wall -Werror -o ./obj/InmobiliariaYaExistente.o -c ./src/Excepciones/InmobiliariaYaExistente.cpp
+InteresadoNotFound:
+	g++ -Wall -Werror -o ./obj/InteresadoNotFound.o -c ./src/Excepciones/InteresadoNotFound.cpp
+NoExisteChat:
+	g++ -Wall -Werror -o ./obj/NoExisteChat.o -c ./src/Excepciones/NoExisteChat.cpp
+NoExistenEdificios:
+	g++ -Wall -Werror -o ./obj/NoExistenEdificios.o -c ./src/Excepciones/NoExistenEdificios.cpp
+NoExisteZona:
+	g++ -Wall -Werror -o ./obj/NoExisteZona.o -c ./src/Excepciones/NoExisteZona.cpp
+NoHayChatEnMemoria:
+	g++ -Wall -Werror -o ./obj/NoHayChatEnMemoria.o -c ./src/Excepciones/NoHayChatEnMemoria.cpp
+NoHayConversaciones:
+	g++ -Wall -Werror -o ./obj/NoHayConversaciones.o -c ./src/Excepciones/NoHayConversaciones.cpp
+NoHayDepartamentoEnMemoria:
+	g++ -Wall -Werror -o ./obj/NoHayDepartamentoEnMemoria.o -c ./src/Excepciones/NoHayDepartamentoEnMemoria.cpp
+NoHayDepartamentos:
+	g++ -Wall -Werror -o ./obj/NoHayDepartamentos.o -c ./src/Excepciones/NoHayDepartamentos.cpp
+NoHayPropiedades:
+	g++ -Wall -Werror -o ./obj/NoHayPropiedades.o -c ./src/Excepciones/NoHayPropiedades.cpp
+PrecioInvalido:
+	g++ -Wall -Werror -o ./obj/PrecioInvalido.o -c ./src/Excepciones/PrecioInvalido.cpp
+ProcesoCancelado:
+	g++ -Wall -Werror -o ./obj/ProcesoCancelado.o -c ./src/Excepciones/ProcesoCancelado.cpp
+UsuarioNotFound:
+	g++ -Wall -Werror -o ./obj/UsuarioNotFound.o -c ./src/Excepciones/UsuarioNotFound.cpp
+ValoresInvalidos:
+	g++ -Wall -Werror -o ./obj/ValoresInvalidos.o -c ./src/Excepciones/ValoresInvalidos.cpp
+WrongPwd:
+	g++ -Wall -Werror -o ./obj/WrongPwd.o -c ./src/Excepciones/WrongPwd.cpp
+YaExisteDepartamento:
+	g++ -Wall -Werror -o ./obj/YaExisteDepartamento.o -c ./src/Excepciones/YaExisteDepartamento.cpp
+YaExistePropiedad:
+	g++ -Wall -Werror -o ./obj/YaExistePropiedad.o -c ./src/Excepciones/YaExistePropiedad.cpp
+YaExisteZona:
+	g++ -Wall -Werror -o ./obj/YaExisteZona.o -c ./src/Excepciones/YaExisteZona.cpp
+
+Excepciones: DatosYaCargados EdificioNoExistente ExDptoNoExistente ExisteEdificio ExisteInteresado ExNoHayMensajes ExNoHayZonas ExOpcionInvalida ExPropiedadNoExistente ExvaloresNoPositivos FechaInvalida HoraInvalida InmobiliariaNotFound InmobiliariaYaExistente InteresadoNotFound NoExisteChat NoExistenEdificios NoExisteZona NoHayChatEnMemoria NoHayConversaciones NoHayDepartamentoEnMemoria NoHayDepartamentos NoHayPropiedades PrecioInvalido ProcesoCancelado UsuarioNotFound ValoresInvalidos WrongPwd YaExisteDepartamento YaExistePropiedad YaExisteZona
+
+
 #DataTypes
 DataVenta:
 	g++ -Wall -Werror -o ./obj/DataVenta.o -c ./src/DataTypes/DataVenta.cpp
@@ -9,9 +77,9 @@ DataZona:
 	g++ -Wall -Werror -o ./obj/DataZona.o -c ./src/DataTypes/DataZona.cpp
 DtInteresado:
 	g++ -Wall -Werror -o ./obj/DtInteresado.o -c ./src/DataTypes/DtInteresado.cpp
-Fecha:
+Fecha: FechaInvalida
 	g++ -Wall -Werror -o ./obj/Fecha.o -c ./src/DataTypes/Fecha.cpp
-Hora:
+Hora: HoraInvalida
 	g++ -Wall -Werror -o ./obj/Hora.o -c ./src/DataTypes/Hora.cpp
 DataAlquiler:
 	g++ -Wall -Werror -o ./obj/DataAlquiler.o -c ./src/DataTypes/DataAlquiler.cpp
@@ -49,18 +117,7 @@ DataReporteCasa: DataReportePropiedad
 
 DataTypes: DataVenta DataZona DtInteresado Fecha Hora DataAlquiler DataChat DataDepartamento DataDetallePropiedad DataEdificio DataPropiedad DataApartamento DataCasa DataReportePropiedad DataInfoInmobiliaria DataInfoPropiedad DataInmobiliaria DataMensaje DataReporteApartamento DataReporteCasa
 
-#excepciones
 
-
-
-
-
-
-
-
-
-
-Excepciones:
 
 
 
@@ -68,14 +125,23 @@ Mensaje: DataMensaje Hora Fecha
 	g++ -Wall -Werror -o ./obj/Mensaje.o -c ./src/ClasesDeDominio/Mensaje.cpp
 Usuario:
 	g++ -Wall -Werror -o ./obj/Usuario.o -c ./src/ClasesDeDominio/Usuario.cpp
+Sesion: Usuario
+	g++ -Wall -Werror -o ./obj/Sesion.o -c ./src/ClasesDeDominio/Sesion.cpp
+
 Administrador: Usuario
 	g++ -Wall -Werror -o ./obj/Administrador.o -c ./src/ClasesDeDominio/Administrador.cpp
 
 Alquiler: DataAlquiler
 	g++ -Wall -Werror -o ./obj/Alquiler.o -c ./src/ClasesDeDominio/Alquiler.cpp
+Venta: DataVenta
+	g++ -Wall -Werror -o ./obj/Venta.o -c ./src/ClasesDeDominio/Venta.cpp
 
-Chat: Mensaje DataChat ExNoHayMensajes
+Propiedad: Zona.h Oferta.h Chat Alquiler Venta DataInfoPropiedad DataReportePropiedad DataPropiedad DataDetallePropiedad
+	g++ -Wall -Werror -o ./obj/Propiedad.o -c ./src/ClasesDeDominio/Propiedad.cpp
+
+Chat: Mensaje DataChat ExNoHayMensajes Interesado.h Propiedad.h Inmobiliaria.h
 	g++ -Wall -Werror -o ./obj/Chat.o -c ./src/ClasesDeDominio/Chat.cpp
+
 Zona: DataZona Propiedad DataDepartamento NoHayPropiedades ExPropiedadNoExistente
 	g++ -Wall -Werror -o ./obj/Zona.o -c ./src/ClasesDeDominio/Zona.cpp
 
@@ -90,6 +156,17 @@ Casa: Propiedad Oferta DataCasa Zona DataReporteCasa
 Edificio: Apartamento DataEdificio ExvaloresNoPositivos
 	g++ -Wall -Werror -o ./obj/Edificio.o -c ./src/ClasesDeDominio/Edificio.cpp
 
+Inmobiliaria: Usuario Chat DataInfoInmobiliaria DataInmobiliaria NoExisteChat DataReportePropiedad Oferta.h
+	g++ -Wall -Werror -o ./obj/Inmobiliaria.o -c ./src/ClasesDeDominio/Inmobiliaria.cpp
+
+Interesado: Usuario Chat NoExisteChat DtInteresado
+	g++ -Wall -Werror -o ./obj/Interesado.o -c ./src/ClasesDeDominio/Interesado.cpp
+
+Oferta: Venta Alquiler Inmobiliaria Propiedad
+	g++ -Wall -Werror -o ./obj/Oferta.o -c ./src/ClasesDeDominio/Oferta.cpp
+
+
+Clases: Venta Usuario Sesion Administrador Alquiler Mensaje Interesado Departamento Zona Edificio Casa Chat Inmobiliaria Oferta Apartamento Propiedad
 
 #controladores
 
@@ -152,55 +229,55 @@ Factory: PropiedadController UsuarioController EnviarMensajeController Modificar
 
 
 #componentes ui
+
 UserInterface :
 	g++ -o ./obj/UserInterface.o -c ./src/UserInterface.cpp
 
 
+
 #rutinas
-RutinaAltaEntrevista: IOConsola
-	g++ -o ./obj/RutinaAltaEntrevista.o -c ./src/casosDeUso/RutinaAltaEntrevista.cpp
+RutinaAltaEdificio: Interfaces DataTypes Menues Excepciones
+	g++ -Wall -Werror -o ./obj/RutinaAltaEdificio.o -c ./src/Rutinas/RutinaAltaEdificio.cpp
+RutinaAltaInmobiliaria: UserInterface DataTypes Excepciones Factory
+	g++ -Wall -Werror -o ./obj/RutinaAltaInmobiliaria.o -c ./src/Rutinas/RutinaAltaInmobiliaria.cpp
 
-RutinaAltaOfertaLaboral: IOConsola
-	g++ -o ./obj/RutinaAltaOfertaLaboral.o -c ./src/casosDeUso/RutinaAltaOfertaLaboral.cpp
+RutinaAltaInteresado: Menues Interfaces DataTypes Excepciones Factory
+	g++ -Wall -Werror -o ./obj/RutinaAltaInteresado.o -c ./src/Rutinas/RutinaAltaInmobiliaria.cpp
 
+RutinaConsultarPropiedad: Interfaces Excepciones DataTypes Factory Menues
+	g++ -Wall -Werror -o ./obj/RutinaConsultarPropiedad.o -c ./src/Rutinas/RutinaConsultarPropiedad.cpp
 
-RutinaAsignacionOferta: IOConsola
-	g++ -o ./obj/RutinaAsignacionOferta.o -c ./src/casosDeUso/RutinaAsignacionOferta.cpp
+RutinaAltaPropiedad: Menues DataTypes Excepciones Interfaces Factory RutinaConsultarPropiedad UserInterface
+	g++ -Wall -Werror -o ./obj/RutinaCargarDatosPrueba.o -c ./src/Rutinas/RutinaCargarDatosPrueba.cpp
 
+RutinaCargarDatos: Menues Factory Excepciones Interfaces
+	g++ -Wall -Werror -o ./obj/RutinaCargarDatos.o -c ./src/Rutinas/RutinaCargarDatos.cpp
 
-RutinaCargarDatosPrueba: IOConsola
-	g++ -o ./obj/RutinaCargarDatosPrueba.o -c ./src/casosDeUso/RutinaCargarDatosPrueba.cpp
+RutinaCerrarSesion: Interfaces Menues Factory UserInterface
+	g++ -Wall -Werror -o ./obj/RutinaCerrarSesion.o -c ./src/Rutinas/RutinaCerrarSesion.cpp
 
+RutinaEliminarPropiedad: Interfaces Excepciones Menues Factory
+	g++ -Wall -Werror -o ./obj/RutinaEliminarPropiedad.o -c ./src/Rutinas/RutinaEliminarPropiedad.cpp
 
-RutinaConsultarDatosEstudiante: IOConsola
-	g++ -o ./obj/RutinaConsultarDatosEstudiante.o -c ./src/casosDeUso/RutinaConsultarDatosEstudiante.cpp
-
-
-RutinaDarDeBajaOfertaLaboral: IOConsola
-	g++ -o ./obj/RutinaDarDeBajaOfertaLaboral.o -c ./src/casosDeUso/RutinaDarDeBajaOfertaLaboral.cpp
-
-RutinaInscripcionOfertaLaboral: IOConsola
-	g++ -o ./obj/RutinaInscripcionOfertaLaboral.o -c ./src/casosDeUso/RutinaInscripcionOfertaLaboral.cpp
-
-RutinaListarOfertasActivas: IOConsola
-	g++ -o ./obj/RutinaListarOfertasActivas.o -c ./src/casosDeUso/RutinaListarOfertasActivas.cpp
+RutinaEnviarMensajeInmobiliaria: Interfaces Clases DataTypes Factory Excepciones Menues
+	g++ -Wall -Werror -o ./obj/RutinaEnviarMensajeInmobiliaria.o -c ./src/Rutinas/RutinaEnviarMensajeInmobiliaria.cpp
 
 
-
-RutinaModificarEstudiante: IOConsola
-	g++ -o ./obj/RutinaModificarEstudiante.o -c ./src/casosDeUso/RutinaModificarEstudiante.cpp
-
-RutinaVerNotificaciones: IOConsola
-	g++ -o ./obj/RutinaVerNotificaciones.o -c ./src/casosDeUso/RutinaVerNotificaciones.cpp
+RutinaEnviarMensajeInteresado: Interfaces Clases DataTypes Factory Excepciones
+	g++ -Wall -Werror -o ./obj/RutinaEnviarMensajeInteresado.o -c ./src/Rutinas/RutinaEnviarMensajeInteresado.cpp
 
 
-RutinaConfigurarFecha: IOConsola
-	g++ -o ./obj/RutinaConfigurarFecha.o -c ./src/casosDeUso/RutinaConfigurarFecha.cpp
+RutinaInicioSesion: Interfaces Manejadores Excepciones Menues DataTypes Factory
+	g++ -Wall -Werror -o ./obj/RutinaInicioSesion.o -c ./src/Rutinas/RutinaInicioSesion.cpp
+
+RutinaModificarPropiedad: Excepciones DataTypes Factory
+	g++ -Wall -Werror -o ./obj/RutinaInicioSesion.o -c ./src/Rutinas/RutinaInicioSesion.cpp
+
+RutinaObtenerReporteInmobiliaria: Interfaces Manejadores Excepciones Menues DataTypes Factory
+	g++ -Wall -Werror -o ./obj/RutinaInicioSesion.o -c ./src/Rutinas/RutinaInicioSesion.cpp
 
 
-
-Rutinas :
-
+Rutinas :  RutinaAltaEdificio RutinaAltaInmobiliaria RutinaAltaInteresado RutinaAltaPropiedad RutinaCargarDatos RutinaCerrarSesion RutinaConsultarPropiedad RutinaEliminarPropiedad RutinaEnviarMensajeInmobiliaria RutinaEnviarMensajeInteresado RutinaInicioSesion RutinaModificarPropiedad RutinaModificarPropiedad RutinaObtenerReporteInmobiliaria
 
 #menues
 MenuUtils : Fecha
@@ -221,11 +298,10 @@ MenuInteresados : Menu RutinaConsultarPropiedad RutinaCerrarSesion RutinaEnviarM
 MenuPrincipal : Menu MenuInteresados MenuInmobiliarias MenuAdministradores RutinaInicioSesion Sesion Interesado Inmobiliaria Administrador
 	g++ -Wall -Werror -o ./obj/MenuPrincipal.o -c ./src/Menus/MenuPrincipal.cpp
 
-
+Menues: Menu MenuUtils MenuAdministradores MenuInmobiliarias MenuInteresados MenuPrincipal
 
 
 clean:
-	rm ./lib/*.lib
 	rm ./obj/*.o
 	rm ./bin/MiCasa
 

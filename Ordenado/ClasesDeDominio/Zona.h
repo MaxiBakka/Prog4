@@ -5,7 +5,7 @@
 #include <map>
 #include <set>
 
-#include "DataZona.h"
+#include "../DataTypes/DataZona.h"
 #include "Propiedad.h"
 #include "../DataTypes/DataDepartamento.h"
 
