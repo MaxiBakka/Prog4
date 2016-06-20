@@ -1,3 +1,7 @@
+#mains
+MiCasa: MenuPrincipal DatosYaCargados Manejadores
+	g++ -o ./bin/MiCasa -Wall ./src/MiCasa.cpp
+
 #DataTypes
 DataVenta:
 	g++ -Wall -Werror -o ./obj/DataVenta.o -c ./src/DataTypes/DataVenta.cpp
@@ -70,9 +74,17 @@ Administrador: Usuario
 Alquiler: DataAlquiler
 	g++ -Wall -Werror -o ./obj/Alquiler.o -c ./src/ClasesDeDominio/Alquiler.cpp
 
+Chat: Mensaje DataChat ExNoHayMensajes
+	g++ -Wall -Werror -o ./obj/Chat.o -c ./src/ClasesDeDominio/Chat.cpp
+Zona: DataZona Propiedad DataDepartamento NoHayPropiedades ExPropiedadNoExistente
+	g++ -Wall -Werror -o ./obj/Zona.o -c ./src/ClasesDeDominio/Zona.cpp
+
+Departamento: ExNoHayZonas NoExisteZona YaExisteZona DataDepartamento Zona
+	g++ -Wall -Werror -o ./obj/Departamento.o -c ./src/ClasesDeDominio/Departamento.cpp
+
 Apartamento: Propiedad Oferta DataApartamento Zona DataReporteApartamento
 	g++ -Wall -Werror -o ./obj/Apartamento.o -c ./src/ClasesDeDominio/Apartamento.cpp
-Casa: Propiedad Oferta DataApartamento Zona DataReporteApartamento
+Casa: Propiedad Oferta DataCasa Zona DataReporteCasa
 	g++ -Wall -Werror -o ./obj/Casa.o -c ./src/ClasesDeDominio/Casa.cpp
 
 Edificio: Apartamento DataEdificio ExvaloresNoPositivos
@@ -211,9 +223,6 @@ MenuPrincipal : Menu MenuInteresados MenuInmobiliarias MenuAdministradores Rutin
 
 
 
-#mains
-MiCasa: MenuPrincipal DatosYaCargados Manejadores
-	g++ -o ./bin/MiCasa -Wall ./src/MiCasa.cpp
 
 clean:
 	rm ./lib/*.lib
