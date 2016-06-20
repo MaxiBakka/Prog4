@@ -1,6 +1,6 @@
 #include "Chat.h"
 #include "Propiedad.h"
-#include "../Exepciones/ExNoHayMensajes.h"
+#include "../Excepciones/ExNoHayMensajes.h"
 #include "Inmobiliaria.h"
 #include  "Interesado.h"
 

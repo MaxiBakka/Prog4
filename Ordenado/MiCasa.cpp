@@ -1,16 +1,16 @@
 #include <iostream>
 #include <set>
-#include "Factory.h"
-#include "DatosYaCargados.h"
-#include "ExOpcionInvalida.h"
-#include "UserInterface.h"
-#include "RutinaInicioSesion.h"
-#include "RutinaCargarDatos.h"
-#include "ManejadorDepartamentos.h"
-#include "ManejadorEdificios.h"
-#include "ManejadorPropiedades.h"
-#include "Manejador_Usuario.h"
-#include "MenuPrincipal.h"
+#include "../Fabrica/Factory.h"
+#include "../Excepciones/DatosYaCargados.h"
+#include "../Excepciones/ExOpcionInvalida.h"
+#include "../Interfaces/UserInterface.h"
+#include "../Rutinas/RutinaInicioSesion.h"
+#include "../Rutinas/RutinaCargarDatos.h"
+#include "../Manejadores/ManejadorDepartamentos.h"
+#include "../ManejadoresManejadorEdificios.h"
+#include "../ManejadoresManejadorPropiedades.h"
+#include "../ManejadoresManejador_Usuario.h"
+#include "../Menus/MenuPrincipal.h"
 
 using namespace std;
 

@@ -9,7 +9,7 @@ using namespace std;
 class RutinaCargarDatos: public UserInterface {
 public:
 	RutinaCargarDatos();
-	void ejecutar();
+	virtual void ejecutar();
 	virtual ~RutinaCargarDatos();
 };
 

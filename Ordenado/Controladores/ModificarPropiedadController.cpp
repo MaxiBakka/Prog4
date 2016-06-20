@@ -17,11 +17,14 @@ ModificarPropiedadController::~ModificarPropiedadController(){
 }
 
 DataPropiedad* ModificarPropiedadController::ObtenerPropiedad(int &codigo){
-    ManejadorPropiedades* mp= ManejadorPropiedades::getInstancia();
-    propiedad=mp->getPropiedad(codigo);
-    Inmobiliaria*inm=dynamic_cast<Inmobiliaria*>(Sesion::getInstancia()->getUsuario());
-  if(propiedad->getOferta()->getInmobiliaria()->getNombre()==inm->getNombre())throw ProcesoCancelado();
-    return propiedad->getDataPropiedad();
+  ManejadorPropiedades* mp= ManejadorPropiedades::getInstancia();
+  propiedad=mp->getPropiedad(codigo);
+  Inmobiliaria*inm=dynamic_cast<Inmobiliaria*>(Sesion::getInstancia()->getUsuario());
+  if(propiedad->getOferta()->getInmobiliaria()->getNombre().compare(inm->getNombre())){
+          throw ProcesoCancelado();
+  }
+  return propiedad->getDataPropiedad();
+
 
 }
 void ModificarPropiedadController::guardarPropiedad(DataPropiedad*p){

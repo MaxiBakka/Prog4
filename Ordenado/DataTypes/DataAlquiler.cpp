@@ -13,6 +13,7 @@ float DataAlquiler::get_precio(){
 
 DataAlquiler& DataAlquiler::operator =( DataAlquiler alquiler){
     this->precio=alquiler.precio;
+		return (*this);
 }
 
 
